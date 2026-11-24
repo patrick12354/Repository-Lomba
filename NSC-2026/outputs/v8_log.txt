@@ -1,0 +1,22 @@
+v8 features 118  train 2933  test 734
+  OOF v8/P done (373s)
+  OOF v8/Q done (631s)
+  OOF v8/R done (797s)
+
+candidate     Pmean Pwst  Qmean Qwst  Rmean Rwst    avg  avgWst
+v7_airmass     5.106  6.638  5.010  6.329  5.365  5.610   5.161   6.192
+v8_qblock      4.788  6.338  4.606  5.980  4.937  5.310   4.777   5.876
+
+### PAIRED DAY-LEVEL BOOTSTRAP, v8 vs v7 (4000 resamples) ###
+  P: pooled 4.902 vs 5.197 (delta -0.295)  folds 8/8  days 80.0%  CI [-0.370,-0.008]  P(better) 97.9%
+  Q: pooled 4.695 vs 5.087 (delta -0.392)  folds 5/5  days 85.7%  CI [-0.549,-0.084]  P(better) 99.7%
+  R: pooled 4.946 vs 5.373 (delta -0.427)  folds 3/3  days 82.1%  CI [-0.572,-0.192]  P(better) 100.0%
+
+refit on all training data...
+weights: {'hbt': 0.4801, 'cat': 0.2278, 'ridge': 0.05, 'enet': 0.1921, 'ridge_e': 0.05}
+family-P CV (pooled weights): mean 4.9731 worst 6.3718 [np.float64(6.316), np.float64(6.372), np.float64(6.063), np.float64(5.847), np.float64(4.808), np.float64(4.009), np.float64(3.6), np.float64(3.491), np.float64(4.252)]
+
+wrote outputs/submissions/v8_qblock.csv (validated)
+pred: {'count': 734.0, 'mean': 56.82, 'std': 18.43, 'min': 23.91, '25%': 38.81, '50%': 60.63, '75%': 73.52, 'max': 88.97}
+RMSE between v8 and v7 prediction vectors: 1.738
+logged.

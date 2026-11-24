@@ -1,0 +1,30 @@
+P 3 family  fold                  model   n      rmse
+     P     3                    v20 720  6.986818
+     P     3    increment_reconcile 720  6.564544
+     P     3 zero_increment_control 720 14.753456
+     P     3           hbt_recent21 720  7.335806
+     P     3           hbt_recent30 720  6.986818
+P 5 family  fold                  model   n      rmse
+     P     5                    v20 720  4.105356
+     P     5    increment_reconcile 720  3.896109
+     P     5 zero_increment_control 720 12.668860
+     P     5           hbt_recent21 720  4.261961
+     P     5           hbt_recent30 720  4.261961
+P 8 family  fold                  model   n      rmse
+     P     8                    v20 720  4.589778
+     P     8    increment_reconcile 720  4.700327
+     P     8 zero_increment_control 720 12.346688
+     P     8           hbt_recent21 720  4.712583
+     P     8           hbt_recent30 720  4.712529
+R 4 family  fold                  model    n      rmse
+     R     4                    v20 1008  4.732243
+     R     4    increment_reconcile 1008  4.662501
+     R     4 zero_increment_control 1008 12.375860
+     R     4           hbt_recent21 1008  4.752829
+     R     4           hbt_recent30 1008  4.752829
+model
+hbt_recent21               5.265795
+hbt_recent30               5.178534
+increment_reconcile        4.955870
+v20                        5.103549
+zero_increment_control    13.036216

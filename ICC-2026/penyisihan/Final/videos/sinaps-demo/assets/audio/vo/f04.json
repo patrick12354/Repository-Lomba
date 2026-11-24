@@ -1,0 +1,56 @@
+{
+ "text": "Dika dan teman-temannya masuk kelas neuroradiologi: belajar membaca MRI stroke.",
+ "end": 6.4,
+ "words": [
+  {
+   "w": "Dika",
+   "s": 0,
+   "e": 0.4
+  },
+  {
+   "w": "dan",
+   "s": 0.48,
+   "e": 0.56
+  },
+  {
+   "w": "teman-temannya",
+   "s": 0.64,
+   "e": 1.36
+  },
+  {
+   "w": "masuk",
+   "s": 1.44,
+   "e": 1.76
+  },
+  {
+   "w": "kelas",
+   "s": 1.92,
+   "e": 2.08
+  },
+  {
+   "w": "neuroradiologi:",
+   "s": 2.16,
+   "e": 3.56
+  },
+  {
+   "w": "belajar",
+   "s": 3.6,
+   "e": 4
+  },
+  {
+   "w": "membaca",
+   "s": 4.08,
+   "e": 4.56
+  },
+  {
+   "w": "MRI",
+   "s": 4.8,
+   "e": 5.28
+  },
+  {
+   "w": "stroke.",
+   "s": 5.36,
+   "e": 6.4
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+
+== Task 0: control reproduction ==
+  rebuilding the 7-day inner OOF (not kept by the s29 build)
+    H1_last7d inner fold 0 2023-07-31 -> 2023-08-08 n=384
+    H1_last7d inner fold 1 2023-08-02 -> 2023-08-10 n=384
+    H1_last7d inner fold 2 2023-08-04 -> 2023-08-12 n=384
+    H1_last7d inner fold 3 2023-08-06 -> 2023-08-14 n=384
+    H1_last7d inner fold 4 2023-08-08 -> 2023-08-16 n=384
+    H1_last7d inner fold 5 2023-08-10 -> 2023-08-18 n=384
+    H1_last7d inner fold 6 2023-08-12 -> 2023-08-20 n=384
+    H1_last7d inner fold 7 2023-08-14 -> 2023-08-22 n=384
+    H2_last14d inner fold 0 2023-07-24 -> 2023-08-01 n=384
+    H2_last14d inner fold 1 2023-07-26 -> 2023-08-03 n=384
+    H2_last14d inner fold 2 2023-07-28 -> 2023-08-05 n=384
+    H2_last14d inner fold 3 2023-07-30 -> 2023-08-07 n=384
+    H2_last14d inner fold 4 2023-08-01 -> 2023-08-09 n=384
+    H2_last14d inner fold 5 2023-08-03 -> 2023-08-11 n=384
+    H2_last14d inner fold 6 2023-08-05 -> 2023-08-13 n=384
+    H2_last14d inner fold 7 2023-08-07 -> 2023-08-15 n=384
+    H3_last21d inner fold 0 2023-07-17 -> 2023-07-25 n=384
+    H3_last21d inner fold 1 2023-07-19 -> 2023-07-27 n=384
+    H3_last21d inner fold 2 2023-07-21 -> 2023-07-29 n=384
+    H3_last21d inner fold 3 2023-07-23 -> 2023-07-31 n=384
+    H3_last21d inner fold 4 2023-07-25 -> 2023-08-02 n=384
+    H3_last21d inner fold 5 2023-07-27 -> 2023-08-04 n=384
+    H3_last21d inner fold 6 2023-07-29 -> 2023-08-06 n=384
+    H3_last21d inner fold 7 2023-07-31 -> 2023-08-08 n=384
+  B1_last15d   control reproduced (level 0, n=720)
+    C0  hbt 4.50849  level 4.29323  z 4.23225  (0 s)
+    E1  hbt 4.77005  level 4.39965  z 4.34244  (10 s)
+    E2  hbt 4.70336  level 4.34938  z 4.30590  (10 s)
+  B2_prev15d   control reproduced (level 0, n=720)
+    C0  hbt 6.49273  level 6.77822  z 6.58637  (0 s)
+    E1  hbt 6.89596  level 6.79221  z 6.59673  (8 s)
+    E2  hbt 6.94235  level 6.79007  z 6.59528  (8 s)
+  B3_shift7d   control reproduced (level 0, n=720)
+    C0  hbt 5.03075  level 4.81089  z 4.69013  (0 s)
+    E1  hbt 4.97537  level 4.80714  z 4.69529  (8 s)
+    E2  hbt 5.10211  level 4.82448  z 4.70757  (9 s)
+  H1_last7d    control reproduced (level 0, n=336)
+    C0  hbt 5.27104  level 5.27264  z 5.17925  (0 s)
+    E1  hbt 5.69089  level 5.45075  z 5.37942  (9 s)
+    E2  hbt 5.64932  level 5.45419  z 5.39387  (9 s)
+  H2_last14d   control reproduced (level 0, n=336)
+    C0  hbt 3.14113  level 2.82172  z 2.77843  (0 s)
+    E1  hbt 3.35830  level 2.85701  z 2.80335  (8 s)
+    E2  hbt 3.35954  level 2.85066  z 2.79713  (9 s)
+  H3_last21d   control reproduced (level 0, n=336)
+    C0  hbt 4.92162  level 5.49106  z 5.31050  (0 s)
+    E1  hbt 4.74583  level 5.46541  z 5.29008  (8 s)
+    E2  hbt 4.78897  level 5.47143  z 5.29626  (8 s)
+
+arm family      block   n  rmse_hbt  rmse_level   rmse_z  rmse_z_base                      meta_digest                     terms_digest  seconds
+ C0    15d B1_last15d 720  4.508488    4.293226 4.232249     4.232249 6bcbb0b93a3a53d103dadc21eb0fc9c0 2c917a24623be164a77d900262c86e10      0.0
+ E1    15d B1_last15d 720  4.770046    4.399653 4.342437     4.232249 6bcbb0b93a3a53d103dadc21eb0fc9c0 2c917a24623be164a77d900262c86e10      9.5
+ E2    15d B1_last15d 720  4.703362    4.349379 4.305899     4.232249 6bcbb0b93a3a53d103dadc21eb0fc9c0 2c917a24623be164a77d900262c86e10      9.6
+ C0    15d B2_prev15d 720  6.492735    6.778225 6.586373     6.586373 6592313d118891f6f1fa3d7c7caf86f2 f53be8525a89e9afab2ef80ad654464e      0.0
+ E1    15d B2_prev15d 720  6.895959    6.792214 6.596729     6.586373 6592313d118891f6f1fa3d7c7caf86f2 f53be8525a89e9afab2ef80ad654464e      7.7
+ E2    15d B2_prev15d 720  6.942353    6.790067 6.595283     6.586373 6592313d118891f6f1fa3d7c7caf86f2 f53be8525a89e9afab2ef80ad654464e      7.9
+ C0    15d B3_shift7d 720  5.030748    4.810885 4.690131     4.690131 fc547af1cc8c3c1474af03f938d5558c cac9f0f6db4e96171e35966327a03a43      0.0
+ E1    15d B3_shift7d 720  4.975369    4.807145 4.695292     4.690131 fc547af1cc8c3c1474af03f938d5558c cac9f0f6db4e96171e35966327a03a43      8.4
+ E2    15d B3_shift7d 720  5.102108    4.824482 4.707574     4.690131 fc547af1cc8c3c1474af03f938d5558c cac9f0f6db4e96171e35966327a03a43      8.7
+ C0     7d  H1_last7d 336  5.271040    5.272642 5.179252     5.179252 f26c46d62e0a4d1523a95c9c6c662030 4a4c296d9a673641961c48049df61e19      0.0
+ E1     7d  H1_last7d 336  5.690891    5.450752 5.379424     5.179252 f26c46d62e0a4d1523a95c9c6c662030 4a4c296d9a673641961c48049df61e19      8.6
+ E2     7d  H1_last7d 336  5.649318    5.454189 5.393866     5.179252 f26c46d62e0a4d1523a95c9c6c662030 4a4c296d9a673641961c48049df61e19      9.1
+ C0     7d H2_last14d 336  3.141125    2.821723 2.778427     2.778427 8acbdd0505ff13de30ca91f9e2b2ea4c b81e489050da6c4080f4a5d6b47b1afc      0.0
+ E1     7d H2_last14d 336  3.358303    2.857012 2.803347     2.778427 8acbdd0505ff13de30ca91f9e2b2ea4c b81e489050da6c4080f4a5d6b47b1afc      8.0
+ E2     7d H2_last14d 336  3.359539    2.850658 2.797130     2.778427 8acbdd0505ff13de30ca91f9e2b2ea4c b81e489050da6c4080f4a5d6b47b1afc      8.8
+ C0     7d H3_last21d 336  4.921617    5.491063 5.310499     5.310499 51390d03a1f12f16a07c5254aaadcb0f b6f34c1ce12600a48c06186d9a2dd020      0.0
+ E1     7d H3_last21d 336  4.745828    5.465411 5.290078     5.310499 51390d03a1f12f16a07c5254aaadcb0f b6f34c1ce12600a48c06186d9a2dd020      7.8
+ E2     7d H3_last21d 336  4.788966    5.471432 5.296258     5.310499 51390d03a1f12f16a07c5254aaadcb0f b6f34c1ce12600a48c06186d9a2dd020      8.3
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s33\level_shape_arms.csv

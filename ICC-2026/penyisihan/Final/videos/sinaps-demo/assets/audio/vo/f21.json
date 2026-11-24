@@ -1,0 +1,71 @@
+{
+ "text": "SINAPS. Latihan membaca MRI stroke, kapan saja, dengan umpan balik yang bisa dipercaya.",
+ "end": 6.88,
+ "words": [
+  {
+   "w": "SINAPS.",
+   "s": 0,
+   "e": 1.04
+  },
+  {
+   "w": "Latihan",
+   "s": 1.16,
+   "e": 1.44
+  },
+  {
+   "w": "membaca",
+   "s": 1.52,
+   "e": 2
+  },
+  {
+   "w": "MRI",
+   "s": 2.08,
+   "e": 2.64
+  },
+  {
+   "w": "stroke,",
+   "s": 2.72,
+   "e": 3.44
+  },
+  {
+   "w": "kapan",
+   "s": 3.48,
+   "e": 3.76
+  },
+  {
+   "w": "saja,",
+   "s": 3.84,
+   "e": 4.56
+  },
+  {
+   "w": "dengan",
+   "s": 4.64,
+   "e": 4.8
+  },
+  {
+   "w": "umpan",
+   "s": 4.88,
+   "e": 5.04
+  },
+  {
+   "w": "balik",
+   "s": 5.12,
+   "e": 5.44
+  },
+  {
+   "w": "yang",
+   "s": 5.56,
+   "e": 5.68
+  },
+  {
+   "w": "bisa",
+   "s": 5.76,
+   "e": 6
+  },
+  {
+   "w": "dipercaya.",
+   "s": 6.08,
+   "e": 6.88
+  }
+ ]
+}

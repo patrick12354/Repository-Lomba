@@ -1,0 +1,35 @@
+lowest-coverage features:
+soil_humidity_line3_sd6h    0.074
+soil_ec_line2_sd6h          0.104
+soil_ec_line3_sd6h          0.104
+soil_humidity_line2_sd6h    0.116
+soil_humidity_line1_sd6h    0.756
+pressure_c24h               0.757
+soil_ec_line1_sd6h          0.824
+pressure_s-4                0.845
+pressure_s-2                0.847
+pressure_s-1                0.849
+pressure_s1                 0.850
+pressure                    0.850
+
+low-coverage(<0.55) drop list: ['soil_humidity_line3_sd6h', 'soil_ec_line2_sd6h', 'soil_ec_line3_sd6h', 'soil_humidity_line2_sd6h']
+C0_full(144)                 mean  6.655 med  6.731 worst  8.679 | [np.float64(8.11), np.float64(8.68), np.float64(7.66), np.float64(7.33), np.float64(6.73), np.float64(5.41), np.float64(4.64), np.float64(4.98), np.float64(6.34)]
+                             {'lgbm': 7.189, 'lgbm_hub': 7.092, 'ridge': 7.241, 'enet': 7.154}  w={'lgbm': 0.275, 'lgbm_hub': 0.28, 'ridge': 0.246, 'enet': 0.199}
+C1_drop_lowcov(140)          mean  6.643 med  6.819 worst  8.492 | [np.float64(7.94), np.float64(8.49), np.float64(7.63), np.float64(7.3), np.float64(6.82), np.float64(5.53), np.float64(4.63), np.float64(5.01), np.float64(6.46)]
+                             {'lgbm': 7.3, 'lgbm_hub': 7.091, 'ridge': 7.206, 'enet': 7.139}  w={'lgbm': 0.071, 'lgbm_hub': 0.474, 'ridge': 0.3, 'enet': 0.155}
+C2_drop_sd6h_rate(128)       mean  6.854 med  6.934 worst  8.945 | [np.float64(8.46), np.float64(8.95), np.float64(8.01), np.float64(7.71), np.float64(6.93), np.float64(5.49), np.float64(4.61), np.float64(5.24), np.float64(6.29)]
+                             {'lgbm': 7.381, 'lgbm_hub': 7.072, 'ridge': 7.339, 'enet': 7.34}  w={'lgbm_hub': 0.598, 'ridge': 0.4}
+C3_drop_soil_ec_h(92)        mean  6.457 med  6.765 worst  8.352 | [np.float64(8.05), np.float64(8.35), np.float64(8.15), np.float64(7.78), np.float64(6.76), np.float64(4.12), np.float64(4.16), np.float64(5.05), np.float64(5.68)]
+                             {'lgbm': 6.737, 'lgbm_hub': 6.529, 'ridge': 7.497, 'enet': 7.362}  w={'lgbm': 0.215, 'lgbm_hub': 0.659, 'ridge': 0.126}
+C4_drop_all_soil(68)         mean  6.291 med  7.234 worst  7.949 | [np.float64(7.63), np.float64(7.95), np.float64(7.34), np.float64(7.23), np.float64(7.37), np.float64(4.06), np.float64(4.57), np.float64(4.97), np.float64(5.49)]
+                             {'lgbm': 6.681, 'lgbm_hub': 6.313, 'ridge': 7.407, 'enet': 7.318}  w={'lgbm_hub': 0.94, 'enet': 0.06}
+C5_core(68)                  mean  6.291 med  7.234 worst  7.949 | [np.float64(7.63), np.float64(7.95), np.float64(7.34), np.float64(7.23), np.float64(7.37), np.float64(4.06), np.float64(4.57), np.float64(4.97), np.float64(5.49)]
+                             {'lgbm': 6.681, 'lgbm_hub': 6.313, 'ridge': 7.407, 'enet': 7.318}  w={'lgbm_hub': 0.94, 'enet': 0.06}
+
+=== RANKING ===
+  C4_drop_all_soil(68)       mean  6.291 worst  7.949
+  C5_core(68)                mean  6.291 worst  7.949
+  C3_drop_soil_ec_h(92)      mean  6.457 worst  8.352
+  C1_drop_lowcov(140)        mean  6.643 worst  8.492
+  C0_full(144)               mean  6.655 worst  8.679
+  C2_drop_sd6h_rate(128)     mean  6.854 worst  8.945

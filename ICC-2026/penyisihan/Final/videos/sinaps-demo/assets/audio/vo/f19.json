@@ -1,0 +1,96 @@
+{
+ "text": "Di sisi dosen, ada peta penguasaan tiap mahasiswa, kesalahan yang paling sering muncul, dan audit setiap jawaban tutor.",
+ "end": 8.24,
+ "words": [
+  {
+   "w": "Di",
+   "s": 0,
+   "e": 0.08
+  },
+  {
+   "w": "sisi",
+   "s": 0.16,
+   "e": 0.4
+  },
+  {
+   "w": "dosen,",
+   "s": 0.44,
+   "e": 1.2
+  },
+  {
+   "w": "ada",
+   "s": 1.32,
+   "e": 1.44
+  },
+  {
+   "w": "peta",
+   "s": 1.48,
+   "e": 1.76
+  },
+  {
+   "w": "penguasaan",
+   "s": 1.8,
+   "e": 2.4
+  },
+  {
+   "w": "tiap",
+   "s": 2.48,
+   "e": 2.8
+  },
+  {
+   "w": "mahasiswa,",
+   "s": 2.88,
+   "e": 3.76
+  },
+  {
+   "w": "kesalahan",
+   "s": 3.84,
+   "e": 4.4
+  },
+  {
+   "w": "yang",
+   "s": 4.52,
+   "e": 4.64
+  },
+  {
+   "w": "paling",
+   "s": 4.68,
+   "e": 4.96
+  },
+  {
+   "w": "sering",
+   "s": 5.04,
+   "e": 5.2
+  },
+  {
+   "w": "muncul,",
+   "s": 5.24,
+   "e": 6
+  },
+  {
+   "w": "dan",
+   "s": 6.08,
+   "e": 6.16
+  },
+  {
+   "w": "audit",
+   "s": 6.32,
+   "e": 6.72
+  },
+  {
+   "w": "setiap",
+   "s": 6.84,
+   "e": 7.2
+  },
+  {
+   "w": "jawaban",
+   "s": 7.28,
+   "e": 7.6
+  },
+  {
+   "w": "tutor.",
+   "s": 7.68,
+   "e": 8.24
+  }
+ ]
+}

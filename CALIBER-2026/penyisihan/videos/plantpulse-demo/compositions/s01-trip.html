@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #s01 svg.full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+        #s01 .lbl { font: 600 19px var(--mono); letter-spacing: 0.12em; fill: var(--accent-ink); }
+        #s01 .gnum { font: 500 17px var(--mono); fill: var(--ink-3); }
+        #s01 .zone { font: 600 15px var(--mono); letter-spacing: 0.12em; }
+        #s01 .axis { font: 500 15px var(--mono); fill: var(--ink-3); }
+        #s01 .read { position: absolute; left: 1225px; width: 540px; top: 470px; text-align: center; }
+        #s01 .read b { display: block; font: 700 76px/1 var(--sans); letter-spacing: -0.03em; color: var(--ink-hi); }
+        #s01 .read span { display: block; margin-top: 10px; font: 500 21px/1.3 var(--sans); color: var(--ink-2); }
+        #s01 .when { position: absolute; left: 1225px; width: 540px; top: 128px; text-align: center; font: 600 24px/1 var(--mono); letter-spacing: 0.14em; color: var(--ink-3); }
+        #s01 .when.big { color: var(--ink-hi); }
+        #s01 .date { position: absolute; left: 1250px; top: 128px; display: flex; gap: 16px; align-items: center; white-space: nowrap; font: 600 28px/1 var(--mono); letter-spacing: 0.12em; color: var(--ink-hi); }
+        #s01 .stats { position: absolute; left: 1250px; top: 560px; width: 640px; }
+        #s01 .stat { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+        #s01 .stat .ic { width: 84px; height: 84px; flex: none; border-radius: 22px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+        #s01 .stat .v { font: 700 72px/0.95 var(--sans); letter-spacing: -0.035em; color: var(--ink-hi); }
+        #s01 .stat .v.red { color: var(--danger); }
+        #s01 .stat .k { margin-top: 8px; display: flex; gap: 14px; align-items: center; font: 500 22px/1 var(--sans); color: var(--ink-2); }
+        #s01 .flash { position: absolute; inset: 0; background: radial-gradient(60% 60% at 30% 50%, rgba(214, 60, 67, 0.4), rgba(214, 60, 67, 0.08) 70%); opacity: 0; mix-blend-mode: multiply; }
+        #s01 .crossed { position: absolute; left: 1360px; top: 860px; }
+      </style>
+      <div data-hf-id="hf-br05" id="root" data-composition-id="s01-trip" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-voc0" class="pp" id="s01">
+          <div data-hf-id="hf-m7dd" class="bg"></div>
+          <div data-hf-id="hf-w1pt" class="grid" id="s01-grid"></div>
+          <div data-hf-id="hf-uucp" class="kicker" id="s01-kicker" style="left: 90px; top: 92px">KO-3201 · Cracked gas compressor · Cracker unit ZCU</div>
+          <div data-hf-id="hf-6a73" id="s01-srcchip" style="position: absolute; left: 90px; top: 132px"><span data-hf-id="hf-37ru" class="chip src">E2 · Condition history · weekly bearing vibration</span></div>
+
+          <!-- the machine, shaking harder week by week -->
+          <svg data-hf-id="hf-whe0" class="full" id="s01-art" viewBox="0 0 1920 1080">
+            <g data-hf-id="hf-3wl0" id="s01-machine" transform="translate(60 300)">
+              <g data-hf-id="hf-r4wy" id="s01-shake">
+                <g data-hf-id="hf-tc98" id="s01-machine-body">
+<!-- art:compressor:s01 -->
+<!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; s01 becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs data-hf-id="hf-mh0t">
+  <clippath data-hf-id="hf-fesw" id="s01-cpl-clip"><rect data-hf-id="hf-v9fn" x="532" y="304" width="96" height="52" rx="10" /></clippath>
+  <clippath data-hf-id="hf-mnip" id="s01-shaft-clip"><rect data-hf-id="hf-idxs" x="512" y="320" width="120" height="20" /></clippath>
+  <lineargradient data-hf-id="hf-bvgw" id="s01-casing" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-rxzp" offset="0" stop-color="#f3f6fb" /><stop data-hf-id="hf-6179" offset="0.45" stop-color="#e1e8f3" /><stop data-hf-id="hf-6dsj" offset="1" stop-color="#c3cfe2" /></lineargradient>
+  <lineargradient data-hf-id="hf-cz8u" id="s01-motor" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-zlr8" offset="0" stop-color="#dbe3f0" /><stop data-hf-id="hf-w28c" offset="0.5" stop-color="#c4d0e3" /><stop data-hf-id="hf-zcjj" offset="1" stop-color="#a9b8d0" /></lineargradient>
+  <lineargradient data-hf-id="hf-vx29" id="s01-pipe" x1="0" y1="0" x2="1" y2="0"><stop data-hf-id="hf-biq4" offset="0" stop-color="#c9d3e4" /><stop data-hf-id="hf-zn5u" offset="0.4" stop-color="#eef2f8" /><stop data-hf-id="hf-ogoh" offset="1" stop-color="#b9c5d9" /></lineargradient>
+  <lineargradient data-hf-id="hf-bwtl" id="s01-pipeh" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-d4v4" offset="0" stop-color="#eef2f8" /><stop data-hf-id="hf-oijq" offset="0.6" stop-color="#d3dbe8" /><stop data-hf-id="hf-tied" offset="1" stop-color="#b9c5d9" /></lineargradient>
+  <pattern data-hf-id="hf-v8qn" id="s01-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect data-hf-id="hf-pczl" width="10" height="10" fill="#f0a21a" /><rect data-hf-id="hf-zbhn" width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g data-hf-id="hf-htg8" class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g data-hf-id="hf-4slj" id="s01-pipes">
+    <path data-hf-id="hf-g7ds" d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path data-hf-id="hf-hzqv" d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#s01-pipe)" stroke-width="58" />
+    <path data-hf-id="hf-p2bn" d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path data-hf-id="hf-dsbd" d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#s01-pipeh)" stroke-width="50" />
+    <rect data-hf-id="hf-5sw4" x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect data-hf-id="hf-3iim" x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path data-hf-id="hf-8rfz" id="s01-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path data-hf-id="hf-izbk" id="s01-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect data-hf-id="hf-8a77" x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect data-hf-id="hf-78lb" x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g data-hf-id="hf-s4tq" fill="#15213a" stroke="none"><circle data-hf-id="hf-0vt3" cx="80" cy="478" r="6" /><circle data-hf-id="hf-szqy" cx="300" cy="478" r="6" /><circle data-hf-id="hf-h2w6" cx="520" cy="478" r="6" /><circle data-hf-id="hf-nhni" cx="700" cy="478" r="6" /><circle data-hf-id="hf-vklg" cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect data-hf-id="hf-404x" x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect data-hf-id="hf-g2vf" x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect data-hf-id="hf-jkp2" x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect data-hf-id="hf-bzb8" x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect data-hf-id="hf-h97w" x="130" y="236" width="320" height="194" rx="26" fill="url(#s01-casing)" />
+  <path data-hf-id="hf-jaik" d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g data-hf-id="hf-a1rm" fill="#15213a" stroke="none"><circle data-hf-id="hf-yx35" cx="160" cy="333" r="5" /><circle data-hf-id="hf-k86q" cx="200" cy="333" r="5" /><circle data-hf-id="hf-puzq" cx="240" cy="333" r="5" /><circle data-hf-id="hf-2r0q" cx="280" cy="333" r="5" /><circle data-hf-id="hf-q5aj" cx="320" cy="333" r="5" /><circle data-hf-id="hf-v3qf" cx="360" cy="333" r="5" /><circle data-hf-id="hf-scxo" cx="400" cy="333" r="5" /><circle data-hf-id="hf-a4yv" cx="430" cy="333" r="5" /></g>
+  <path data-hf-id="hf-lk1b" d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect data-hf-id="hf-5jxk" x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect data-hf-id="hf-bxbq" x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g data-hf-id="hf-qjym" id="s01-bearing">
+    <rect data-hf-id="hf-ixfi" x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect data-hf-id="hf-t30w" x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect data-hf-id="hf-qyqd" x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path data-hf-id="hf-rs2x" d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect data-hf-id="hf-eda3" x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g data-hf-id="hf-rz4x" clip-path="url(#s01-shaft-clip)"><g data-hf-id="hf-qlnh" id="s01-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect data-hf-id="hf-dolu" x="512" y="300" width="120" height="6" /><rect data-hf-id="hf-kbhn" x="512" y="316" width="120" height="6" /><rect data-hf-id="hf-4cxh" x="512" y="332" width="120" height="6" /><rect data-hf-id="hf-glqm" x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect data-hf-id="hf-svop" x="532" y="304" width="96" height="52" rx="10" fill="url(#s01-hatch)" />
+  <g data-hf-id="hf-xxpi" clip-path="url(#s01-cpl-clip)" opacity="0.55"><g data-hf-id="hf-7o92" id="s01-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect data-hf-id="hf-0g8n" x="532" y="276" width="96" height="5" /><rect data-hf-id="hf-9wij" x="532" y="294" width="96" height="5" /><rect data-hf-id="hf-e13s" x="532" y="312" width="96" height="5" /><rect data-hf-id="hf-zpy4" x="532" y="330" width="96" height="5" /><rect data-hf-id="hf-9j2h" x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect data-hf-id="hf-4vfr" x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect data-hf-id="hf-j2lm" x="628" y="246" width="250" height="184" rx="22" fill="url(#s01-motor)" />
+  <g data-hf-id="hf-s49x" stroke-width="2" opacity="0.55"><path data-hf-id="hf-gsty" d="M 660 262 L 660 414" /><path data-hf-id="hf-6m4a" d="M 690 262 L 690 414" /><path data-hf-id="hf-xtse" d="M 720 262 L 720 414" /><path data-hf-id="hf-qfqi" d="M 750 262 L 750 414" /><path data-hf-id="hf-4pma" d="M 780 262 L 780 414" /><path data-hf-id="hf-w6ti" d="M 810 262 L 810 414" /><path data-hf-id="hf-wbs6" d="M 840 262 L 840 414" /></g>
+  <path data-hf-id="hf-f4ic" d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect data-hf-id="hf-l0ss" x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect data-hf-id="hf-1r19" x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect data-hf-id="hf-kixd" x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect data-hf-id="hf-nzrv" x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle data-hf-id="hf-cckg" id="s01-lamp" cx="754" cy="172" r="15" fill="#1d9a63" />
+  <circle data-hf-id="hf-cqkw" id="s01-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+<!-- /art -->
+                </g>
+              </g>
+              <g data-hf-id="hf-xhml" id="s01-waves" fill="none" stroke="#d48a06" stroke-width="4" stroke-linecap="round">
+                <path data-hf-id="hf-qv35" id="s01-wv0" /><path data-hf-id="hf-q3fc" id="s01-wv1" /><path data-hf-id="hf-yrb7" id="s01-wv2" /><path data-hf-id="hf-ut76" id="s01-wv3" /><path data-hf-id="hf-c1hh" id="s01-wv4" /><path data-hf-id="hf-b9to" id="s01-wv5" />
+              </g>
+              <g data-hf-id="hf-pcsf" id="s01-probe-lbl">
+                <path data-hf-id="hf-37cz" d="M 530 232 L 566 52" fill="none" stroke="#2f62e0" stroke-width="2" /><circle data-hf-id="hf-fh39" cx="530" cy="232" r="6" fill="#2f62e0" />
+                <text data-hf-id="hf-6nmt" class="lbl" x="572" y="40">VIBRATION SENSOR</text>
+              </g>
+            </g>
+          </svg>
+
+          <!-- right column: when, gauge, weekly trace -->
+          <div data-hf-id="hf-dvym" class="when" id="s01-when">WEEK OF 10 DEC 2025</div>
+          <svg data-hf-id="hf-3dw6" class="full" id="s01-gauge" viewBox="0 0 1920 1080">
+            <g data-hf-id="hf-jf6g" transform="translate(1495 420)">
+              <path data-hf-id="hf-tbfc" id="s01-g-green" fill="none" stroke="#1d9a63" stroke-width="26" stroke-linecap="butt" />
+              <path data-hf-id="hf-ibeu" id="s01-g-amber" fill="none" stroke="#e0a028" stroke-width="26" stroke-linecap="butt" />
+              <path data-hf-id="hf-w3j3" id="s01-g-red" fill="none" stroke="#d63c43" stroke-width="26" stroke-linecap="butt" />
+              <g data-hf-id="hf-kcoc" id="s01-g-ticks" stroke="#15213a" stroke-width="2" opacity="0.5" />
+              <text data-hf-id="hf-n798" class="zone" id="s01-z1" fill="#0d6a42" text-anchor="middle">NORMAL</text>
+              <text data-hf-id="hf-rnlg" class="zone" id="s01-z2" fill="#835200" text-anchor="middle">ALARM</text>
+              <text data-hf-id="hf-m4gg" class="zone" id="s01-z3" fill="#a41f27" text-anchor="middle">TRIP</text>
+              <g data-hf-id="hf-l9hx" id="s01-needle"><path data-hf-id="hf-x7qm" d="M -9 0 L 0 -168 L 9 0 Z" fill="#15213a" /><circle data-hf-id="hf-ei4l" r="20" fill="#15213a" /><circle data-hf-id="hf-qsvk" r="7" fill="#faf8ee" /></g>
+            </g>
+          </svg>
+          <div data-hf-id="hf-187p" class="read" id="s01-read"><b data-hf-id="hf-riwp" id="s01-val">28.9 µm</b><span data-hf-id="hf-9zvg">How hard the machine shakes, measured at its bearing</span></div>
+          <svg data-hf-id="hf-9fyf" class="full" id="s01-chart" viewBox="0 0 1920 1080">
+            <g data-hf-id="hf-pdvc" transform="translate(1240 640)">
+              <line data-hf-id="hf-db78" x1="0" y1="0" x2="520" y2="0" stroke="#d63c43" stroke-width="2" stroke-dasharray="8 7" />
+              <line data-hf-id="hf-7ezs" x1="0" y1="72" x2="520" y2="72" stroke="#d48a06" stroke-width="2" stroke-dasharray="8 7" />
+              <text data-hf-id="hf-2m54" class="axis" x="526" y="5" fill="#a41f27">75</text><text data-hf-id="hf-lv06" class="axis" x="526" y="77">45</text>
+              <defs data-hf-id="hf-vl9d"><clippath data-hf-id="hf-ivat" id="s01-reveal"><rect data-hf-id="hf-vedq" id="s01-reveal-rect" x="-10" y="-40" width="0" height="220" /></clippath></defs>
+              <path data-hf-id="hf-thyd" id="s01-line" clip-path="url(#s01-reveal)" fill="none" stroke="#2f62e0" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+              <circle data-hf-id="hf-8ss1" id="s01-head" r="8" fill="#2f62e0" stroke="#fff" stroke-width="3" />
+              <text data-hf-id="hf-n3go" class="axis" x="0" y="168">DEC 2025</text><text data-hf-id="hf-wxq4" class="axis" x="520" y="168" text-anchor="end">APR 2026</text>
+            </g>
+          </svg>
+
+          <div data-hf-id="hf-7pr9" class="crossed" id="s01-crossed"><span data-hf-id="hf-qr90" class="chip danger"><span data-hf-id="hf-9gry" class="dot"></span>SAFETY LIMIT CROSSED</span></div>
+          <div data-hf-id="hf-ro3d" class="date" id="s01-date">29 APR 2026 <span data-hf-id="hf-8tpo" class="chip danger">Class A breakdown</span></div>
+          <div data-hf-id="hf-3nwc" class="tag" id="s01-tag" style="left: 1250px; top: 200px">
+            <div data-hf-id="hf-hm9y" class="hole"></div><div data-hf-id="hf-qaw1" class="unit">ZCU · ROT · CO</div>
+            <div data-hf-id="hf-n5hf" class="num">KO-3201</div><div data-hf-id="hf-xuq6" class="name">Cracked Gas Compressor</div>
+            <div data-hf-id="hf-8tde" class="band trip" id="s01-band">● TRIP</div>
+          </div>
+          <div data-hf-id="hf-bmbx" class="stats" id="s01-stats">
+            <div data-hf-id="hf-wjgb" class="stat" id="s01-st1">
+              <div data-hf-id="hf-w92w" class="ic"><svg data-hf-id="hf-8fn3" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#15213a" stroke-width="3.5" stroke-linecap="round"><circle data-hf-id="hf-de2m" cx="28" cy="28" r="22" /><path data-hf-id="hf-s8c1" id="s01-hh" d="M 28 28 L 28 16" /><path data-hf-id="hf-ehjg" id="s01-mh" d="M 28 28 L 39 28" stroke="#d63c43" /></svg></div>
+              <div data-hf-id="hf-yeow"><div data-hf-id="hf-s3ev" class="v">32 h</div><div data-hf-id="hf-b5uq" class="k">offline <span data-hf-id="hf-7vbu" class="chip src">L3 · row 5</span></div></div>
+            </div>
+            <div data-hf-id="hf-lnyo" class="stat" id="s01-st2">
+              <div data-hf-id="hf-yz80" class="ic"><svg data-hf-id="hf-fwfd" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#d63c43" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path data-hf-id="hf-lrw6" d="M 10 16 L 24 30 L 32 22 L 46 38" /><path data-hf-id="hf-568s" d="M 36 38 L 46 38 L 46 28" /></svg></div>
+              <div data-hf-id="hf-y7yw"><div data-hf-id="hf-3vlv" class="v red" id="s01-loss">US$0</div><div data-hf-id="hf-jnk6" class="k">recorded loss <span data-hf-id="hf-aceb" class="chip src">L3 · R2</span></div></div>
+            </div>
+          </div>
+          <div data-hf-id="hf-6kwj" class="flash" id="s01-flash"></div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          // Real weekly DE radial vibration for KO-3201 (E2 Condition History, weeks 1-21, micron).
+          const V = [28.9, 26.9, 29.7, 29.0, 28.7, 30.3, 33.7, 33.9, 35.4, 37.7, 39.6, 41.6, 45.5, 49.2, 51.1, 55.9, 59.1, 60.5, 66.7, 71.7, 76.5];
+          const D = ["10 DEC 2025", "17 DEC 2025", "24 DEC 2025", "31 DEC 2025", "07 JAN 2026", "14 JAN 2026", "21 JAN 2026", "28 JAN 2026", "04 FEB 2026", "11 FEB 2026", "18 FEB 2026", "25 FEB 2026", "04 MAR 2026", "11 MAR 2026", "18 MAR 2026", "25 MAR 2026", "01 APR 2026", "08 APR 2026", "15 APR 2026", "22 APR 2026", "29 APR 2026"];
+          const T0 = 0.6, TRIP = 7.95, STOP = 8.55, SPIN = 1.1;
+          // gauge: 20..90 micron over 220 degrees
+          const ang = (v) => (-110 + ((Math.min(90, Math.max(20, v)) - 20) / 70) * 220) * Math.PI / 180;
+          const arc = (a, b, r) => { const p = (x) => [Math.sin(ang(x)) * r, -Math.cos(ang(x)) * r]; const [x0, y0] = p(a), [x1, y1] = p(b); return `M ${x0.toFixed(1)} ${y0.toFixed(1)} A ${r} ${r} 0 ${ang(b) - ang(a) > Math.PI ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`; };
+          document.getElementById("s01-g-green").setAttribute("d", arc(20, 45, 196));
+          document.getElementById("s01-g-amber").setAttribute("d", arc(45.4, 75, 196));
+          document.getElementById("s01-g-red").setAttribute("d", arc(75.4, 90, 196));
+          const ticks = document.getElementById("s01-g-ticks");
+          for (let v = 20; v <= 90; v += 10) { const a = ang(v), l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            l.setAttribute("x1", (Math.sin(a) * 172).toFixed(1)); l.setAttribute("y1", (-Math.cos(a) * 172).toFixed(1)); l.setAttribute("x2", (Math.sin(a) * 158).toFixed(1)); l.setAttribute("y2", (-Math.cos(a) * 158).toFixed(1)); ticks.appendChild(l); }
+          [["s01-z1", 32], ["s01-z2", 60], ["s01-z3", 83]].forEach(([id, v]) => { const a = ang(v), t = document.getElementById(id); t.setAttribute("x", (Math.sin(a) * 240).toFixed(1)); t.setAttribute("y", (-Math.cos(a) * 240 + 6).toFixed(1)); });
+          // weekly trace
+          const X = (i) => i * 26, Y = (v) => (75 - v) * 2.4;
+          const pts = V.map((v, i) => [X(i), Y(v)]);
+          document.getElementById("s01-line").setAttribute("d", "M" + pts.map((p) => p.join(",")).join(" L"));
+
+          const $ = (id) => document.getElementById(id);
+          const shake = $("s01-shake"), needle = $("s01-needle"), val = $("s01-val"), when = $("s01-when"), head = $("s01-head"), rev = $("s01-reveal-rect"), line = $("s01-line");
+          const flowIn = $("s01-flow-in"), flowOut = $("s01-flow-out"), sh = $("s01-shaft-stripes"), cp = $("s01-cpl-stripes"), lamp = $("s01-lamp"), glow = $("s01-lamp-glow");
+          const W = [0, 1, 2, 3, 4, 5].map((k) => $("s01-wv" + k));
+          const week = (t) => t <= T0 ? 0 : t >= TRIP ? 20 : ((t - T0) / (TRIP - T0)) * 20;
+          const vib = (w) => { const i = Math.min(19, Math.floor(w)), f = w - i; return V[i] + (V[i + 1] - V[i]) * f; };
+          const rot = (t) => t < STOP ? t : t < STOP + SPIN ? STOP + (t - STOP) - (t - STOP) ** 2 / (2 * SPIN) : STOP + SPIN / 2;
+          const amp = (t, v) => t < TRIP ? 0.3 + ((v - 27) / 49.5) * 5.2 : t < STOP ? 9 : t < STOP + SPIN ? 9 * (1 - (t - STOP) / SPIN) ** 2 : 0;
+          const sim = (t) => {
+            const w = week(t), v = vib(w), i = Math.round(w), A = amp(t, v);
+            shake.setAttribute("transform", `translate(${(A * (0.6 * Math.sin(t * 71) + 0.4 * Math.sin(t * 113))).toFixed(2)} ${(A * 0.45 * Math.sin(t * 89)).toFixed(2)})`);
+            const R = rot(t);
+            flowIn.style.strokeDashoffset = -R * 90; flowOut.style.strokeDashoffset = -R * 90;
+            sh.setAttribute("transform", `translate(0 ${(R * 160) % 16})`); cp.setAttribute("transform", `translate(0 ${(R * 160) % 18})`);
+            // vibration rings off the bearing, stronger as it shakes
+            const k = Math.min(1, A / 6);
+            for (let n = 0; n < 3; n++) {
+              const ph = (t * 1.7 + n / 3) % 1, r = 70 + ph * 70, o = (1 - ph) * k;
+              for (const [s, el] of [[-1, W[n]], [1, W[n + 3]]]) {
+                const a0 = (s > 0 ? -35 : 145) * Math.PI / 180, a1 = (s > 0 ? 35 : 215) * Math.PI / 180, cx = 497, cy = 330;
+                el.setAttribute("d", `M ${(cx + Math.cos(a0) * r).toFixed(1)} ${(cy + Math.sin(a0) * r).toFixed(1)} A ${r} ${r} 0 0 1 ${(cx + Math.cos(a1) * r).toFixed(1)} ${(cy + Math.sin(a1) * r).toFixed(1)}`);
+                el.setAttribute("opacity", o.toFixed(3));
+                el.setAttribute("stroke", t >= TRIP ? "#d63c43" : v >= 45 ? "#d48a06" : "#2f62e0");
+              }
+            }
+            // gauge + readout + trace follow the week
+            const jit = t >= TRIP && t < STOP + 0.4 ? 2.2 * Math.sin(t * 61) : 0;
+            needle.setAttribute("transform", `rotate(${(ang(v) * 180 / Math.PI + jit).toFixed(2)})`);
+            val.textContent = v.toFixed(1) + " µm";
+            val.style.color = v >= 75 ? "#d63c43" : v >= 45 ? "#b06f00" : "#0b1426";
+            if (t < 4.75) when.textContent = "WEEK OF " + D[Math.min(20, i)];
+            rev.setAttribute("width", (X(w) + 12).toFixed(1));
+            const hp = [X(w), Y(v)];
+            head.setAttribute("cx", hp[0].toFixed(1)); head.setAttribute("cy", hp[1].toFixed(1));
+            const c = v >= 75 ? "#d63c43" : v >= 45 ? "#d48a06" : "#2f62e0";
+            head.setAttribute("fill", c); line.setAttribute("stroke", c);
+            // status lamp: green -> amber at alarm -> blinking red after the trip
+            const lc = t >= TRIP ? "#d63c43" : v >= 45 ? "#e0a028" : "#1d9a63";
+            lamp.setAttribute("fill", lc); glow.setAttribute("stroke", lc);
+            const blink = t >= TRIP ? 0.5 + 0.5 * Math.sin(t * 12) : 0;
+            glow.setAttribute("opacity", blink.toFixed(3)); glow.setAttribute("r", (15 + blink * 14).toFixed(1));
+          };
+          const clock = { t: 0 };
+          sim(0);
+          const tl = gsap.timeline({ paused: true });
+          tl.to(clock, { t: 15.3, duration: 15.3, ease: "none", onUpdate: () => sim(clock.t) }, 0);
+
+          tl.fromTo("#s01-grid", { opacity: 0 }, { opacity: 0.45, duration: 1.0 }, 0);
+          tl.fromTo("#s01-art", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.8, ease: "expo.out" }, 0);
+          tl.fromTo("#s01-kicker, #s01-srcchip", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out", stagger: 0.12 }, 0.3);
+          tl.fromTo("#s01-when", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 0.45);
+          tl.fromTo("#s01-gauge", { opacity: 0, scale: 0.85, transformOrigin: "1495px 420px" }, { opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }, 0.35);
+          tl.fromTo("#s01-read", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 0.6);
+          tl.fromTo("#s01-chart", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 0.8);
+          tl.fromTo("#s01-probe-lbl", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 1.4);
+          tl.to("#s01-probe-lbl", { opacity: 0, duration: 0.4 }, 4.6);
+          // "On April twenty-ninth, twenty twenty-six"
+          tl.set("#s01-when", { textContent: "29 APR 2026", className: "when big" }, 4.75);
+          tl.fromTo("#s01-when", { scale: 1.25 }, { scale: 1, duration: 0.5, ease: "expo.out" }, 4.75);
+          // "crossed its safety limit": flash, needle into the red, limit chip
+          tl.fromTo("#s01-flash", { opacity: 0 }, { opacity: 1, duration: 0.06 }, TRIP);
+          tl.to("#s01-flash", { opacity: 0.22, duration: 1.4, ease: "power2.out" }, TRIP + 0.08);
+          tl.fromTo("#s01-crossed", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, TRIP + 0.05);
+          // "and shut itself down": the machine spins down and greys; the case tag lands
+          tl.to("#s01-machine-body", { filter: "saturate(0.35)", duration: 1.2, ease: "power2.out" }, STOP + 0.2);
+          tl.to("#s01-gauge, #s01-read, #s01-chart, #s01-crossed, #s01-when", { opacity: 0, y: 40, duration: 0.4, ease: "power2.in", stagger: 0.03 }, 8.9);
+          tl.fromTo("#s01-tag", { opacity: 0, scale: 1.35, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.32, ease: "power4.in" }, 9.0);
+          tl.fromTo("#s01-band", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.25, ease: "expo.out" }, 9.34);
+          tl.fromTo("#s01-date", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 9.3);
+          // "Thirty-two hours offline": the clock races
+          tl.fromTo("#s01-st1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" }, 9.8);
+          tl.fromTo("#s01-mh", { rotation: 0, svgOrigin: "28 28" }, { rotation: 720 * 1.5, svgOrigin: "28 28", duration: 1.6, ease: "power2.inOut" }, 9.9);
+          tl.fromTo("#s01-hh", { rotation: 0, svgOrigin: "28 28" }, { rotation: 90, svgOrigin: "28 28", duration: 1.6, ease: "power2.inOut" }, 9.9);
+          // "One point five eight million dollars of recorded loss"
+          tl.fromTo("#s01-st2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" }, 11.55);
+          const loss = { v: 0 };
+          tl.to(loss, { v: 1584000, duration: 1.8, ease: "power3.out", onUpdate: () => { $("s01-loss").textContent = "US$" + Math.round(loss.v).toLocaleString("en-US"); } }, 11.6);
+          // Hand-off: everything clears, the tag travels to centre for the next scene.
+          tl.to("#s01-stats, #s01-date", { opacity: 0, y: 30, duration: 0.4, ease: "power2.in" }, 14.35);
+          tl.to("#s01-art, #s01-kicker, #s01-srcchip, #s01-grid", { opacity: 0, x: -60, duration: 0.6, ease: "power2.in", stagger: 0.03 }, 14.4);
+          tl.to("#s01-flash", { opacity: 0, duration: 0.6 }, 14.45);
+          tl.to("#s01-tag", { x: 700 - 1250, y: 390 - 200, duration: 0.85, ease: "power3.inOut" }, 14.45);
+          // time-warp (written by scripts/warp.mjs): [authored s, current s] anchors through every spoken word.
+          const WARP = [[0,0],[0.3,0.3],[0.625,0.555],[2.738,1.252],[2.959,1.554],[3.11,1.763],[3.284,1.96],[3.679,2.39],[3.771,2.506],[4.05,2.785],[4.921,4.538],[6.999,5.06],[7.475,5.466],[7.614,5.606],[7.997,5.966],[8.322,6.395],[8.531,6.604],[8.764,6.836],[9.135,7.254],[9.878,7.661],[10.412,8.16],[10.784,8.555],[11.608,9.809],[11.84,10.087],[12.699,10.795],[13.001,11.213],[14.557,12.467],[15.3,13.21]];
+          window.__timelines["s01-trip"] = ((src, P) => {
+            const end = P[P.length - 1];
+            const back = (t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][1]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return a0 + (a1 - a0) * ((t - b0) / (b1 - b0)); } return end[0]; };
+            const w = gsap.timeline({ paused: true });
+            w.fromTo(src, { time: 0 }, { time: end[0], duration: end[1], ease: (p) => back(p * end[1]) / end[0], immediateRender: true });
+            return w;
+          })(tl, WARP);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

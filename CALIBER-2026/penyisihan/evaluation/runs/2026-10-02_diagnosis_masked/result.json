@@ -1,0 +1,281 @@
+{
+  "summary": {
+    "n": 9,
+    "agent_top1": 7,
+    "agent_top3": 9,
+    "check_separates_gold": 8,
+    "leakage_runs": 0
+  },
+  "runs": [
+    {
+      "tag": "PU-2101B",
+      "week": 9,
+      "date": "2025-12-18",
+      "status": "NORMAL",
+      "matcher_leading": [
+        "PU-1",
+        "PU-2",
+        "PU-4"
+      ],
+      "agent_order": [
+        "PU-1",
+        "PU-2",
+        "PU-4",
+        "PU-3",
+        "PU-5"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 15,
+        "partial": 1
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2358,
+        "output_tokens": 1538,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "PU-2101B",
+      "week": 15,
+      "date": "2026-01-29",
+      "status": "ALARM",
+      "matcher_leading": [
+        "PU-1"
+      ],
+      "agent_order": [
+        "PU-1",
+        "PU-2",
+        "PU-4",
+        "PU-3",
+        "PU-5"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 13,
+        "partial": 1
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2766,
+        "output_tokens": 1292,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "KO-3201",
+      "week": 8,
+      "date": "2026-01-28",
+      "status": "NORMAL",
+      "matcher_leading": [
+        "CO-1",
+        "CO-4",
+        "CO-5"
+      ],
+      "agent_order": [
+        "CO-4",
+        "CO-5",
+        "CO-1",
+        "CO-2",
+        "CO-3"
+      ],
+      "agent_top1": false,
+      "agent_top3": true,
+      "check_separates_gold": false,
+      "guard": {
+        "supported": 12
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2396,
+        "output_tokens": 1391,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "KO-3201",
+      "week": 10,
+      "date": "2026-02-11",
+      "status": "ALARM",
+      "matcher_leading": [
+        "CO-1"
+      ],
+      "agent_order": [
+        "CO-1",
+        "CO-2",
+        "CO-4",
+        "CO-5",
+        "CO-3"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 14
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2542,
+        "output_tokens": 1416,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "PM-4405B",
+      "week": 9,
+      "date": "2026-04-15",
+      "status": "NORMAL",
+      "matcher_leading": [
+        "EM-1"
+      ],
+      "agent_order": [
+        "EM-1",
+        "EM-3",
+        "EM-4",
+        "EM-2"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 11
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2225,
+        "output_tokens": 1239,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "PM-4405B",
+      "week": 15,
+      "date": "2026-05-27",
+      "status": "ALARM",
+      "matcher_leading": [
+        "EM-1"
+      ],
+      "agent_order": [
+        "EM-1",
+        "EM-3",
+        "EM-4",
+        "EM-2"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 11
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2650,
+        "output_tokens": 1213,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "HE-3301",
+      "week": 8,
+      "date": "2026-02-19",
+      "status": "NORMAL",
+      "matcher_leading": [
+        "HX-1"
+      ],
+      "agent_order": [
+        "HX-1",
+        "HX-2",
+        "HX-3"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 12
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2051,
+        "output_tokens": 1293,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "HE-3301",
+      "week": 11,
+      "date": "2026-03-12",
+      "status": "ALARM",
+      "matcher_leading": [
+        "HX-1"
+      ],
+      "agent_order": [
+        "HX-1",
+        "HX-2",
+        "HX-3"
+      ],
+      "agent_top1": true,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 8
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2261,
+        "output_tokens": 831,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "tag": "BL-5702",
+      "week": 8,
+      "date": "2026-03-18",
+      "status": "ALARM",
+      "matcher_leading": [
+        "BL-4"
+      ],
+      "agent_order": [
+        "BL-4",
+        "BL-1",
+        "BL-2",
+        "BL-3"
+      ],
+      "agent_top1": false,
+      "agent_top3": true,
+      "check_separates_gold": true,
+      "guard": {
+        "supported": 11
+      },
+      "invalid_mode_ids": [],
+      "leakage": [],
+      "usage": {
+        "input_tokens": 2155,
+        "output_tokens": 1503,
+        "cache_read_input_tokens": 0
+      },
+      "model": "gpt-6.1-sol"
+    }
+  ],
+  "note": "Internal. Masked pre-RCA context; gold pre-registered; library written after reading the RCAs."
+}

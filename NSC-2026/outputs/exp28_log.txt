@@ -1,0 +1,22 @@
+  v8_base           (118) P  5.004/ 6.449 Q  4.521/ 5.901 R  5.582/ 6.529  avg  5.035
+  +farlag           (136) P  5.015/ 6.424 Q  4.571/ 5.806 R  5.548/ 6.412  avg  5.045
+                           folds won vs base: 10/18
+  +accel            (124) P  5.041/ 6.473 Q  4.562/ 5.962 R  5.589/ 6.516  avg  5.064
+                           folds won vs base: 4/18
+  +phase            (123) P  5.052/ 6.508 Q  4.578/ 6.005 R  5.622/ 6.539  avg  5.084
+                           folds won vs base: 1/18
+  +fastphys         (122) P  4.993/ 6.412 Q  4.541/ 5.921 R  5.568/ 6.537  avg  5.034
+                           folds won vs base: 8/18
+  +farlag+accel     (142) P  5.020/ 6.413 Q  4.588/ 5.885 R  5.568/ 6.406  avg  5.059
+                           folds won vs base: 8/18
+  +all4             (151) P  5.029/ 6.405 Q  4.575/ 5.821 R  5.569/ 6.401  avg  5.058
+                           folds won vs base: 9/18
+
+=== RANKING ===
+  +fastphys          avg  5.034  8/18
+  v8_base            avg  5.035  -
+  +farlag            avg  5.045  10/18
+  +all4              avg  5.058  9/18
+  +farlag+accel      avg  5.059  8/18
+  +accel             avg  5.064  4/18
+  +phase             avg  5.084  1/18

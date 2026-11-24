@@ -1,0 +1,21 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4771, 'cat': 0.228, 'ridge': 0.05, 'enet': 0.1949, 'ridge_e': 0.05}
+dispersion slope: fitted 1.0829  shrunk(0.7) -> 1.0580
+CV before calibration: mean 4.9689  worst 6.3737
+CV after  calibration: mean 4.7989  worst 6.2386
+  per fold: [np.float64(6.182), np.float64(6.239), np.float64(5.808), np.float64(5.552), np.float64(4.735), np.float64(4.001), np.float64(3.413), np.float64(3.296), np.float64(3.964)]
+
+wrote outputs/submissions/final_submission.csv
+prediction summary: {'count': 734.0, 'mean': 57.032, 'std': 19.542, 'min': 22.212, '25%': 37.732, '50%': 61.57, '75%': 74.852, 'max': 90.968}

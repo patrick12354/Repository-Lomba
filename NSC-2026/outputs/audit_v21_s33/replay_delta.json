@@ -1,0 +1,100 @@
+{
+  "created": "2026-09-06T17:20:20",
+  "note": "methodology control only; the repaired replay is not a candidate and cannot promote the sequence family",
+  "seeds": [
+    20260906,
+    20260907,
+    20260908
+  ],
+  "alpha_grid": [
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "n_kernels": 512,
+  "blend_weight": 0.25,
+  "rows": [
+    {
+      "block": "B1_last15d",
+      "arm": "legacy",
+      "origin": "2023-08-14 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00",
+      "n": 720,
+      "n_train": 2213,
+      "alphas": "[1000.0, 10000.0, 10000.0]",
+      "q_rmse": 6.785240213619568,
+      "level_rmse": 4.293225766688738,
+      "recon_rmse": 4.48750384004258,
+      "base_rmse": 4.232248529067898
+    },
+    {
+      "block": "B1_last15d",
+      "arm": "replayed",
+      "origin": "2023-08-14 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00",
+      "n": 720,
+      "n_train": 2213,
+      "alphas": "[10000.0, 10000.0, 10000.0]",
+      "q_rmse": 6.864444626898941,
+      "level_rmse": 4.293225766688738,
+      "recon_rmse": 4.4761993285515915,
+      "base_rmse": 4.232248529067898
+    },
+    {
+      "block": "B2_prev15d",
+      "arm": "legacy",
+      "origin": "2023-07-30 14:30:00",
+      "horizon_end": "2023-08-14 14:30:00",
+      "n": 720,
+      "n_train": 1493,
+      "alphas": "[10000.0, 10000.0, 10000.0]",
+      "q_rmse": 7.224258834053158,
+      "level_rmse": 6.778224579357749,
+      "recon_rmse": 6.384149282706728,
+      "base_rmse": 6.586373377166679
+    },
+    {
+      "block": "B2_prev15d",
+      "arm": "replayed",
+      "origin": "2023-07-30 14:30:00",
+      "horizon_end": "2023-08-14 14:30:00",
+      "n": 720,
+      "n_train": 1493,
+      "alphas": "[10000.0, 10000.0, 100.0]",
+      "q_rmse": 8.27623850030381,
+      "level_rmse": 6.778224579357749,
+      "recon_rmse": 6.445082041566073,
+      "base_rmse": 6.586373377166679
+    },
+    {
+      "block": "B3_shift7d",
+      "arm": "legacy",
+      "origin": "2023-08-07 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00",
+      "n": 720,
+      "n_train": 1877,
+      "alphas": "[10000.0, 10000.0, 10000.0]",
+      "q_rmse": 4.822581888651763,
+      "level_rmse": 4.810885229602988,
+      "recon_rmse": 4.281395300133756,
+      "base_rmse": 4.690130627044789
+    },
+    {
+      "block": "B3_shift7d",
+      "arm": "replayed",
+      "origin": "2023-08-07 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00",
+      "n": 720,
+      "n_train": 1877,
+      "alphas": "[10000.0, 10000.0, 10000.0]",
+      "q_rmse": 4.822581888651763,
+      "level_rmse": 4.810885229602988,
+      "recon_rmse": 4.281395300133756,
+      "base_rmse": 4.690130627044789
+    }
+  ],
+  "helper_code": {
+    "src/v21_sequence_replay.py": "35eda0d86acba42a693496752d6e5296",
+    "src/an75_v21_sequence_replay_audit.py": "dc9386b6473b8c7f1ecdfa99cfbe97f7"
+  }
+}

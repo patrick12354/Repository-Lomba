@@ -1,0 +1,20 @@
+{
+  "v12": {
+    "base_pooled": 4.043707093534682,
+    "candidate_pooled": 3.8832034414724386,
+    "base_worst": 6.239466700903945,
+    "candidate_worst": 6.0842498398978435
+  },
+  "v16": {
+    "base_pooled": 4.075903203397573,
+    "candidate_pooled": 3.915539328456958,
+    "base_worst": 6.376422162275643,
+    "candidate_worst": 6.231617534487559
+  },
+  "v20": {
+    "base_pooled": 4.100730770807001,
+    "candidate_pooled": 3.8410516565084762,
+    "base_worst": 6.156720270396884,
+    "candidate_worst": 5.907164247784885
+  }
+}

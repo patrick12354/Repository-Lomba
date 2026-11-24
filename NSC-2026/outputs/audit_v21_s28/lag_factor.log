@@ -1,0 +1,24 @@
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, manifest verified
+B1_last15d fit control + lag designs
+B1_last15d fit five-seed forward mixture factors
+  lgb_lags RMSE 4.190073
+  fixed_old RMSE 4.16555
+  fixed_matched RMSE 4.15878
+B1_last15d completed seconds 81.2
+B2_prev15d fit control + lag designs
+B2_prev15d fit five-seed forward mixture factors
+  lgb_lags RMSE 6.504306
+  fixed_old RMSE 6.556314
+  fixed_matched RMSE 6.519791
+B2_prev15d completed seconds 79.8
+B3_shift7d fit control + lag designs
+B3_shift7d fit five-seed forward mixture factors
+  lgb_lags RMSE 4.723834
+  fixed_old RMSE 4.690318
+  fixed_matched RMSE 4.735072
+B3_shift7d completed seconds 99.2
+    candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled     d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  delta_vs_v21
+      control 5.495961    4.199771    6.540115    4.719273 1440       NaN       NaN           NaN           NaN           NaN        NaN           NaN
+     lgb_lags 5.470956    4.190073    6.504306    4.723834 1440 -0.025006 -0.274234     -0.009698     -0.035808      0.004561       True     -0.064938
+    fixed_old 5.492589    4.165550    6.556314    4.690318 1440 -0.003372 -0.037055     -0.034221      0.016200     -0.028955      False     -0.043305
+fixed_matched 5.468232    4.158780    6.519791    4.735072 1440 -0.027729 -0.304025     -0.040992     -0.020323      0.015800       True     -0.067662

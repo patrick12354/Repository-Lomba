@@ -1,0 +1,33 @@
+features 118
+  reference (v7 knobs)               P  5.201 worst  6.539
+  num_leaves=7                       P  5.288 worst  6.844
+  num_leaves=11                      P  5.193 worst  6.585
+  num_leaves=21                      P  5.234 worst  6.557
+  num_leaves=31                      P  5.270 worst  6.610
+  min_child=15                       P  5.281 worst  6.672
+  min_child=40                       P  5.253 worst  6.744
+  min_child=60                       P  5.425 worst  7.018
+  colsample=0.4                      P  5.236 worst  6.660
+  colsample=0.55                     P  5.226 worst  6.618
+  colsample=0.85                     P  5.222 worst  6.562
+  colsample=1.0                      P  5.225 worst  6.514
+  subsample=0.6                      P  5.206 worst  6.612
+  subsample=1.0                      P  5.263 worst  6.544
+  alpha=2.0                          P  5.151 worst  6.503
+  alpha=8.0                          P  5.361 worst  6.820
+  reg_lambda=1.0                     P  5.215 worst  6.589
+  reg_lambda=10.0                    P  5.239 worst  6.599
+  n=1800 lr=0.015                    P  5.207 worst  6.517
+  n=3000 lr=0.01                     P  5.222 worst  6.528
+
+=== TOP 10 ===
+  alpha=2.0                          P  5.151 worst  6.503
+  num_leaves=11                      P  5.193 worst  6.585
+  reference (v7 knobs)               P  5.201 worst  6.539
+  subsample=0.6                      P  5.206 worst  6.612
+  n=1800 lr=0.015                    P  5.207 worst  6.517
+  reg_lambda=1.0                     P  5.215 worst  6.589
+  colsample=0.85                     P  5.222 worst  6.562
+  n=3000 lr=0.01                     P  5.222 worst  6.528
+  colsample=1.0                      P  5.225 worst  6.514
+  colsample=0.55                     P  5.226 worst  6.618

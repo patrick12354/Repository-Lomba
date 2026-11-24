@@ -1,0 +1,50 @@
+{
+  "session26": {
+    "scored": 2304,
+    "overlapping": 864,
+    "pct": 37.5,
+    "meta_rows": 19968,
+    "meta_rows_after_origin": 7488,
+    "origins_with_future_meta": 15,
+    "per_block": {
+      "B1_last15d": {
+        "scored": 960,
+        "overlapping": 288,
+        "pct": 30.0
+      },
+      "B2_prev15d": {
+        "scored": 480,
+        "overlapping": 288,
+        "pct": 60.0
+      },
+      "B3_shift7d": {
+        "scored": 864,
+        "overlapping": 288,
+        "pct": 33.333333333333336
+      }
+    }
+  },
+  "session27": {
+    "min_meta_rows": 192,
+    "min_meta_days": 4,
+    "origins": 18,
+    "fallback_origins": 6,
+    "calibration_rows": 1152,
+    "calibration_days": 36,
+    "overlapping": 0,
+    "per_block": {
+      "B1_last15d": {
+        "rows": 576,
+        "origins": 6
+      },
+      "B2_prev15d": {
+        "rows": 96,
+        "origins": 1
+      },
+      "B3_shift7d": {
+        "rows": 480,
+        "origins": 5
+      }
+    }
+  }
+}

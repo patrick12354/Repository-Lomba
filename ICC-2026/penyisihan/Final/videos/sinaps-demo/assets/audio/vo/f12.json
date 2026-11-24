@@ -1,0 +1,146 @@
+{
+ "text": "Kuncinya di sini. Tutor LLM ada di ujung rantai. Ia hanya menerima fakta terstruktur dari modul lain, dan kunci jawaban tidak pernah dikirim ke peramban sebelum kamu submit.",
+ "end": 12.16,
+ "words": [
+  {
+   "w": "Kuncinya",
+   "s": 0,
+   "e": 0.48
+  },
+  {
+   "w": "di",
+   "s": 0.52,
+   "e": 0.56
+  },
+  {
+   "w": "sini.",
+   "s": 0.72,
+   "e": 1.36
+  },
+  {
+   "w": "Tutor",
+   "s": 1.6,
+   "e": 1.92
+  },
+  {
+   "w": "LLM",
+   "s": 2,
+   "e": 2.72
+  },
+  {
+   "w": "ada",
+   "s": 2.8,
+   "e": 3.12
+  },
+  {
+   "w": "di",
+   "s": 3.16,
+   "e": 3.2
+  },
+  {
+   "w": "ujung",
+   "s": 3.28,
+   "e": 3.44
+  },
+  {
+   "w": "rantai.",
+   "s": 3.52,
+   "e": 4.48
+  },
+  {
+   "w": "Ia",
+   "s": 4.56,
+   "e": 4.72
+  },
+  {
+   "w": "hanya",
+   "s": 4.8,
+   "e": 4.96
+  },
+  {
+   "w": "menerima",
+   "s": 5,
+   "e": 5.44
+  },
+  {
+   "w": "fakta",
+   "s": 5.48,
+   "e": 5.84
+  },
+  {
+   "w": "terstruktur",
+   "s": 5.96,
+   "e": 6.56
+  },
+  {
+   "w": "dari",
+   "s": 6.64,
+   "e": 6.8
+  },
+  {
+   "w": "modul",
+   "s": 6.88,
+   "e": 7.12
+  },
+  {
+   "w": "lain,",
+   "s": 7.2,
+   "e": 7.84
+  },
+  {
+   "w": "dan",
+   "s": 7.92,
+   "e": 8
+  },
+  {
+   "w": "kunci",
+   "s": 8.08,
+   "e": 8.4
+  },
+  {
+   "w": "jawaban",
+   "s": 8.48,
+   "e": 8.96
+  },
+  {
+   "w": "tidak",
+   "s": 9.12,
+   "e": 9.44
+  },
+  {
+   "w": "pernah",
+   "s": 9.52,
+   "e": 9.68
+  },
+  {
+   "w": "dikirim",
+   "s": 9.72,
+   "e": 10.08
+  },
+  {
+   "w": "ke",
+   "s": 10.16,
+   "e": 10.24
+  },
+  {
+   "w": "peramban",
+   "s": 10.28,
+   "e": 10.72
+  },
+  {
+   "w": "sebelum",
+   "s": 10.8,
+   "e": 11.28
+  },
+  {
+   "w": "kamu",
+   "s": 11.36,
+   "e": 11.52
+  },
+  {
+   "w": "submit.",
+   "s": 11.6,
+   "e": 12.16
+  }
+ ]
+}

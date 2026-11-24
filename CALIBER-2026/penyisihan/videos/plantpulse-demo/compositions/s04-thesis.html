@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #s04 .glow { position: absolute; left: 50%; top: 46%; width: 1400px; height: 800px; margin: -400px 0 0 -700px; border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0)); opacity: 0; }
+        #s04 .kick { position: absolute; left: 0; right: 0; top: 290px; display: flex; justify-content: center; align-items: center; gap: 18px;
+          font: 500 22px/1 var(--mono); letter-spacing: 0.3em; color: var(--accent-ink); }
+        #s04 .kick i { display: block; width: 80px; height: 1px; background: rgba(47, 98, 224, 0.4); }
+        #s04 .lines { position: absolute; left: 0; right: 0; top: 360px; text-align: center; transform-origin: 50% 0; }
+        #s04 .ln { display: block; font-size: 124px; white-space: nowrap; }
+        #s04 .ln + .ln { margin-top: 14px; }
+        #s04 .w { display: inline-block; margin: 0 0.12em; }
+        #s04 .ev { position: relative; color: var(--accent); }
+        #s04 .ev u { position: absolute; left: 2%; right: 12%; bottom: -10px; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: 0 50%; text-decoration: none; display: block; }
+        #s04 .patch { color: var(--ink-3); }
+        #s04 .lock { position: absolute; left: 0; right: 0; top: 452px; height: 290px; display: flex; justify-content: center; align-items: center; gap: 44px; }
+        /* The mascot (keyed from the logo art) on paper: a sky-blue Pipo bloom behind it and a soft contact shadow under its feet. */
+        #s04 .mascot { position: relative; width: 200px; height: 250px; flex: none; }
+        #s04 .mascot .halo { position: absolute; left: 50%; top: 50%; width: 480px; height: 480px; margin: -240px 0 0 -240px; border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(163, 206, 255, 0.75), rgba(163, 206, 255, 0.22) 62%, rgba(163, 206, 255, 0)); }
+        #s04 .mascot .pool { position: absolute; left: 50%; bottom: -14px; width: 280px; height: 40px; margin-left: -140px; border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(38, 48, 78, 0.28), rgba(38, 48, 78, 0)); }
+        #s04 .mascot .body { position: absolute; inset: 0; transform-origin: 50% 100%; }
+        #s04 .mascot img { display: block; width: 100%; height: 100%; object-fit: contain;
+          filter: drop-shadow(0 12px 18px rgba(38, 48, 78, 0.16)); }
+        /* gauge-centre ping: the "pulse" leaves the dial. Centre measured on mascot-figure.png: dial at 50.1% / 46.7%. */
+        #s04 .mascot .ping { position: absolute; left: 50.1%; top: 46.7%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 3px solid var(--accent); opacity: 0; }
+        #s04 .wm { flex: none; font: 700 132px/1 var(--sans); letter-spacing: -0.045em; color: var(--ink-hi); white-space: nowrap; }
+        #s04 .wm em { font-style: normal; color: var(--accent); }
+        #s04 .sub { position: absolute; left: 0; right: 0; top: 786px; text-align: center; font: 500 30px/1 var(--sans); color: var(--ink-2); }
+      </style>
+      <div data-hf-id="hf-z6a3" id="root" data-composition-id="s04-thesis" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-hme5" class="pp" id="s04">
+          <div data-hf-id="hf-29u6" class="glow" id="s04-glow"></div>
+          <div data-hf-id="hf-0rug" class="kick" id="s04-kick"><i data-hf-id="hf-wt6k"></i>ONE SIMPLE RULE<i data-hf-id="hf-zeb8"></i></div>
+          <div data-hf-id="hf-5xro" class="lines" id="s04-lines">
+            <span data-hf-id="hf-ogjh" class="ln display"><span data-hf-id="hf-ufi3" class="w">Check</span><span data-hf-id="hf-wozh" class="w">the</span><span data-hf-id="hf-6lqo" class="w ev">pulse,<u data-hf-id="hf-v66a" id="s04-u"></u></span></span>
+            <span data-hf-id="hf-phw1" class="ln display"><span data-hf-id="hf-hs6o" class="w">not</span><span data-hf-id="hf-9o0j" class="w">just</span><span data-hf-id="hf-fj2o" class="w">the</span><span data-hf-id="hf-ala1" class="w patch">patch.</span></span>
+          </div>
+          <div data-hf-id="hf-gytu" class="lock" id="s04-lock">
+            <div data-hf-id="hf-a3va" class="mascot" id="s04-mascot">
+              <div data-hf-id="hf-05gi" class="halo" id="s04-halo"></div><div data-hf-id="hf-pvsy" class="pool" id="s04-pool"></div>
+              <div data-hf-id="hf-28uf" class="ping" id="s04-ping1"></div><div data-hf-id="hf-rdcs" class="ping" id="s04-ping2"></div>
+              <div data-hf-id="hf-5hoa" class="body" id="s04-body"><img data-hf-id="hf-bcdf" src="assets/mascot/mascot-figure.png" alt=""></div>
+            </div>
+            <div data-hf-id="hf-lvpa" class="wm" id="s04-wm">Plant<em data-hf-id="hf-50kg">Pulse</em></div>
+          </div>
+          <div data-hf-id="hf-fkqw" class="sub" id="s04-sub">Reliability decision workspace · CALIBER 2026 Case 2</div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          const words = document.querySelectorAll("#s04 .w");
+          // Word starts of the tagline and of "one" (kicker), scene-local, written by scripts/warp.mjs from the current voice.
+          const at = [3.465,3.744,3.871,4.452,4.754,5.044,5.183];
+          const K0 = 2.362;
+          const L = at[at.length - 1]; // last word ("patch."): the hold and the logo hang off it
+          tl.fromTo("#s04-glow", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 2, ease: "power2.out" }, 0.3);
+          tl.fromTo("#s04-kick", { opacity: 0, scaleX: 1.25 }, { opacity: 1, scaleX: 1, duration: 0.9, ease: "expo.out" }, K0 - 0.05);
+          words.forEach((w, i) => tl.fromTo(w, { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, at[i] - 0.06));
+          // "pulse" gets the accent underline; "patch" lands grey, then gets a quick strike-shake.
+          tl.fromTo("#s04-u", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.inOut" }, at[2] + 0.15);
+          tl.fromTo("#s04 .patch", { rotation: 0 }, { rotation: -3, duration: 0.08, ease: "power1.inOut", yoyo: true, repeat: 3, immediateRender: false }, L + 0.35);
+          // Held frame: nothing moves while the line lands.
+          tl.to("#s04-kick", { opacity: 0, duration: 0.35 }, L + 1.14);
+          tl.to("#s04-lines", { y: -150, scale: 0.6, duration: 0.8, ease: "power3.inOut" }, L + 1.24);
+          // "PlantPulse": the mascot springs up out of the floor (stretch, squash, settle), the dial pings,
+          // and the logo wordmark wipes in beside it.
+          tl.fromTo("#s04-halo", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.9, ease: "expo.out" }, L + 1.74);
+          tl.fromTo("#s04-pool", { opacity: 0, scaleX: 0.3 }, { opacity: 1, scaleX: 1, duration: 0.6, ease: "expo.out" }, L + 1.79);
+          tl.fromTo("#s04-body", { opacity: 0, y: 60, scaleX: 0.55, scaleY: 0.3 }, { opacity: 1, y: -34, scaleX: 0.86, scaleY: 1.16, duration: 0.2, ease: "power2.out" }, L + 1.79);
+          tl.to("#s04-body", { y: 0, scaleX: 1.12, scaleY: 0.86, duration: 0.14, ease: "power2.in" }, L + 1.99);
+          tl.to("#s04-body", { scaleX: 1, scaleY: 1, duration: 0.5, ease: "back.out(3)" }, L + 2.13);
+          tl.fromTo("#s04-ping1", { opacity: 0.9, scale: 0.5 }, { opacity: 0, scale: 2.6, duration: 0.8, ease: "expo.out", immediateRender: false }, L + 2.17);
+          tl.fromTo("#s04-ping2", { opacity: 0.6, scale: 0.5 }, { opacity: 0, scale: 3.4, duration: 1.0, ease: "expo.out", immediateRender: false }, L + 2.31);
+          tl.fromTo("#s04-wm", { clipPath: "inset(0% 100% 0% 0%)", x: -30 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.7, ease: "expo.out" }, L + 2.09);
+          tl.fromTo("#s04-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55, ease: "expo.out" }, L + 2.39);
+          tl.to("#s04-lock, #s04-sub, #s04-lines, #s04-glow", { opacity: 0, scale: 0.96, duration: 0.45, ease: "power2.in" }, L + 2.99);
+          window.__timelines["s04-thesis"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

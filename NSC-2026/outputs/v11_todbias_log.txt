@@ -1,0 +1,27 @@
+features 118   train rows 2933   test rows 734
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4801, 'cat': 0.2278, 'ridge': 0.05, 'enet': 0.1921, 'ridge_e': 0.05}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.536, 'cat': 0.1795, 'ridge': 0.05, 'enet': 0.1845, 'ridge_e': 0.05}
+  band 1: {'hbt': 0.4613, 'cat': 0.1717, 'ridge': 0.1154, 'enet': 0.121, 'ridge_e': 0.1306}
+  band 2: {'hbt': 0.452, 'cat': 0.3138, 'ridge': 0.05, 'enet': 0.121, 'ridge_e': 0.0631}
+time-of-day bias correction (band minus global, shrunk 0.50): [-0.423  0.692 -0.269]
+CV: mean 4.8149  worst 6.1568
+  per fold: [np.float64(6.122), np.float64(6.157), np.float64(5.83), np.float64(5.63), np.float64(4.701), np.float64(3.917), np.float64(3.411), np.float64(3.375), np.float64(4.191)]
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+dispersion check: CV fold prediction std 16.09-17.51   test prediction std 18.82
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v11_seed5.csv
+prediction summary: {'count': 734.0, 'mean': 56.832, 'std': 18.83, 'min': 23.439, '25%': 38.267, '50%': 61.104, '75%': 73.841, 'max': 89.259}

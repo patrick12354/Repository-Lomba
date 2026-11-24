@@ -1,0 +1,4 @@
+block,n,min_lead_hours,max_lead_hours,score_window_hours
+B1_last15d,576,144.5,192.0,48
+B2_prev15d,96,144.5,192.0,48
+B3_shift7d,480,144.5,192.0,48

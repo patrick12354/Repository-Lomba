@@ -1,0 +1,337 @@
+{
+  "created": "2026-09-06T23:39:10",
+  "arms": [
+    "C0",
+    "L0",
+    "S1",
+    "S2"
+  ],
+  "kinds": {
+    "C0": null,
+    "L0": "linear",
+    "S1": "additive",
+    "S2": "pairwise"
+  },
+  "blocks": [
+    "15d",
+    "7d"
+  ],
+  "drivers": [
+    "T",
+    "T_min48",
+    "T_rng48",
+    "air_temperature_a24h",
+    "co2_c24h",
+    "co2_a24h",
+    "co2_slope",
+    "pressure_a24h"
+  ],
+  "harmonics": [
+    "sin1",
+    "cos1",
+    "sin2",
+    "cos2"
+  ],
+  "interactions": [
+    [
+      "T",
+      "T_min48"
+    ],
+    [
+      "T",
+      "co2_c24h"
+    ]
+  ],
+  "n_knots": 4,
+  "degree": 3,
+  "ridge_lambda": 0.01,
+  "clip": [
+    5.0,
+    100.0
+  ],
+  "lgb_kw": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 900,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 25,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.7,
+    "reg_lambda": 3.0,
+    "verbose": -1
+  },
+  "seeds_fit": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "models": [
+    "hbt",
+    "cat",
+    "ridge",
+    "enet",
+    "ridge_e",
+    "l2"
+  ],
+  "blend_shrink": 0.25,
+  "increment": {
+    "physics": false,
+    "deshrink": false,
+    "lags": false
+  },
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "helper_code": {
+    "src/v21_level_hybrid.py": "5ac6f032b252bb332bd7d1ba2e7559d1",
+    "src/an84_v21_level_hybrid_benchmark.py": "2569338512c14fd915f61d20f8292ef1"
+  },
+  "incumbent_submission_md5": "5396077ee744458aa8d21b2ea336f61a",
+  "provenance": [
+    {
+      "arm": "L0",
+      "block": "B1_last15d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2213,
+      "ridge_alpha": 22.13,
+      "rmse_g_train": 6.331389441953749,
+      "rmse_q_train": 1.13664192761175,
+      "digest": "6ef980abcdd1ccfafe2fe936d95ab855"
+    },
+    {
+      "arm": "S1",
+      "block": "B1_last15d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2213,
+      "ridge_alpha": 22.13,
+      "rmse_g_train": 5.297437398177987,
+      "rmse_q_train": 1.1034028045759885,
+      "digest": "b487a3ac99d198cee4ed008097cfb2b3"
+    },
+    {
+      "arm": "S2",
+      "block": "B1_last15d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2213,
+      "ridge_alpha": 22.13,
+      "rmse_g_train": 4.985917509790836,
+      "rmse_q_train": 1.0877805870577373,
+      "digest": "d846dc281f4ea1b97a61c87346b3b10f"
+    },
+    {
+      "arm": "L0",
+      "block": "B2_prev15d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1493,
+      "ridge_alpha": 14.93,
+      "rmse_g_train": 5.937063788452353,
+      "rmse_q_train": 0.8074617621127984,
+      "digest": "eda3fd4073a9058fd482c198d5bb23c6"
+    },
+    {
+      "arm": "S1",
+      "block": "B2_prev15d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1493,
+      "ridge_alpha": 14.93,
+      "rmse_g_train": 4.442176016933154,
+      "rmse_q_train": 0.761230022851892,
+      "digest": "7e79618c46c665d1442c5757b8bb888f"
+    },
+    {
+      "arm": "S2",
+      "block": "B2_prev15d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1493,
+      "ridge_alpha": 14.93,
+      "rmse_g_train": 4.100221574830957,
+      "rmse_q_train": 0.7439608341599698,
+      "digest": "e4a76a64f8d71e1871d1557f42f00dd2"
+    },
+    {
+      "arm": "L0",
+      "block": "B3_shift7d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1877,
+      "ridge_alpha": 18.77,
+      "rmse_g_train": 6.356745124455697,
+      "rmse_q_train": 1.019593695587902,
+      "digest": "4a9652068becb47391f254fe01665dfa"
+    },
+    {
+      "arm": "S1",
+      "block": "B3_shift7d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1877,
+      "ridge_alpha": 18.77,
+      "rmse_g_train": 5.192043954806638,
+      "rmse_q_train": 0.9813071080437462,
+      "digest": "f6d2094929b0527dd0155e16ea62bb70"
+    },
+    {
+      "arm": "S2",
+      "block": "B3_shift7d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1877,
+      "ridge_alpha": 18.77,
+      "rmse_g_train": 4.784276355689799,
+      "rmse_q_train": 0.9675489857806242,
+      "digest": "fdcf8c071bfdc37a85fed3289ffceffb"
+    },
+    {
+      "arm": "L0",
+      "block": "H1_last7d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2597,
+      "ridge_alpha": 25.97,
+      "rmse_g_train": 6.041041333088725,
+      "rmse_q_train": 1.2087147225456933,
+      "digest": "2ba1eb96d133589734911872d598d804"
+    },
+    {
+      "arm": "S1",
+      "block": "H1_last7d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2597,
+      "ridge_alpha": 25.97,
+      "rmse_g_train": 5.026230124052263,
+      "rmse_q_train": 1.1744267144885052,
+      "digest": "6b8c8de1aada1fca70e619c16f6b0221"
+    },
+    {
+      "arm": "S2",
+      "block": "H1_last7d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2597,
+      "ridge_alpha": 25.97,
+      "rmse_g_train": 4.759826207301178,
+      "rmse_q_train": 1.1552696479537181,
+      "digest": "e8146f896617946f6feca84bf294221f"
+    },
+    {
+      "arm": "L0",
+      "block": "H2_last14d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2261,
+      "ridge_alpha": 22.61,
+      "rmse_g_train": 6.288276959167389,
+      "rmse_q_train": 1.1592606031204626,
+      "digest": "b33e9f690657677d1d55a6e3875b4b49"
+    },
+    {
+      "arm": "S1",
+      "block": "H2_last14d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2261,
+      "ridge_alpha": 22.61,
+      "rmse_g_train": 5.281748766802763,
+      "rmse_q_train": 1.1156860256255576,
+      "digest": "c03314b8f5aaf0bef81691c6fbccf1dc"
+    },
+    {
+      "arm": "S2",
+      "block": "H2_last14d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 2261,
+      "ridge_alpha": 22.61,
+      "rmse_g_train": 4.972500093278329,
+      "rmse_q_train": 1.0967271128693534,
+      "digest": "f9736056082f89ed35ea50daef2ad73c"
+    },
+    {
+      "arm": "L0",
+      "block": "H3_last21d",
+      "kind": "linear",
+      "n_basis": 12,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1925,
+      "ridge_alpha": 19.25,
+      "rmse_g_train": 6.489740381164707,
+      "rmse_q_train": 1.058373852590786,
+      "digest": "2195253c3d9a2ecf296b360c2cdd794c"
+    },
+    {
+      "arm": "S1",
+      "block": "H3_last21d",
+      "kind": "additive",
+      "n_basis": 44,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1925,
+      "ridge_alpha": 19.25,
+      "rmse_g_train": 5.2940593035097425,
+      "rmse_q_train": 1.0115674722409909,
+      "digest": "26440f128a42ee185573305a07c26a2c"
+    },
+    {
+      "arm": "S2",
+      "block": "H3_last21d",
+      "kind": "pairwise",
+      "n_basis": 94,
+      "n_dropped": 0,
+      "fallback": [],
+      "n_train": 1925,
+      "ridge_alpha": 19.25,
+      "rmse_g_train": 4.935778268136092,
+      "rmse_q_train": 1.0052872865442222,
+      "digest": "0f0ca166be8cd2521b36d8f16fe98b5e"
+    }
+  ]
+}

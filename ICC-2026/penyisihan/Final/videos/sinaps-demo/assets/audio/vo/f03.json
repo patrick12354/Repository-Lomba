@@ -1,0 +1,326 @@
+{
+ "text": "Dan jam terus berjalan. Setiap menit, otak kehilangan satu koma sembilan juta neuron, dan obat itu hanya bisa diberikan dalam empat setengah jam. Di Indonesia, stroke menyumbang delapan belas koma lima persen kematian. Tapi pembaca citranya langka. Radiolog hanya nol koma delapan per seratus ribu penduduk, enam belas kali lebih sedikit dari rerata Uni Eropa. Radiolog yang langka inilah yang juga mengajar di kampus.",
+ "end": 28.24,
+ "words": [
+  {
+   "w": "Dan",
+   "s": 0,
+   "e": 0.24
+  },
+  {
+   "w": "jam",
+   "s": 0.4,
+   "e": 0.64
+  },
+  {
+   "w": "terus",
+   "s": 0.72,
+   "e": 1.12
+  },
+  {
+   "w": "berjalan.",
+   "s": 1.24,
+   "e": 2.24
+  },
+  {
+   "w": "Setiap",
+   "s": 2.36,
+   "e": 2.64
+  },
+  {
+   "w": "menit,",
+   "s": 2.76,
+   "e": 3.28
+  },
+  {
+   "w": "otak",
+   "s": 3.4,
+   "e": 3.6
+  },
+  {
+   "w": "kehilangan",
+   "s": 3.68,
+   "e": 4.16
+  },
+  {
+   "w": "satu",
+   "s": 4.24,
+   "e": 4.56
+  },
+  {
+   "w": "koma",
+   "s": 4.64,
+   "e": 4.8
+  },
+  {
+   "w": "sembilan",
+   "s": 4.88,
+   "e": 5.2
+  },
+  {
+   "w": "juta",
+   "s": 5.44,
+   "e": 5.68
+  },
+  {
+   "w": "neuron,",
+   "s": 5.76,
+   "e": 6.48
+  },
+  {
+   "w": "dan",
+   "s": 6.56,
+   "e": 6.64
+  },
+  {
+   "w": "obat",
+   "s": 6.72,
+   "e": 6.88
+  },
+  {
+   "w": "itu",
+   "s": 6.96,
+   "e": 7.36
+  },
+  {
+   "w": "hanya",
+   "s": 7.44,
+   "e": 7.68
+  },
+  {
+   "w": "bisa",
+   "s": 7.76,
+   "e": 8
+  },
+  {
+   "w": "diberikan",
+   "s": 8.04,
+   "e": 8.48
+  },
+  {
+   "w": "dalam",
+   "s": 8.52,
+   "e": 8.8
+  },
+  {
+   "w": "empat",
+   "s": 8.92,
+   "e": 9.12
+  },
+  {
+   "w": "setengah",
+   "s": 9.2,
+   "e": 9.52
+  },
+  {
+   "w": "jam.",
+   "s": 9.6,
+   "e": 10.48
+  },
+  {
+   "w": "Di",
+   "s": 10.52,
+   "e": 10.56
+  },
+  {
+   "w": "Indonesia,",
+   "s": 10.64,
+   "e": 11.44
+  },
+  {
+   "w": "stroke",
+   "s": 11.52,
+   "e": 11.84
+  },
+  {
+   "w": "menyumbang",
+   "s": 11.92,
+   "e": 12.32
+  },
+  {
+   "w": "delapan",
+   "s": 12.44,
+   "e": 12.72
+  },
+  {
+   "w": "belas",
+   "s": 12.8,
+   "e": 12.96
+  },
+  {
+   "w": "koma",
+   "s": 13.12,
+   "e": 13.28
+  },
+  {
+   "w": "lima",
+   "s": 13.36,
+   "e": 13.52
+  },
+  {
+   "w": "persen",
+   "s": 13.6,
+   "e": 13.92
+  },
+  {
+   "w": "kematian.",
+   "s": 14,
+   "e": 15.04
+  },
+  {
+   "w": "Tapi",
+   "s": 15.08,
+   "e": 15.44
+  },
+  {
+   "w": "pembaca",
+   "s": 15.52,
+   "e": 15.84
+  },
+  {
+   "w": "citranya",
+   "s": 15.88,
+   "e": 16.4
+  },
+  {
+   "w": "langka.",
+   "s": 16.56,
+   "e": 17.36
+  },
+  {
+   "w": "Radiolog",
+   "s": 17.44,
+   "e": 18
+  },
+  {
+   "w": "hanya",
+   "s": 18.107,
+   "e": 18.32
+  },
+  {
+   "w": "nol",
+   "s": 18.48,
+   "e": 18.64
+  },
+  {
+   "w": "koma",
+   "s": 18.72,
+   "e": 18.88
+  },
+  {
+   "w": "delapan",
+   "s": 18.96,
+   "e": 19.28
+  },
+  {
+   "w": "per",
+   "s": 19.44,
+   "e": 19.52
+  },
+  {
+   "w": "seratus",
+   "s": 19.68,
+   "e": 20.08
+  },
+  {
+   "w": "ribu",
+   "s": 20.16,
+   "e": 20.36
+  },
+  {
+   "w": "penduduk,",
+   "s": 20.4,
+   "e": 21.2
+  },
+  {
+   "w": "enam",
+   "s": 21.28,
+   "e": 21.44
+  },
+  {
+   "w": "belas",
+   "s": 21.52,
+   "e": 21.68
+  },
+  {
+   "w": "kali",
+   "s": 21.84,
+   "e": 22.08
+  },
+  {
+   "w": "lebih",
+   "s": 22.16,
+   "e": 22.32
+  },
+  {
+   "w": "sedikit",
+   "s": 22.4,
+   "e": 22.8
+  },
+  {
+   "w": "dari",
+   "s": 22.84,
+   "e": 23.04
+  },
+  {
+   "w": "rerata",
+   "s": 23.16,
+   "e": 23.52
+  },
+  {
+   "w": "Uni",
+   "s": 23.6,
+   "e": 23.68
+  },
+  {
+   "w": "Eropa.",
+   "s": 23.76,
+   "e": 24.72
+  },
+  {
+   "w": "Radiolog",
+   "s": 24.84,
+   "e": 25.2
+  },
+  {
+   "w": "yang",
+   "s": 25.28,
+   "e": 25.36
+  },
+  {
+   "w": "langka",
+   "s": 25.44,
+   "e": 25.68
+  },
+  {
+   "w": "inilah",
+   "s": 25.76,
+   "e": 26.24
+  },
+  {
+   "w": "yang",
+   "s": 26.36,
+   "e": 26.48
+  },
+  {
+   "w": "juga",
+   "s": 26.56,
+   "e": 26.8
+  },
+  {
+   "w": "mengajar",
+   "s": 26.88,
+   "e": 27.2
+  },
+  {
+   "w": "di",
+   "s": 27.24,
+   "e": 27.28
+  },
+  {
+   "w": "kampus.",
+   "s": 27.36,
+   "e": 28.24
+  }
+ ]
+}

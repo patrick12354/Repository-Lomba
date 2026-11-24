@@ -1,0 +1,868 @@
+[
+ {
+  "id": "line01",
+  "text": "Dari data sensor yang sama, kami membangun dua jalur prediksi yang berbeda.",
+  "start": 0.4,
+  "end": 4.054,
+  "words": [
+   {
+    "w": "Dari",
+    "s": 0.4,
+    "e": 0.635
+   },
+   {
+    "w": "data",
+    "s": 0.679,
+    "e": 0.858
+   },
+   {
+    "w": "sensor",
+    "s": 0.902,
+    "e": 1.159
+   },
+   {
+    "w": "yang",
+    "s": 1.204,
+    "e": 1.315
+   },
+   {
+    "w": "sama,",
+    "s": 1.36,
+    "e": 1.807
+   },
+   {
+    "w": "kami",
+    "s": 1.952,
+    "e": 2.163
+   },
+   {
+    "w": "membangun",
+    "s": 2.209,
+    "e": 2.555
+   },
+   {
+    "w": "dua",
+    "s": 2.599,
+    "e": 2.789
+   },
+   {
+    "w": "jalur",
+    "s": 2.845,
+    "e": 3.057
+   },
+   {
+    "w": "prediksi",
+    "s": 3.102,
+    "e": 3.437
+   },
+   {
+    "w": "yang",
+    "s": 3.47,
+    "e": 3.57
+   },
+   {
+    "w": "berbeda.",
+    "s": 3.604,
+    "e": 4.955
+   }
+  ]
+ },
+ {
+  "id": "line02",
+  "text": "Jalur pertama disebut Level Prediction, yang memperkirakan nilai kelembapan pada setiap titik waktu.",
+  "start": 4.354,
+  "end": 10.109,
+  "words": [
+   {
+    "w": "Jalur",
+    "s": 4.354,
+    "e": 4.633
+   },
+   {
+    "w": "pertama",
+    "s": 4.678,
+    "e": 5.102
+   },
+   {
+    "w": "disebut",
+    "s": 5.147,
+    "e": 5.571
+   },
+   {
+    "w": "Level",
+    "s": 5.705,
+    "e": 6.028
+   },
+   {
+    "w": "Prediction,",
+    "s": 6.107,
+    "e": 6.8
+   },
+   {
+    "w": "yang",
+    "s": 7.178,
+    "e": 7.313
+   },
+   {
+    "w": "memperkirakan",
+    "s": 7.357,
+    "e": 8.061
+   },
+   {
+    "w": "nilai",
+    "s": 8.127,
+    "e": 8.384
+   },
+   {
+    "w": "kelembapan",
+    "s": 8.429,
+    "e": 8.887
+   },
+   {
+    "w": "pada",
+    "s": 8.943,
+    "e": 9.132
+   },
+   {
+    "w": "setiap",
+    "s": 9.166,
+    "e": 9.456
+   },
+   {
+    "w": "titik",
+    "s": 9.501,
+    "e": 9.713
+   },
+   {
+    "w": "waktu.",
+    "s": 9.757,
+    "e": 11.186
+   }
+  ]
+ },
+ {
+  "id": "line03",
+  "text": "Jalur kedua disebut Increment Prediction, yang memperkirakan perubahan kelembapan untuk interval tiga puluh menit dan dua jam.",
+  "start": 10.359,
+  "end": 17.829,
+  "words": [
+   {
+    "w": "Jalur",
+    "s": 10.359,
+    "e": 10.628
+   },
+   {
+    "w": "kedua",
+    "s": 10.672,
+    "e": 10.94
+   },
+   {
+    "w": "disebut",
+    "s": 10.984,
+    "e": 11.319
+   },
+   {
+    "w": "Increment",
+    "s": 11.454,
+    "e": 12.057
+   },
+   {
+    "w": "Prediction,",
+    "s": 12.157,
+    "e": 12.96
+   },
+   {
+    "w": "yang",
+    "s": 13.563,
+    "e": 13.697
+   },
+   {
+    "w": "memperkirakan",
+    "s": 13.731,
+    "e": 14.289
+   },
+   {
+    "w": "perubahan",
+    "s": 14.345,
+    "e": 14.702
+   },
+   {
+    "w": "kelembapan",
+    "s": 14.758,
+    "e": 15.249
+   },
+   {
+    "w": "untuk",
+    "s": 15.316,
+    "e": 15.539
+   },
+   {
+    "w": "interval",
+    "s": 15.584,
+    "e": 15.985
+   },
+   {
+    "w": "tiga",
+    "s": 16.041,
+    "e": 16.242
+   },
+   {
+    "w": "puluh",
+    "s": 16.287,
+    "e": 16.499
+   },
+   {
+    "w": "menit",
+    "s": 16.522,
+    "e": 16.823
+   },
+   {
+    "w": "dan",
+    "s": 16.968,
+    "e": 17.169
+   },
+   {
+    "w": "dua",
+    "s": 17.236,
+    "e": 17.437
+   },
+   {
+    "w": "jam.",
+    "s": 17.537,
+    "e": 18.665
+   }
+  ]
+ },
+ {
+  "id": "line04",
+  "text": "Namun, kedua prediksi ini dapat menghasilkan jawaban yang berbeda.",
+  "start": 18.229,
+  "end": 21.873,
+  "words": [
+   {
+    "w": "Namun,",
+    "s": 18.229,
+    "e": 18.888
+   },
+   {
+    "w": "kedua",
+    "s": 19.122,
+    "e": 19.379
+   },
+   {
+    "w": "prediksi",
+    "s": 19.413,
+    "e": 19.759
+   },
+   {
+    "w": "ini",
+    "s": 19.803,
+    "e": 19.937
+   },
+   {
+    "w": "dapat",
+    "s": 19.982,
+    "e": 20.183
+   },
+   {
+    "w": "menghasilkan",
+    "s": 20.227,
+    "e": 20.719
+   },
+   {
+    "w": "jawaban",
+    "s": 20.774,
+    "e": 21.188
+   },
+   {
+    "w": "yang",
+    "s": 21.244,
+    "e": 21.377
+   },
+   {
+    "w": "berbeda.",
+    "s": 21.411,
+    "e": 22.65
+   }
+  ]
+ },
+ {
+  "id": "line05",
+  "text": "Sebagai contoh, selisih antara dua prediksi level belum tentu sama dengan perubahan yang diperkirakan model increment.",
+  "start": 22.073,
+  "end": 28.994,
+  "words": [
+   {
+    "w": "Sebagai",
+    "s": 22.073,
+    "e": 22.431
+   },
+   {
+    "w": "contoh,",
+    "s": 22.475,
+    "e": 23.133
+   },
+   {
+    "w": "selisih",
+    "s": 23.457,
+    "e": 23.926
+   },
+   {
+    "w": "antara",
+    "s": 23.971,
+    "e": 24.261
+   },
+   {
+    "w": "dua",
+    "s": 24.317,
+    "e": 24.506
+   },
+   {
+    "w": "prediksi",
+    "s": 24.551,
+    "e": 24.92
+   },
+   {
+    "w": "level",
+    "s": 24.976,
+    "e": 25.388
+   },
+   {
+    "w": "belum",
+    "s": 25.768,
+    "e": 25.991
+   },
+   {
+    "w": "tentu",
+    "s": 26.036,
+    "e": 26.259
+   },
+   {
+    "w": "sama",
+    "s": 26.304,
+    "e": 26.582
+   },
+   {
+    "w": "dengan",
+    "s": 26.628,
+    "e": 26.829
+   },
+   {
+    "w": "perubahan",
+    "s": 26.873,
+    "e": 27.253
+   },
+   {
+    "w": "yang",
+    "s": 27.297,
+    "e": 27.386
+   },
+   {
+    "w": "diperkirakan",
+    "s": 27.42,
+    "e": 27.967
+   },
+   {
+    "w": "model",
+    "s": 28.012,
+    "e": 28.302
+   },
+   {
+    "w": "increment.",
+    "s": 28.403,
+    "e": 29.708
+   }
+  ]
+ },
+ {
+  "id": "line06",
+  "text": "Untuk menyelesaikannya, kami menggunakan Temporal Reconciliation berbasis Weighted Least Squares.",
+  "start": 29.394,
+  "end": 36.811,
+  "words": [
+   {
+    "w": "Untuk",
+    "s": 29.394,
+    "e": 29.663
+   },
+   {
+    "w": "menyelesaikannya,",
+    "s": 29.707,
+    "e": 30.723
+   },
+   {
+    "w": "kami",
+    "s": 30.935,
+    "e": 31.181
+   },
+   {
+    "w": "menggunakan",
+    "s": 31.225,
+    "e": 31.761
+   },
+   {
+    "w": "Temporal",
+    "s": 31.862,
+    "e": 32.554
+   },
+   {
+    "w": "Reconciliation",
+    "s": 32.732,
+    "e": 33.782
+   },
+   {
+    "w": "berbasis",
+    "s": 34.061,
+    "e": 34.697
+   },
+   {
+    "w": "Weighted",
+    "s": 34.909,
+    "e": 35.467
+   },
+   {
+    "w": "Least",
+    "s": 35.646,
+    "e": 35.969
+   },
+   {
+    "w": "Squares.",
+    "s": 36.104,
+    "e": 37.744
+   }
+  ]
+ },
+ {
+  "id": "line07",
+  "text": "Prinsipnya adalah mencari satu lintasan kelembapan yang tetap dekat dengan prediksi level, sekaligus meminimalkan ketidaksesuaian terhadap prediksi perubahan.",
+  "start": 37.061,
+  "end": 45.106,
+  "words": [
+   {
+    "w": "Prinsipnya",
+    "s": 37.061,
+    "e": 37.552
+   },
+   {
+    "w": "adalah",
+    "s": 37.586,
+    "e": 37.853
+   },
+   {
+    "w": "mencari",
+    "s": 37.877,
+    "e": 38.189
+   },
+   {
+    "w": "satu",
+    "s": 38.233,
+    "e": 38.434
+   },
+   {
+    "w": "lintasan",
+    "s": 38.478,
+    "e": 38.981
+   },
+   {
+    "w": "kelembapan",
+    "s": 39.037,
+    "e": 39.551
+   },
+   {
+    "w": "yang",
+    "s": 39.595,
+    "e": 39.707
+   },
+   {
+    "w": "tetap",
+    "s": 39.752,
+    "e": 40.03
+   },
+   {
+    "w": "dekat",
+    "s": 40.086,
+    "e": 40.332
+   },
+   {
+    "w": "dengan",
+    "s": 40.377,
+    "e": 40.577
+   },
+   {
+    "w": "prediksi",
+    "s": 40.633,
+    "e": 40.991
+   },
+   {
+    "w": "level,",
+    "s": 41.035,
+    "e": 41.493
+   },
+   {
+    "w": "sekaligus",
+    "s": 41.817,
+    "e": 42.263
+   },
+   {
+    "w": "meminimalkan",
+    "s": 42.319,
+    "e": 42.944
+   },
+   {
+    "w": "ketidaksesuaian",
+    "s": 43.001,
+    "e": 43.793
+   },
+   {
+    "w": "terhadap",
+    "s": 43.837,
+    "e": 44.183
+   },
+   {
+    "w": "prediksi",
+    "s": 44.205,
+    "e": 44.563
+   },
+   {
+    "w": "perubahan.",
+    "s": 44.607,
+    "e": 45.948
+   }
+  ]
+ },
+ {
+  "id": "line08",
+  "text": "Melalui optimasi ini, seluruh titik disesuaikan secara bersama-sama.",
+  "start": 45.506,
+  "end": 49.564,
+  "words": [
+   {
+    "w": "Melalui",
+    "s": 45.506,
+    "e": 45.864
+   },
+   {
+    "w": "optimasi",
+    "s": 45.897,
+    "e": 46.4
+   },
+   {
+    "w": "ini,",
+    "s": 46.466,
+    "e": 47.081
+   },
+   {
+    "w": "seluruh",
+    "s": 47.359,
+    "e": 47.695
+   },
+   {
+    "w": "titik",
+    "s": 47.717,
+    "e": 47.962
+   },
+   {
+    "w": "disesuaikan",
+    "s": 48.007,
+    "e": 48.487
+   },
+   {
+    "w": "secara",
+    "s": 48.531,
+    "e": 48.811
+   },
+   {
+    "w": "bersama-sama.",
+    "s": 48.856,
+    "e": 50.955
+   }
+  ]
+ },
+ {
+  "id": "line09",
+  "text": "Prediksi level menjaga posisi setiap titik, sementara prediksi increment mempertahankan dinamika perubahan antarwaktu.",
+  "start": 49.814,
+  "end": 55.953,
+  "words": [
+   {
+    "w": "Prediksi",
+    "s": 49.814,
+    "e": 50.216
+   },
+   {
+    "w": "level",
+    "s": 50.26,
+    "e": 50.506
+   },
+   {
+    "w": "menjaga",
+    "s": 50.55,
+    "e": 50.852
+   },
+   {
+    "w": "posisi",
+    "s": 50.896,
+    "e": 51.22
+   },
+   {
+    "w": "setiap",
+    "s": 51.265,
+    "e": 51.555
+   },
+   {
+    "w": "titik,",
+    "s": 51.6,
+    "e": 52.18
+   },
+   {
+    "w": "sementara",
+    "s": 52.46,
+    "e": 52.872
+   },
+   {
+    "w": "prediksi",
+    "s": 52.917,
+    "e": 53.274
+   },
+   {
+    "w": "increment",
+    "s": 53.319,
+    "e": 53.698
+   },
+   {
+    "w": "mempertahankan",
+    "s": 53.732,
+    "e": 54.323
+   },
+   {
+    "w": "dinamika",
+    "s": 54.368,
+    "e": 54.77
+   },
+   {
+    "w": "perubahan",
+    "s": 54.815,
+    "e": 55.194
+   },
+   {
+    "w": "antarwaktu.",
+    "s": 55.25,
+    "e": 56.78
+   }
+  ]
+ },
+ {
+  "id": "line10",
+  "text": "Hasilnya bukan sekadar smoothing, atau menghaluskan grafik.",
+  "start": 56.303,
+  "end": 59.05,
+  "words": [
+   {
+    "w": "Hasilnya",
+    "s": 56.303,
+    "e": 56.705
+   },
+   {
+    "w": "bukan",
+    "s": 56.749,
+    "e": 56.95
+   },
+   {
+    "w": "sekadar",
+    "s": 56.984,
+    "e": 57.263
+   },
+   {
+    "w": "smoothing,",
+    "s": 57.308,
+    "e": 57.833
+   },
+   {
+    "w": "atau",
+    "s": 57.899,
+    "e": 58.112
+   },
+   {
+    "w": "menghaluskan",
+    "s": 58.146,
+    "e": 58.625
+   },
+   {
+    "w": "grafik.",
+    "s": 58.67,
+    "e": 59.652
+   }
+  ]
+ },
+ {
+  "id": "line11",
+  "text": "Kami merekonstruksi rangkaian prediksi berdasarkan dua sumber informasi yang saling melengkapi.",
+  "start": 59.25,
+  "end": 64.657,
+  "words": [
+   {
+    "w": "Kami",
+    "s": 59.25,
+    "e": 59.529
+   },
+   {
+    "w": "merekonstruksi",
+    "s": 59.574,
+    "e": 60.165
+   },
+   {
+    "w": "rangkaian",
+    "s": 60.221,
+    "e": 60.623
+   },
+   {
+    "w": "prediksi",
+    "s": 60.679,
+    "e": 61.114
+   },
+   {
+    "w": "berdasarkan",
+    "s": 61.181,
+    "e": 61.761
+   },
+   {
+    "w": "dua",
+    "s": 61.817,
+    "e": 62.119
+   },
+   {
+    "w": "sumber",
+    "s": 62.163,
+    "e": 62.431
+   },
+   {
+    "w": "informasi",
+    "s": 62.487,
+    "e": 63.146
+   },
+   {
+    "w": "yang",
+    "s": 63.425,
+    "e": 63.615
+   },
+   {
+    "w": "saling",
+    "s": 63.693,
+    "e": 64.05
+   },
+   {
+    "w": "melengkapi.",
+    "s": 64.095,
+    "e": 65.502
+   }
+  ]
+ },
+ {
+  "id": "line12",
+  "text": "Kini, tujuh ratus tiga puluh empat titik tidak lagi diperlakukan sebagai prediksi terpisah, melainkan sebagai satu lintasan yang saling terhubung.",
+  "start": 65.007,
+  "end": 73.787,
+  "words": [
+   {
+    "w": "Kini,",
+    "s": 65.007,
+    "e": 65.632
+   },
+   {
+    "w": "tujuh",
+    "s": 65.911,
+    "e": 66.313
+   },
+   {
+    "w": "ratus",
+    "s": 66.336,
+    "e": 66.603
+   },
+   {
+    "w": "tiga",
+    "s": 66.649,
+    "e": 66.838
+   },
+   {
+    "w": "puluh",
+    "s": 66.882,
+    "e": 67.117
+   },
+   {
+    "w": "empat",
+    "s": 67.14,
+    "e": 67.407
+   },
+   {
+    "w": "titik",
+    "s": 67.429,
+    "e": 67.798
+   },
+   {
+    "w": "tidak",
+    "s": 67.976,
+    "e": 68.245
+   },
+   {
+    "w": "lagi",
+    "s": 68.289,
+    "e": 68.535
+   },
+   {
+    "w": "diperlakukan",
+    "s": 68.579,
+    "e": 69.16
+   },
+   {
+    "w": "sebagai",
+    "s": 69.204,
+    "e": 69.528
+   },
+   {
+    "w": "prediksi",
+    "s": 69.573,
+    "e": 69.975
+   },
+   {
+    "w": "terpisah,",
+    "s": 70.02,
+    "e": 70.623
+   },
+   {
+    "w": "melainkan",
+    "s": 71.002,
+    "e": 71.471
+   },
+   {
+    "w": "sebagai",
+    "s": 71.516,
+    "e": 71.828
+   },
+   {
+    "w": "satu",
+    "s": 71.851,
+    "e": 72.085
+   },
+   {
+    "w": "lintasan",
+    "s": 72.129,
+    "e": 72.699
+   },
+   {
+    "w": "yang",
+    "s": 72.744,
+    "e": 72.866
+   },
+   {
+    "w": "saling",
+    "s": 72.922,
+    "e": 73.257
+   },
+   {
+    "w": "terhubung.",
+    "s": 73.301,
+    "e": 74.072
+   }
+  ]
+ }
+]

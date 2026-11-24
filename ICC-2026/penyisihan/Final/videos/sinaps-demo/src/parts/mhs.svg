@@ -1,0 +1,14 @@
+<!-- defaults: cls= w=70 skin=#d39a76 hair=#1d2430 scrub=#2f7f8a q=0 -->
+<svg class="mhs {{cls}}" viewBox="0 0 70 130" width="{{w}}" overflow="visible" aria-hidden="true">
+  <ellipse cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g class="mhs-rig">
+    <rect x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path d="M28,54 L35,68 L42,54 Z" fill="{{scrub}}" />
+    <circle cx="35" cy="32" r="19" fill="{{skin}}" />
+    <path d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="{{hair}}" />
+    <circle cx="28" cy="34" r="2.4" fill="#10313a" /><circle cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g class="mhs-q" opacity="{{q}}"><path d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>

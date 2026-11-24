@@ -1,0 +1,15 @@
+stress splits: [('2023-08-07', 144), ('2023-08-10', 144), ('2023-08-16', 144), ('2023-08-19', 144), ('2023-08-22', 144)]
+  split 0  2023-08-07  [150 s]  control 6.4391  debias_cat_25 6.7067  debias_cat_50 6.9955  debias_cat_75 7.3028  debias_cat_100 7.6245  wrong_sign 5.9765  debias_enet 6.4567
+  split 1  2023-08-10  [250 s]  control 4.5983  debias_cat_25 4.3711  debias_cat_50 4.1588  debias_cat_75 3.9637  debias_cat_100 3.7881  wrong_sign 5.0873  debias_enet 4.8087
+  split 2  2023-08-16  [261 s]  control 3.4813  debias_cat_25 3.4886  debias_cat_50 3.4998  debias_cat_75 3.5133  debias_cat_100 3.5285  wrong_sign 3.4833  debias_enet 3.4721
+  split 3  2023-08-19  [186 s]  control 1.8978  debias_cat_25 1.8563  debias_cat_50 1.8867  debias_cat_75 1.9705  debias_cat_100 2.0860  wrong_sign 2.2209  debias_enet 1.8993
+  split 4  2023-08-22  [204 s]  control 2.5577  debias_cat_25 2.5721  debias_cat_50 2.5876  debias_cat_75 2.6040  debias_cat_100 2.6212  wrong_sign 2.5329  debias_enet 2.5731
+
+arm                  pooled   d_pooled      worst    d_worst  blocks improved
+control             4.11995   +0.00000    6.43912   +0.00000  0/5
+debias_cat_25       4.15494   +0.03500    6.70666   +0.26755  2/5
+debias_cat_50       4.21274   +0.09280    6.99550   +0.55638  2/5
+debias_cat_75       4.29066   +0.17072    7.30283   +0.86371  1/5
+debias_cat_100      4.38532   +0.26538    7.62453   +1.18541  1/5
+wrong_sign          4.12507   +0.00512    5.97655   -0.46257  2/5
+debias_enet         4.17364   +0.05369    6.45671   +0.01759  1/5

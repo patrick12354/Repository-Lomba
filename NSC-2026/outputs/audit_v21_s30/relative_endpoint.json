@@ -1,0 +1,157 @@
+{
+  "anchor": "v21",
+  "seeds": [
+    20260905,
+    20260906,
+    20260907,
+    20260908,
+    20260909
+  ],
+  "changed_columns": [
+    "dRH_const_e"
+  ],
+  "results": [
+    {
+      "candidate": "v21",
+      "pooled": 5.5358938698,
+      "B1_last15d": 4.2322485291,
+      "B2_prev15d": 6.5863733772,
+      "B3_shift7d": 4.690130627,
+      "n": 1440,
+      "d_pooled": null,
+      "d_mse": null,
+      "d_B1_last15d": null,
+      "d_B2_prev15d": null,
+      "d_B3_shift7d": null,
+      "promotable": null,
+      "d_pooled_vs_s29_arm": null,
+      "boot3_lo": null,
+      "boot3_hi": null
+    },
+    {
+      "candidate": "relative_dynamics_s29",
+      "pooled": 5.5907375622,
+      "B1_last15d": 4.2210790036,
+      "B2_prev15d": 6.6854457611,
+      "B3_shift7d": 4.603417347,
+      "n": 1440,
+      "d_pooled": 0.0548436924,
+      "d_mse": 0.6102255521,
+      "d_B1_last15d": -0.0111695255,
+      "d_B2_prev15d": 0.099072384,
+      "d_B3_shift7d": -0.08671328,
+      "promotable": false,
+      "d_pooled_vs_s29_arm": null,
+      "boot3_lo": null,
+      "boot3_hi": null
+    },
+    {
+      "candidate": "relative_prev_endpoint",
+      "pooled": 5.5895720857,
+      "B1_last15d": 4.2210472787,
+      "B2_prev15d": 6.6835164453,
+      "B3_shift7d": 4.6030166062,
+      "n": 1440,
+      "d_pooled": 0.0536782159,
+      "d_mse": 0.5971951641,
+      "d_B1_last15d": -0.0112012504,
+      "d_B2_prev15d": 0.0971430682,
+      "d_B3_shift7d": -0.0871140208,
+      "promotable": false,
+      "d_pooled_vs_s29_arm": -0.0011654765,
+      "boot3_lo": -0.4218969862,
+      "boot3_hi": 1.7096520456
+    }
+  ],
+  "direction": [
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "v21",
+      "block": "B1_last15d",
+      "alignment": -0.6836686692,
+      "movement_mse": 0.588981186,
+      "d_mse": -0.0946874832,
+      "control_sd": 17.1584584144,
+      "candidate_sd": 17.332408575
+    },
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "v21",
+      "block": "B2_prev15d",
+      "alignment": 0.5866351106,
+      "movement_mse": 0.7024427008,
+      "d_mse": 1.2890778114,
+      "control_sd": 16.201209501,
+      "candidate_sd": 15.9905959352
+    },
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "v21",
+      "block": "B3_shift7d",
+      "alignment": -1.2498371901,
+      "movement_mse": 0.4402737684,
+      "d_mse": -0.8095634217,
+      "control_sd": 17.376909562,
+      "candidate_sd": 17.3230786577
+    },
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "relative_dynamics_s29",
+      "block": "B1_last15d",
+      "alignment": -0.0109778544,
+      "movement_mse": 0.0107100285,
+      "d_mse": -0.0002678259,
+      "control_sd": 17.3391848239,
+      "candidate_sd": 17.332408575
+    },
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "relative_dynamics_s29",
+      "block": "B2_prev15d",
+      "alignment": -0.0391524537,
+      "movement_mse": 0.0133595036,
+      "d_mse": -0.02579295,
+      "control_sd": 16.002930573,
+      "candidate_sd": 15.9905959352
+    },
+    {
+      "arm": "relative_prev_endpoint",
+      "vs": "relative_dynamics_s29",
+      "block": "B3_shift7d",
+      "alignment": -0.015008812,
+      "movement_mse": 0.0113194181,
+      "d_mse": -0.0036893939,
+      "control_sd": 17.3348575914,
+      "candidate_sd": 17.3230786577
+    }
+  ],
+  "bootstrap": {
+    "b3d": {
+      "blocks": 12,
+      "mean": 0.5899469203807979,
+      "lo": -0.42189698623760014,
+      "hi": 1.7096520456201971,
+      "p_worse": 0.862
+    },
+    "b7d": {
+      "blocks": 6,
+      "mean": 0.5765529509400502,
+      "lo": -0.46964995689044464,
+      "hi": 1.6911010993381836,
+      "p_worse": 0.8055
+    },
+    "worst_day": {
+      "date": "2023-08-05",
+      "d_mse": 10.213066565025963,
+      "days_improved": 17,
+      "days": 31,
+      "d_mse_excluding_best_day": 0.6800324099753325
+    }
+  },
+  "code": {
+    "src/an68_v21_relative_endpoint.py": "e1cacacfc51b23b0739679fdbd73110c",
+    "src/an65_v21_relative_dynamics.py": "b7c4155169f14a8525b43ca29c0a7468"
+  },
+  "level_cache_md5": "ca01f4de0014566ee9c327cd4c8f78f9",
+  "note": "methodology control; one column differs from the session-29 arm"
+}

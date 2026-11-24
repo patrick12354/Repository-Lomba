@@ -1,0 +1,26 @@
+incumbent pooled 5.47413
+  spline           pooled 5.63408  (+0.15996)  [35 s]
+     block candidate  steps  inc_rmse   disp   alpha  deshrink_factor
+B1_last15d    spline      1    1.9994 0.9596  3.9811           1.1061
+B1_last15d    spline      4    3.8973 1.0487 15.8489           1.0282
+B2_prev15d    spline      1    2.1992 0.8351  6.3096           1.0785
+B2_prev15d    spline      4    4.8451 0.9156 10.0000           1.0159
+B3_shift7d    spline      1    1.8069 0.9733  3.9811           1.1066
+B3_shift7d    spline      4    3.6654 1.0505 10.0000           1.0302
+  bootstrap dMSE +1.7627 [+0.1357, +3.7311]
+  spline_lgb_half  pooled 5.52589  (+0.05177)  [93 s]
+     block       candidate  steps  inc_rmse   disp   alpha  deshrink_factor
+B1_last15d spline_lgb_half      1    1.8190 0.9066  3.9811           1.1061
+B1_last15d spline_lgb_half      4    3.3927 0.9839 15.8489           1.0282
+B2_prev15d spline_lgb_half      1    2.0338 0.8337  6.3096           1.0785
+B2_prev15d spline_lgb_half      4    4.3457 0.9015 10.0000           1.0159
+B3_shift7d spline_lgb_half      1    1.6214 0.9497  3.9811           1.1066
+B3_shift7d spline_lgb_half      4    3.0349 1.0035 10.0000           1.0302
+  bootstrap dMSE +0.5632 [-0.3045, +1.5987]
+
+            candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot_blocks  boot_mean   boot_lo  boot_hi  boot_p_worse
+incumbent_physics_dsh 5.474126    4.159154    6.529437    4.768597 1440       NaN      NaN           NaN           NaN           NaN        NaN          NaN        NaN       NaN      NaN           NaN
+               spline 5.634084    4.165952    6.791955    4.829161 1440  0.159958 1.776849      0.006798      0.262518      0.060564      False         12.0   1.762742  0.135729 3.731116        0.9955
+      spline_lgb_half 5.525893    4.121918    6.639336    4.749782 1440  0.051767 0.569438     -0.037236      0.109899     -0.018815      False         12.0   0.563230 -0.304491 1.598686        0.8850
+
+PASSES THE SECTION-180 BAR: none

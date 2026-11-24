@@ -1,0 +1,30 @@
+{
+  "python.defaultInterpreterPath": "C:\\Patrick\\coding\\.venv\\Scripts\\python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
+
+  "jupyter.kernels.excludePythonEnvironments": [
+    "C:\\Users\\timot\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "C:\\Users\\timot\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "C:\\Users\\timot\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "C:\\Users\\timot\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+  ],
+  "jupyter.notebookFileRoot": "${fileDirname}",
+  "jupyter.interactiveWindow.cellMarker.default": "# %%",
+
+  "notebook.output.textLineLimit": 60,
+  "notebook.output.scrolling": true,
+
+  "python.analysis.extraPaths": [
+    "C:\\Patrick\\coding\\.venv\\Lib\\site-packages"
+  ],
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true
+  },
+
+  "[python]": {
+    "editor.rulers": [100]
+  }
+}

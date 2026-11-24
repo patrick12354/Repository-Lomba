@@ -1,0 +1,21 @@
+{
+  "eb_twmae_oof": 0.18502,
+  "lb_estimate": 0.19835,
+  "lb_predicted": 0.2003,
+  "bias_rnd": 0.0486,
+  "status": "BELUM DISUBMIT - menunggu slot harian reset",
+  "config": {
+    "wA": 0.55,
+    "wB": 0.35,
+    "wCNN": 0.1,
+    "lam_dec": 0.95,
+    "expansion": "per-subset",
+    "alpha": 1.15,
+    "full_fit_mix": 0.5,
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  }
+}

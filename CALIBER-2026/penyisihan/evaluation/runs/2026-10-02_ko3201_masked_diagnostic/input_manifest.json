@@ -1,0 +1,32 @@
+{
+  "run_id": "2026-10-02_ko3201_masked_diagnostic",
+  "mode": "masked_diagnostic",
+  "cutoff": "2026-04-22",
+  "task": "Masked diagnostic exercise with data cut off at 2026-04-22. Propose hypotheses for the abnormal condition and what to verify next. The outcome is hidden.",
+  "allowed_evidence": [
+    "M-01",
+    "M-02",
+    "M-03"
+  ],
+  "excluded_inputs": [
+    "RCA deck R2 (all slides)",
+    "Incident Database row for the target",
+    "Equipment Info: Linked RCA / AR No., Failure Date, Dominant Failure Mode",
+    "Condition History: Remark column and all rows after cutoff",
+    "Hourly rows after cutoff",
+    "Performance Summary (post-failure)"
+  ],
+  "forbidden_strings": [
+    "babbitt",
+    "cooler tube leak confirmed",
+    "AR-2026-ZCU-0142",
+    "Bearing Distress",
+    "29-Apr",
+    "2026-04-29"
+  ],
+  "source_hashes": {
+    "P2": "70e5870795e3492101e00def9f702ea89688ebc44e106752e669e3bd748c37f6",
+    "E2": "73f16cd575d51af260103bfce4a902adccd7629d72f5dd264842f816f7b940a5"
+  },
+  "model": "claude-opus-5-5"
+}

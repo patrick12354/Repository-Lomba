@@ -1,0 +1,58 @@
+{
+  "control": {
+    "pooled": 4.119945036739378,
+    "d_pooled": 0.0,
+    "worst": 6.439118057437962,
+    "d_worst": 0.0,
+    "blocks_improved": 0,
+    "n_blocks": 5
+  },
+  "debias_cat_25": {
+    "pooled": 4.154944767144104,
+    "d_pooled": 0.03499973040472604,
+    "worst": 6.706663365660214,
+    "d_worst": 0.2675453082222523,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "debias_cat_50": {
+    "pooled": 4.2127434856169215,
+    "d_pooled": 0.0927984488775433,
+    "worst": 6.9954953434691545,
+    "d_worst": 0.5563772860311929,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "debias_cat_75": {
+    "pooled": 4.290661147720578,
+    "d_pooled": 0.17071611098119988,
+    "worst": 7.302827825856687,
+    "d_worst": 0.8637097684187252,
+    "blocks_improved": 1,
+    "n_blocks": 5
+  },
+  "debias_cat_100": {
+    "pooled": 4.385322218717681,
+    "d_pooled": 0.2653771819783026,
+    "worst": 7.624531412820487,
+    "d_worst": 1.1854133553825257,
+    "blocks_improved": 1,
+    "n_blocks": 5
+  },
+  "wrong_sign": {
+    "pooled": 4.12506606785964,
+    "d_pooled": 0.005121031120261854,
+    "worst": 5.976546836701159,
+    "d_worst": -0.4625712207368027,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "debias_enet": {
+    "pooled": 4.17363981073791,
+    "d_pooled": 0.053694773998532064,
+    "worst": 6.456710488389152,
+    "d_worst": 0.017592430951190785,
+    "blocks_improved": 1,
+    "n_blocks": 5
+  }
+}

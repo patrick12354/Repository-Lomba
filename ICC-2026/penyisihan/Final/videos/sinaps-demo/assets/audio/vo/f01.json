@@ -1,0 +1,206 @@
+{
+ "text": "Ini Dika, mahasiswa kedokteran. Minggu depan, ujian blok neurologi: membaca MRI stroke. Masalahnya, kampusnya tidak punya rumah sakit sendiri. Data MRI pasien tersimpan di rumah sakit, dan sifatnya rahasia. Yang ia punya, hanya beberapa gambar dari buku dan slide kuliah.",
+ "end": 19.76,
+ "words": [
+  {
+   "w": "Ini",
+   "s": 0,
+   "e": 0.24
+  },
+  {
+   "w": "Dika,",
+   "s": 0.28,
+   "e": 0.96
+  },
+  {
+   "w": "mahasiswa",
+   "s": 1.04,
+   "e": 1.44
+  },
+  {
+   "w": "kedokteran.",
+   "s": 1.52,
+   "e": 2.36
+  },
+  {
+   "w": "Minggu",
+   "s": 2.56,
+   "e": 2.76
+  },
+  {
+   "w": "depan,",
+   "s": 2.8,
+   "e": 3.36
+  },
+  {
+   "w": "ujian",
+   "s": 3.44,
+   "e": 3.68
+  },
+  {
+   "w": "blok",
+   "s": 3.76,
+   "e": 4
+  },
+  {
+   "w": "neurologi:",
+   "s": 4.04,
+   "e": 4.96
+  },
+  {
+   "w": "membaca",
+   "s": 5.013,
+   "e": 5.52
+  },
+  {
+   "w": "MRI",
+   "s": 5.76,
+   "e": 6.4
+  },
+  {
+   "w": "stroke.",
+   "s": 6.48,
+   "e": 6.96
+  },
+  {
+   "w": "Masalahnya,",
+   "s": 7.44,
+   "e": 8.4
+  },
+  {
+   "w": "kampusnya",
+   "s": 8.44,
+   "e": 8.96
+  },
+  {
+   "w": "tidak",
+   "s": 9.04,
+   "e": 9.2
+  },
+  {
+   "w": "punya",
+   "s": 9.28,
+   "e": 9.52
+  },
+  {
+   "w": "rumah",
+   "s": 9.6,
+   "e": 9.76
+  },
+  {
+   "w": "sakit",
+   "s": 9.8,
+   "e": 10
+  },
+  {
+   "w": "sendiri.",
+   "s": 10.12,
+   "e": 10.72
+  },
+  {
+   "w": "Data",
+   "s": 10.96,
+   "e": 11.2
+  },
+  {
+   "w": "MRI",
+   "s": 11.28,
+   "e": 11.6
+  },
+  {
+   "w": "pasien",
+   "s": 11.68,
+   "e": 12.16
+  },
+  {
+   "w": "tersimpan",
+   "s": 12.24,
+   "e": 12.72
+  },
+  {
+   "w": "di",
+   "s": 12.76,
+   "e": 12.8
+  },
+  {
+   "w": "rumah",
+   "s": 12.88,
+   "e": 13.04
+  },
+  {
+   "w": "sakit,",
+   "s": 13.08,
+   "e": 13.76
+  },
+  {
+   "w": "dan",
+   "s": 13.84,
+   "e": 13.92
+  },
+  {
+   "w": "sifatnya",
+   "s": 14,
+   "e": 14.4
+  },
+  {
+   "w": "rahasia.",
+   "s": 14.48,
+   "e": 15.4
+  },
+  {
+   "w": "Yang",
+   "s": 15.68,
+   "e": 15.84
+  },
+  {
+   "w": "ia",
+   "s": 15.92,
+   "e": 16
+  },
+  {
+   "w": "punya,",
+   "s": 16.08,
+   "e": 16.72
+  },
+  {
+   "w": "hanya",
+   "s": 16.8,
+   "e": 16.96
+  },
+  {
+   "w": "beberapa",
+   "s": 17,
+   "e": 17.36
+  },
+  {
+   "w": "gambar",
+   "s": 17.44,
+   "e": 17.76
+  },
+  {
+   "w": "dari",
+   "s": 17.84,
+   "e": 18
+  },
+  {
+   "w": "buku",
+   "s": 18.08,
+   "e": 18.48
+  },
+  {
+   "w": "dan",
+   "s": 18.56,
+   "e": 18.64
+  },
+  {
+   "w": "slide",
+   "s": 18.8,
+   "e": 19.04
+  },
+  {
+   "w": "kuliah.",
+   "s": 19.12,
+   "e": 19.76
+  }
+ ]
+}

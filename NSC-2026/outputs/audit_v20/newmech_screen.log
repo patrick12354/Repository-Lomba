@@ -1,0 +1,21 @@
+  B1_last15d  es_ref 38.551 hPa
+     base 4.25458  incumbent +0.0000  add_vp_half +0.0108  add_vp_full +0.0300  vp_instead_of_rh -0.0178  gls_rows -0.0037  gls_plus_vp +0.0046
+  B2_prev15d  es_ref 39.627 hPa
+     base 6.75486  incumbent +0.0000  add_vp_half -0.0005  add_vp_full +0.0095  vp_instead_of_rh +0.1370  gls_rows +0.0217  gls_plus_vp +0.0179
+  B3_shift7d  es_ref 38.725 hPa
+     base 4.84892  incumbent +0.0000  add_vp_half -0.0297  add_vp_full -0.0417  vp_instead_of_rh +0.0192  gls_rows +0.0055  gls_plus_vp -0.0230
+
+     block   n     base  incumbent  add_vp_half  add_vp_full  vp_instead_of_rh  gls_rows  gls_plus_vp  pw_spread_h1  pw_spread_h4
+B1_last15d 720 4.254583   4.211930     4.222703     4.241936          4.194148  4.208208     4.216540      0.683450      0.648966
+B2_prev15d 720 6.754858   6.601144     6.600605     6.610636          6.738146  6.622823     6.619092      0.659207      0.748029
+B3_shift7d 720 4.848921   4.736464     4.706805     4.694746          4.755670  4.741964     4.713454      0.719362      0.697588
+
+                 mean_delta_vs_incumbent blocks_better blocks mean_vs_base worst_block adopted
+incumbent                            0.0             0      3    -0.102941    6.601144   False
+add_vp_half                    -0.006475             2      3    -0.109416    6.600605    True
+add_vp_full                     -0.00074             1      3    -0.103682    6.610636   False
+vp_instead_of_rh                0.046142             1      3    -0.056799    6.738146   False
+gls_rows                        0.007819             1      3    -0.095122    6.622823   False
+gls_plus_vp                    -0.000151             1      3    -0.103092    6.619092   False
+
+PASSES THE PRE-REGISTERED BAR: ['add_vp_half']

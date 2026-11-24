@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #s08 .cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1905px; transform-origin: 0 0; }
+        #s08 .cam .plate { left: 0; top: 0; width: 1920px; height: 1905px; border-radius: 26px; }
+        #s08 .live { position: absolute; left: 673px; top: 451px; width: 850px; height: 622px; }
+        #s08 .row { position: absolute; left: 349px; width: 300px; height: 48px; border-radius: 10px; }
+        #s08 .pass { border: 2.5px solid var(--ok); box-shadow: 0 0 0 5px rgba(29, 154, 99, 0.13); background: rgba(29, 154, 99, 0.06); }
+        #s08 .fail { border: 2.5px solid var(--danger); box-shadow: 0 0 0 5px rgba(214, 60, 67, 0.13); background: rgba(214, 60, 67, 0.06); }
+        #s08 .pend { border: 2px dashed rgba(24, 38, 72, 0.4); }
+        #s08 .side { position: absolute; left: 1060px; top: 210px; width: 790px; padding: 36px 40px 40px; border-radius: 24px; background: rgba(255, 255, 255, 0.97); border: 1px solid var(--line-2); box-shadow: var(--shadow-pop); }
+        #s08 .side .n { font-size: 150px; }
+        #s08 .side .n small { font-size: 70px; color: var(--ink-3); }
+        #s08 .side .t { margin-top: 18px; font: 600 38px/1.2 var(--sans); color: var(--ink-hi); }
+        #s08 .side .chips { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+        #s08 .gl { position: absolute; left: 70px; top: 720px; width: 820px; }
+      </style>
+      <div data-hf-id="hf-tyqk" id="root" data-composition-id="s08-checkup" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-nvld" class="pp" id="s08">
+          <div data-hf-id="hf-m7dd" class="bg"></div>
+          <div data-hf-id="hf-e1y4" class="cam" id="s08-cam">
+            <div data-hf-id="hf-69d8" class="plate">
+              <img data-hf-id="hf-avq7" src="assets/captures/inv-full.jpg" alt="" class="shot">
+              <video data-hf-id="hf-hkap" id="s08-mach" class="live" src="assets/clips/machine.mp4" muted playsinline data-start="0" data-duration="13.3" data-playback-rate="0.53" data-track-index="1"></video>
+              <!-- condition rows (pass) -->
+              <div data-hf-id="hf-qh40" class="row pass" id="s08-c1" style="top: 503px"></div>
+              <div data-hf-id="hf-csme" class="row pass" id="s08-c2" style="top: 553px"></div>
+              <div data-hf-id="hf-efcd" class="row pass" id="s08-c3" style="top: 603px"></div>
+              <div data-hf-id="hf-dozy" class="row pass" id="s08-c4" style="top: 652px"></div>
+              <!-- RCA follow-through rows -->
+              <div data-hf-id="hf-gq46" class="row pass" id="s08-f1" style="top: 737px"></div>
+              <div data-hf-id="hf-9s4b" class="row fail" id="s08-f2" style="top: 787px"></div>
+              <div data-hf-id="hf-cej3" class="row pend" id="s08-f3" style="top: 837px"></div>
+              <div data-hf-id="hf-rwnm" class="row fail" id="s08-f4" style="top: 887px"></div>
+              <div data-hf-id="hf-y51s" class="row fail" id="s08-f5" style="top: 936px"></div>
+              <div data-hf-id="hf-1xw8" class="row fail" id="s08-f6" style="top: 986px"></div>
+              <div data-hf-id="hf-en5v" class="callout ok" id="s08-gauge" style="left: 1546px; top: 404px; width: 290px; height: 268px; border-radius: 16px"></div>
+            </div>
+          </div>
+          <div data-hf-id="hf-ywx6" class="band-scrim" id="s08-bs" style="top: 660px; height: 260px"></div>
+          <div data-hf-id="hf-0ice" class="gl" id="s08-gl"><span data-hf-id="hf-czl7" class="chip ok">4 of 4 readings inside their own limits</span></div>
+          <div data-hf-id="hf-9rz2" class="side" id="s08-side">
+            <div data-hf-id="hf-wrf7" class="n display" id="s08-n">1<small data-hf-id="hf-4lf3"> / 6</small></div>
+            <div data-hf-id="hf-4l6x" class="t">RCA actions recorded Closed</div>
+            <div data-hf-id="hf-exrd" class="chips"><span data-hf-id="hf-l1y1" class="chip danger">4 past plan date</span><span data-hf-id="hf-u3r9" class="chip">1 open, not due</span><span data-hf-id="hf-fsbq" class="chip src">R2 · slide 9–10</span></div>
+          </div>
+          <div data-hf-id="hf-fzeo" class="label" id="s08-gaugelab" style="left: 1330px; top: 300px">A count of recorded checks, never a score<small data-hf-id="hf-y0oz">4 readings + 6 actions + 1 reviewer sign-off</small></div>
+          <div data-hf-id="hf-50cz" id="s08-kq" style="position: absolute; left: 60px; top: 22px"><span data-hf-id="hf-76yz" class="chip kq">KQ2 · KPI hit / miss · machine checkup</span></div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          const cam = "#s08-cam";
+          // Arrive on the checkup row (checklist | live 3D machine | checks passed).
+          tl.fromTo(cam, { x: 1200, y: -386, scale: 1.2, opacity: 0.4 }, { x: -345.6, y: -386, scale: 1.2, opacity: 1, duration: 0.9, ease: "expo.out" }, 0);
+          tl.fromTo("#s08-kq", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 0.3);
+          // "pins every reading to the part where it is measured": checklist + machine together.
+          tl.to(cam, { x: -314, y: -528, scale: 1.37, duration: 1.1, ease: "power3.inOut" }, 1.9);
+          tl.to(cam, { x: -340, y: -560, scale: 1.41, duration: 3.6, ease: "none" }, 3.0);
+          // "All four readings are inside their limits."
+          ["#s08-c1", "#s08-c2", "#s08-c3", "#s08-c4"].forEach((s, i) => tl.fromTo(s, { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.3, ease: "expo.out" }, 5.5 + i * 0.16));
+          tl.fromTo("#s08-bs", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.2);
+          tl.fromTo("#s08-gl", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 6.35);
+          // "But only one of six RCA actions is closed."
+          tl.to("#s08-gl, #s08-bs", { opacity: 0, duration: 0.3 }, 7.4);
+          tl.to(cam, { x: -233.6, y: -922, scale: 1.6, duration: 1.0, ease: "power3.inOut" }, 7.4);
+          tl.to("#s08-c1, #s08-c2, #s08-c3, #s08-c4", { opacity: 0, duration: 0.3 }, 7.5);
+          tl.fromTo("#s08-f1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.0);
+          ["#s08-f2", "#s08-f3", "#s08-f4", "#s08-f5", "#s08-f6"].forEach((s, i) => tl.fromTo(s, { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.25, ease: "expo.out" }, 8.4 + i * 0.13));
+          tl.fromTo("#s08-side", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 8.05);
+          // "Five of eleven checks pass."
+          tl.to("#s08-side", { opacity: 0, x: 40, duration: 0.35, ease: "power2.in" }, 10.2);
+          tl.to(cam, { x: -2758, y: -719, scale: 2.2, duration: 1.0, ease: "power3.inOut" }, 10.25);
+          tl.fromTo("#s08-gauge", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 10.9);
+          tl.fromTo("#s08-gaugelab", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 11.2);
+          tl.to("#s08 > *:not(.bg)", { x: "-=240", opacity: 0, duration: 0.5, ease: "power2.in" }, 13.25);
+          // time-warp (written by scripts/warp.mjs): [authored s, current s] anchors through every spoken word.
+          const WARP = [[0,0],[0.756,0.5],[0.969,0.709],[1.865,1.649],[2.377,2.056],[3.145,3.135],[3.529,3.461],[4.041,4.064],[4.127,4.227],[4.34,4.691],[4.639,5.19],[5.535,5.69],[5.748,5.992],[6.004,6.27],[7.753,7.57],[7.881,7.791],[8.095,8.116],[8.393,8.337],[8.521,8.522],[9.375,9.533],[9.716,10.101],[10.74,11.239],[11.081,11.622],[11.209,11.866],[11.508,12.331],[11.764,12.714],[12.151,13.317],[13.8,14.42]];
+          window.__timelines["s08-checkup"] = ((src, P) => {
+            const end = P[P.length - 1];
+            const back = (t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][1]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return a0 + (a1 - a0) * ((t - b0) / (b1 - b0)); } return end[0]; };
+            const w = gsap.timeline({ paused: true });
+            w.fromTo(src, { time: 0 }, { time: end[0], duration: end[1], ease: (p) => back(p * end[1]) / end[0], immediateRender: true });
+            return w;
+          })(tl, WARP);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

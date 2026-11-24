@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/pp.css"><link rel="stylesheet" href="common.css">
+<style>
+  .after { position: absolute; inset: 0; background: radial-gradient(700px 600px at 78% 60%, rgba(29,154,99,.5), transparent 72%), #eaf7ef; }
+  .grid { position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(rgba(13,106,66,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(13,106,66,.12) 1px, transparent 1px); background-size: 80px 80px; }
+  .tornwrap { position: absolute; inset: 0; filter: drop-shadow(18px 6px 22px rgba(38,48,78,.5)); }
+  .fiber { position: absolute; inset: 0; background: #fffdf7; }
+  .before { position: absolute; inset: 0; background: radial-gradient(650px 560px at 28% 60%, rgba(214,60,67,.6), transparent 72%), #ffe9e3; }
+  .before .paper { position: absolute; inset: 0; background: inherit; }
+  .edge { position: absolute; top: 0; height: 1080px; width: 80px; }
+  .machine { width: 820px; top: 500px; }
+  .m2 { left: 1080px; }
+  .h { position: absolute; top: 60px; font: 700 160px/0.86 var(--display); letter-spacing: -0.055em; }
+  .h2 { right: 70px; text-align: right; color: var(--ok); text-shadow: 0 7px 0 #0a4d30; }
+  .pv { position: absolute; right: 76px; top: 410px; padding: 12px 24px; border-radius: 999px; background: var(--ok); color: #fff; font: 700 38px/1 var(--mono); letter-spacing: .1em; }
+  .mascot { left: 900px; bottom: 26px; height: 280px; transform: rotate(10deg); }
+  .wm { right: 70px; bottom: 50px; }
+</style></head><body>
+<div class="after"></div><div class="grid"></div>
+<svg class="machine m2" viewBox="0 0 1000 560"><!-- art:compressor:c3 --><!-- /art --></svg>
+<div class="h h2">FIXED.<br>PROVEN.</div>
+<div class="pv">✓ VERIFIED</div>
+<div class="tornwrap"><div class="fiber" id="fiber"></div><div class="before" id="before">
+  <div style="position:absolute;left:-60px;top:500px;width:820px;transform:rotate(-5deg)"><svg class="machine" style="position:static;width:820px" viewBox="0 0 1000 560"><!-- art:compressor:c1 --><!-- /art --></svg></div>
+  <div class="h" style="left:70px;color:var(--danger);text-shadow:0 7px 0 #7d1419">$1.58M<br>LOST</div>
+  <div style="position:absolute;left:76px;top:410px;padding:12px 24px;border-radius:999px;background:var(--danger);color:#fff;font:700 38px/1 var(--mono);letter-spacing:.1em;transform:rotate(-4deg)">● TRIP</div>
+</div></div>
+<img class="mascot" src="../../assets/mascot/mascot-figure.png">
+<div class="wm">Plant<span>Pulse</span></div>
+<script>
+  // Deterministic torn edge down the middle.
+  let s = 7; const r = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  const xs = []; for (let y = 0; y <= 1080; y += 14) xs.push([860 + y * 0.14 + (r() - 0.5) * 60 + Math.sin(y / 60) * 18, y]);
+  const poly = (dx, jit) => "polygon(0px 0px," + xs.map(([x, y]) => `${(x + dx + (jit ? (r() - 0.3) * jit : 0)).toFixed(0)}px ${y}px`).join(",") + ",0px 1080px)";
+  document.getElementById("before").style.clipPath = poly(0, 0);
+  document.getElementById("fiber").style.clipPath = poly(16, 14);
+</script>
+</body></html>

@@ -1,0 +1,48 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  v21                pooled 5.535894  (24 s)  [reproduces preds_v21_increment.pkl exactly]
+  physics            pooled 5.524450  (22 s)  [reproduces preds_v21_physics.pkl exactly]
+  physics_dsh        pooled 5.495961  (34 s)  [reproduces preds_v21_physics_deshrink_half.pkl exactly]
+  physics_dsh_lags   pooled 5.470956  (44 s)  [reproduces preds_production_lgb_lags_production.pkl exactly]
+  physics_lags       pooled 5.499282  (28 s)
+  v21_lags           pooled 5.509869  (27 s)
+
+all arms, delta columns are against v21 (the scored anchor)
+
+       candidate  physics  deshrink  lags   pooled  B1_last15d  B2_prev15d  B3_shift7d  d_pooled  d_pooled_vs_parent  promotable
+             v21    False     False False 5.535894    4.232249    6.586373    4.690131  0.000000                 NaN       False
+         physics     True     False False 5.524450    4.225273    6.571617    4.689279 -0.011444           -0.011444       False
+     physics_dsh     True      True False 5.495961    4.199771    6.540115    4.719273 -0.039933           -0.028488        True
+physics_dsh_lags     True      True  True 5.470956    4.190073    6.504306    4.723834 -0.064938           -0.025006        True
+    physics_lags     True     False  True 5.499282    4.214867    6.535984    4.691151 -0.036612           -0.025168        True
+        v21_lags    False     False  True 5.509869    4.225734    6.546792    4.685268 -0.026025           -0.026025        True
+
+direction vs v21 (alignment = 2*mean(e*u), movement = mean(u^2))
+             arm  vs      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+         physics v21 B1_last15d  -0.100679      0.041684 -0.058995   17.158458     17.174421
+         physics v21 B2_prev15d  -0.236899      0.042738 -0.194161   16.201210     16.207406
+         physics v21 B3_shift7d  -0.041324      0.033335 -0.007989   17.376910     17.347448
+     physics_dsh v21 B1_last15d  -0.417069      0.143219 -0.273849   17.158458     17.410735
+     physics_dsh v21 B2_prev15d  -0.720284      0.113068 -0.607216   16.201210     16.418310
+     physics_dsh v21 B3_shift7d   0.122074      0.152134  0.274209   17.376910     17.673595
+physics_dsh_lags v21 B1_last15d  -0.585942      0.230725 -0.355217   17.158458     17.436857
+physics_dsh_lags v21 B2_prev15d  -1.262974      0.188658 -1.074316   16.201210     16.440314
+physics_dsh_lags v21 B3_shift7d   0.103150      0.214132  0.317282   17.376910     17.693171
+    physics_lags v21 B1_last15d  -0.257473      0.110653 -0.146820   17.158458     17.200175
+    physics_lags v21 B2_prev15d  -0.765379      0.104151 -0.661227   16.201210     16.232692
+    physics_lags v21 B3_shift7d  -0.065920      0.075493  0.009572   17.376910     17.346074
+        v21_lags v21 B1_last15d  -0.123927      0.068826 -0.055101   17.158458     17.191512
+        v21_lags v21 B2_prev15d  -0.594090      0.074257 -0.519833   16.201210     16.215511
+        v21_lags v21 B3_shift7d  -0.108156      0.062563 -0.045592   17.376910     17.393161
+
+paired bootstrap of pooled dMSE, 3-day blocks
+  physics_vs_v21                     -0.1274 [-0.2304, -0.0305]  19/31 days improved
+  physics_dsh_vs_physics             -0.3132 [-0.6768, -0.0010]  17/31 days improved
+  physics_dsh_vs_v21                 -0.4406 [-0.8284, -0.0952]  22/31 days improved
+  physics_dsh_lags_vs_physics_dsh    -0.2694 [-0.6173, +0.0558]  23/31 days improved
+  physics_dsh_lags_vs_v21            -0.7101 [-1.4147, -0.0926]  21/31 days improved
+  physics_lags_vs_physics            -0.2730 [-0.6187, +0.0442]  23/31 days improved
+  physics_lags_vs_v21                -0.4004 [-0.7745, -0.0403]  20/31 days improved
+  v21_lags_vs_v21                    -0.2857 [-0.6124, +0.0296]  23/31 days improved
+
+wrote lag_without_expansion.csv and the predictions to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s29

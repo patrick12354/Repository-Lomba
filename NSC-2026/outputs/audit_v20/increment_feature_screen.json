@@ -1,0 +1,62 @@
+{
+  "physics": {
+    "inc_h1_delta": 0.0,
+    "inc_h1_blocks": 0,
+    "inc_h4_delta": 0.0,
+    "inc_h4_blocks": 0,
+    "recon_delta": 0.0,
+    "recon_blocks": 0,
+    "recon_pooled": 5.158312877176399,
+    "adopted": false
+  },
+  "better_level_proxy": {
+    "inc_h1_delta": -0.004882738825144968,
+    "inc_h1_blocks": 3,
+    "inc_h4_delta": 0.025339308727667653,
+    "inc_h4_blocks": 0,
+    "recon_delta": 0.0062683771044360626,
+    "recon_blocks": 1,
+    "recon_pooled": 5.164581254280834,
+    "adopted": false
+  },
+  "multiscale_context": {
+    "inc_h1_delta": -0.002663519086545533,
+    "inc_h1_blocks": 1,
+    "inc_h4_delta": 0.01073234529984927,
+    "inc_h4_blocks": 2,
+    "recon_delta": 0.0034985067680114077,
+    "recon_blocks": 1,
+    "recon_pooled": 5.16181138394441,
+    "adopted": false
+  },
+  "saturation": {
+    "inc_h1_delta": 8.835805227406605e-05,
+    "inc_h1_blocks": 1,
+    "inc_h4_delta": -0.005947010714547396,
+    "inc_h4_blocks": 2,
+    "recon_delta": -0.002501511670155961,
+    "recon_blocks": 1,
+    "recon_pooled": 5.155811365506242,
+    "adopted": false
+  },
+  "multilag_ratio": {
+    "inc_h1_delta": -0.007542248516266318,
+    "inc_h1_blocks": 3,
+    "inc_h4_delta": 0.010971137161082408,
+    "inc_h4_blocks": 1,
+    "recon_delta": -0.003096081691954152,
+    "recon_blocks": 1,
+    "recon_pooled": 5.155216795484445,
+    "adopted": false
+  },
+  "all_four": {
+    "inc_h1_delta": 0.002461733153328464,
+    "inc_h1_blocks": 2,
+    "inc_h4_delta": 0.009527951238090951,
+    "inc_h4_blocks": 1,
+    "recon_delta": 0.007931765558550316,
+    "recon_blocks": 1,
+    "recon_pooled": 5.166244642734949,
+    "adopted": false
+  }
+}

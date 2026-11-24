@@ -1,0 +1,201 @@
+{
+ "text": "Jadi mahasiswa lari ke chatbot AI. Masalahnya, untuk citra medis, chatbot umum sering salah dengan sangat yakin. Satu evaluasi mencatat tingkat halusinasi sampai tujuh puluh empat persen. Dika butuh tempat berlatih yang benar-benar menilai bacaannya. Lalu, apa jalan keluarnya?",
+ "end": 20.4,
+ "words": [
+  {
+   "w": "Jadi",
+   "s": 0,
+   "e": 0.4
+  },
+  {
+   "w": "mahasiswa",
+   "s": 0.48,
+   "e": 1.04
+  },
+  {
+   "w": "lari",
+   "s": 1.12,
+   "e": 1.52
+  },
+  {
+   "w": "ke",
+   "s": 1.6,
+   "e": 1.68
+  },
+  {
+   "w": "chatbot",
+   "s": 1.8,
+   "e": 2.08
+  },
+  {
+   "w": "AI.",
+   "s": 2.12,
+   "e": 3.04
+  },
+  {
+   "w": "Masalahnya,",
+   "s": 3.16,
+   "e": 4.08
+  },
+  {
+   "w": "untuk",
+   "s": 4.16,
+   "e": 4.4
+  },
+  {
+   "w": "citra",
+   "s": 4.507,
+   "e": 4.72
+  },
+  {
+   "w": "medis,",
+   "s": 4.84,
+   "e": 5.44
+  },
+  {
+   "w": "chatbot",
+   "s": 5.56,
+   "e": 5.84
+  },
+  {
+   "w": "umum",
+   "s": 5.92,
+   "e": 6.24
+  },
+  {
+   "w": "sering",
+   "s": 6.32,
+   "e": 6.72
+  },
+  {
+   "w": "salah",
+   "s": 6.84,
+   "e": 7.12
+  },
+  {
+   "w": "dengan",
+   "s": 7.253,
+   "e": 7.52
+  },
+  {
+   "w": "sangat",
+   "s": 7.56,
+   "e": 7.92
+  },
+  {
+   "w": "yakin.",
+   "s": 8,
+   "e": 8.96
+  },
+  {
+   "w": "Satu",
+   "s": 9.08,
+   "e": 9.24
+  },
+  {
+   "w": "evaluasi",
+   "s": 9.28,
+   "e": 9.84
+  },
+  {
+   "w": "mencatat",
+   "s": 9.88,
+   "e": 10.32
+  },
+  {
+   "w": "tingkat",
+   "s": 10.4,
+   "e": 10.64
+  },
+  {
+   "w": "halusinasi",
+   "s": 10.72,
+   "e": 11.44
+  },
+  {
+   "w": "sampai",
+   "s": 11.56,
+   "e": 11.92
+  },
+  {
+   "w": "tujuh",
+   "s": 12.04,
+   "e": 12.28
+  },
+  {
+   "w": "puluh",
+   "s": 12.32,
+   "e": 12.48
+  },
+  {
+   "w": "empat",
+   "s": 12.56,
+   "e": 12.72
+  },
+  {
+   "w": "persen.",
+   "s": 12.8,
+   "e": 13.84
+  },
+  {
+   "w": "Dika",
+   "s": 13.88,
+   "e": 14.16
+  },
+  {
+   "w": "butuh",
+   "s": 14.24,
+   "e": 14.4
+  },
+  {
+   "w": "tempat",
+   "s": 14.48,
+   "e": 14.64
+  },
+  {
+   "w": "berlatih",
+   "s": 14.72,
+   "e": 15.2
+  },
+  {
+   "w": "yang",
+   "s": 15.28,
+   "e": 15.52
+  },
+  {
+   "w": "benar-benar",
+   "s": 15.64,
+   "e": 16.16
+  },
+  {
+   "w": "menilai",
+   "s": 16.28,
+   "e": 16.72
+  },
+  {
+   "w": "bacaannya.",
+   "s": 16.76,
+   "e": 18.04
+  },
+  {
+   "w": "Lalu,",
+   "s": 18.08,
+   "e": 18.76
+  },
+  {
+   "w": "apa",
+   "s": 18.8,
+   "e": 19.04
+  },
+  {
+   "w": "jalan",
+   "s": 19.08,
+   "e": 19.28
+  },
+  {
+   "w": "keluarnya?",
+   "s": 19.36,
+   "e": 20.4
+  }
+ ]
+}

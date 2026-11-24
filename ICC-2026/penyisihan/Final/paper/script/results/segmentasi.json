@@ -1,0 +1,18 @@
+{
+ "n": 30,
+ "n_latih": 250,
+ "n_slice_latih": 6416,
+ "epoch": 25,
+ "res": 128,
+ "device": "mps",
+ "recall_lesi_unet_mean": 0.7484713064713067,
+ "dice_rule_mean": 0.22808030233666757,
+ "dice_rule_median": 0.22283071584955233,
+ "dice_unet_mean": 0.779938508612428,
+ "dice_unet_median": 0.8706008731307842,
+ "dice_unet_vol_ge5": 0.8250057230589806,
+ "n_vol_ge5": 23,
+ "dice_unet_vol_lt5": 0.6318605182880407,
+ "spearman_vol_dice": 0.49187986651835375,
+ "menit": 9.885033933321635
+}

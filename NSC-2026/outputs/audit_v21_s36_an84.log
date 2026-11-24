@@ -1,0 +1,68 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+
+B1_last15d (15d)  origin 2023-08-14  n=720  control reproduced
+    C0  member 4.50849  level 4.29323  z 4.23225 (+0.000000)  g -  [0 s]
+    L0  member 4.63162  level 4.31031  z 4.25290 (+0.020649)  g 5.84199  [13 s]
+    S1  member 4.63130  level 4.28183  z 4.23575 (+0.003499)  g 4.83518  [13 s]
+    S2  member 4.57467  level 4.31623  z 4.24653 (+0.014281)  g 5.07552  [14 s]
+
+B2_prev15d (15d)  origin 2023-07-30  n=720  control reproduced
+    C0  member 6.49273  level 6.77822  z 6.58637 (+0.000000)  g -  [0 s]
+    L0  member 7.11565  level 6.81009  z 6.62267 (+0.036298)  g 8.49688  [12 s]
+    S1  member 7.99186  level 6.84555  z 6.65016 (+0.063789)  g 8.27206  [12 s]
+    S2  member 8.71305  level 6.83660  z 6.65162 (+0.065250)  g 9.20762  [13 s]
+
+B3_shift7d (15d)  origin 2023-08-07  n=720  control reproduced
+    C0  member 5.03075  level 4.81089  z 4.69013 (+0.000000)  g -  [0 s]
+    L0  member 4.98383  level 4.90434  z 4.81889 (+0.128757)  g 5.25249  [13 s]
+    S1  member 4.87768  level 4.70536  z 4.59921 (-0.090921)  g 5.07560  [14 s]
+    S2  member 6.65698  level 4.98445  z 4.81475 (+0.124617)  g 7.07010  [13 s]
+
+H1_last7d (7d)  origin 2023-08-22  n=336  control reproduced
+    C0  member 5.27104  level 5.27264  z 5.17925 (+0.000000)  g -  [0 s]
+    L0  member 5.55491  level 5.37181  z 5.25525 (+0.075999)  g 7.33406  [15 s]
+    S1  member 5.58177  level 5.36668  z 5.30781 (+0.128554)  g 6.02476  [14 s]
+    S2  member 5.55675  level 5.40614  z 5.32752 (+0.148269)  g 6.29225  [14 s]
+
+H2_last14d (7d)  origin 2023-08-15  n=336  control reproduced
+    C0  member 3.14113  level 2.82172  z 2.77843 (+0.000000)  g -  [0 s]
+    L0  member 2.76951  level 2.65214  z 2.65950 (-0.118931)  g 3.98215  [15 s]
+    S1  member 2.85686  level 2.64355  z 2.62987 (-0.148557)  g 3.00336  [15 s]
+    S2  member 3.12358  level 2.75690  z 2.65390 (-0.124531)  g 3.26614  [14 s]
+
+H3_last21d (7d)  origin 2023-08-08  n=336  control reproduced
+    C0  member 4.92162  level 5.49106  z 5.31050 (+0.000000)  g -  [0 s]
+    L0  member 5.15700  level 5.71715  z 5.57041 (+0.259912)  g 4.93748  [14 s]
+    S1  member 5.03095  level 5.45901  z 5.27311 (-0.037391)  g 5.39071  [14 s]
+    S2  member 5.11131  level 5.46196  z 5.26474 (-0.045755)  g 5.74007  [14 s]
+
+arm      block  rmse_member   rmse_g   rmse_z   d_vs_c0
+ C0 B1_last15d     4.508488      NaN 4.232249  0.000000
+ L0 B1_last15d     4.631624 5.841995 4.252898  0.020649
+ S1 B1_last15d     4.631299 4.835181 4.235748  0.003499
+ S2 B1_last15d     4.574665 5.075515 4.246529  0.014281
+ C0 B2_prev15d     6.492735      NaN 6.586373  0.000000
+ L0 B2_prev15d     7.115646 8.496877 6.622671  0.036298
+ S1 B2_prev15d     7.991862 8.272058 6.650162  0.063789
+ S2 B2_prev15d     8.713047 9.207615 6.651623  0.065250
+ C0 B3_shift7d     5.030748      NaN 4.690131  0.000000
+ L0 B3_shift7d     4.983827 5.252491 4.818888  0.128757
+ S1 B3_shift7d     4.877684 5.075604 4.599210 -0.090921
+ S2 B3_shift7d     6.656984 7.070099 4.814748  0.124617
+ C0  H1_last7d     5.271040      NaN 5.179252  0.000000
+ L0  H1_last7d     5.554906 7.334064 5.255252  0.075999
+ S1  H1_last7d     5.581773 6.024761 5.307807  0.128554
+ S2  H1_last7d     5.556750 6.292254 5.327522  0.148269
+ C0 H2_last14d     3.141125      NaN 2.778427  0.000000
+ L0 H2_last14d     2.769512 3.982154 2.659496 -0.118931
+ S1 H2_last14d     2.856859 3.003364 2.629871 -0.148557
+ S2 H2_last14d     3.123582 3.266135 2.653897 -0.124531
+ C0 H3_last21d     4.921617      NaN 5.310499  0.000000
+ L0 H3_last21d     5.157005 4.937483 5.570411  0.259912
+ S1 H3_last21d     5.030955 5.390712 5.273109 -0.037391
+ S2 H3_last21d     5.111311 5.740072 5.264745 -0.045755
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s36\hybrid

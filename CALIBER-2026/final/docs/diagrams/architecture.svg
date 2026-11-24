@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#FFFFFF"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7280"/></marker></defs>
+<text x="50" y="82" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="36" fill="#1F2937" font-weight="bold" text-anchor="start">PartPulse: driver-based spare-part intelligence</text>
+<text x="50" y="122" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#6B7280" font-weight="normal" text-anchor="start">Forecast the equipment that consumes the parts, not each part&#x27;s own sparse history</text>
+<rect x="315" y="196" width="1555" height="60" rx="10" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
+<text x="333" y="222" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#B45309" font-weight="bold" text-anchor="start">Shutdown event layer</text>
+<text x="333" y="243" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" text-anchor="start">Last turnaround kit (2030 orders) replayed × scale → TA gap per part, order-by date before the next shutdown. Planned scope, kept out of daily Min–Max.</text>
+<line x1="430.0" y1="300" x2="430.0" y2="258" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1490.0" y1="256" x2="1490.0" y2="298" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1755.0" y1="256" x2="1755.0" y2="298" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="50" y="300" width="230" height="530" rx="12" fill="#F8FAFC" stroke="#334155" stroke-width="1.5"/>
+<path d="M50,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#334155"/>
+<text x="66" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">Source data</text>
+<text x="66" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">6 SAP extracts</text>
+<text x="66" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• BoM: stock, Min/Max</text>
+<text x="66" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• FuncLoc criticality</text>
+<text x="66" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Goods issues</text>
+<text x="66" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Notification history</text>
+<text x="66" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• PR / PO</text>
+<text x="66" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Maintenance plans</text>
+<rect x="62" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#334155" stroke-width="1.2"/>
+<text x="165.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#334155" font-weight="bold" text-anchor="middle">17 months · 7,481 parts</text>
+<line x1="283" y1="565.0" x2="312" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="315" y="300" width="230" height="530" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+<path d="M315,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#1D4ED8"/>
+<text x="331" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">1 · Clean &amp; trust</text>
+<text x="331" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">data-quality layer</text>
+<text x="331" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• PO amount = unit price</text>
+<text x="331" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Price fallback:</text>
+<text x="345" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">PO → category</text>
+<text x="331" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Lead time PR → delivery:</text>
+<text x="345" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">P50 / P90 / σ</text>
+<text x="331" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Split demand:</text>
+<text x="345" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">routine vs shutdown</text>
+<text x="331" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Demand class (SBC)</text>
+<text x="331" y="638" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Trust score 0–1</text>
+<text x="345" y="666" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">from 4 quality flags</text>
+<rect x="327" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="430.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#1D4ED8" font-weight="bold" text-anchor="middle">8 data issues logged</text>
+<line x1="548" y1="565.0" x2="577" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="580" y="300" width="230" height="530" rx="12" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.5"/>
+<path d="M580,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#1D4ED8"/>
+<text x="596" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">2 · Feature store</text>
+<text x="596" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">point-in-time, 27 features</text>
+<text x="596" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Installed base:</text>
+<text x="610" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">FLs, qty, criticality</text>
+<text x="596" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Failures on its FLs:</text>
+<text x="610" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">notifs, emergencies</text>
+<text x="596" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• PM load on its FLs</text>
+<text x="596" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Consumption history</text>
+<text x="610" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">+ 90-day momentum</text>
+<text x="596" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Procurement &amp; lead time</text>
+<text x="596" y="638" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Category, current Min/Max</text>
+<rect x="592" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="1.2"/>
+<text x="695.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#1D4ED8" font-weight="bold" text-anchor="middle">No look-ahead leakage</text>
+<line x1="813" y1="565.0" x2="842" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="845" y="300" width="230" height="530" rx="12" fill="#F5F3FF" stroke="#6D28D9" stroke-width="1.5"/>
+<path d="M845,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#6D28D9"/>
+<text x="861" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">3 · Two-part forecaster</text>
+<text x="861" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">LightGBM</text>
+<text x="861" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Who moves?</text>
+<text x="875" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">classifier → P(use)</text>
+<text x="861" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• How much?</text>
+<text x="875" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">Tweedie regressor,</text>
+<text x="875" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">blended with run rate</text>
+<text x="861" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Training: 14 stacked</text>
+<text x="875" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">90-day folds,</text>
+<text x="875" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">recency-weighted</text>
+<rect x="857" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.2"/>
+<text x="960.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#6D28D9" font-weight="bold" text-anchor="middle">AUC 0.92 · cold-start 0.85</text>
+<line x1="1078" y1="565.0" x2="1107" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1110" y="300" width="230" height="530" rx="12" fill="#F5F3FF" stroke="#6D28D9" stroke-width="1.5"/>
+<path d="M1110,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#6D28D9"/>
+<text x="1126" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">4 · Uncertainty</text>
+<text x="1126" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">Monte Carlo</text>
+<text x="1126" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Compound Poisson,</text>
+<text x="1140" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">2,000 simulations</text>
+<text x="1126" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Empirical issue sizes</text>
+<text x="1126" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Random lead time</text>
+<text x="1140" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">(gamma)</text>
+<text x="1126" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">→ q50 / q90 / q95</text>
+<text x="1126" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">→ lead-time demand</text>
+<text x="1140" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">distribution</text>
+<rect x="1122" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.2"/>
+<text x="1225.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#6D28D9" font-weight="bold" text-anchor="middle">Ranges, not one number</text>
+<line x1="1343" y1="565.0" x2="1372" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1375" y="300" width="230" height="530" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="1.5"/>
+<path d="M1375,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#0F766E"/>
+<text x="1391" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">5 · Cost–risk optimizer</text>
+<text x="1391" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">per part, per criticality</text>
+<text x="1391" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Service level A/B/C/S</text>
+<text x="1405" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">99 / 97 / 95 / 90%</text>
+<text x="1391" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Safety stock, ROP,</text>
+<text x="1405" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">dynamic Min–Max, EOQ</text>
+<text x="1391" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Action: reorder / reduce</text>
+<text x="1405" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">/ dispose / monitor</text>
+<text x="1391" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Order-by date</text>
+<text x="1391" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Budget–risk frontier</text>
+<rect x="1387" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.2"/>
+<text x="1490.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#0F766E" font-weight="bold" text-anchor="middle">Cost vs downtime risk</text>
+<line x1="1608" y1="565.0" x2="1637" y2="565.0" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1640" y="300" width="230" height="530" rx="12" fill="#F0FDFA" stroke="#0F766E" stroke-width="1.5"/>
+<path d="M1640,312 a12,12 0 0 1 12,-12 h206 a12,12 0 0 1 12,12 v66 h-230 z" fill="#0F766E"/>
+<text x="1656" y="334" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="19" fill="#FFFFFF" font-weight="bold" text-anchor="start">Decision app</text>
+<text x="1656" y="359" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#E5E7EB" font-weight="normal" text-anchor="start">Next.js · SQLite · Vercel</text>
+<text x="1656" y="414" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Shutdown readiness</text>
+<text x="1656" y="442" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Parts &amp; actions</text>
+<text x="1656" y="470" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Scenario simulator</text>
+<text x="1656" y="498" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Inventory health</text>
+<text x="1656" y="526" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">• Data trust</text>
+<text x="1656" y="554" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start"></text>
+<text x="1670" y="582" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">Planner approves or</text>
+<text x="1670" y="610" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" fill="#1F2937" font-weight="normal" text-anchor="start">rejects each action</text>
+<rect x="1652" y="778" width="206" height="36" rx="18" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.2"/>
+<text x="1755.0" y="802" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13.5" fill="#0F766E" font-weight="bold" text-anchor="middle">Web + mobile (PWA)</text>
+<rect x="845" y="880" width="1025" height="60" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="1.5"/>
+<text x="863" y="906" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#334155" font-weight="bold" text-anchor="start">Explainability</text>
+<text x="863" y="927" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" text-anchor="start">TreeSHAP top-3 drivers per part → plain-English reason on every recommendation</text>
+<line x1="960.0" y1="830" x2="960.0" y2="878" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="1755.0" y1="880" x2="1755.0" y2="832" stroke="#6B7280" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="50" y="880" width="760" height="60" rx="10" fill="#F5F3FF" stroke="#6D28D9" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="68" y="906" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17" fill="#6D28D9" font-weight="bold" text-anchor="start">Rolling-origin validation</text>
+<text x="68" y="927" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#1F2937" font-weight="normal" text-anchor="start">Retrain monthly on past data only, test next 90 days · AUC 0.92 vs 0.84 run-rate baseline (strict: 0.89)</text>
+<text x="50" y="1040" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" fill="#6B7280" font-weight="normal" text-anchor="start">Dummy dataset: mechanism over absolute values. Downtime cost is a relative index (slider in app). Model settings chosen on the validation origins.</text>
+</svg>

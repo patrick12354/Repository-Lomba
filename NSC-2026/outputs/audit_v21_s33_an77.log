@@ -1,0 +1,9 @@
+  E1  pooled 5.535894 -> 5.584514 (+0.048620)  matched +0.046130  7d +0.073612  worst H +0.200172
+  E2  pooled 5.535894 -> 5.569494 (+0.033600)  matched +0.033249  7d +0.080285  worst H +0.214614
+
+arm  pooled_base  pooled_cand  d_pooled  d_matched  d_pooled7  worst_h  promotable  strong
+ E1     5.535894     5.584514   0.04862   0.046130   0.073612 0.200172       False   False
+ E2     5.535894     5.569494   0.03360   0.033249   0.080285 0.214614       False   False
+
+verdict: keep_v21 (None)
+  no arm clears the engineering bar; the shape block does not replace the incumbent this round

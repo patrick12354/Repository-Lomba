@@ -1,0 +1,26 @@
+  note: code[final_pipeline.py]: 25e56f15 on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+  B1_last15d   [  7 s]  control 4.26121  debias_cat_25 4.22059  debias_cat_50 4.19577  debias_cat_75 4.18533  debias_cat_100 4.18743  wrong_sign 4.39270  debias_enet 4.29619
+  B2_prev15d   [  5 s]  control 6.58350  debias_cat_25 6.52623  debias_cat_50 6.49552  debias_cat_75 6.49185  debias_cat_100 6.51489  wrong_sign 6.77199  debias_enet 6.58864
+  B3_shift7d   [  6 s]  control 4.63015  debias_cat_25 4.51840  debias_cat_50 4.43958  debias_cat_75 4.39480  debias_cat_100 4.38366  wrong_sign 4.94143  debias_enet 4.67864
+  H1_last7d    [  6 s]  control 5.21383  debias_cat_25 5.21669  debias_cat_50 5.22234  debias_cat_75 5.23049  debias_cat_100 5.24078  wrong_sign 5.21769  debias_enet 5.21461
+  H2_last14d   [  6 s]  control 2.79040  debias_cat_25 2.75399  debias_cat_50 2.74289  debias_cat_75 2.75407  debias_cat_100 2.78371  wrong_sign 2.94469  debias_enet 2.80170
+  H3_last21d   [  6 s]  control 5.20359  debias_cat_25 5.02855  debias_cat_50 4.87637  debias_cat_75 4.74931  debias_cat_100 4.64882  wrong_sign 5.60991  debias_enet 5.36243
+
+arm               d_primary        d_7d     worst_H        d_B3
+control           +0.000000   +0.000000   +0.000000   +0.000000   0/6 blocks better
+   per block: {'B1': 0.0, 'B2': 0.0, 'B3': 0.0, 'H1': 0.0, 'H2': 0.0, 'H3': 0.0}
+debias_cat_25     -0.049601   -0.072519   +0.002855   -0.111749   5/6 blocks better
+   per block: {'B1': -0.04062, 'B2': -0.05726, 'B3': -0.11175, 'H1': 0.00285, 'H2': -0.03641, 'H3': -0.17503}
+debias_cat_50     -0.077363   -0.129083   +0.008514   -0.190568   5/6 blocks better
+   per block: {'B1': -0.06544, 'B2': -0.08797, 'B3': -0.19057, 'H1': 0.00851, 'H2': -0.0475, 'H3': -0.32721}
+debias_cat_75     -0.083549   -0.169872   +0.016658   -0.235348   5/6 blocks better
+   per block: {'B1': -0.07588, 'B2': -0.09165, 'B3': -0.23535, 'H1': 0.01666, 'H2': -0.03632, 'H3': -0.45427}
+debias_cat_100    -0.069046   -0.195553   +0.026951   -0.246484   5/6 blocks better
+   per block: {'B1': -0.07378, 'B2': -0.06861, 'B3': -0.24648, 'H1': 0.02695, 'H2': -0.00669, 'H3': -0.55477}
+wrong_sign        +0.162413   +0.190920   +0.406328   +0.311283   0/6 blocks better
+   per block: {'B1': 0.13149, 'B2': 0.18849, 'B3': 0.31128, 'H1': 0.00386, 'H2': 0.1543, 'H3': 0.40633}
+debias_enet       +0.016520   +0.063674   +0.158844   +0.048490   0/6 blocks better
+   per block: {'B1': 0.03498, 'B2': 0.00514, 'B3': 0.04849, 'H1': 0.00078, 'H2': 0.0113, 'H3': 0.15884}

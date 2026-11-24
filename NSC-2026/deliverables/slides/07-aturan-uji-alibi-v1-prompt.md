@@ -1,0 +1,34 @@
+# Slide 7 — Aturan Uji Alibi
+
+Dibuat 12 Oktober 2026 dengan built-in ImageGen. Output `07-aturan-uji-alibi-v1.png`; preview PNG statis, bukan PPTX editable.
+
+Sumber visual protokol: `paper/figures/06-titik-asal-bergulir.png`, Gambar A.6 PDF p.13. QA visual: 9 lipatan dan satu baris tugas asli; latih selalu sebelum validasi, horizon 15 hari, cutoff bergerak 2 hari, minimum belajar 30 hari. Overlap eksplisit; bukan sembilan percobaan independen. Caption langkah cutoff berupa teks tanpa bracket kuantitatif hasil generasi. Diagram adalah skema protokol laporan, bukan grafik skor. Referensi struktur sumber memakai titik awal 30,32,34,36,38,40,42,44,46 dan jendela tugas asli sekitar hari 61–76,3. Warna/typografi ditata ke tema, belum berupa chart native editable.
+
+## Prompt utama
+
+Create ONE complete Indonesian scientific presentation slide 07, 16:9 full flat canvas. Image 1 is the STYLE REFERENCE (detective slide 6): charcoal black grunge background, torn ivory paper, masking tape, dark-red stencil headline, editorial cartoon visual cues, clean sans-serif text. Image 2 is the EVIDENCE REFERENCE: actual report's rolling-origin protocol diagram. Preserve its protocol faithfully; do not treat it as decorative art.
+Top-left small taped "BERKAS 734", top-right "SUSPECT", bottom-right "07". Medium-sized headline "ATURAN UJI ALIBI".
+Main idea: train on the past, evaluate the following 15 days, repeat from 9 origins moving by 2 days. Data-training bars must always finish BEFORE their validation blocks; no validation labels leak into learning. Overlapping validation windows are visually explicit.
+LAYOUT:
+LEFT about 30%: expressive cartoon investigator hand examines a past-data notebook with magnifying glass, beside a calendar icon with no fake dates. Below it an enlarged single-fold illustration using two adjacent rectangular strips on cream paper. Left dark strip "Belajar dari masa lalu", cutoff vertical red dashed line labeled "Titik potong", right ochre strip "Uji 15 hari". A small forward time arrow pointing right labeled "Waktu". Under training strip short "Minimal 30 hari". No arbitrary plotted data, no numerical observations. This single-fold cue is explanatory not empirical measurements.
+RIGHT about 65%: dominant cream notebook-paper evidence area containing the rolling-origin diagram from Image 2, clearly legible. Exactly NINE rows labeled "Lipatan 1", "Lipatan 2", "Lipatan 3", "Lipatan 4", "Lipatan 5", "Lipatan 6", "Lipatan 7", "Lipatan 8", "Lipatan 9". Each begins at the same left calendar origin; dark navy/charcoal training bars gradually lengthen and contiguous ochre validation segments are all the same 15-day length. Nine cutoff locations are at 30,32,34,36,38,40,42,44,46 days conceptually as evidence source; align geometries to source. Adjacent cutoffs advance by 2 days, much less than validation segment length, so those test windows strongly overlap. Keep the diagram's bottom tenth comparison row "Tugas asli", training about 61 days then red test window about 15.3 days, exactly like reference. You may preserve evidence diagram's existing axes 0 to 80 days and existing ratio scale if legible; do not invent different dates. Legend at bottom small but readable "Latih", "Validasi 15 hari", "Uji sebenarnya". Preserve chart reference topology and counts. Reuse chart as clean evidence graphic on the paper, no texture over chart content and no torn edges covering labels. Plot no scores or model accuracy; this is protocol.
+Annotation on edge near staggered validation segments: red pencil bracket/arrow with exact small text "Bergeser 2 hari". A magnifying circle highlights OVERLAPPING OCHRE windows while remaining transparent so bars can still be read.
+Short cream warning note below or beside diagram exact "9 titik awal; periode uji tumpang tindih." Second short line "Bukan 9 percobaan independen." No fake p-values, tests or significance.
+Bottom single strip defines metric exact "RMSE: makin kecil, makin baik." Use a small ruler/error-measure icon, not a numerical score.
+Readable source footer "Sumber: laporan Heisenberg, Lampiran G, Gambar A.6, hlm. 13."
+Small second footer "Skema protokol; gabungan dan koreksi memiliki audit tersendiri."
+No garden catastrophe, no physical criminal suspects, logos, affiliation or footprints. A small tomato/leaf motif in a margin can connect story without distracting from protocol. All numbers are reported protocol values, not invented data. Do not add count of seeds, error metric values or independent-fold claims. Maintain 9 validation rows plus one actual-task comparison row, use Image 2 as exact structural evidence. Colors, fonts and paper styling can follow Image 1. Keep headline modest, evidence large, body sparse and readable.
+
+## Revisi anotasi
+
+Precisely correct ONE annotation in this slide and preserve everything else.
+In the main rolling-origin chart, remove all red vertical dashed lines currently located around days 39/45/51, and remove their small red arrow marks. They misleadingly annotate evaluation end times rather than 2-day cutoff spacing.
+Keep the label "Bergeser 2 hari", but relocate it to blank space directly above the first two training/validation boundaries. Draw a small thin red horizontal double-headed bracket between the actual day-30 training cutoff of Lipatan 1 and actual day-32 cutoff of Lipatan 2. Small thin leader lines can run vertically from those two exact boundary positions to the bracket. Label close to bracket "Bergeser 2 hari". It is a very SHORT interval of 2 days on a 0–80 day scale, NOT the full 15-day validation width. Be careful: 30 is where the first navy bar ends and orange starts; 32 is where second navy bar ends and orange starts. The label can be larger than the short bracket.
+Do not modify or redraw chart data bars, axes, labels, nine folds, task row, overlap inset, legend, illustrations, headline, footer or any other content. Preserve all numerical axes and positions exactly. Return same 16:9 slide.
+
+## Cleanup akhir
+
+Make ONE precise cleanup. On the main large rolling-origin chart, remove EVERY red dashed vertical annotation line and EVERY red short horizontal arrow/bracket currently drawn near the first three rows and near the top title. They are not part of the underlying data chart. Keep ALL navy, orange, gray, red task bars, gray gridlines, axes, fold labels, magnified overlap circle and its arrows completely unchanged.
+Replace the red phrase "Bergeser 2 hari" with plain red text "Langkah cutoff: 2 hari" in the same top blank chart margin, WITHOUT ANY pointer, bracket, dashed line or arrow attached. It is only a textual protocol note.
+Do not modify the left single-fold illustration's valid red cutoff line or its arrows. Do not change anything else on the slide. Same full 16:9 canvas. No new annotations.
+

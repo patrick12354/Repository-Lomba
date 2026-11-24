@@ -1,0 +1,36 @@
+{
+  "lb_real": 0.1845,
+  "lb_real_jujur": 0.1859,
+  "lb_predicted": 0.191,
+  "bias_rnd": 0.0271,
+  "cv_lama": 0.18031,
+  "mean_test_rnd": 5.265,
+  "sd_test_rnd": 0.3881,
+  "status": "BELUM DISUBMIT",
+  "config": {
+    "kandidat": [
+      "regA",
+      "swA_sqrt",
+      "resA_sqrt",
+      "resB",
+      "resB_sqrt",
+      "resB_c30",
+      "cnn_sqrt"
+    ],
+    "bobot": {
+      "regA": 0.059,
+      "swA_sqrt": 0.151,
+      "resA_sqrt": 0.206,
+      "resB": 0.104,
+      "resB_sqrt": 0.049,
+      "resB_c30": 0.2,
+      "cnn_sqrt": 0.231
+    },
+    "lam_dec": 0.95,
+    "lam_deep": 0.5,
+    "T_deep": 150,
+    "a_dec": 1.15,
+    "a_rnd": 1.05,
+    "metrik": "lb_real (event depth-bulat-dangkal dipecah ~8 record, 8 undian)"
+  }
+}

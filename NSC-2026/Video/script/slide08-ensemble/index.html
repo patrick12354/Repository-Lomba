@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <title>Slide 8 — Combining the Evidence</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Light.ttf"); font-weight: 300; }
+      @font-face { font-family: "Rustic"; src: url("assets/fonts/RusticPrintedStamp.ttf"); }
+      :root { --ink: #2b2521; --red: #a91d1a; --ivory: #efe5cf; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #151413; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      #bg { position: absolute; inset: 0; background: #1b1918 url("assets/tex/charcoal.png") center / cover; }
+      #bw { position: absolute; inset: 0; overflow: hidden; }
+      #bcam { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; transform-origin: 0 0; }
+      #cork { position: absolute; inset: 0; background: #9c7046 url("assets/tex/cork.jpg") center / cover; }
+      #board { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; overflow: visible; }
+      #lamp { position: absolute; inset: 0; pointer-events: none;
+              background: radial-gradient(ellipse 62% 70% at 52% 46%, rgba(255,236,196,0.10), rgba(255,236,196,0) 55%, rgba(18,10,4,0.42) 100%); }
+      #lensFx { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+      #dust { position: absolute; inset: 0; pointer-events: none; }
+      .mote { position: absolute; border-radius: 50%; background: #fff6dc; }
+      #grain { position: absolute; left: -60px; top: -60px; width: 2040px; height: 1200px; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
+               background: url("assets/tex/grain.png") 0 0 / 480px 270px repeat; }
+      svg text { font-family: "Poppins", sans-serif; }
+      .rus { font-family: "Rustic"; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="55" data-width="1920" data-height="1080" data-fps="30">
+      <div id="bg"></div>
+      <div id="bw">
+        <div id="bcam">
+          <div id="cork"></div>
+          <svg id="board" viewBox="0 0 2880 1620" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="shPaper" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1a0d04" flood-opacity="0.55" /></filter>
+              <filter id="shPin" x="-60%" y="-60%" width="240%" height="240%"><feDropShadow dx="5" dy="8" stdDeviation="3.5" flood-color="#1a0d04" flood-opacity="0.55" /></filter>
+              <pattern id="graph" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40,0 L0,0 L0,40" fill="none" stroke="#3c5a78" stroke-opacity="0.13" stroke-width="1.5" /></pattern>
+              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2b2521" /></marker>
+              <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a91d1a" /></marker>
+            </defs>
+          </svg>
+        </div>
+        <div id="lamp"></div>
+        <svg id="lensFx" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="lensHole" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+              <rect x="0" y="0" width="1920" height="1080" fill="#fff" />
+              <circle id="holeC" cx="1500" cy="1500" r="430" fill="#000" />
+            </mask>
+            <radialGradient id="glass" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff" stop-opacity="0.16" /><stop offset="0.5" stop-color="#fff" stop-opacity="0.03" /><stop offset="1" stop-color="#cfe2e8" stop-opacity="0.10" /></radialGradient>
+          </defs>
+          <rect id="lensDark" x="0" y="0" width="1920" height="1080" fill="#120a05" opacity="0" mask="url(#lensHole)" />
+          <g id="lens"></g>
+        </svg>
+      </div>
+      <div id="dust"></div>
+      <div id="grain"></div>
+    </div>
+    <script src="assets/board.js"></script>
+    <script src="scene.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = window.SCENE_TL;
+    </script>
+  </body>
+</html>

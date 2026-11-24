@@ -1,0 +1,281 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/pp.css"><link rel="stylesheet" href="common.css">
+<style>
+  body { background: #0b1426; }
+  .p { position: absolute; top: 0; height: 1080px; overflow: hidden; }
+  .p1 { left: -40px; width: 720px; clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%); background: radial-gradient(500px 500px at 50% 62%, rgba(214,60,67,.55), transparent 75%), #fff0ea; }
+  .p2 { left: 616px; width: 720px; clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%); background: radial-gradient(500px 500px at 50% 62%, rgba(212,138,6,.35), transparent 75%), #fbf6e6; }
+  .p3 { left: 1272px; width: 690px; clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%); background: radial-gradient(520px 520px at 50% 62%, rgba(29,154,99,.5), transparent 75%), #ecf8f0; }
+  .machine { width: 600px; top: 540px; }
+  .glass { position: absolute; left: 0; top: 0; z-index: 3; }
+  .p .pill { z-index: 2; }
+  .m1 { left: 40px; transform: rotate(-5deg); }
+  .m2 { left: 50px; }
+  .m3 { left: 70px; }
+  .h { position: absolute; top: 56px; font: 700 128px/0.88 var(--display); letter-spacing: -0.055em; }
+  .h1 { left: 50px; color: var(--danger); text-shadow: 0 6px 0 #7d1419; }
+  .h2 { left: 730px; color: var(--ink-hi); }
+  .h3 { left: 1400px; color: var(--ok); text-shadow: 0 6px 0 #0a4d30; }
+  .n { position: absolute; top: 330px; font: 600 30px/1 var(--mono); letter-spacing: .14em; color: var(--ink-3); }
+  .pill { position: absolute; top: 380px; padding: 12px 22px; border-radius: 999px; font: 700 36px/1 var(--mono); letter-spacing: .1em; color: #fff; }
+  .pt { left: 54px; background: var(--danger); transform: rotate(-4deg); box-shadow: 0 0 0 8px rgba(214,60,67,.2); }
+  .pr { left: 740px; background: var(--ok); z-index: 2; }
+  .pv { left: 1404px; background: var(--ok); box-shadow: 0 0 0 8px rgba(29,154,99,.22); }
+  .crack { position: absolute; left: 600px; top: 0; width: 760px; height: 1080px; pointer-events: none; }
+  .tape { position: absolute; left: 520px; top: 700px; width: 940px; z-index: 5; padding: 26px 0; text-align: center; transform: rotate(-11deg);
+    background: repeating-linear-gradient(-45deg, #d63c43 0 34px, #c1313a 34px 68px); color: #fff; font: 700 56px/1 var(--display); letter-spacing: -0.02em;
+    box-shadow: 0 0 0 6px #fff, 0 40px 70px -20px rgba(11,20,38,.7); text-shadow: 0 4px 0 rgba(0,0,0,.25); }
+  .mascot { left: 1690px; top: 830px; height: 230px; transform: rotate(-8deg); z-index: 6; }
+  .wm { left: 1400px; bottom: 40px; font-size: 50px; }
+</style></head><body>
+<div class="p p1"><svg class="machine m1" viewBox="0 0 1000 560"><!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; c1c1 becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs>
+  <clipPath id="c1c1-cpl-clip"><rect x="532" y="304" width="96" height="52" rx="10" /></clipPath>
+  <clipPath id="c1c1-shaft-clip"><rect x="512" y="320" width="120" height="20" /></clipPath>
+  <linearGradient id="c1c1-casing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f6fb" /><stop offset="0.45" stop-color="#e1e8f3" /><stop offset="1" stop-color="#c3cfe2" /></linearGradient>
+  <linearGradient id="c1c1-motor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe3f0" /><stop offset="0.5" stop-color="#c4d0e3" /><stop offset="1" stop-color="#a9b8d0" /></linearGradient>
+  <linearGradient id="c1c1-pipe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9d3e4" /><stop offset="0.4" stop-color="#eef2f8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <linearGradient id="c1c1-pipeh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8" /><stop offset="0.6" stop-color="#d3dbe8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <pattern id="c1c1-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#f0a21a" /><rect width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g id="c1c1-pipes">
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#c1c1-pipe)" stroke-width="58" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#c1c1-pipeh)" stroke-width="50" />
+    <rect x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path id="c1c1-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path id="c1c1-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g fill="#15213a" stroke="none"><circle cx="80" cy="478" r="6" /><circle cx="300" cy="478" r="6" /><circle cx="520" cy="478" r="6" /><circle cx="700" cy="478" r="6" /><circle cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="130" y="236" width="320" height="194" rx="26" fill="url(#c1c1-casing)" />
+  <path d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g fill="#15213a" stroke="none"><circle cx="160" cy="333" r="5" /><circle cx="200" cy="333" r="5" /><circle cx="240" cy="333" r="5" /><circle cx="280" cy="333" r="5" /><circle cx="320" cy="333" r="5" /><circle cx="360" cy="333" r="5" /><circle cx="400" cy="333" r="5" /><circle cx="430" cy="333" r="5" /></g>
+  <path d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g id="c1c1-bearing">
+    <rect x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g clip-path="url(#c1c1-shaft-clip)"><g id="c1c1-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect x="512" y="300" width="120" height="6" /><rect x="512" y="316" width="120" height="6" /><rect x="512" y="332" width="120" height="6" /><rect x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="url(#c1c1-hatch)" />
+  <g clip-path="url(#c1c1-cpl-clip)" opacity="0.55"><g id="c1c1-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect x="532" y="276" width="96" height="5" /><rect x="532" y="294" width="96" height="5" /><rect x="532" y="312" width="96" height="5" /><rect x="532" y="330" width="96" height="5" /><rect x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect x="628" y="246" width="250" height="184" rx="22" fill="url(#c1c1-motor)" />
+  <g stroke-width="2" opacity="0.55"><path d="M 660 262 L 660 414" /><path d="M 690 262 L 690 414" /><path d="M 720 262 L 720 414" /><path d="M 750 262 L 750 414" /><path d="M 780 262 L 780 414" /><path d="M 810 262 L 810 414" /><path d="M 840 262 L 840 414" /></g>
+  <path d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle id="c1c1-lamp" cx="754" cy="172" r="15" fill="#d63c43" />
+  <circle id="c1c1-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+</svg></div>
+<div class="p p2"><svg class="machine m2" viewBox="0 0 1000 560"><!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; c1c2 becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs>
+  <clipPath id="c1c2-cpl-clip"><rect x="532" y="304" width="96" height="52" rx="10" /></clipPath>
+  <clipPath id="c1c2-shaft-clip"><rect x="512" y="320" width="120" height="20" /></clipPath>
+  <linearGradient id="c1c2-casing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f6fb" /><stop offset="0.45" stop-color="#e1e8f3" /><stop offset="1" stop-color="#c3cfe2" /></linearGradient>
+  <linearGradient id="c1c2-motor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe3f0" /><stop offset="0.5" stop-color="#c4d0e3" /><stop offset="1" stop-color="#a9b8d0" /></linearGradient>
+  <linearGradient id="c1c2-pipe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9d3e4" /><stop offset="0.4" stop-color="#eef2f8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <linearGradient id="c1c2-pipeh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8" /><stop offset="0.6" stop-color="#d3dbe8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <pattern id="c1c2-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#f0a21a" /><rect width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g id="c1c2-pipes">
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#c1c2-pipe)" stroke-width="58" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#c1c2-pipeh)" stroke-width="50" />
+    <rect x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path id="c1c2-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path id="c1c2-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g fill="#15213a" stroke="none"><circle cx="80" cy="478" r="6" /><circle cx="300" cy="478" r="6" /><circle cx="520" cy="478" r="6" /><circle cx="700" cy="478" r="6" /><circle cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="130" y="236" width="320" height="194" rx="26" fill="url(#c1c2-casing)" />
+  <path d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g fill="#15213a" stroke="none"><circle cx="160" cy="333" r="5" /><circle cx="200" cy="333" r="5" /><circle cx="240" cy="333" r="5" /><circle cx="280" cy="333" r="5" /><circle cx="320" cy="333" r="5" /><circle cx="360" cy="333" r="5" /><circle cx="400" cy="333" r="5" /><circle cx="430" cy="333" r="5" /></g>
+  <path d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g id="c1c2-bearing">
+    <rect x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g clip-path="url(#c1c2-shaft-clip)"><g id="c1c2-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect x="512" y="300" width="120" height="6" /><rect x="512" y="316" width="120" height="6" /><rect x="512" y="332" width="120" height="6" /><rect x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="url(#c1c2-hatch)" />
+  <g clip-path="url(#c1c2-cpl-clip)" opacity="0.55"><g id="c1c2-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect x="532" y="276" width="96" height="5" /><rect x="532" y="294" width="96" height="5" /><rect x="532" y="312" width="96" height="5" /><rect x="532" y="330" width="96" height="5" /><rect x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect x="628" y="246" width="250" height="184" rx="22" fill="url(#c1c2-motor)" />
+  <g stroke-width="2" opacity="0.55"><path d="M 660 262 L 660 414" /><path d="M 690 262 L 690 414" /><path d="M 720 262 L 720 414" /><path d="M 750 262 L 750 414" /><path d="M 780 262 L 780 414" /><path d="M 810 262 L 810 414" /><path d="M 840 262 L 840 414" /></g>
+  <path d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle id="c1c2-lamp" cx="754" cy="172" r="15" fill="#d48a06" />
+  <circle id="c1c2-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+</svg><svg id="glass" class="glass" width="720" height="1080"></svg></div>
+<div class="p p3"><svg class="machine m3" viewBox="0 0 1000 560"><!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; c1c3 becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs>
+  <clipPath id="c1c3-cpl-clip"><rect x="532" y="304" width="96" height="52" rx="10" /></clipPath>
+  <clipPath id="c1c3-shaft-clip"><rect x="512" y="320" width="120" height="20" /></clipPath>
+  <linearGradient id="c1c3-casing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f6fb" /><stop offset="0.45" stop-color="#e1e8f3" /><stop offset="1" stop-color="#c3cfe2" /></linearGradient>
+  <linearGradient id="c1c3-motor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe3f0" /><stop offset="0.5" stop-color="#c4d0e3" /><stop offset="1" stop-color="#a9b8d0" /></linearGradient>
+  <linearGradient id="c1c3-pipe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9d3e4" /><stop offset="0.4" stop-color="#eef2f8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <linearGradient id="c1c3-pipeh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8" /><stop offset="0.6" stop-color="#d3dbe8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <pattern id="c1c3-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#f0a21a" /><rect width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g id="c1c3-pipes">
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#c1c3-pipe)" stroke-width="58" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#c1c3-pipeh)" stroke-width="50" />
+    <rect x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path id="c1c3-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path id="c1c3-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g fill="#15213a" stroke="none"><circle cx="80" cy="478" r="6" /><circle cx="300" cy="478" r="6" /><circle cx="520" cy="478" r="6" /><circle cx="700" cy="478" r="6" /><circle cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="130" y="236" width="320" height="194" rx="26" fill="url(#c1c3-casing)" />
+  <path d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g fill="#15213a" stroke="none"><circle cx="160" cy="333" r="5" /><circle cx="200" cy="333" r="5" /><circle cx="240" cy="333" r="5" /><circle cx="280" cy="333" r="5" /><circle cx="320" cy="333" r="5" /><circle cx="360" cy="333" r="5" /><circle cx="400" cy="333" r="5" /><circle cx="430" cy="333" r="5" /></g>
+  <path d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g id="c1c3-bearing">
+    <rect x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g clip-path="url(#c1c3-shaft-clip)"><g id="c1c3-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect x="512" y="300" width="120" height="6" /><rect x="512" y="316" width="120" height="6" /><rect x="512" y="332" width="120" height="6" /><rect x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="url(#c1c3-hatch)" />
+  <g clip-path="url(#c1c3-cpl-clip)" opacity="0.55"><g id="c1c3-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect x="532" y="276" width="96" height="5" /><rect x="532" y="294" width="96" height="5" /><rect x="532" y="312" width="96" height="5" /><rect x="532" y="330" width="96" height="5" /><rect x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect x="628" y="246" width="250" height="184" rx="22" fill="url(#c1c3-motor)" />
+  <g stroke-width="2" opacity="0.55"><path d="M 660 262 L 660 414" /><path d="M 690 262 L 690 414" /><path d="M 720 262 L 720 414" /><path d="M 750 262 L 750 414" /><path d="M 780 262 L 780 414" /><path d="M 810 262 L 810 414" /><path d="M 840 262 L 840 414" /></g>
+  <path d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle id="c1c3-lamp" cx="754" cy="172" r="15" fill="#1d9a63" />
+  <circle id="c1c3-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+</svg></div>
+<div class="h h1">$1.58M<br>LOST</div>
+<div class="h h2">FIXED?</div>
+<div class="h h3">FIXED.<br>PROVEN.</div>
+<div class="pill pt">● TRIP</div><div class="pill pr">✓ REPAIRED</div><div class="pill pv">✓ VERIFIED</div>
+<div class="tape">THE EVIDENCE SAYS OTHERWISE</div>
+<img class="mascot" src="../../assets/mascot/mascot-figure.png">
+<div class="wm">Plant<span>Pulse</span></div>
+<script>
+  // Shattered-glass impact on the REPAIRED pill (deterministic).
+  let q = 11; const r = () => (q = (q * 9301 + 49297) % 233280) / 233280;
+  const cx = 272, cy = 410, N = 11, rays = [];
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (r() - 0.5) * 0.35, len = 220 + r() * 420, pts = [[cx, cy]];
+    for (let d = 40; d < len; d += 36 + r() * 30) { const j = (r() - 0.5) * 0.22; pts.push([cx + Math.cos(a + j) * d, cy + Math.sin(a + j) * d]); }
+    rays.push(pts);
+  }
+  const ring = (rad) => rays.map(p => { const k = Math.min(p.length - 1, Math.round(rad / 52)); return p[k]; });
+  const path = (pts, close) => "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join(" L") + (close ? " Z" : "");
+  let d = rays.map(p => path(p)).join(" ") + " " + path(ring(70), true) + " " + path(ring(160), true);
+  const shards = [0, 3, 7].map(i => { const a = ring(70)[i], b = ring(70)[(i + 1) % N], c = ring(160)[(i + 1) % N], e = ring(160)[i]; return `<path d="${path([a, b, c, e], true)}" fill="rgba(255,255,255,.55)"/>`; }).join("");
+  document.getElementById("glass").innerHTML = shards +
+    `<path d="${d}" fill="none" stroke="#fff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" opacity=".95"/>` +
+    `<path d="${d}" fill="none" stroke="#0b1426" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="16" fill="#fff" stroke="#0b1426" stroke-width="3"/>`;
+</script>
+</body></html>

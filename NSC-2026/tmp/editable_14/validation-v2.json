@@ -1,0 +1,354 @@
+{
+  "schemaVersion": "presentation-finalization.v1",
+  "finalSha256": "746282b3811023ceabce7b5edca6befd7e83307c9fb40ce88e8befc0d6f2ef24",
+  "byteCount": 21629493,
+  "packageIntegrity": {
+    "chart_count": 4,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 14,
+    "relationship_part_count": 42,
+    "slide_count": 14,
+    "status": "pass",
+    "exitCode": 0,
+    "findingCount": 0,
+    "warnings": []
+  },
+  "presentationLayout": {
+    "finding_count": 0,
+    "findings": [],
+    "font_policy": {
+      "checked_text_script_count": 387,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Arial",
+        "Georgia",
+        "Impact"
+      ],
+      "observed_font_use_counts": {
+        "Arial": 65,
+        "Georgia": 304,
+        "Impact": 18
+      },
+      "passed": true,
+      "performed": true
+    },
+    "slide_count": 14,
+    "slide_size_in": [
+      16.6667,
+      9.375
+    ],
+    "warning_count": 0,
+    "warnings": [],
+    "exitCode": 0,
+    "findingCount": 0,
+    "fontPolicy": {
+      "checked_text_script_count": 387,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Arial",
+        "Georgia",
+        "Impact"
+      ],
+      "observed_font_use_counts": {
+        "Arial": 65,
+        "Georgia": 304,
+        "Impact": 18
+      },
+      "passed": true,
+      "performed": true
+    }
+  },
+  "fontSelection": {
+    "basis": "design",
+    "approvedFamilies": [
+      "Impact",
+      "Georgia",
+      "Arial"
+    ],
+    "scriptFonts": {},
+    "referenceSha256": null,
+    "referenceFontsVerifiedInEncodedText": false,
+    "checked_text_script_count": 387,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Arial",
+      "Georgia",
+      "Impact"
+    ],
+    "observed_font_use_counts": {
+      "Arial": 65,
+      "Georgia": 304,
+      "Impact": 18
+    },
+    "passed": true,
+    "performed": true
+  },
+  "firstPartyImport": {
+    "performed": true,
+    "passed": true,
+    "slideCount": 14,
+    "sha256": "746282b3811023ceabce7b5edca6befd7e83307c9fb40ce88e8befc0d6f2ef24",
+    "runtimeNodeModules": "C:/Users/Raphael Angelo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
+    "nodeExecutable": "C:\\Users\\Raphael Angelo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+  },
+  "nativeTableArithmetic": {
+    "performed": true,
+    "checked_column_count": 0,
+    "checks": [],
+    "claim_boundary": "Displayed-value arithmetic with rounding tolerance; not source-data verification.",
+    "eligible_table_count": 0,
+    "finding_count": 0,
+    "findings": [],
+    "native_table_count": 0,
+    "passed": true,
+    "schema_version": "presentation-native-table-arithmetic.v1",
+    "skipped_tables": [],
+    "slide_count": 14,
+    "warning_count": 0,
+    "warnings": []
+  },
+  "nativeChartTitles": {
+    "performed": true,
+    "checks": [
+      {
+        "chart": 1,
+        "slide": 3,
+        "status": "present"
+      },
+      {
+        "chart": 1,
+        "slide": 8,
+        "status": "present"
+      },
+      {
+        "chart": 1,
+        "slide": 11,
+        "status": "present"
+      },
+      {
+        "chart": 1,
+        "slide": 14,
+        "status": "present"
+      }
+    ],
+    "finding_count": 0,
+    "findings": [],
+    "native_chart_count": 4,
+    "native_powerpoint_verified": false,
+    "passed": true,
+    "presentation_sha256": "746282b3811023ceabce7b5edca6befd7e83307c9fb40ce88e8befc0d6f2ef24",
+    "schema_version": "presentation-native-chart-titles.v1",
+    "slide_count": 14,
+    "source_text_emitted": false,
+    "unresolved_linked_title_count": 0
+  },
+  "sourceDerivedPolicyFlags": [
+    "--expected-slide-size-emu",
+    "15240000,8572500",
+    "--validate-heading-fit",
+    "--cover-role",
+    "none",
+    "--expected-slide-count",
+    "14",
+    "--approved-font-family",
+    "Impact",
+    "--approved-font-family",
+    "Georgia",
+    "--approved-font-family",
+    "Arial"
+  ],
+  "nativeChartValidation": {
+    "detectedOwnerSlides": [
+      3,
+      8,
+      11,
+      14
+    ],
+    "detectedChartCount": 4,
+    "targetApplication": "portable",
+    "sourceChartOwnersExplicitlyDeclared": true,
+    "validatorRan": true,
+    "passed": true
+  },
+  "nativeQuantitativeCharts": {
+    "report": {
+      "claim_boundary": "OOXML/workbook structural validation only; source provenance and native PowerPoint opening remain separate checks.",
+      "expected_quantitative_chart_slides": [
+        3,
+        8,
+        11,
+        14
+      ],
+      "failed_slide_count": 0,
+      "failed_slides": [],
+      "formal_human_reviewed": false,
+      "native_application_open_verified": false,
+      "package_sha256": "746282b3811023ceabce7b5edca6befd7e83307c9fb40ce88e8befc0d6f2ef24",
+      "passed": true,
+      "results": [
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "cache_reference_ranges_verified": true,
+              "embedded_workbook_count": 1,
+              "embedded_workbook_sheet_count": 1,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 3,
+              "series_formula_count": 2,
+              "workbook_numeric_cell_count": 3
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 4,
+          "required_native_chart_count": 1,
+          "slide_number": 3,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "cache_reference_ranges_verified": true,
+              "embedded_workbook_count": 1,
+              "embedded_workbook_sheet_count": 1,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 2,
+              "series_formula_count": 2,
+              "workbook_numeric_cell_count": 2
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 7,
+          "required_native_chart_count": 1,
+          "slide_number": 8,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "cache_reference_ranges_verified": true,
+              "embedded_workbook_count": 1,
+              "embedded_workbook_sheet_count": 1,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 2,
+              "series_formula_count": 2,
+              "workbook_numeric_cell_count": 2
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 4,
+          "required_native_chart_count": 1,
+          "slide_number": 11,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "cache_reference_ranges_verified": true,
+              "embedded_workbook_count": 1,
+              "embedded_workbook_sheet_count": 1,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 2,
+              "series_formula_count": 2,
+              "workbook_numeric_cell_count": 2
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 4,
+          "required_native_chart_count": 1,
+          "slide_number": 14,
+          "status": "passed"
+        }
+      ],
+      "schema_version": "owner-private.quantitative-chart-native-gate.v1",
+      "slide_count": 14,
+      "source_attachments_accessed": false,
+      "validated_slide_count": 4
+    },
+    "exitCode": 0,
+    "validatedSlideCount": 4,
+    "requiredOwnerSlides": [
+      3,
+      8,
+      11,
+      14
+    ],
+    "approvedSourceFigureExceptionSlides": []
+  },
+  "chartDataPackaging": {
+    "conversion": "chart_data_snapshot",
+    "converted_chart_count": 4,
+    "converted_charts": [
+      {
+        "chart_part": "ppt/slides/charts/chart1.xml",
+        "owner_slide": 3,
+        "point_count": 3,
+        "series_count": 1,
+        "workbook_part": "ppt/embeddings/chart-data-snapshot-001.xlsx"
+      },
+      {
+        "chart_part": "ppt/slides/charts/chart2.xml",
+        "owner_slide": 8,
+        "point_count": 2,
+        "series_count": 1,
+        "workbook_part": "ppt/embeddings/chart-data-snapshot-002.xlsx"
+      },
+      {
+        "chart_part": "ppt/slides/charts/chart3.xml",
+        "owner_slide": 11,
+        "point_count": 2,
+        "series_count": 1,
+        "workbook_part": "ppt/embeddings/chart-data-snapshot-003.xlsx"
+      },
+      {
+        "chart_part": "ppt/slides/charts/chart4.xml",
+        "owner_slide": 14,
+        "point_count": 2,
+        "series_count": 1,
+        "workbook_part": "ppt/embeddings/chart-data-snapshot-004.xlsx"
+      }
+    ],
+    "detected_chart_owner_slides": [
+      3,
+      8,
+      11,
+      14
+    ],
+    "experimental": true,
+    "input_sha256": "4b2d64dfd0e1cf08454b79378293d298824831c790dca03e242a448e07827d81",
+    "new_formulas_describe_snapshot_only": true,
+    "output_bytes": 21629493,
+    "output_sha256": "746282b3811023ceabce7b5edca6befd7e83307c9fb40ce88e8befc0d6f2ef24",
+    "portable_chart_validation_passed": true,
+    "portable_validated_owner_slides": [
+      3,
+      8,
+      11,
+      14
+    ],
+    "preserved_existing_workbook_chart_count": 0,
+    "preserved_existing_workbook_charts": [],
+    "schema_version": "experimental.literal-chart-workbook-snapshot.v1",
+    "source_formula_required_slides": [],
+    "source_formulas_preserved": false,
+    "source_workbook_preserved": false,
+    "source_workbook_required_slides": []
+  }
+}

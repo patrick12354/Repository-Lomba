@@ -1,0 +1,128 @@
+{
+  "created": "2026-09-06T23:02:00",
+  "seconds": 14.4,
+  "verdict": "reject_analog_hypothesis",
+  "reason": "failed gate2_transport_beats_raw, gate3_solver",
+  "gates": {
+    "gate1_support": true,
+    "gate2_transport_beats_raw": false,
+    "gate3_solver": false,
+    "pooled_mse_q_transport": 104.00923912449963,
+    "pooled_mse_q_raw": 58.0497069488158,
+    "pooled_d_mse_solver": 0.8241612778009181,
+    "d_mse_excluding_best_day": 5.057279651349214,
+    "min_coverage": 0.7604166666666666,
+    "min_supported": 292
+  },
+  "config": {
+    "groups": {
+      "thermal": [
+        "T",
+        "T_min48",
+        "T_rng48",
+        "air_temperature_a24h"
+      ],
+      "ventilation": [
+        "co2_c24h",
+        "co2_a24h",
+        "co2_slope"
+      ],
+      "pressure_dynamics": [
+        "pressure_a24h",
+        "pressure_slope"
+      ],
+      "diurnal": [
+        "sin1",
+        "cos1"
+      ]
+    },
+    "n_episodes": 5,
+    "strength": 0.25,
+    "min_separation_hours": 48.0,
+    "threshold_quantile": 0.9,
+    "cal_days": 7,
+    "min_coverage": 0.3,
+    "min_supported": 96
+  },
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "helper_code": {
+    "src/v21_episode_anchors.py": "405fd2414b4e2b03dcf4f1df244afdfc",
+    "src/an81_v21_anchor_support.py": "d636225baa2f9e4840743cd84138e060"
+  },
+  "windows": [
+    {
+      "block": "B1_last15d",
+      "fold": 7,
+      "origin": "2023-08-06 14:30:00",
+      "horizon_end": "2023-08-14 14:30:00",
+      "n": 384,
+      "n_anchors": 1829,
+      "threshold": 0.34600307628323024,
+      "cal_queries": 336,
+      "cal_anchors": 1493,
+      "supported": 292,
+      "coverage": 0.7604166666666666,
+      "ok": 292,
+      "too_few_episodes": 0,
+      "missing_descriptor": 2,
+      "above_threshold": 90,
+      "mse_q_transport": 119.28616277500517,
+      "mse_z_transport": 31.25853178041897,
+      "rmse_z_transport": 6.029035841661279,
+      "mse_q_raw": 43.25868160279774,
+      "mse_z_raw": 25.10445863922495,
+      "rmse_z_raw": 5.559677545926132,
+      "mse_z_c0": 27.281523956339242,
+      "rmse_z_c0": 5.694034572689781,
+      "d_mse_transport": 3.9770078240797275,
+      "d_mse_raw": -2.177065317114291,
+      "q_transport_beats_raw": false,
+      "out_of_range_q": 181,
+      "status": "scored"
+    },
+    {
+      "block": "B1_last15d",
+      "fold": 3,
+      "origin": "2023-07-29 14:30:00",
+      "horizon_end": "2023-08-06 14:30:00",
+      "n": 384,
+      "n_anchors": 1445,
+      "threshold": 0.3114551312029707,
+      "cal_queries": 336,
+      "cal_anchors": 1109,
+      "supported": 368,
+      "coverage": 0.9583333333333334,
+      "ok": 368,
+      "too_few_episodes": 0,
+      "missing_descriptor": 2,
+      "above_threshold": 14,
+      "mse_q_transport": 91.88733231485938,
+      "mse_z_transport": 36.5634122750941,
+      "rmse_z_transport": 6.321665025721039,
+      "mse_q_raw": 69.78606401685187,
+      "mse_z_raw": 38.623327501657485,
+      "rmse_z_raw": 6.53603631240425,
+      "mse_z_c0": 38.24096619162311,
+      "rmse_z_c0": 6.508684076070857,
+      "d_mse_transport": -1.677553916529007,
+      "d_mse_raw": 0.38236131003437634,
+      "q_transport_beats_raw": false,
+      "out_of_range_q": 98,
+      "status": "scored"
+    },
+    {
+      "block": "B2_prev15d",
+      "status": "insufficient_windows",
+      "n": 0
+    }
+  ]
+}

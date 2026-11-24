@@ -1,0 +1,110 @@
+{
+  "leads": [
+    {
+      "block": "B1_last15d",
+      "n": 576,
+      "min_lead_hours": 144.5,
+      "max_lead_hours": 192.0,
+      "score_window_hours": 48
+    },
+    {
+      "block": "B2_prev15d",
+      "n": 96,
+      "min_lead_hours": 144.5,
+      "max_lead_hours": 192.0,
+      "score_window_hours": 48
+    },
+    {
+      "block": "B3_shift7d",
+      "n": 480,
+      "min_lead_hours": 144.5,
+      "max_lead_hours": 192.0,
+      "score_window_hours": 48
+    }
+  ],
+  "direction": [
+    {
+      "candidate": "preds_distributed_lag.pkl",
+      "block": "B1_last15d",
+      "alignment": -0.8453757936266206,
+      "movement_mse": 0.26533665515752225,
+      "d_mse": -0.5800391384690984,
+      "control_sd": 17.41073506143005,
+      "candidate_sd": 17.539923911303735
+    },
+    {
+      "candidate": "preds_distributed_lag.pkl",
+      "block": "B2_prev15d",
+      "alignment": 0.38906748509253647,
+      "movement_mse": 0.2883184958477311,
+      "d_mse": 0.6773859809402676,
+      "control_sd": 16.418310375610176,
+      "candidate_sd": 16.276376025297964
+    },
+    {
+      "candidate": "preds_distributed_lag.pkl",
+      "block": "B3_shift7d",
+      "alignment": -0.3970779701129567,
+      "movement_mse": 0.07252753888216396,
+      "d_mse": -0.32455043123079275,
+      "control_sd": 17.673594574457443,
+      "candidate_sd": 17.708038278491387
+    },
+    {
+      "candidate": "preds_block_bagged.pkl",
+      "block": "B1_last15d",
+      "alignment": -0.44847109406901314,
+      "movement_mse": 0.08950817073546792,
+      "d_mse": -0.35896292333354524,
+      "control_sd": 17.41073506143005,
+      "candidate_sd": 17.46762417926615
+    },
+    {
+      "candidate": "preds_block_bagged.pkl",
+      "block": "B2_prev15d",
+      "alignment": 0.5679410986583232,
+      "movement_mse": 0.19362755611119603,
+      "d_mse": 0.7615686547695193,
+      "control_sd": 16.418310375610176,
+      "candidate_sd": 16.317721239838182
+    },
+    {
+      "candidate": "preds_block_bagged.pkl",
+      "block": "B3_shift7d",
+      "alignment": 0.47901525526735683,
+      "movement_mse": 0.1133593920214715,
+      "d_mse": 0.5923746472888283,
+      "control_sd": 17.673594574457443,
+      "candidate_sd": 17.693525630249813
+    },
+    {
+      "candidate": "preds_v21_physics_forward_factor.pkl",
+      "block": "B1_last15d",
+      "alignment": -0.04605177509898253,
+      "movement_mse": 0.006921398371079892,
+      "d_mse": -0.039130376727902635,
+      "control_sd": 17.41073506143005,
+      "candidate_sd": 17.479376558475675
+    },
+    {
+      "candidate": "preds_v21_physics_forward_factor.pkl",
+      "block": "B2_prev15d",
+      "alignment": -0.3297277329964845,
+      "movement_mse": 0.048694949973477855,
+      "d_mse": -0.28103278302300666,
+      "control_sd": 16.418310375610176,
+      "candidate_sd": 16.61216617131258
+    },
+    {
+      "candidate": "preds_v21_physics_forward_factor.pkl",
+      "block": "B3_shift7d",
+      "alignment": 0.20143618985116418,
+      "movement_mse": 0.03334813321917828,
+      "d_mse": 0.23478432307034247,
+      "control_sd": 17.673594574457443,
+      "candidate_sd": 17.838206115649385
+    }
+  ],
+  "mask_fix": "each horizon shifted from the original mask, not a cumulatively masked series",
+  "arms": "fixed alpha100 blend0.25; adaptive solve selector tested but not searched this round"
+}

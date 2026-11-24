@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/pp.css"><link rel="stylesheet" href="common.css">
+<style>
+  .bg { position: absolute; inset: 0; background:
+    radial-gradient(900px 700px at 25% 70%, rgba(163,206,255,.9), transparent 70%),
+    radial-gradient(800px 700px at 100% 0%, rgba(230,176,147,.85), transparent 70%); }
+  .machine { left: -40px; top: 360px; width: 1100px; }
+  .ok { position: absolute; left: 120px; top: 300px; padding: 16px 28px; border-radius: 999px; background: var(--ok); color: #fff; font: 700 52px/1 var(--display); letter-spacing: -0.02em; box-shadow: 0 24px 50px -14px rgba(13,106,66,.6); }
+  .x { position: absolute; left: 90px; top: 250px; }
+  h1 { position: absolute; right: 70px; top: 70px; margin: 0; text-align: right; font: 700 270px/0.85 var(--display); letter-spacing: -0.06em; color: var(--ink-hi); }
+  .nope { position: absolute; right: 90px; top: 330px; padding: 10px 40px 22px; border: 14px solid var(--danger); border-radius: 26px; color: var(--danger); font: 700 190px/1 var(--display); letter-spacing: -0.04em; transform: rotate(-8deg); background: rgba(255,255,255,.88); box-shadow: 0 30px 60px -18px rgba(164,31,39,.5); }
+  .sub { position: absolute; right: 80px; top: 650px; text-align: right; font: 700 70px/1.08 var(--display); letter-spacing: -0.035em; color: var(--ink-hi); }
+  .sub em { font-style: normal; color: #fff; background: var(--accent); padding: 2px 18px 8px; border-radius: 14px; }
+  .mascot { right: 560px; bottom: 30px; height: 290px; transform: rotate(-8deg); }
+  .wm { right: 80px; bottom: 60px; }
+</style></head><body>
+<div class="bg"></div>
+<svg class="machine" viewBox="0 0 1000 560"><!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; b becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs>
+  <clipPath id="b-cpl-clip"><rect x="532" y="304" width="96" height="52" rx="10" /></clipPath>
+  <clipPath id="b-shaft-clip"><rect x="512" y="320" width="120" height="20" /></clipPath>
+  <linearGradient id="b-casing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f6fb" /><stop offset="0.45" stop-color="#e1e8f3" /><stop offset="1" stop-color="#c3cfe2" /></linearGradient>
+  <linearGradient id="b-motor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dbe3f0" /><stop offset="0.5" stop-color="#c4d0e3" /><stop offset="1" stop-color="#a9b8d0" /></linearGradient>
+  <linearGradient id="b-pipe" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c9d3e4" /><stop offset="0.4" stop-color="#eef2f8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <linearGradient id="b-pipeh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8" /><stop offset="0.6" stop-color="#d3dbe8" /><stop offset="1" stop-color="#b9c5d9" /></linearGradient>
+  <pattern id="b-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#f0a21a" /><rect width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g id="b-pipes">
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#b-pipe)" stroke-width="58" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#b-pipeh)" stroke-width="50" />
+    <rect x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path id="b-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path id="b-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g fill="#15213a" stroke="none"><circle cx="80" cy="478" r="6" /><circle cx="300" cy="478" r="6" /><circle cx="520" cy="478" r="6" /><circle cx="700" cy="478" r="6" /><circle cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect x="130" y="236" width="320" height="194" rx="26" fill="url(#b-casing)" />
+  <path d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g fill="#15213a" stroke="none"><circle cx="160" cy="333" r="5" /><circle cx="200" cy="333" r="5" /><circle cx="240" cy="333" r="5" /><circle cx="280" cy="333" r="5" /><circle cx="320" cy="333" r="5" /><circle cx="360" cy="333" r="5" /><circle cx="400" cy="333" r="5" /><circle cx="430" cy="333" r="5" /></g>
+  <path d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g id="b-bearing">
+    <rect x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g clip-path="url(#b-shaft-clip)"><g id="b-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect x="512" y="300" width="120" height="6" /><rect x="512" y="316" width="120" height="6" /><rect x="512" y="332" width="120" height="6" /><rect x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="url(#b-hatch)" />
+  <g clip-path="url(#b-cpl-clip)" opacity="0.55"><g id="b-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect x="532" y="276" width="96" height="5" /><rect x="532" y="294" width="96" height="5" /><rect x="532" y="312" width="96" height="5" /><rect x="532" y="330" width="96" height="5" /><rect x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect x="628" y="246" width="250" height="184" rx="22" fill="url(#b-motor)" />
+  <g stroke-width="2" opacity="0.55"><path d="M 660 262 L 660 414" /><path d="M 690 262 L 690 414" /><path d="M 720 262 L 720 414" /><path d="M 750 262 L 750 414" /><path d="M 780 262 L 780 414" /><path d="M 810 262 L 810 414" /><path d="M 840 262 L 840 414" /></g>
+  <path d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle id="b-lamp" cx="754" cy="172" r="15" fill="#1d9a63" />
+  <circle id="b-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+</svg>
+<div class="ok">✓ REPAIRED</div>
+<svg class="x" width="460" height="200" viewBox="0 0 460 200" stroke="#d63c43" stroke-width="16" stroke-linecap="round"><path d="M10 120 L450 70"/></svg>
+<h1>FIXED?</h1>
+<div class="nope">NOPE.</div>
+<div class="sub">The <em>evidence</em><br>says otherwise.</div>
+<img class="mascot" src="../../assets/mascot/mascot-figure.png">
+<div class="wm">Plant<span>Pulse</span></div>
+</body></html>

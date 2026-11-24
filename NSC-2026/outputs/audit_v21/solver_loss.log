@@ -1,0 +1,26 @@
+base configuration: physics=True  half-deshrink=True  seeds=5
+  B1_last15d  7 inner folds,  960 rows -> penalty 32    a1=1.020 a4=1.060
+  B2_prev15d  2 inner folds,  480 rows -> penalty 32    a1=1.000 a4=1.000
+  B3_shift7d  6 inner folds,  864 rows -> penalty 32    a1=1.020 a4=1.060
+  [base fitted in 236 s]
+  d4 vs four d1 inconsistency, outer: B1_last15d 2.171 (d4 sd 10.670)  B2_prev15d 2.225 (d4 sd 10.580)  B3_shift7d 2.256 (d4 sd 11.338)
+  base           pooled 5.47413
+  base_gains     pooled 5.47088  (-0.00324)
+  B1_last15d  7 inner folds,  960 rows -> penalty 32    a1=1.020 a4=1.060
+  B2_prev15d  2 inner folds,  480 rows -> penalty 32    a1=1.000 a4=1.000
+  B3_shift7d  6 inner folds,  864 rows -> penalty 32    a1=1.020 a4=1.060
+  [hybrid fitted in 1635 s]
+  d4 vs four d1 inconsistency, outer: B1_last15d 1.974 (d4 sd 10.670)  B2_prev15d 2.128 (d4 sd 10.580)  B3_shift7d 2.317 (d4 sd 11.338)
+  hybrid         pooled 5.48765  (+0.01352)
+  hybrid_gains   pooled 5.48412  (+0.01000)
+bootstrap base_gains    dMSE -0.0364  [-0.1520, +0.0954]  worse in 27% of draws
+bootstrap hybrid        dMSE +0.1481  [-0.0942, +0.4278]  worse in 86% of draws
+bootstrap hybrid_gains  dMSE +0.1086  [-0.1967, +0.4002]  worse in 76% of draws
+
+   candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled     d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  a1_B1  a4_B1  a1_B2  a4_B2  a1_B3  a4_B3  boot_blocks  boot_mean   boot_lo  boot_hi  boot_p_worse
+        base 5.474126    4.159154    6.529437    4.768597 1440       NaN       NaN           NaN           NaN           NaN        NaN    NaN    NaN    NaN    NaN    NaN    NaN          NaN        NaN       NaN      NaN           NaN
+  base_gains 5.470885    4.150616    6.529437    4.812309 1440 -0.003241 -0.035477     -0.008539      0.000000      0.043712      False   1.02   1.06    1.0    1.0   1.02   1.06         12.0  -0.036432 -0.152009 0.095424        0.2675
+      hybrid 5.487650    4.165576    6.548021    4.764847 1440  0.013524  0.148245      0.006422      0.018584     -0.003750      False    NaN    NaN    NaN    NaN    NaN    NaN         12.0   0.148089 -0.094183 0.427791        0.8610
+hybrid_gains 5.484122    4.156274    6.548021    4.809581 1440  0.009996  0.109540     -0.002880      0.018584      0.040984      False   1.02   1.06    1.0    1.0   1.02   1.06         12.0   0.108575 -0.196686 0.400232        0.7590
+
+PASSES THE SECTION-180 BAR: none

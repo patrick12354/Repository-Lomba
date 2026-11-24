@@ -1,0 +1,391 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/19-demo-dosen.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f19 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #fff; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f19 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f19 .stage { position: absolute; inset: 0; perspective: 2200px; }
+#f19 .win .view { height: 641px; }
+#f19 .win .view .cam { position: absolute; inset: 0; }
+#f19 .win .view video.shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
+#f19 .win .view img.shot { position: absolute; left: 0; top: 0; width: 100%; }
+#f19 .c { left: 600px; top: 200px; width: 1140px; z-index: 3; }
+#f19 .l { left: 430px; top: 270px; width: 760px; z-index: 1; filter: brightness(.82); }
+#f19 .r { left: 1220px; top: 270px; width: 640px; z-index: 1; filter: brightness(.82); }
+#f19 .l .view, #f19 .r .view { height: 470px; }
+#f19 .win .view .cam img.hold { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+</style>
+<div data-hf-id="hf-k9xf" id="f19" data-composition-id="f19" data-width="1920" data-height="1080">
+<div data-hf-id="hf-wua0" class="scene"><div data-hf-id="hf-1ctk" class="dolly">
+  
+  <div data-hf-id="hf-cww1" class="side"><div data-hf-id="hf-jq3y" class="n">DEMO · 06</div><h2 data-hf-id="hf-4z5h">Dasbor dosen</h2><p data-hf-id="hf-tixc">peta penguasaan · kesalahan tersering · audit tutor</p></div>
+  <div data-hf-id="hf-tan6" class="stage">
+    <div data-hf-id="hf-39s6" class="win l"><div data-hf-id="hf-ufsv" class="bar"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div><div data-hf-id="hf-z18r" class="view"><img data-hf-id="hf-2aen" class="shot" src="../../assets/screens/tinjau.png" alt="" /></div></div>
+    <div data-hf-id="hf-2lls" class="win r"><div data-hf-id="hf-c51b" class="bar"><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-0zjc"></i></div><div data-hf-id="hf-2kx7" class="view"><img data-hf-id="hf-27mv" class="shot" src="../../assets/screens/audit.png" alt="" /></div></div>
+    <div data-hf-id="hf-ki2h" class="win c"><div data-hf-id="hf-bqqa" class="bar"><i data-hf-id="hf-zsm9"></i><i data-hf-id="hf-06xa"></i><i data-hf-id="hf-26gf"></i><span data-hf-id="hf-pxqx" class="url">mvp-lemon-ten.vercel.app/dosen</span></div><div data-hf-id="hf-26m6" class="view"><div data-hf-id="hf-12x1" class="cam"><img data-hf-id="hf-98jx" class="hold" src="../../assets/rec/dosen_akhir.jpg" alt="" /><video data-hf-id="hf-qqlb" id="rec-dosen" class="clip shot" src="../../assets/rec/dosen.mp4" muted playsinline data-start="0" data-duration="10.0" data-media-start="0" data-playback-rate="1.26" data-track-index="1"></video></div></div></div>
+  </div>
+  <div data-hf-id="hf-xql8" class="callout" style="left: 600px; top: 900px">peta <b data-hf-id="hf-1lag">penguasaan</b> kelas</div>
+  <div data-hf-id="hf-rxqq" class="callout" style="left: 460px; top: 900px">kesalahan <b data-hf-id="hf-bw3i">tersering</b></div>
+  <div data-hf-id="hf-iam8" class="callout" style="left: 1120px; top: 900px">setiap jawaban tutor <b data-hf-id="hf-bmf6">bisa diaudit</b></div>
+</div></div>
+</div>
+<!-- @sfx whoosh@0.0:0.45 card_flip@0.9:0.4 card_flip@1.05:0.35 mar2@~peta:0.45 woosh_down@~kesalahan-0.4:0.35 mar4@~kesalahan:0.45 woosh_up@~audit-0.4:0.4 mar6@~audit:0.5 tech_beep@~jawaban:0.4 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f19", T0 = 0.5, DUR = 9.6, VO_AT = 0.5, VOW = [["Di",0],["sisi",0.16],["dosen",0.44],["ada",1.32],["peta",1.48],["penguasaan",1.8],["tiap",2.48],["mahasiswa",2.88],["kesalahan",3.84],["yang",4.52],["paling",4.68],["sering",5.04],["muncul",5.24],["dan",6.08],["audit",6.32],["setiap",6.84],["jawaban",7.28],["tutor",7.68]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out", duration: 0.6 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a);
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk: iris (lingkaran dari titik), push (geser dari kanan), fade (blur crossfade), none
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || T0 === 0) return;
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-40px 0 80px rgba(16,24,40,.18)" }, { x: 0, duration: d, ease: "power3.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { scale: 0.965, filter: "blur(3px)", duration: 0.5, ease: "power2.in" }, END - 0.5);
+  };
+  const blink = (sel, times) => times.forEach((t) => {
+    tl.to(R.querySelectorAll(sel), { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(R.querySelectorAll(sel), { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: o.from ?? 0.6, opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(2)", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 40, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar ambient: grid titik yang bergeser, cahaya lembut, partikel neurotransmiter melayang
+  const ambient = (o = {}) => {
+    const svg = svgEl("svg", { viewBox: "0 0 1920 1080", class: "amb" });
+    D.insertBefore(svg, D.firstChild);
+    const defs = svgEl("defs", {}, svg);
+    const pid = `amb-d-${ID}`, gid = `amb-g-${ID}`;
+    const pat = svgEl("pattern", { id: pid, width: 48, height: 48, patternUnits: "userSpaceOnUse" }, defs);
+    svgEl("circle", { cx: 24, cy: 24, r: 2.4, fill: o.dot ?? "#d5e1e3" }, pat);
+    const rg = svgEl("radialGradient", { id: gid }, defs);
+    svgEl("stop", { offset: "0", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "1" }, rg);
+    svgEl("stop", { offset: "1", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "0" }, rg);
+    const blobs = [0, 1, 2].map(() => svgEl("circle", { cx: (200 + frnd() * 1520).toFixed(0), cy: (150 + frnd() * 780).toFixed(0), r: (380 + frnd() * 240).toFixed(0), fill: `url(#${gid})` }, svg));
+    const grid = svgEl("rect", { x: -96, y: -96, width: 2112, height: 1272, fill: `url(#${pid})`, opacity: o.grid ?? 0.6 }, svg);
+    const cols = o.cols ?? ["#195764", "#6fa77a", "#e07a1f"];
+    const parts = [];
+    for (let i = 0; i < (o.n ?? 24); i++) parts.push(svgEl("circle", { cx: (frnd() * 1920).toFixed(0), cy: (frnd() * 1080).toFixed(0), r: (3 + frnd() * 9).toFixed(1), fill: cols[i % cols.length], opacity: (0.1 + frnd() * 0.16).toFixed(2) }, svg));
+    tl.fromTo(grid, { x: 0, y: 0 }, { x: -48, y: -48, duration: END, ease: "none" }, 0);
+    blobs.forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 420, y: (frnd() - 0.5) * 260, duration: END, ease: "sine.inOut" }, 0));
+    parts.forEach((p) => tl.fromTo(p, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 180, y: -80 - frnd() * 200, duration: END, ease: "none" }, 0));
+    return svg;
+  };
+  // kamera pelan maju sepanjang frame supaya tidak ada gambar yang diam
+  const drift = (amt = 0.04) => tl.fromTo(D, { scale: 1 }, { scale: 1 + amt, duration: END, ease: "none" }, 0);
+  // guncangan kamera (benturan angka/stempel)
+  const shake = (t, amp = 12, d = 0.42) => {
+    const n = 7, st = d / n;
+    for (let i = 0; i < n; i++) {
+      const k = 1 - i / n;
+      tl.to(D, { x: (i % 2 ? -1 : 1) * amp * k, y: (((i * 5) % 3) - 1) * amp * 0.6 * k, duration: st, ease: "sine.inOut" }, t + i * st);
+    }
+    tl.to(D, { x: 0, y: 0, duration: st, ease: "sine.out" }, t + d);
+  };
+  // ledakan garis + gelombang kejut di titik (x, y) — dipakai saat angka mendarat
+  const burst = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const col = o.color ?? "#e07a1f", n = o.n ?? 12, r0 = o.r0 ?? 70, r1 = o.r1 ?? 220;
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    const ring = svgEl("circle", { cx: x, cy: y, r: r0 * 0.5, fill: "none", stroke: o.ring ?? col }, g);
+    tl.fromTo(ring, { attr: { r: r0 * 0.4, "stroke-width": 16 } }, { attr: { r: r1 * 1.2, "stroke-width": 0 }, duration: 0.75, ease: "expo.out" }, t);
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 + (o.rot ?? 0.2), c = Math.cos(a), s = Math.sin(a);
+      const L = 34 + (i % 3) * 16;
+      const ln = svgEl("line", { x1: x, y1: y, x2: x, y2: y, "stroke-width": 0, stroke: i % 3 === 1 ? (o.c2 ?? "#195764") : col, "stroke-linecap": "round" }, g);
+      tl.fromTo(ln, { attr: { x1: x + c * r0, y1: y + s * r0, x2: x + c * (r0 + L), y2: y + s * (r0 + L), "stroke-width": 9 } },
+        { attr: { x1: x + c * r1, y1: y + s * r1, x2: x + c * r1, y2: y + s * r1, "stroke-width": 0 }, duration: 0.6, ease: "expo.out" }, t);
+    }
+    tl.set(g, { opacity: 0 }, t + 0.8);
+  };
+  // kilatan layar penuh
+  const flash = (t, o = {}) => {
+    const el = div(FX, { background: o.color ?? "#ffffff" }, "flash");
+    tl.fromTo(el, { opacity: 0 }, { opacity: o.a ?? 0.7, duration: 0.05, ease: "none" }, t);
+    tl.to(el, { opacity: 0, duration: o.d ?? 0.45, ease: "power2.out" }, t + 0.05);
+  };
+  // konfeti balistik (deterministik: posisi = fungsi waktu)
+  const confetti = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const cols = o.cols ?? ["#e07a1f", "#195764", "#aad39c", "#f09a6c", "#2563eb", "#fbbf24"];
+    const P = [];
+    for (let i = 0; i < (o.n ?? 70); i++) {
+      const a = -Math.PI / 2 + (frnd() - 0.5) * (o.spread ?? 2.4), v = 650 + frnd() * 950;
+      const el = svgEl("rect", { x: -8, y: -5, width: 16, height: 10, rx: 2, fill: cols[i % cols.length] }, g);
+      P.push({ el, vx: Math.cos(a) * v, vy: Math.sin(a) * v, spin: (frnd() - 0.5) * 1500, sx: 0.5 + frnd() * 0.9 });
+    }
+    const dur = o.d ?? 2.6, G = 1500, p = { k: 0 };
+    const put = () => {
+      const tt = p.k * dur, drag = 1 - Math.min(0.55, tt * 0.22);
+      P.forEach((q) => q.el.setAttribute("transform", `translate(${(x + q.vx * tt * drag).toFixed(1)},${(y + q.vy * tt * drag + 0.5 * G * tt * tt).toFixed(1)}) rotate(${(q.spin * tt).toFixed(0)}) scale(${q.sx.toFixed(2)},1)`));
+    };
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    tl.fromTo(p, { k: 0 }, { k: 1, duration: dur, ease: "none", onUpdate: put, onStart: put }, t);
+    tl.to(g, { opacity: 0, duration: 0.5 }, t + dur - 0.5);
+  };
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: o.y ?? 46, opacity: 0, rotation: o.r ?? 4 }, { y: 0, opacity: 1, rotation: 0, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(1.8)", stagger: o.stagger ?? 0.045 }, t));
+  };
+  // stabilo menyapu di bawah teks penting
+  const mark = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => { el.classList.add("hl-mark"); if (o.color) el.style.setProperty("--hlc", o.color); });
+    tl.fromTo(els, { backgroundSize: "0% 38%" }, { backgroundSize: "100% 38%", duration: o.d ?? 0.55, ease: "power2.inOut" }, t);
+  };
+  // angka mendarat: membal + burst + shake (satu panggilan untuk semua momen "hit")
+  const hit = (sel, x, y, t, o = {}) => {
+    tl.fromTo(sel, { scale: 1 }, { scale: o.s ?? 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false, transformOrigin: o.origin ?? "50% 50%" }, t);
+    burst(x, y, t, o);
+    if (o.shake !== 0) shake(t, o.shake ?? 9);
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ambient();
+  if (R.dataset.drift !== "0") drift(Number(R.dataset.drift || 0.04));
+  // ---- akhir helper ----
+
+enter("push");
+  rise(".side .n", 0.6, { y: 14 });
+  rise(".side h2", 0.7, { y: 24 });
+  rise(".side p", 0.85, { y: 14 });
+  tl.fromTo(".win.c", { y: 60, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.7 }, 0.45);
+  tl.fromTo(".win.l", { rotationY: 70, opacity: 0, transformOrigin: "100% 50%" }, { rotationY: 28, opacity: 1, duration: 0.9 }, 0.9);
+  tl.fromTo(".win.r", { rotationY: -70, opacity: 0, transformOrigin: "0% 50%" }, { rotationY: -28, opacity: 1, duration: 0.9 }, 1.05);
+  const co = [...$(".callout")];
+  // karosel: jendela kiri (tinjau kesalahan) lalu kanan (audit tutor) maju ke depan
+  pop(co[0], w("peta"), { from: 0.6, origin: "0% 50%" });
+  tl.to(co[0], { opacity: 0, duration: 0.2 }, w("kesalahan") - 0.3);
+  tl.to(".win.l", { rotationY: 0, x: 120, scale: 1.12, filter: "brightness(1)", zIndex: 5, duration: 0.6, ease: "power3.inOut" }, w("kesalahan") - 0.4);
+  pop(co[1], w("kesalahan"), { from: 0.6, origin: "0% 50%" });
+  tl.to(".win.l", { rotationY: 28, x: 0, scale: 1, filter: "brightness(.82)", zIndex: 1, duration: 0.5, ease: "power3.inOut" }, w("audit") - 0.5);
+  tl.to(co[1], { opacity: 0, duration: 0.2 }, w("audit") - 0.4);
+  tl.to(".win.r", { rotationY: 0, x: -260, scale: 1.15, filter: "brightness(1)", zIndex: 5, duration: 0.6, ease: "power3.inOut" }, w("audit") - 0.4);
+  pop(co[2], w("audit"), { from: 0.6, origin: "0% 50%" });
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

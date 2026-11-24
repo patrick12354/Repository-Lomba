@@ -1,0 +1,2643 @@
+{
+ "backtest": {
+  "cases": 160,
+  "coverage": 0.6375,
+  "mae_likely": 1.380281690140845,
+  "missed_likely": 89,
+  "linear_mae": 1.5510204081632653,
+  "linear_missed": 62
+ },
+ "cases": [
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 6,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 2,
+   "likely": 4,
+   "latest": null,
+   "linear": 4,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PU-2101B",
+   "param": "Overall Vibration",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 2,
+   "likely": 6,
+   "latest": null,
+   "linear": 7,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 5,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 4,
+   "linear": 3,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PU-2101B",
+   "param": "Seal Flush Flow",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 3,
+   "likely": 7,
+   "latest": null,
+   "linear": 8,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 3,
+   "likely": 6,
+   "latest": null,
+   "linear": 7,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 5,
+   "linear": 5,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 5,
+   "linear": 3,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 2,
+   "linear": 2,
+   "tag": "PU-2101B",
+   "param": "Discharge Pressure",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 5,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": 5,
+   "latest": null,
+   "linear": 4,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PU-2101B",
+   "param": "Bearing Temp",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 7,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": null,
+   "linear": 2,
+   "tag": "KO-3201",
+   "param": "DE Radial Vibration",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 6,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": 6,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 4,
+   "latest": null,
+   "linear": 3,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 4,
+   "linear": 2,
+   "tag": "KO-3201",
+   "param": "Lube Oil Water Content",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 3,
+   "likely": 7,
+   "latest": null,
+   "linear": 7,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 2,
+   "likely": 5,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 5,
+   "linear": 3,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 1,
+   "linear": 1,
+   "tag": "KO-3201",
+   "param": "Lube Oil Supply Press",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": 6,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": 5,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": null,
+   "linear": 1,
+   "tag": "KO-3201",
+   "param": "Bearing Metal Temp",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 6,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": 5,
+   "latest": null,
+   "linear": 5,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 3,
+   "likely": 4,
+   "latest": null,
+   "linear": 3,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 4,
+   "linear": 2,
+   "tag": "PM-4405B",
+   "param": "Motor DE Bearing Temp",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 5,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": 6,
+   "latest": null,
+   "linear": 4,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 4,
+   "latest": null,
+   "linear": 3,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PM-4405B",
+   "param": "Motor Vibration",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": null,
+   "latest": null,
+   "linear": 4,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 3,
+   "likely": 5,
+   "latest": null,
+   "linear": 4,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": null,
+   "linear": 2,
+   "tag": "PM-4405B",
+   "param": "Motor Ampere",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": 6,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 2,
+   "likely": 5,
+   "latest": null,
+   "linear": 4,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 3,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "PM-4405B",
+   "param": "Winding Temp",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 3,
+   "likely": 7,
+   "latest": null,
+   "linear": 6,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 2,
+   "likely": 6,
+   "latest": null,
+   "linear": 4,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 4,
+   "latest": null,
+   "linear": 3,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 4,
+   "linear": 2,
+   "tag": "HE-3301",
+   "param": "Tube-side dP",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 3,
+   "likely": 8,
+   "latest": null,
+   "linear": 7,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 6,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 4,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 6,
+   "linear": 3,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 3,
+   "linear": 2,
+   "tag": "HE-3301",
+   "param": "Heat Duty",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 1,
+   "likely": 4,
+   "latest": null,
+   "linear": 8,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 1,
+   "likely": 3,
+   "latest": 8,
+   "linear": 6,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 6,
+   "linear": 4,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 4,
+   "linear": 3,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 3,
+   "linear": 2,
+   "tag": "HE-3301",
+   "param": "Cold Outlet Temp",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 4,
+   "likely": null,
+   "latest": null,
+   "linear": 6,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": 6,
+   "latest": null,
+   "linear": 4,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 4,
+   "latest": null,
+   "linear": 3,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": null,
+   "linear": 2,
+   "tag": "HE-3301",
+   "param": "Feed Heavy-ends",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 6,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 3,
+   "likely": null,
+   "latest": null,
+   "linear": 6,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": 6,
+   "latest": null,
+   "linear": 4,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 2,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": 6,
+   "linear": 2,
+   "tag": "BL-5702",
+   "param": "Overall Vibration",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": 8,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 5,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": 3,
+   "linear": 2,
+   "tag": "BL-5702",
+   "param": "2X Harmonic",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 8,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 4,
+   "likely": 7,
+   "latest": null,
+   "linear": 5,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 3,
+   "latest": null,
+   "linear": 3,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 2,
+   "tag": "BL-5702",
+   "param": "Coupling Offset",
+   "cutoff": 19
+  },
+  {
+   "actual": 8,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 12
+  },
+  {
+   "actual": 7,
+   "earliest": null,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 13
+  },
+  {
+   "actual": 6,
+   "earliest": 7,
+   "likely": null,
+   "latest": null,
+   "linear": null,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 14
+  },
+  {
+   "actual": 5,
+   "earliest": 5,
+   "likely": null,
+   "latest": null,
+   "linear": 7,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 15
+  },
+  {
+   "actual": 4,
+   "earliest": 3,
+   "likely": null,
+   "latest": null,
+   "linear": 5,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 16
+  },
+  {
+   "actual": 3,
+   "earliest": 3,
+   "likely": null,
+   "latest": null,
+   "linear": 4,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 17
+  },
+  {
+   "actual": 2,
+   "earliest": 1,
+   "likely": 2,
+   "latest": null,
+   "linear": 3,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 18
+  },
+  {
+   "actual": 1,
+   "earliest": 1,
+   "likely": 1,
+   "latest": null,
+   "linear": 1,
+   "tag": "BL-5702",
+   "param": "Bearing Temp",
+   "cutoff": 19
+  }
+ ],
+ "hourly": {
+  "PU2101B": {
+   "events": [
+    {
+     "start_index": 194,
+     "end_index": 196,
+     "start_at": "2026-03-09 02:00:00",
+     "end_at": "2026-03-09 04:00:00",
+     "tags": [
+      "PU2101B_FEED"
+     ],
+     "lead_hours": 73.0
+    },
+    {
+     "start_index": 214,
+     "end_index": 217,
+     "start_at": "2026-03-09 22:00:00",
+     "end_at": "2026-03-10 01:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_TEMP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": 53.0
+    },
+    {
+     "start_index": 226,
+     "end_index": 239,
+     "start_at": "2026-03-10 10:00:00",
+     "end_at": "2026-03-10 23:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": 41.0
+    },
+    {
+     "start_index": 378,
+     "end_index": 380,
+     "start_at": "2026-03-16 18:00:00",
+     "end_at": "2026-03-16 20:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 433,
+     "end_index": 435,
+     "start_at": "2026-03-19 01:00:00",
+     "end_at": "2026-03-19 03:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_TEMP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 437,
+     "end_index": 439,
+     "start_at": "2026-03-19 05:00:00",
+     "end_at": "2026-03-19 07:00:00",
+     "tags": [
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 456,
+     "end_index": 458,
+     "start_at": "2026-03-20 00:00:00",
+     "end_at": "2026-03-20 02:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_FEED"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 513,
+     "end_index": 515,
+     "start_at": "2026-03-22 09:00:00",
+     "end_at": "2026-03-22 11:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_FEED",
+      "PU2101B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 577,
+     "end_index": 579,
+     "start_at": "2026-03-25 01:00:00",
+     "end_at": "2026-03-25 03:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 641,
+     "end_index": 644,
+     "start_at": "2026-03-27 17:00:00",
+     "end_at": "2026-03-27 20:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 658,
+     "end_index": 662,
+     "start_at": "2026-03-28 10:00:00",
+     "end_at": "2026-03-28 14:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_FEED",
+      "PU2101B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 685,
+     "end_index": 687,
+     "start_at": "2026-03-29 13:00:00",
+     "end_at": "2026-03-29 15:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_FEED",
+      "PU2101B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 713,
+     "end_index": 715,
+     "start_at": "2026-03-30 17:00:00",
+     "end_at": "2026-03-30 19:00:00",
+     "tags": [
+      "PU2101B_DISP",
+      "PU2101B_FEED",
+      "PU2101B_TEMP",
+      "PU2101B_VIB"
+     ],
+     "lead_hours": null
+    }
+   ],
+   "first_off_at": "2026-03-12 03:00:00"
+  },
+  "KO3201": {
+   "events": [
+    {
+     "start_index": 197,
+     "end_index": 199,
+     "start_at": "2026-04-09 05:00:00",
+     "end_at": "2026-04-09 07:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 482.0
+    },
+    {
+     "start_index": 230,
+     "end_index": 232,
+     "start_at": "2026-04-10 14:00:00",
+     "end_at": "2026-04-10 16:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 449.0
+    },
+    {
+     "start_index": 238,
+     "end_index": 242,
+     "start_at": "2026-04-10 22:00:00",
+     "end_at": "2026-04-11 02:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 441.0
+    },
+    {
+     "start_index": 247,
+     "end_index": 250,
+     "start_at": "2026-04-11 07:00:00",
+     "end_at": "2026-04-11 10:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 432.0
+    },
+    {
+     "start_index": 283,
+     "end_index": 286,
+     "start_at": "2026-04-12 19:00:00",
+     "end_at": "2026-04-12 22:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 396.0
+    },
+    {
+     "start_index": 311,
+     "end_index": 313,
+     "start_at": "2026-04-13 23:00:00",
+     "end_at": "2026-04-14 01:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 368.0
+    },
+    {
+     "start_index": 338,
+     "end_index": 340,
+     "start_at": "2026-04-15 02:00:00",
+     "end_at": "2026-04-15 04:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 341.0
+    },
+    {
+     "start_index": 344,
+     "end_index": 346,
+     "start_at": "2026-04-15 08:00:00",
+     "end_at": "2026-04-15 10:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 335.0
+    },
+    {
+     "start_index": 367,
+     "end_index": 369,
+     "start_at": "2026-04-16 07:00:00",
+     "end_at": "2026-04-16 09:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 312.0
+    },
+    {
+     "start_index": 435,
+     "end_index": 442,
+     "start_at": "2026-04-19 03:00:00",
+     "end_at": "2026-04-19 10:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 244.0
+    },
+    {
+     "start_index": 453,
+     "end_index": 455,
+     "start_at": "2026-04-19 21:00:00",
+     "end_at": "2026-04-19 23:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 226.0
+    },
+    {
+     "start_index": 459,
+     "end_index": 461,
+     "start_at": "2026-04-20 03:00:00",
+     "end_at": "2026-04-20 05:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 220.0
+    },
+    {
+     "start_index": 463,
+     "end_index": 466,
+     "start_at": "2026-04-20 07:00:00",
+     "end_at": "2026-04-20 10:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 216.0
+    },
+    {
+     "start_index": 469,
+     "end_index": 471,
+     "start_at": "2026-04-20 13:00:00",
+     "end_at": "2026-04-20 15:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 210.0
+    },
+    {
+     "start_index": 478,
+     "end_index": 480,
+     "start_at": "2026-04-20 22:00:00",
+     "end_at": "2026-04-21 00:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 201.0
+    },
+    {
+     "start_index": 488,
+     "end_index": 490,
+     "start_at": "2026-04-21 08:00:00",
+     "end_at": "2026-04-21 10:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 191.0
+    },
+    {
+     "start_index": 494,
+     "end_index": 496,
+     "start_at": "2026-04-21 14:00:00",
+     "end_at": "2026-04-21 16:00:00",
+     "tags": [
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 185.0
+    },
+    {
+     "start_index": 514,
+     "end_index": 519,
+     "start_at": "2026-04-22 10:00:00",
+     "end_at": "2026-04-22 15:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 165.0
+    },
+    {
+     "start_index": 560,
+     "end_index": 562,
+     "start_at": "2026-04-24 08:00:00",
+     "end_at": "2026-04-24 10:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 119.0
+    },
+    {
+     "start_index": 604,
+     "end_index": 606,
+     "start_at": "2026-04-26 04:00:00",
+     "end_at": "2026-04-26 06:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 75.0
+    },
+    {
+     "start_index": 632,
+     "end_index": 647,
+     "start_at": "2026-04-27 08:00:00",
+     "end_at": "2026-04-27 23:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_VIB"
+     ],
+     "lead_hours": 47.0
+    },
+    {
+     "start_index": 652,
+     "end_index": 654,
+     "start_at": "2026-04-28 04:00:00",
+     "end_at": "2026-04-28 06:00:00",
+     "tags": [
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 27.0
+    },
+    {
+     "start_index": 661,
+     "end_index": 664,
+     "start_at": "2026-04-28 13:00:00",
+     "end_at": "2026-04-28 16:00:00",
+     "tags": [
+      "KO3201_DISP",
+      "KO3201_FEED",
+      "KO3201_TEMP"
+     ],
+     "lead_hours": 18.0
+    },
+    {
+     "start_index": 711,
+     "end_index": 719,
+     "start_at": "2026-04-30 15:00:00",
+     "end_at": "2026-04-30 23:00:00",
+     "tags": [
+      "KO3201_VIB"
+     ],
+     "lead_hours": null
+    }
+   ],
+   "first_off_at": "2026-04-29 07:00:00"
+  },
+  "PM4405B": {
+   "events": [
+    {
+     "start_index": 192,
+     "end_index": 215,
+     "start_at": "2026-07-09 00:00:00",
+     "end_at": "2026-07-09 23:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_TEMP",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 249,
+     "end_index": 251,
+     "start_at": "2026-07-11 09:00:00",
+     "end_at": "2026-07-11 11:00:00",
+     "tags": [
+      "PM4405B_FEED",
+      "PM4405B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 259,
+     "end_index": 261,
+     "start_at": "2026-07-11 19:00:00",
+     "end_at": "2026-07-11 21:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_TEMP",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 303,
+     "end_index": 306,
+     "start_at": "2026-07-13 15:00:00",
+     "end_at": "2026-07-13 18:00:00",
+     "tags": [
+      "PM4405B_FEED",
+      "PM4405B_TEMP",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 312,
+     "end_index": 315,
+     "start_at": "2026-07-14 00:00:00",
+     "end_at": "2026-07-14 03:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 393,
+     "end_index": 396,
+     "start_at": "2026-07-17 09:00:00",
+     "end_at": "2026-07-17 12:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 461,
+     "end_index": 463,
+     "start_at": "2026-07-20 05:00:00",
+     "end_at": "2026-07-20 07:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_TEMP",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 492,
+     "end_index": 494,
+     "start_at": "2026-07-21 12:00:00",
+     "end_at": "2026-07-21 14:00:00",
+     "tags": [
+      "PM4405B_FEED",
+      "PM4405B_TEMP",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 496,
+     "end_index": 499,
+     "start_at": "2026-07-21 16:00:00",
+     "end_at": "2026-07-21 19:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 593,
+     "end_index": 595,
+     "start_at": "2026-07-25 17:00:00",
+     "end_at": "2026-07-25 19:00:00",
+     "tags": [
+      "PM4405B_FEED",
+      "PM4405B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 644,
+     "end_index": 646,
+     "start_at": "2026-07-27 20:00:00",
+     "end_at": "2026-07-27 22:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 706,
+     "end_index": 711,
+     "start_at": "2026-07-30 10:00:00",
+     "end_at": "2026-07-30 15:00:00",
+     "tags": [
+      "PM4405B_DISP",
+      "PM4405B_FEED",
+      "PM4405B_VIB"
+     ],
+     "lead_hours": null
+    }
+   ],
+   "first_off_at": "2026-07-08 14:00:00"
+  },
+  "HE3301": {
+   "events": [
+    {
+     "start_index": 209,
+     "end_index": 212,
+     "start_at": "2026-05-09 17:00:00",
+     "end_at": "2026-05-09 20:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_VIB"
+     ],
+     "lead_hours": 280.0
+    },
+    {
+     "start_index": 282,
+     "end_index": 285,
+     "start_at": "2026-05-12 18:00:00",
+     "end_at": "2026-05-12 21:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_TEMP"
+     ],
+     "lead_hours": 207.0
+    },
+    {
+     "start_index": 296,
+     "end_index": 298,
+     "start_at": "2026-05-13 08:00:00",
+     "end_at": "2026-05-13 10:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_TEMP"
+     ],
+     "lead_hours": 193.0
+    },
+    {
+     "start_index": 321,
+     "end_index": 324,
+     "start_at": "2026-05-14 09:00:00",
+     "end_at": "2026-05-14 12:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_TEMP",
+      "HE3301_VIB"
+     ],
+     "lead_hours": 168.0
+    },
+    {
+     "start_index": 375,
+     "end_index": 378,
+     "start_at": "2026-05-16 15:00:00",
+     "end_at": "2026-05-16 18:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_VIB"
+     ],
+     "lead_hours": 114.0
+    },
+    {
+     "start_index": 390,
+     "end_index": 392,
+     "start_at": "2026-05-17 06:00:00",
+     "end_at": "2026-05-17 08:00:00",
+     "tags": [
+      "HE3301_FEED",
+      "HE3301_TEMP"
+     ],
+     "lead_hours": 99.0
+    },
+    {
+     "start_index": 394,
+     "end_index": 397,
+     "start_at": "2026-05-17 10:00:00",
+     "end_at": "2026-05-17 13:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_VIB"
+     ],
+     "lead_hours": 95.0
+    },
+    {
+     "start_index": 450,
+     "end_index": 455,
+     "start_at": "2026-05-19 18:00:00",
+     "end_at": "2026-05-19 23:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_TEMP",
+      "HE3301_VIB"
+     ],
+     "lead_hours": 39.0
+    },
+    {
+     "start_index": 469,
+     "end_index": 471,
+     "start_at": "2026-05-20 13:00:00",
+     "end_at": "2026-05-20 15:00:00",
+     "tags": [
+      "HE3301_FEED"
+     ],
+     "lead_hours": 20.0
+    },
+    {
+     "start_index": 504,
+     "end_index": 507,
+     "start_at": "2026-05-22 00:00:00",
+     "end_at": "2026-05-22 03:00:00",
+     "tags": [
+      "HE3301_FEED"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 540,
+     "end_index": 542,
+     "start_at": "2026-05-23 12:00:00",
+     "end_at": "2026-05-23 14:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 599,
+     "end_index": 601,
+     "start_at": "2026-05-25 23:00:00",
+     "end_at": "2026-05-26 01:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 611,
+     "end_index": 613,
+     "start_at": "2026-05-26 11:00:00",
+     "end_at": "2026-05-26 13:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_TEMP",
+      "HE3301_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 626,
+     "end_index": 629,
+     "start_at": "2026-05-27 02:00:00",
+     "end_at": "2026-05-27 05:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_TEMP",
+      "HE3301_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 636,
+     "end_index": 638,
+     "start_at": "2026-05-27 12:00:00",
+     "end_at": "2026-05-27 14:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 717,
+     "end_index": 719,
+     "start_at": "2026-05-30 21:00:00",
+     "end_at": "2026-05-30 23:00:00",
+     "tags": [
+      "HE3301_DISP",
+      "HE3301_FEED",
+      "HE3301_TEMP"
+     ],
+     "lead_hours": null
+    }
+   ],
+   "first_off_at": "2026-05-21 09:00:00"
+  },
+  "BL5702": {
+   "events": [
+    {
+     "start_index": 201,
+     "end_index": 204,
+     "start_at": "2026-06-09 09:00:00",
+     "end_at": "2026-06-09 12:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED"
+     ],
+     "lead_hours": 188.0
+    },
+    {
+     "start_index": 222,
+     "end_index": 225,
+     "start_at": "2026-06-10 06:00:00",
+     "end_at": "2026-06-10 09:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": 167.0
+    },
+    {
+     "start_index": 236,
+     "end_index": 238,
+     "start_at": "2026-06-10 20:00:00",
+     "end_at": "2026-06-10 22:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED"
+     ],
+     "lead_hours": 153.0
+    },
+    {
+     "start_index": 302,
+     "end_index": 304,
+     "start_at": "2026-06-13 14:00:00",
+     "end_at": "2026-06-13 16:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED",
+      "BL5702_VIB"
+     ],
+     "lead_hours": 87.0
+    },
+    {
+     "start_index": 314,
+     "end_index": 316,
+     "start_at": "2026-06-14 02:00:00",
+     "end_at": "2026-06-14 04:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": 75.0
+    },
+    {
+     "start_index": 325,
+     "end_index": 328,
+     "start_at": "2026-06-14 13:00:00",
+     "end_at": "2026-06-14 16:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": 64.0
+    },
+    {
+     "start_index": 346,
+     "end_index": 359,
+     "start_at": "2026-06-15 10:00:00",
+     "end_at": "2026-06-15 23:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": 43.0
+    },
+    {
+     "start_index": 403,
+     "end_index": 412,
+     "start_at": "2026-06-17 19:00:00",
+     "end_at": "2026-06-18 04:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 458,
+     "end_index": 460,
+     "start_at": "2026-06-20 02:00:00",
+     "end_at": "2026-06-20 04:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 511,
+     "end_index": 513,
+     "start_at": "2026-06-22 07:00:00",
+     "end_at": "2026-06-22 09:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 516,
+     "end_index": 518,
+     "start_at": "2026-06-22 12:00:00",
+     "end_at": "2026-06-22 14:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 523,
+     "end_index": 525,
+     "start_at": "2026-06-22 19:00:00",
+     "end_at": "2026-06-22 21:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 531,
+     "end_index": 533,
+     "start_at": "2026-06-23 03:00:00",
+     "end_at": "2026-06-23 05:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 547,
+     "end_index": 549,
+     "start_at": "2026-06-23 19:00:00",
+     "end_at": "2026-06-23 21:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 577,
+     "end_index": 579,
+     "start_at": "2026-06-25 01:00:00",
+     "end_at": "2026-06-25 03:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_TEMP"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 613,
+     "end_index": 616,
+     "start_at": "2026-06-26 13:00:00",
+     "end_at": "2026-06-26 16:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_FEED",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 665,
+     "end_index": 667,
+     "start_at": "2026-06-28 17:00:00",
+     "end_at": "2026-06-28 19:00:00",
+     "tags": [
+      "BL5702_FEED",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    },
+    {
+     "start_index": 715,
+     "end_index": 717,
+     "start_at": "2026-06-30 19:00:00",
+     "end_at": "2026-06-30 21:00:00",
+     "tags": [
+      "BL5702_DISP",
+      "BL5702_TEMP",
+      "BL5702_VIB"
+     ],
+     "lead_hours": null
+    }
+   ],
+   "first_off_at": "2026-06-17 05:00:00"
+  }
+ },
+ "energy": {
+  "PU2101B": {
+   "chronos_wape": 2.31,
+   "naive_wape": {
+    "last_value": 3.03,
+    "repeat_24h": 3.41,
+    "repeat_168h": 3.42
+   }
+  },
+  "KO3201": {
+   "chronos_wape": 25.65,
+   "naive_wape": {
+    "last_value": 28.82,
+    "repeat_24h": 26.01,
+    "repeat_168h": 25.47
+   }
+  },
+  "PM4405B": {
+   "chronos_wape": 2.35,
+   "naive_wape": {
+    "last_value": 3.81,
+    "repeat_24h": 4.13,
+    "repeat_168h": 3.33
+   }
+  },
+  "BL5702": {
+   "chronos_wape": 2.34,
+   "naive_wape": {
+    "last_value": 2.64,
+    "repeat_24h": 3.25,
+    "repeat_168h": 11.22
+   }
+  }
+ }
+}

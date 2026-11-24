@@ -1,0 +1,120 @@
+
+=== v21_increment ===
+                     dimension              slice    n  days    rmse     bias  sse_share  day_level_share
+                           all                all 1440    31  5.5144  -0.7235     1.0000           0.3987
+                         block         B1_last15d  720    16  4.1927  -0.5625     0.2890           0.3368
+                         block         B2_prev15d  720    16  6.5755  -0.8846     0.7110           0.4241
+                     hour band              00-05  360    30  6.8548  -1.4998     0.3863           0.8764
+                     hour band              06-11  360    30  4.7221   0.0392     0.1833           0.6378
+                     hour band              12-17  360    31  4.6253  -0.0386     0.1759           0.7883
+                     hour band              18-23  360    30  5.5635  -1.3950     0.2545           0.7747
+                         phase            cooling  781    31  5.8431  -1.3579     0.6090           0.4952
+                         phase            warming  659    31  5.0973   0.0283     0.3910           0.5318
+                  |dT| tercile                  0  470    31  5.7602  -0.1811     0.3561           0.5304
+                  |dT| tercile                  1  487    31  5.7988  -1.2995     0.3740           0.4329
+                  |dT| tercile                  2  483    31  4.9463  -0.6707     0.2699           0.4242
+              repaired sensors              False 1039    31  5.5584  -0.7956     0.7331           0.4593
+              repaired sensors               True  401    31  5.3986  -0.5367     0.2669           0.3549
+actual RH tercile (diagnostic)                  0  559    29  4.0033   1.2822     0.2046           0.6034
+actual RH tercile (diagnostic)                  1  418    31  5.5443   0.3905     0.2934           0.5745
+actual RH tercile (diagnostic)                  2  463    31  6.8901  -4.1509     0.5020           0.7535
+    |dRH| tercile (diagnostic)                 -1    4     1  1.7343  -1.0541     0.0003           0.3694
+    |dRH| tercile (diagnostic)                  0  436    31  5.1001  -0.3426     0.2590           0.5002
+    |dRH| tercile (diagnostic)                  1  473    31  5.7530  -0.6604     0.3575           0.5076
+    |dRH| tercile (diagnostic)                  2  527    31  5.6428  -1.0929     0.3832           0.3985
+                     lead time               0-6h   22     2  2.4325  -1.7536     0.0030           0.5791
+                     lead time              6-24h   72     4  4.1209  -1.8959     0.0279           0.4481
+                     lead time               1-3d  192     6  4.7476   2.1253     0.0988           0.5847
+                     lead time               3-7d  384    10  6.4206  -1.5833     0.3615           0.3876
+                     lead time              7-15d  768    18  5.3846  -0.8645     0.5085           0.4252
+            distance to repair <=6h from a repair 1432    31  5.4096  -0.6574     0.9570           0.3862
+            distance to repair              6-24h    8     3 15.3404 -12.5652     0.0430           0.9914
+             hour band x phase      00-05 cooling  246    29  6.5127  -1.3567     0.2383           0.9115
+             hour band x phase      00-05 warming  114    30  7.5404  -1.8086     0.1480           0.9001
+             hour band x phase      06-11 cooling   14     6  9.0107  -3.8289     0.0260           0.7467
+             hour band x phase      06-11 warming  346    30  4.4626   0.1958     0.1574           0.7130
+             hour band x phase      12-17 cooling  181    31  5.0637  -0.6089     0.1060           0.8758
+             hour band x phase      12-17 warming  179    31  4.1351   0.5381     0.0699           0.8961
+             hour band x phase      18-23 cooling  340    30  5.5449  -1.6559     0.2387           0.7807
+             hour band x phase      18-23 warming   20     9  5.8711   3.0390     0.0157           0.9630
+worst days: 2023-08-05 16.0%  2023-08-28 8.8%  2023-08-07 7.3%
+
+=== v21_physics_deshrink_half ===
+                     dimension              slice    n  days    rmse     bias  sse_share  day_level_share
+                           all                all 1440    31  5.4741  -0.7235     1.0000           0.4062
+                         block         B1_last15d  720    16  4.1592  -0.5625     0.2886           0.3419
+                         block         B2_prev15d  720    16  6.5294  -0.8846     0.7114           0.4326
+                     hour band              00-05  360    30  6.7849  -1.1846     0.3841           0.8698
+                     hour band              06-11  360    30  4.6643  -0.1402     0.1815           0.6324
+                     hour band              12-17  360    31  4.6193  -0.2718     0.1780           0.7895
+                     hour band              18-23  360    30  5.5441  -1.2977     0.2564           0.7757
+                         phase            cooling  781    31  5.8069  -1.2536     0.6103           0.4913
+                         phase            warming  659    31  5.0514  -0.0954     0.3897           0.5372
+                  |dT| tercile                  0  470    31  5.6816  -0.1603     0.3516           0.5380
+                  |dT| tercile                  1  487    31  5.7653  -1.2915     0.3751           0.4422
+                  |dT| tercile                  2  483    31  4.9411  -0.6990     0.2733           0.4303
+              repaired sensors              False 1039    31  5.5220  -0.7902     0.7342           0.4646
+              repaired sensors               True  401    31  5.3480  -0.5509     0.2658           0.3636
+actual RH tercile (diagnostic)                  0  559    29  3.9541   1.0346     0.2025           0.5903
+actual RH tercile (diagnostic)                  1  418    31  5.6119   0.4188     0.3051           0.5788
+actual RH tercile (diagnostic)                  2  463    31  6.7742  -3.8775     0.4924           0.7380
+    |dRH| tercile (diagnostic)                 -1    4     1  2.0522  -1.5683     0.0004           0.5840
+    |dRH| tercile (diagnostic)                  0  436    31  5.0575  -0.3783     0.2584           0.5085
+    |dRH| tercile (diagnostic)                  1  473    31  5.6632  -0.6245     0.3516           0.5122
+    |dRH| tercile (diagnostic)                  2  527    31  5.6481  -1.0917     0.3896           0.4107
+                     lead time               0-6h   22     2  2.4868  -1.9516     0.0032           0.6728
+                     lead time              6-24h   72     4  3.9091  -1.8625     0.0255           0.4815
+                     lead time               1-3d  192     6  4.7602   2.1231     0.1008           0.5823
+                     lead time               3-7d  384    10  6.3445  -1.5800     0.3582           0.3993
+                     lead time              7-15d  768    18  5.3637  -0.8619     0.5120           0.4275
+            distance to repair <=6h from a repair 1432    31  5.3750  -0.6592     0.9588           0.3939
+            distance to repair              6-24h    8     3 14.9142 -12.2364     0.0412           0.9891
+             hour band x phase      00-05 cooling  246    29  6.4484  -1.0118     0.2371           0.9034
+             hour band x phase      00-05 warming  114    30  7.4594  -1.5573     0.1470           0.8983
+             hour band x phase      06-11 cooling   14     6  8.8872  -3.8068     0.0256           0.7330
+             hour band x phase      06-11 warming  346    30  4.4091   0.0082     0.1559           0.7103
+             hour band x phase      12-17 cooling  181    31  5.0648  -0.8206     0.1076           0.8754
+             hour band x phase      12-17 warming  179    31  4.1201   0.2831     0.0704           0.8934
+             hour band x phase      18-23 cooling  340    30  5.5194  -1.5539     0.2400           0.7811
+             hour band x phase      18-23 warming   20     9  5.9476   3.0591     0.0164           0.9684
+worst days: 2023-08-05 15.9%  2023-08-28 8.9%  2023-08-07 7.2%
+
+WHERE THE ADOPTED CANDIDATE ACTUALLY MOVES THE ERROR (negative = better)
+                                                   incumbent  phys_dsh   delta     n  days
+dimension                      slice                                                      
+distance to repair             6-24h                 15.3404   14.9142 -0.4262     8     3
+lead time                      6-24h                  4.1209    3.9091 -0.2119    72     4
+hour band x phase              06-11 cooling          9.0107    8.8872 -0.1235    14     6
+actual RH tercile (diagnostic) 2                      6.8901    6.7742 -0.1159   463    31
+|dRH| tercile (diagnostic)     1                      5.7530    5.6632 -0.0898   473    31
+hour band x phase              00-05 warming          7.5404    7.4594 -0.0810   114    30
+|dT| tercile                   0                      5.7602    5.6816 -0.0786   470    31
+lead time                      3-7d                   6.4206    6.3445 -0.0761   384    10
+hour band                      00-05                  6.8548    6.7849 -0.0700   360    30
+hour band x phase              00-05 cooling          6.5127    6.4484 -0.0643   246    29
+hour band                      06-11                  4.7221    4.6643 -0.0578   360    30
+hour band x phase              06-11 warming          4.4626    4.4091 -0.0535   346    30
+repaired sensors               True                   5.3986    5.3480 -0.0506   401    31
+actual RH tercile (diagnostic) 0                      4.0033    3.9541 -0.0492   559    29
+block                          B2_prev15d             6.5755    6.5294 -0.0461   720    16
+phase                          warming                5.0973    5.0514 -0.0459   659    31
+|dRH| tercile (diagnostic)     0                      5.1001    5.0575 -0.0426   436    31
+all                            all                    5.5144    5.4741 -0.0402  1440    31
+repaired sensors               False                  5.5584    5.5220 -0.0363  1039    31
+phase                          cooling                5.8431    5.8069 -0.0362   781    31
+distance to repair             <=6h from a repair     5.4096    5.3750 -0.0345  1432    31
+|dT| tercile                   1                      5.7988    5.7653 -0.0335   487    31
+block                          B1_last15d             4.1927    4.1592 -0.0335   720    16
+hour band x phase              18-23 cooling          5.5449    5.5194 -0.0255   340    30
+lead time                      7-15d                  5.3846    5.3637 -0.0210   768    18
+hour band                      18-23                  5.5635    5.5441 -0.0194   360    30
+hour band x phase              12-17 warming          4.1351    4.1201 -0.0150   179    31
+hour band                      12-17                  4.6253    4.6193 -0.0061   360    31
+|dT| tercile                   2                      4.9463    4.9411 -0.0053   483    31
+hour band x phase              12-17 cooling          5.0637    5.0648  0.0011   181    31
+|dRH| tercile (diagnostic)     2                      5.6428    5.6481  0.0054   527    31
+lead time                      1-3d                   4.7476    4.7602  0.0127   192     6
+                               0-6h                   2.4325    2.4868  0.0543    22     2
+actual RH tercile (diagnostic) 1                      5.5443    5.6119  0.0676   418    31
+hour band x phase              18-23 warming          5.8711    5.9476  0.0764    20     9
+|dRH| tercile (diagnostic)     -1                     1.7343    2.0522  0.3179     4     1

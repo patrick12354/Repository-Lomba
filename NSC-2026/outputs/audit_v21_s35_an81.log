@@ -1,0 +1,20 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+
+B1_last15d: 2 non-overlapping inner windows
+  fold 7  2023-08-06 -> 2023-08-14  n=384  coverage 0.760 (292 supported)
+    q MSE transport 119.2862 vs raw 43.2587 | z MSE C0 27.2815 -> transport 31.2585 (+3.9770), raw 25.1045 (-2.1771)
+  fold 3  2023-07-29 -> 2023-08-06  n=384  coverage 0.958 (368 supported)
+    q MSE transport 91.8873 vs raw 69.7861 | z MSE C0 38.2410 -> transport 36.5634 (-1.6776), raw 38.6233 (+0.3824)
+
+B2_prev15d: 1 non-overlapping inner windows
+  insufficient evidence: fewer than two disjoint inner windows
+
+     block  fold              origin         horizon_end   n  n_anchors  threshold  cal_queries  cal_anchors  supported  coverage    ok  too_few_episodes  missing_descriptor  above_threshold  mse_q_transport  mse_z_transport  rmse_z_transport  mse_q_raw  mse_z_raw  rmse_z_raw  mse_z_c0  rmse_z_c0  d_mse_transport  d_mse_raw q_transport_beats_raw  out_of_range_q               status
+B1_last15d   7.0 2023-08-06 14:30:00 2023-08-14 14:30:00 384     1829.0   0.346003        336.0       1493.0      292.0  0.760417 292.0               0.0                 2.0             90.0       119.286163        31.258532          6.029036  43.258682  25.104459    5.559678 27.281524   5.694035         3.977008  -2.177065                 False           181.0               scored
+B1_last15d   3.0 2023-07-29 14:30:00 2023-08-06 14:30:00 384     1445.0   0.311455        336.0       1109.0      368.0  0.958333 368.0               0.0                 2.0             14.0        91.887332        36.563412          6.321665  69.786064  38.623328    6.536036 38.240966   6.508684        -1.677554   0.382361                 False            98.0               scored
+B2_prev15d   NaN                 NaN                 NaN   0        NaN        NaN          NaN          NaN        NaN       NaN   NaN               NaN                 NaN              NaN              NaN              NaN               NaN        NaN        NaN         NaN       NaN        NaN              NaN        NaN                   NaN             NaN insufficient_windows
+
+gates: {'gate1_support': True, 'gate2_transport_beats_raw': False, 'gate3_solver': False, 'pooled_mse_q_transport': 104.00923912449963, 'pooled_mse_q_raw': 58.0497069488158, 'pooled_d_mse_solver': 0.8241612778009181, 'd_mse_excluding_best_day': 5.057279651349214, 'min_coverage': 0.7604166666666666, 'min_supported': 292}
+verdict: reject_analog_hypothesis (failed gate2_transport_beats_raw, gate3_solver)
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s35

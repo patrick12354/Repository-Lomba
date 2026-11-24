@@ -1,0 +1,113 @@
+{
+  "arms": {
+    "control": {
+      "physics": true,
+      "deshrink": true,
+      "lags": false
+    },
+    "lgb_lags_production": {
+      "physics": true,
+      "deshrink": true,
+      "lags": true
+    }
+  },
+  "seeds": [
+    20260905,
+    20260906,
+    20260907,
+    20260908,
+    20260909
+  ],
+  "results": [
+    {
+      "candidate": "control",
+      "pooled": 5.4959610758,
+      "B1_last15d": 4.1997712074,
+      "B2_prev15d": 6.5401145326,
+      "B3_shift7d": 4.719272605,
+      "n": 1440,
+      "d_pooled": null,
+      "d_mse": null,
+      "d_B1_last15d": null,
+      "d_B2_prev15d": null,
+      "d_B3_shift7d": null,
+      "promotable": null,
+      "delta_vs_v21": null
+    },
+    {
+      "candidate": "lgb_lags_production",
+      "pooled": 5.470955527,
+      "B1_last15d": 4.1900728611,
+      "B2_prev15d": 6.5043061256,
+      "B3_shift7d": 4.7238339432,
+      "n": 1440,
+      "d_pooled": -0.0250055489,
+      "d_mse": -0.2742337689,
+      "d_B1_last15d": -0.0096983463,
+      "d_B2_prev15d": -0.0358084071,
+      "d_B3_shift7d": 0.0045613382,
+      "promotable": true,
+      "delta_vs_v21": -0.0649383428
+    }
+  ],
+  "direction": [
+    {
+      "candidate": "lgb_lags_production",
+      "block": "B1_last15d",
+      "alignment": -0.1557802965,
+      "movement_mse": 0.0744126834,
+      "d_mse": -0.0813676131,
+      "control_sd": 17.4107350614,
+      "candidate_sd": 17.4368574538
+    },
+    {
+      "candidate": "lgb_lags_production",
+      "block": "B2_prev15d",
+      "alignment": -0.5410439692,
+      "movement_mse": 0.0739440444,
+      "d_mse": -0.4670999248,
+      "control_sd": 16.4183103756,
+      "candidate_sd": 16.4403135325
+    },
+    {
+      "candidate": "lgb_lags_production",
+      "block": "B3_shift7d",
+      "alignment": -0.0272690941,
+      "movement_mse": 0.0703422964,
+      "d_mse": 0.0430732023,
+      "control_sd": 17.6735945745,
+      "candidate_sd": 17.6931709873
+    }
+  ],
+  "bootstrap": {
+    "lgb_lags_production": {
+      "b3d": {
+        "blocks": 12,
+        "mean": -0.26944618613334276,
+        "lo": -0.6172806112474627,
+        "hi": 0.05584224636630832,
+        "p_worse": 0.0505
+      },
+      "b7d": {
+        "blocks": 6,
+        "mean": -0.2619481508281468,
+        "lo": -0.7026079105390508,
+        "hi": 0.10905794716326866,
+        "p_worse": 0.121
+      },
+      "worst_day": {
+        "date": "2023-08-29",
+        "d_mse": 3.478325310060224,
+        "days_improved": 23,
+        "days": 31,
+        "d_mse_excluding_best_day": -0.16839420792900087
+      }
+    }
+  },
+  "passing": [
+    "lgb_lags_production"
+  ],
+  "code": {
+    "final_pipeline.py": "34a21c45be75b1b625588cf7a038efce"
+  }
+}

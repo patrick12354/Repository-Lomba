@@ -1,0 +1,29 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  B1_last15d  train 2213  scalars 118  forward folds 2  degenerate []
+     B0  q 5.9078 (anchor 10.0559, level 4.2932)  recon 4.348839 vs 4.232249
+     B1  q 7.1338 (anchor 10.0559, level 4.2932)  recon 4.458344 vs 4.232249
+  B2_prev15d  train 1493  scalars 118  forward folds 2  degenerate []
+     B0  q 7.8658 (anchor 8.5739, level 6.7782)  recon 6.554991 vs 6.586373
+     B1  q 7.6917 (anchor 8.5739, level 6.7782)  recon 6.544497 vs 6.586373
+  B3_shift7d  train 1877  scalars 118  forward folds 2  degenerate []
+     B0  q 5.3590 (anchor 8.2506, level 4.8109)  recon 4.635735 vs 4.690131
+     B1  q 5.8671 (anchor 8.2506, level 4.8109)  recon 4.796847 vs 4.690131
+
+  control reproduces the frozen v21 predictions exactly (2160 rows)
+
+candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot3_lo  boot3_hi  days_improved
+      v21 5.535894    4.232249    6.586373    4.690131 1440       NaN      NaN           NaN           NaN           NaN        NaN       NaN       NaN            NaN
+       B0 5.562387    4.348839    6.554991    4.635735 1440  0.026493 0.294029      0.116590     -0.031383     -0.054395      False -2.953332  2.806871           12.0
+       B1 5.599432    4.458344    6.544497    4.796847 1440  0.063538 0.707517      0.226096     -0.041876      0.106716      False -2.758474  3.473461           11.0
+
+direction vs v21
+arm      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+ B0 B1_last15d   0.107986      0.892485  1.000471   17.158458     17.109602
+ B0 B2_prev15d  -1.711665      1.299253 -0.412412   16.201210     16.104138
+ B0 B3_shift7d  -1.043224      0.535941 -0.507283   17.376910     17.212763
+ B1 B1_last15d   0.145514      1.819393  1.964908   17.158458     17.017103
+ B1 B2_prev15d  -1.724092      1.174218 -0.549874   16.201210     16.160995
+ B1 B3_shift7d   0.643438      0.368975  1.012413   17.376910     17.159809
+
+wrote sequence_learned-conv.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s31

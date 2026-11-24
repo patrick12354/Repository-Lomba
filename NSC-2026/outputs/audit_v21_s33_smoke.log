@@ -1,0 +1,17 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+
+== Task 0: control reproduction ==
+  B1_last15d   control reproduced (level 0, n=720)
+    C0  hbt 4.50849  level 4.29323  z 4.23225  (0 s)
+  B2_prev15d   control reproduced (level 0, n=720)
+    C0  hbt 6.49273  level 6.77822  z 6.58637  (0 s)
+  B3_shift7d   control reproduced (level 0, n=720)
+    C0  hbt 5.03075  level 4.81089  z 4.69013  (0 s)
+
+arm family      block   n  rmse_hbt  rmse_level   rmse_z  rmse_z_base                      meta_digest                     terms_digest  seconds
+ C0    15d B1_last15d 720  4.508488    4.293226 4.232249     4.232249 6bcbb0b93a3a53d103dadc21eb0fc9c0 2c917a24623be164a77d900262c86e10      0.0
+ C0    15d B2_prev15d 720  6.492735    6.778225 6.586373     6.586373 6592313d118891f6f1fa3d7c7caf86f2 f53be8525a89e9afab2ef80ad654464e      0.0
+ C0    15d B3_shift7d 720  5.030748    4.810885 4.690131     4.690131 fc547af1cc8c3c1474af03f938d5558c cac9f0f6db4e96171e35966327a03a43      0.0
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s33\level_shape_arms.csv

@@ -1,0 +1,176 @@
+{
+ "text": "Tapi ada peluang. Dataset terbuka SOOP berisi MRI dari seribu lima ratus lima pasien stroke, lengkap dengan lesion mask buatan ahli. Untuk setiap kasus, kita tahu persis jaringan mana yang infark. Itu kunci jawaban.",
+ "end": 16.08,
+ "words": [
+  {
+   "w": "Tapi",
+   "s": 0,
+   "e": 0.4
+  },
+  {
+   "w": "ada",
+   "s": 0.56,
+   "e": 0.72
+  },
+  {
+   "w": "peluang.",
+   "s": 0.8,
+   "e": 1.52
+  },
+  {
+   "w": "Dataset",
+   "s": 1.76,
+   "e": 2.16
+  },
+  {
+   "w": "terbuka",
+   "s": 2.24,
+   "e": 2.64
+  },
+  {
+   "w": "SOOP",
+   "s": 2.72,
+   "e": 3.52
+  },
+  {
+   "w": "berisi",
+   "s": 3.68,
+   "e": 4.08
+  },
+  {
+   "w": "MRI",
+   "s": 4.16,
+   "e": 4.8
+  },
+  {
+   "w": "dari",
+   "s": 4.88,
+   "e": 5.04
+  },
+  {
+   "w": "seribu",
+   "s": 5.2,
+   "e": 5.52
+  },
+  {
+   "w": "lima",
+   "s": 5.6,
+   "e": 5.76
+  },
+  {
+   "w": "ratus",
+   "s": 5.8,
+   "e": 6
+  },
+  {
+   "w": "lima",
+   "s": 6.16,
+   "e": 6.4
+  },
+  {
+   "w": "pasien",
+   "s": 6.48,
+   "e": 6.8
+  },
+  {
+   "w": "stroke,",
+   "s": 6.88,
+   "e": 7.6
+  },
+  {
+   "w": "lengkap",
+   "s": 7.64,
+   "e": 8
+  },
+  {
+   "w": "dengan",
+   "s": 8.08,
+   "e": 8.24
+  },
+  {
+   "w": "lesion",
+   "s": 8.36,
+   "e": 8.56
+  },
+  {
+   "w": "mask",
+   "s": 8.64,
+   "e": 8.88
+  },
+  {
+   "w": "buatan",
+   "s": 8.96,
+   "e": 9.28
+  },
+  {
+   "w": "ahli.",
+   "s": 9.36,
+   "e": 10.16
+  },
+  {
+   "w": "Untuk",
+   "s": 10.24,
+   "e": 10.4
+  },
+  {
+   "w": "setiap",
+   "s": 10.48,
+   "e": 10.72
+  },
+  {
+   "w": "kasus,",
+   "s": 10.8,
+   "e": 11.44
+  },
+  {
+   "w": "kita",
+   "s": 11.52,
+   "e": 11.68
+  },
+  {
+   "w": "tahu",
+   "s": 11.76,
+   "e": 12
+  },
+  {
+   "w": "persis",
+   "s": 12.16,
+   "e": 12.48
+  },
+  {
+   "w": "jaringan",
+   "s": 12.56,
+   "e": 12.88
+  },
+  {
+   "w": "mana",
+   "s": 12.96,
+   "e": 13.2
+  },
+  {
+   "w": "yang",
+   "s": 13.28,
+   "e": 13.36
+  },
+  {
+   "w": "infark.",
+   "s": 13.44,
+   "e": 14.32
+  },
+  {
+   "w": "Itu",
+   "s": 14.48,
+   "e": 14.72
+  },
+  {
+   "w": "kunci",
+   "s": 14.76,
+   "e": 14.96
+  },
+  {
+   "w": "jawaban.",
+   "s": 15.04,
+   "e": 16.08
+  }
+ ]
+}

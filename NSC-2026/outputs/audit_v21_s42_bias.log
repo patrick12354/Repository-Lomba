@@ -1,0 +1,23 @@
+  note: code[final_pipeline.py]: 6159d2cc on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+  B1_last15d   [7 s]  harm 4.26121  todbias 4.25065  both 4.26880  none 4.24961
+  B2_prev15d   [5 s]  harm 6.58350  todbias 6.58838  both 6.57310  none 6.61154
+  B3_shift7d   [6 s]  harm 4.63015  todbias 4.61559  both 4.64396  none 4.60169
+  H1_last7d    [6 s]  harm 5.21383  todbias 5.17182  both 5.27132  none 5.08662
+  H2_last14d   [6 s]  harm 2.79040  todbias 2.77897  both 2.78857  none 2.80588
+  H3_last21d   [6 s]  harm 5.20359  todbias 5.18664  both 5.22993  none 5.14670
+
+mode        d_primary        d_7d     worst_H
+harm        +0.000000   +0.000000   +0.000000
+   per block: {'B1_last15d': 0.0, 'B2_prev15d': 0.0, 'B3_shift7d': 0.0, 'H1_last7d': 0.0, 'H2_last14d': 0.0, 'H3_last21d': 0.0}
+todbias     -0.001153   -0.024841   -0.011429
+   per block: {'B1_last15d': -0.01057, 'B2_prev15d': 0.00489, 'B3_shift7d': -0.01456, 'H1_last7d': -0.04201, 'H2_last14d': -0.01143, 'H3_last21d': -0.01694}
+both        -0.003251   +0.031682   +0.057486
+   per block: {'B1_last15d': 0.00759, 'B2_prev15d': -0.0104, 'B3_shift7d': 0.01381, 'H1_last7d': 0.05749, 'H2_last14d': -0.00182, 'H3_last21d': 0.02635}
+none        +0.012217   -0.066916   +0.015481
+   per block: {'B1_last15d': -0.0116, 'B2_prev15d': 0.02804, 'B3_shift7d': -0.02845, 'H1_last7d': -0.12721, 'H2_last14d': 0.01548, 'H3_last21d': -0.05689}
+
+`harm` is the shipped arm and the reference, so its row is zero by construction.
+§288/§289: on this family pooled has twice ranked a known-bad configuration best; read worst_H alongside it.

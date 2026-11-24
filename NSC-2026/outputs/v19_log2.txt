@@ -1,0 +1,29 @@
+robust-core member: 95 of 118 columns
+no-pressure member: 108 of 118 columns
+features 118   train rows 2933   test rows 734
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.0, 'cat': 0.2123, 'enet': 0.1971, 'ridge_e': 0.0, 'l2': 0.0, 'robust_hbt': 0.0, 'bag_nopress': 0.5907}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.0706, 'cat': 0.1535, 'enet': 0.195, 'ridge_e': 0.0, 'l2': 0.0, 'robust_hbt': 0.0, 'bag_nopress': 0.5809}
+  band 1: {'hbt': 0.0107, 'cat': 0.1309, 'enet': 0.1663, 'ridge_e': 0.1317, 'l2': 0.1323, 'robust_hbt': 0.0, 'bag_nopress': 0.4281}
+  band 2: {'hbt': 0.0, 'cat': 0.3241, 'enet': 0.0985, 'ridge_e': 0.0223, 'l2': 0.0, 'robust_hbt': 0.1292, 'bag_nopress': 0.4258}
+harmonic bias correction (shrunk 0.50): sin -0.084  cos -0.771   amplitude 0.776 %RH, peak 12.4 h
+CV: mean 4.6519  worst 6.0260
+  per fold: [np.float64(6.011), np.float64(6.026), np.float64(5.625), np.float64(5.435), np.float64(4.545), np.float64(3.67), np.float64(3.066), np.float64(3.309), np.float64(4.181)]
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+dispersion check: CV fold prediction std 16.26-17.79   test prediction std 19.04
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v19_noridge.csv
+prediction summary: {'count': 734.0, 'mean': 56.989, 'std': 19.057, 'min': 23.759, '25%': 38.232, '50%': 61.159, '75%': 74.16, 'max': 89.551}

@@ -1,0 +1,250 @@
+{
+  "created": "2026-09-06T17:08:01",
+  "arms": [
+    "C0",
+    "E1",
+    "E2"
+  ],
+  "blocks": [
+    "15d",
+    "7d"
+  ],
+  "features": {
+    "C0": [],
+    "E1": [
+      "shape_"
+    ],
+    "E2": [
+      "shape_",
+      "quality_"
+    ]
+  },
+  "shape_columns": [
+    "shape_T_past6h_slope",
+    "shape_T_past6h_rms",
+    "shape_T_past6h_turn",
+    "shape_T_past6h_run",
+    "shape_T_past24h_slope",
+    "shape_T_past24h_rms",
+    "shape_T_past24h_turn",
+    "shape_T_past24h_run",
+    "shape_T_future6h_slope",
+    "shape_T_future6h_rms",
+    "shape_T_future6h_turn",
+    "shape_T_future6h_run",
+    "shape_T_future24h_slope",
+    "shape_T_future24h_rms",
+    "shape_T_future24h_turn",
+    "shape_T_future24h_run",
+    "shape_co2_past6h_slope",
+    "shape_co2_past6h_rms",
+    "shape_co2_past6h_turn",
+    "shape_co2_past6h_run",
+    "shape_co2_past24h_slope",
+    "shape_co2_past24h_rms",
+    "shape_co2_past24h_turn",
+    "shape_co2_past24h_run",
+    "shape_co2_future6h_slope",
+    "shape_co2_future6h_rms",
+    "shape_co2_future6h_turn",
+    "shape_co2_future6h_run",
+    "shape_co2_future24h_slope",
+    "shape_co2_future24h_rms",
+    "shape_co2_future24h_turn",
+    "shape_co2_future24h_run",
+    "shape_pressure_past6h_slope",
+    "shape_pressure_past6h_rms",
+    "shape_pressure_past6h_turn",
+    "shape_pressure_past6h_run",
+    "shape_pressure_past24h_slope",
+    "shape_pressure_past24h_rms",
+    "shape_pressure_past24h_turn",
+    "shape_pressure_past24h_run",
+    "shape_pressure_future6h_slope",
+    "shape_pressure_future6h_rms",
+    "shape_pressure_future6h_turn",
+    "shape_pressure_future6h_run",
+    "shape_pressure_future24h_slope",
+    "shape_pressure_future24h_rms",
+    "shape_pressure_future24h_turn",
+    "shape_pressure_future24h_run",
+    "shape_corr_T_co2_lagm4_past24h",
+    "shape_corr_T_co2_lagm4_future24h",
+    "shape_corr_T_co2_lag0_past24h",
+    "shape_corr_T_co2_lag0_future24h",
+    "shape_corr_T_co2_lagp4_past24h",
+    "shape_corr_T_co2_lagp4_future24h",
+    "shape_corr_T_pressure_lagm4_past24h",
+    "shape_corr_T_pressure_lagm4_future24h",
+    "shape_corr_T_pressure_lag0_past24h",
+    "shape_corr_T_pressure_lag0_future24h",
+    "shape_corr_T_pressure_lagp4_past24h",
+    "shape_corr_T_pressure_lagp4_future24h"
+  ],
+  "quality_columns": [
+    "quality_T_observed_now",
+    "quality_T_repaired_fraction_24h",
+    "quality_T_gap_past_hours",
+    "quality_T_gap_future_hours",
+    "quality_co2_observed_now",
+    "quality_co2_repaired_fraction_24h",
+    "quality_co2_gap_past_hours",
+    "quality_co2_gap_future_hours",
+    "quality_pressure_observed_now",
+    "quality_pressure_repaired_fraction_24h",
+    "quality_pressure_gap_past_hours",
+    "quality_pressure_gap_future_hours"
+  ],
+  "seeds_fit": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "seeds_oof": [
+    0,
+    1,
+    2
+  ],
+  "seeds_inc": [
+    20260905,
+    20260906,
+    20260907,
+    20260908,
+    20260909
+  ],
+  "lgb_kw": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 900,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 25,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.7,
+    "reg_lambda": 3.0,
+    "verbose": -1
+  },
+  "models": [
+    "hbt",
+    "cat",
+    "ridge",
+    "enet",
+    "ridge_e",
+    "l2"
+  ],
+  "blend_shrink": 0.25,
+  "increment": {
+    "physics": false,
+    "deshrink": false,
+    "lags": false,
+    "spec": [
+      [
+        1,
+        4.0
+      ],
+      [
+        4,
+        1.0
+      ]
+    ]
+  },
+  "expected_control": {
+    "B1_last15d": 4.2322485291,
+    "B2_prev15d": 6.5863733772,
+    "B3_shift7d": 4.690130627
+  },
+  "expected_control_pooled": 5.535893869794081,
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "helper_code": {
+    "src/v21_local_shape.py": "d694852a0e7d1074ab9fb742d2f0809b",
+    "src/an76_v21_level_shape.py": "dc4a65978ca56cc2849fbecc3e902ba3"
+  },
+  "incumbent_submission_md5": "5396077ee744458aa8d21b2ea336f61a",
+  "provenance": [
+    {
+      "block": "B1_last15d",
+      "family": "15d",
+      "origin": "2023-08-14 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00",
+      "n_train": 2213,
+      "train_end": "2023-08-14 14:30:00",
+      "n_rows": 720,
+      "meta_rows": 3072,
+      "meta_digest": "6bcbb0b93a3a53d103dadc21eb0fc9c0",
+      "terms_digest": "2c917a24623be164a77d900262c86e10"
+    },
+    {
+      "block": "B2_prev15d",
+      "family": "15d",
+      "origin": "2023-07-30 14:30:00",
+      "horizon_end": "2023-08-14 14:30:00",
+      "n_train": 1493,
+      "train_end": "2023-07-30 14:30:00",
+      "n_rows": 720,
+      "meta_rows": 1152,
+      "meta_digest": "6592313d118891f6f1fa3d7c7caf86f2",
+      "terms_digest": "f53be8525a89e9afab2ef80ad654464e"
+    },
+    {
+      "block": "B3_shift7d",
+      "family": "15d",
+      "origin": "2023-08-07 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00",
+      "n_train": 1877,
+      "train_end": "2023-08-07 14:30:00",
+      "n_rows": 720,
+      "meta_rows": 2688,
+      "meta_digest": "fc547af1cc8c3c1474af03f938d5558c",
+      "terms_digest": "cac9f0f6db4e96171e35966327a03a43"
+    },
+    {
+      "block": "H1_last7d",
+      "family": "7d",
+      "origin": "2023-08-22 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00",
+      "n_train": 2597,
+      "train_end": "2023-08-22 14:30:00",
+      "n_rows": 336,
+      "meta_rows": 3072,
+      "meta_digest": "f26c46d62e0a4d1523a95c9c6c662030",
+      "terms_digest": "4a4c296d9a673641961c48049df61e19"
+    },
+    {
+      "block": "H2_last14d",
+      "family": "7d",
+      "origin": "2023-08-15 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00",
+      "n_train": 2261,
+      "train_end": "2023-08-15 14:30:00",
+      "n_rows": 336,
+      "meta_rows": 3072,
+      "meta_digest": "8acbdd0505ff13de30ca91f9e2b2ea4c",
+      "terms_digest": "b81e489050da6c4080f4a5d6b47b1afc"
+    },
+    {
+      "block": "H3_last21d",
+      "family": "7d",
+      "origin": "2023-08-08 14:30:00",
+      "horizon_end": "2023-08-15 14:30:00",
+      "n_train": 1925,
+      "train_end": "2023-08-08 14:30:00",
+      "n_rows": 336,
+      "meta_rows": 3072,
+      "meta_digest": "51390d03a1f12f16a07c5254aaadcb0f",
+      "terms_digest": "b6f34c1ce12600a48c06186d9a2dd020"
+    }
+  ],
+  "note": "hbt is the only member refitted; meta and increments come from the control"
+}

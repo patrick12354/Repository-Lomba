@@ -1,0 +1,442 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/10-siklus.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f10 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #f5f3ec; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* permukaan: kertas hangat, cahaya dari tengah-atas, tepi sedikit turun, butir halus (diam) */
+.ground { position: absolute; left: -40px; top: -40px; width: 2000px; height: 1160px; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 62% at 50% 40%, rgba(255,255,255,.85), rgba(255,255,255,0) 70%),
+    radial-gradient(ellipse 120% 100% at 50% 45%, rgba(16,49,58,0) 55%, rgba(16,49,58,.07)),
+    #f5f3ec; }
+.ground::after { content: ""; position: absolute; inset: 0; background: url('../../assets/tex/grain.png'); opacity: .07; mix-blend-mode: multiply; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f10 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f10 .ringsvg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#f10 .center { position: absolute; left: 730px; top: 600px; width: 460px; text-align: center; }
+#f10 .center .t { font: 700 60px/1 'Arvo', serif; }
+#f10 .st { position: absolute; width: 300px; margin-left: -150px; text-align: center; }
+#f10 .st .disc { width: 150px; height: 150px; margin: 0 auto; border-radius: 50%; background: #fff; border: 2px solid var(--line); box-shadow: 0 10px 26px rgba(16,24,40,.08); display: grid; place-items: center; position: relative; }
+#f10 .st.on .disc { background: var(--teal-soft); border-color: var(--teal); }
+#f10 .st .lb { display: inline-block; margin-top: 12px; padding: 4px 14px; border-radius: 14px; background: rgba(255,255,255,.95); font-size: 40px; line-height: 1.15; font-weight: 700; }
+#f10 .st.r .lb { position: absolute; left: 236px; top: 30px; width: max-content; margin: 0; text-align: left; }
+#f10 .st.l .lb { position: absolute; right: 236px; top: 30px; width: max-content; margin: 0; text-align: right; }
+#f10 .sina-wrap { position: absolute; left: 870px; top: 385px; }
+</style>
+<div id="f10" data-composition-id="f10" data-width="1920" data-height="1080">
+<div class="scene"><div class="dolly">
+  
+  <svg class="ringsvg" viewBox="0 0 1920 1080">
+    <circle cx="960" cy="560" r="340" fill="none" stroke="#eef2f5" stroke-width="16" />
+    <circle class="ring-prog" cx="960" cy="560" r="340" fill="none" stroke="#195764" stroke-width="16" stroke-linecap="round" stroke-dasharray="2136" stroke-dashoffset="1580" transform="rotate(-90 960 560)" />
+  </svg>
+  <div class="center"><div class="t">Satu siklus</div></div>
+  <!-- stasiun pada sudut -90, -18, 54, 126, 198 derajat, r = 340 -->
+  <div class="st" style="left: 960px; top: 145px"><div class="disc"><svg width="76" height="76" viewBox="0 0 76 76"><circle cx="38" cy="38" r="30" fill="none" stroke="#10313a" stroke-width="6" /><circle cx="38" cy="38" r="16" fill="none" stroke="#10313a" stroke-width="6" /><circle cx="38" cy="38" r="5" fill="#10313a" /></svg></div><div class="lb">Pilih kasus</div></div>
+  <div class="st r" style="left: 1283px; top: 380px"><div class="disc"><svg width="76" height="76" viewBox="0 0 76 76"><path d="M14,62 C10,50 22,44 30,50 C36,56 30,66 14,62 Z" fill="#10313a" /><path d="M32,46 L62,12" stroke="#10313a" stroke-width="8" stroke-linecap="round" /></svg></div><div class="lb">Baca &amp; tandai</div></div>
+  <div class="st" style="left: 1160px; top: 755px"><div class="disc"><svg width="76" height="76" viewBox="0 0 76 76"><path d="M10,50 A28,28 0 0 1 66,50" fill="none" stroke="#10313a" stroke-width="7" stroke-linecap="round" /><path d="M38,50 L56,30" stroke="#f09a6c" stroke-width="7" stroke-linecap="round" /><circle cx="38" cy="50" r="6" fill="#10313a" /></svg></div><div class="lb">Dinilai otomatis</div></div>
+  <div class="st" style="left: 760px; top: 755px"><div class="disc"><svg width="76" height="76" viewBox="0 0 76 76"><path d="M10,14 h56 a6,6 0 0 1 6,6 v30 a6,6 0 0 1 -6,6 h-30 l-14,12 v-12 h-12 a6,6 0 0 1 -6,-6 v-30 a6,6 0 0 1 6,-6 z" fill="none" stroke="#10313a" stroke-width="6" stroke-linejoin="round" /><circle cx="26" cy="35" r="4" fill="#10313a" /><circle cx="38" cy="35" r="4" fill="#10313a" /><circle cx="50" cy="35" r="4" fill="#10313a" /></svg></div><div class="lb">Tutor menjelaskan</div></div>
+  <div class="st l" style="left: 637px; top: 380px"><div class="disc"><svg width="76" height="76" viewBox="0 0 76 76"><rect x="10" y="40" width="12" height="24" rx="3" fill="#10313a" /><rect x="32" y="26" width="12" height="38" rx="3" fill="#10313a" /><rect x="54" y="12" width="12" height="52" rx="3" fill="#f09a6c" /></svg></div><div class="lb">Penguasaan naik</div></div>
+  <div class="sina-wrap"><svg class="sina " viewBox="-140 -150 280 290" width="180" overflow="visible" aria-hidden="true">
+  <defs>
+    <radialGradient id="f10s-body" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#e3f2d8" />
+      <stop offset=".55" stop-color="#aad39c" />
+      <stop offset="1" stop-color="#6fa77a" />
+    </radialGradient>
+    <radialGradient id="f10s-nt" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#ffd2b5" />
+      <stop offset=".6" stop-color="#f09a6c" />
+      <stop offset="1" stop-color="#d9774a" />
+    </radialGradient>
+  </defs>
+  <ellipse class="sina-shadow" cx="0" cy="122" rx="62" ry="9" fill="#10313a" opacity=".16" />
+  <g class="sina-rig">
+    <!-- dendrit atas: "rambut" neuron, tiap cabang bisa digoyang terpisah -->
+    <g class="sina-dendrites" fill="none" stroke="#7fb88a" stroke-width="9" stroke-linecap="round">
+      <g class="sina-d sina-d1"><path d="M-34,-56 C-46,-84 -34,-100 -58,-122" /><path d="M-44,-92 C-58,-96 -66,-92 -76,-100" stroke-width="6" /><circle cx="-58" cy="-122" r="8" fill="#aad39c" stroke="none" /><circle cx="-76" cy="-100" r="6" fill="#aad39c" stroke="none" /></g>
+      <g class="sina-d sina-d2"><path d="M-2,-70 C4,-96 -8,-112 6,-136" /><circle cx="6" cy="-136" r="9" fill="#aad39c" stroke="none" /></g>
+      <g class="sina-d sina-d3"><path d="M32,-58 C48,-82 40,-98 64,-114" /><path d="M46,-88 C60,-88 68,-80 80,-84" stroke-width="6" /><circle cx="64" cy="-114" r="8" fill="#aad39c" stroke="none" /><circle cx="80" cy="-84" r="6" fill="#aad39c" stroke="none" /></g>
+      <g class="sina-d sina-d4"><path d="M-30,62 C-36,82 -28,96 -40,112" /><circle cx="-40" cy="112" r="7" fill="#aad39c" stroke="none" /></g>
+      <g class="sina-d sina-d5"><path d="M30,62 C36,82 28,96 40,112" /><circle cx="40" cy="112" r="7" fill="#aad39c" stroke="none" /></g>
+    </g>
+    <!-- lengan = dendrit samping, origin di bahu -->
+    <g class="sina-arm-l" fill="none" stroke="#7fb88a" stroke-width="10" stroke-linecap="round">
+      <path d="M-62,6 C-84,14 -96,30 -108,48" /><circle cx="-108" cy="48" r="10" fill="#aad39c" stroke="none" />
+    </g>
+    <g class="sina-arm-r" fill="none" stroke="#7fb88a" stroke-width="10" stroke-linecap="round">
+      <path d="M62,6 C84,14 96,30 108,48" /><circle cx="108" cy="48" r="10" fill="#aad39c" stroke="none" />
+      <circle class="sina-dot" cx="112" cy="30" r="14" fill="url(#f10s-nt)" stroke="none" opacity="1" />
+    </g>
+    <circle class="sina-body" r="74" fill="url(#f10s-body)" />
+    <ellipse cx="-26" cy="-38" rx="22" ry="12" fill="#ffffff" opacity=".45" transform="rotate(-25 -26 -38)" />
+    <g class="sina-face">
+      <g class="sina-eye sina-eye-l" transform="translate(-25 -6)">
+        <ellipse rx="15" ry="18" fill="#ffffff" />
+        <g class="sina-pupil"><circle cx="2" cy="3" r="9" fill="#10313a" /><circle cx="6" cy="-2" r="3.4" fill="#ffffff" /></g>
+        <ellipse class="sina-lid" rx="16.5" ry="19.5" fill="#98c78c" transform="scale(1 0)" />
+      </g>
+      <g class="sina-eye sina-eye-r" transform="translate(25 -6)">
+        <ellipse rx="15" ry="18" fill="#ffffff" />
+        <g class="sina-pupil"><circle cx="2" cy="3" r="9" fill="#10313a" /><circle cx="6" cy="-2" r="3.4" fill="#ffffff" /></g>
+        <ellipse class="sina-lid" rx="16.5" ry="19.5" fill="#98c78c" transform="scale(1 0)" />
+      </g>
+      <ellipse cx="-46" cy="20" rx="11" ry="6" fill="#f09a6c" opacity=".55" />
+      <ellipse cx="46" cy="20" rx="11" ry="6" fill="#f09a6c" opacity=".55" />
+      <path class="sina-m sina-m-smile" d="M-14,24 Q0,38 14,24" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round" opacity="1" />
+      <path class="sina-m sina-m-open" d="M-13,22 Q0,22 13,22 Q12,42 0,42 Q-12,42 -13,22 Z" fill="#10313a" opacity="0" />
+    </g>
+  </g>
+</svg>
+</div>
+</div></div>
+</div>
+<!-- @sfx ui_swell@0.0:0.45 hop@~Sina-0.3:0.5 bubble_hi@~Sina+0.3:0.35 woosh_up@~siklus-0.4:0.35 mar1@~Sistem:0.5 mar2@~Kamu:0.5 mar3@~Jawabanmu:0.5 mar4@~tutor:0.5 mar5@~penguasaanmu:0.5 success_arp@~diperbarui+0.2:0.5 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f10", T0 = 0.5, DUR = 20.35, VO_AT = 0.5, VOW = [["Kenalan",0],["dulu",0.11],["dengan",0.17],["Sina",0.25],["Di",1.69],["SINAPS",1.73],["latihan",1.94],["berjalan",2.06],["dalam",2.18],["satu",2.26],["siklus",2.34],["Sistem",5.68],["memilih",5.79],["kasus",5.9],["untuk",5.99],["kompetensi",6.05],["terlemahmu",6.19],["Kamu",9.19],["membaca",9.28],["MRI",9.41],["dan",9.55],["menandai",9.61],["lesi",9.83],["Jawabanmu",12.66],["dinilai",12.82],["otomatis",12.92],["tutor",13.173],["menjelaskan",13.26],["lalu",13.5],["penguasaanmu",13.6],["diperbarui",13.807]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 0.55 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  // tanpa pantulan: back/elastic/bounce diganti kurva yang mendarat lalu diam (masuk = expo.out, keluar = power3.in)
+  const calm = (v) => {
+    if (v && typeof v === "object" && typeof v.ease === "string" && /back|elastic|bounce/.test(v.ease))
+      v.ease = /\.in\b|\.in\(/.test(v.ease) && !/inOut/.test(v.ease) ? "power3.in" : /inOut/.test(v.ease) ? "power3.inOut" : "expo.out";
+    return v;
+  };
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a.map(calm));
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk. Satu tata bahasa untuk seluruh film: "push" (kamera geser, adegan lama mundur ke kiri),
+  // "cut" (potong keras, untuk pergantian babak) dan "zoom" (sekali, masuk ke logo). Jenis lama dipetakan ke push.
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || kind === "cut" || T0 === 0) return;
+    if (!["push", "zoom"].includes(kind)) kind = "push";
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-30px 0 60px rgba(16,24,40,.16)" }, { x: 0, duration: d, ease: "power4.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { x: -480, duration: 0.62, ease: "power4.inOut" }, END - 0.5);
+  };
+  const blinkAt = (lids, times) => times.forEach((t) => {
+    tl.to(lids, { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(lids, { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // kedip manual tidak dipakai lagi: semua tokoh berkedip otomatis (lihat akhir helper)
+  const blink = () => {};
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  // masuk: sebagian besar gerak di beberapa frame pertama lalu ekor panjang, tanpa pantulan; tidak tumbuh dari nol
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: Math.max(0.82, o.from ?? 0.86), opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 32, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar: permukaan kertas hangat yang diam (cahaya lembut di tengah, vinyet tipis, butir kertas).
+  // Sengaja tidak bergerak: saat jeda presenter bicara, yang hidup hanya tokohnya.
+  const ground = () => {
+    const g = div(D, {}, "ground");
+    D.insertBefore(g, D.firstChild);
+    return g;
+  };
+  // (lama) kamera merayap sepanjang frame — dimatikan: jeda harus tenang
+  const drift = () => {};
+  // hentakan kecil sekali pakai (stempel mendarat): dua ayunan pendek, bukan gempa
+  const thud = (t, amp = 6) => {
+    tl.to(D, { y: amp, duration: 0.05, ease: "power2.out" }, t);
+    tl.to(D, { y: 0, duration: 0.28, ease: "power3.out" }, t + 0.05);
+  };
+  // guncangan/burst/kilat/konfeti/stabilo: efek "AI default" — sekarang tidak menggambar apa pun
+  const shake = () => {};
+  const burst = () => {};
+  const flash = () => {};
+  const confetti = () => {};
+  const mark = () => {};
+  const hit = () => {};
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: Math.min(o.y ?? 26, 30), opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.5, ease: "expo.out", stagger: Math.min(o.stagger ?? 0.05, 0.06) }, t));
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ground();
+  // semua tokoh hidup saat jeda: kedip dengan jarak acak-tetap (berbiji) sampai akhir frame
+  R.querySelectorAll("svg.dika, svg.sina").forEach((el, k) => {
+    const lids = el.querySelectorAll(".dika-lid, .sina-lid");
+    const ts = [];
+    for (let t = 1.1 + k * 0.7 + frnd() * 0.8; t < END - 0.4; t += 2.8 + frnd() * 2.2) ts.push(+t.toFixed(2));
+    blinkAt(lids, ts);
+  });
+  // ---- akhir helper ----
+
+enter("push");
+  const C = [960, 560], RAD = 340;
+  const ang = [-90, -18, 54, 126, 198];
+  const sts = [...$(".st")];
+  // 2. siklus: cincin dan lima stasiun muncul bersama, Sina mengecil ke pusatnya
+  const tc = w("SINAPS") - 0.2;
+  tl.fromTo(".ringsvg circle:first-child", { scale: 0.85, opacity: 0, svgOrigin: "960 560" }, { scale: 1, opacity: 1, duration: 0.6 }, tc);
+  sts.forEach((el, i) => pop(el.querySelector(".disc"), tc + 0.1 + i * 0.05));
+  rise(".st .lb", tc + 0.2, { y: 12, stagger: 0.04 });
+  rise(".center", tc + 0.3, { y: 16 });
+  // Sina menyapa
+  // 1. kenalan dengan Sina: sendirian, besar, di tengah
+  tl.fromTo(".sina-wrap", { y: 160, scale: 1.2, opacity: 0 }, { y: 60, scale: 2, opacity: 1, duration: 0.6 }, 0.55);
+  tl.to(".sina-wrap", { y: 0, scale: 1, duration: 0.6, ease: "power4.inOut" }, tc - 0.1);
+  tl.fromTo(".sina-arm-l", { rotation: 0, svgOrigin: "-62 6" }, { rotation: 70, duration: 0.3 }, w("Sina"));
+  tl.to(".sina-arm-l", { rotation: 40, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, w("Sina") + 0.3);
+  tl.to(".sina-arm-l", { rotation: 0, duration: 0.3 }, w("Sina") + 1.2);
+  bob(".sina-rig", w("Sina") + 0.6, END, 4, 2.2);
+  blink(".sina-lid", [3.4, 7.8, 11.6, 15.9]);
+  // sinyal (butir neurotransmiter) berjalan di cincin, tiap stasiun menyala saat dilewati
+  const ns = "http://www.w3.org/2000/svg";
+  const sig = document.createElementNS(ns, "circle");
+  sig.setAttribute("r", "17"); sig.setAttribute("fill", "#e07a1f"); sig.setAttribute("stroke", "#fff"); sig.setAttribute("stroke-width", "5");
+  $1(".ringsvg").appendChild(sig);
+  const times = [w("Sistem"), w("Kamu"), w("Jawabanmu"), w("tutor"), w("penguasaanmu")];
+  const a = { v: -90 };
+  const put = () => {
+    const r = (a.v * Math.PI) / 180;
+    sig.setAttribute("cx", (C[0] + RAD * Math.cos(r)).toFixed(1));
+    sig.setAttribute("cy", (C[1] + RAD * Math.sin(r)).toFixed(1));
+    $1(".ring-prog").setAttribute("stroke-dashoffset", (2136 * (1 - (a.v + 90) / 360)).toFixed(1));
+    // Sina menoleh ke arah sinyal
+    gsap.set(R.querySelector(".sina-face"), { x: 6 * Math.cos(r), y: 4 * Math.sin(r) });
+  };
+  // ekor komet mengikuti sinyal
+  const trail = [1, 2, 3, 4, 5, 6].map((k) => svgEl("circle", { r: (15 - k * 2).toFixed(0), fill: "#e07a1f", opacity: (0.5 - k * 0.07).toFixed(2), cx: 960, cy: 220 }, $1(".ringsvg")));
+  $1(".ringsvg").appendChild(sig);
+  const put0 = put;
+  const putT = () => { put0(); trail.forEach((c, k) => { const r = ((a.v - (k + 1) * 5) * Math.PI) / 180; c.setAttribute("cx", (C[0] + RAD * Math.cos(r)).toFixed(1)); c.setAttribute("cy", (C[1] + RAD * Math.sin(r)).toFixed(1)); }); };
+  tl.fromTo(trail, { opacity: 0 }, { opacity: (i) => 0.5 - (i + 1) * 0.07, duration: 0.3 }, times[0] - 0.4);
+  tl.fromTo(sig, { opacity: 0 }, { opacity: 1, duration: 0.3 }, times[0] - 0.4);
+  tl.fromTo(a, { v: -90 }, { v: -90, duration: 0.01, onUpdate: put, onStart: put }, 0);
+  times.forEach((t, i) => {
+    if (i > 0) { const d = Math.min(0.9, t - times[i - 1] - 0.05); tl.to(a, { v: ang[i], duration: d, ease: "power2.inOut", onUpdate: putT }, t - d); }
+    const ra = (ang[i] * Math.PI) / 180;
+    burst(C[0] + RAD * Math.cos(ra), C[1] + RAD * Math.sin(ra), t, { r0: 80, r1: 170, n: 10 });
+    const d = sts[i].querySelector(".disc");
+    tl.to(d, { backgroundColor: "#e8f1f2", borderColor: "#195764", duration: 0.25 }, t);
+    tl.fromTo(d, { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+    tl.to(sts[i].querySelector(".lb"), { color: "#195764", duration: 0.25 }, t);
+  });
+  tl.to(a, { v: 270, duration: 0.9, ease: "power2.inOut", onUpdate: putT }, times[4] + 0.3);
+  tl.to(".center .t", { color: "#195764", duration: 0.3 }, times[4] + 1.1);
+  tl.fromTo(".ring-prog", { attr: { "stroke-width": 16 } }, { attr: { "stroke-width": 28 }, duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, times[4] + 1.2);
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

@@ -1,0 +1,37 @@
+[
+ {
+  "name": "single config, 3 seeds",
+  "avg": 5.033644756702668,
+  "n": 118
+ },
+ {
+  "name": "single config, 6 seeds",
+  "avg": 5.04302935539175,
+  "n": 118
+ },
+ {
+  "name": "plateau avg (4 cfg x 2 seeds)",
+  "avg": 5.0396933100771815,
+  "n": 118
+ },
+ {
+  "name": "plateau avg (4 cfg x 3 seeds)",
+  "avg": 5.049371016789189,
+  "n": 118
+ },
+ {
+  "name": "prune bottom 20",
+  "avg": 5.049874365142666,
+  "n": 98
+ },
+ {
+  "name": "prune bottom 40",
+  "avg": 5.020813155359818,
+  "n": 78
+ },
+ {
+  "name": "prune bottom 60",
+  "avg": 4.9500160449758255,
+  "n": 58
+ }
+]

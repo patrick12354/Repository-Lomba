@@ -1,0 +1,126 @@
+{
+ "text": "Di layar, dosen menunjukkan satu potongan MRI. Padahal di klinik, satu pasien punya puluhan slice dan beberapa sekuens. Dika bingung harus mulai dari mana.",
+ "end": 11.6,
+ "words": [
+  {
+   "w": "Di",
+   "s": 0,
+   "e": 0.16
+  },
+  {
+   "w": "layar,",
+   "s": 0.32,
+   "e": 0.88
+  },
+  {
+   "w": "dosen",
+   "s": 0.96,
+   "e": 1.28
+  },
+  {
+   "w": "menunjukkan",
+   "s": 1.36,
+   "e": 1.84
+  },
+  {
+   "w": "satu",
+   "s": 1.92,
+   "e": 2.24
+  },
+  {
+   "w": "potongan",
+   "s": 2.32,
+   "e": 2.72
+  },
+  {
+   "w": "MRI.",
+   "s": 2.8,
+   "e": 3.92
+  },
+  {
+   "w": "Padahal",
+   "s": 4,
+   "e": 4.32
+  },
+  {
+   "w": "di",
+   "s": 4.4,
+   "e": 4.48
+  },
+  {
+   "w": "klinik,",
+   "s": 4.52,
+   "e": 5.2
+  },
+  {
+   "w": "satu",
+   "s": 5.28,
+   "e": 5.52
+  },
+  {
+   "w": "pasien",
+   "s": 5.64,
+   "e": 6
+  },
+  {
+   "w": "punya",
+   "s": 6.04,
+   "e": 6.24
+  },
+  {
+   "w": "puluhan",
+   "s": 6.32,
+   "e": 6.8
+  },
+  {
+   "w": "slice",
+   "s": 6.88,
+   "e": 7.28
+  },
+  {
+   "w": "dan",
+   "s": 7.36,
+   "e": 7.52
+  },
+  {
+   "w": "beberapa",
+   "s": 7.56,
+   "e": 7.92
+  },
+  {
+   "w": "sekuens.",
+   "s": 8,
+   "e": 9.147
+  },
+  {
+   "w": "Dika",
+   "s": 9.173,
+   "e": 9.44
+  },
+  {
+   "w": "bingung",
+   "s": 9.56,
+   "e": 9.84
+  },
+  {
+   "w": "harus",
+   "s": 9.92,
+   "e": 10.08
+  },
+  {
+   "w": "mulai",
+   "s": 10.16,
+   "e": 10.32
+  },
+  {
+   "w": "dari",
+   "s": 10.4,
+   "e": 10.56
+  },
+  {
+   "w": "mana.",
+   "s": 11.04,
+   "e": 11.6
+  }
+ ]
+}

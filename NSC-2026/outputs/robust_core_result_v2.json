@@ -1,0 +1,101 @@
+{
+  "candidate": "robust_hbt",
+  "n_features_full": 118,
+  "n_features_robust": 95,
+  "removed": [
+    "T_minus_dailymean",
+    "T_over_dailymax",
+    "T_rng18",
+    "T_rng48",
+    "T_rng96",
+    "air_temperature_a24h",
+    "air_temperature_minus_q18",
+    "air_temperature_qrng18",
+    "air_temperature_qrng48",
+    "air_temperature_qrng96",
+    "esT_ratio_daily",
+    "p_tend48h",
+    "pressure",
+    "pressure_c1h",
+    "pressure_c24h",
+    "pressure_c6h",
+    "pressure_s-1",
+    "pressure_s-2",
+    "pressure_s-4",
+    "pressure_s1",
+    "pressure_s2",
+    "pressure_s4",
+    "rh_q18"
+  ],
+  "standard": {
+    "base": 4.746445432600319,
+    "candidate": 4.728101455474198,
+    "delta": -0.018343977126121395,
+    "folds_won": 13,
+    "n_folds": 18,
+    "bootstrap_ci": [
+      -0.035041462696782294,
+      -0.0023780330602399275
+    ],
+    "families": {
+      "P": {
+        "delta": -0.026285883404571483,
+        "won": 7,
+        "n": 9
+      },
+      "Q": {
+        "delta": -0.012979142055866366,
+        "won": 2,
+        "n": 4
+      },
+      "R": {
+        "delta": -0.00834041388111526,
+        "won": 4,
+        "n": 5
+      }
+    }
+  },
+  "stress": [
+    {
+      "split": 0,
+      "start": "2023-08-10 06:00:00",
+      "end": "2023-08-13 05:30:00",
+      "n_train": 1812,
+      "n_valid": 144,
+      "base": 4.239828897015803,
+      "candidate": 4.1586550245034175,
+      "delta": -0.08117387251238561,
+      "base_bias": -1.9324024883097328,
+      "candidate_bias": -1.745098830918304
+    },
+    {
+      "split": 1,
+      "start": "2023-08-19 06:00:00",
+      "end": "2023-08-22 05:30:00",
+      "n_train": 2244,
+      "n_valid": 144,
+      "base": 1.7524167033078064,
+      "candidate": 1.7511545607814467,
+      "delta": -0.0012621425263596997,
+      "base_bias": -0.3123279335477053,
+      "candidate_bias": -0.3455703996804769
+    },
+    {
+      "split": 2,
+      "start": "2023-08-22 06:00:00",
+      "end": "2023-08-25 05:30:00",
+      "n_train": 2388,
+      "n_valid": 144,
+      "base": 2.6692556784943964,
+      "candidate": 2.6968425094361748,
+      "delta": 0.027586830941778384,
+      "base_bias": 1.115491534300742,
+      "candidate_bias": 1.1314616814079825
+    }
+  ],
+  "stress_mean_delta": -0.018283061365655644,
+  "stress_worst_delta": -0.08117387251238561,
+  "passed": true,
+  "reasons": [],
+  "seconds": 842.6535375118256
+}

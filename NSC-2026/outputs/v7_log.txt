@@ -1,0 +1,25 @@
+v7 features 95  train 2933  test 734
+  OOF v7/P done (562s)
+  OOF v7/Q done (928s)
+  OOF v7/R done (1062s)
+
+candidate     Pmean Pwst  Qmean Qwst  Rmean Rwst    avg  avgWst
+v5_shipped     5.878  7.451  5.786  7.661  6.374  7.271   6.013   7.461
+v6_airmass     5.172  6.549  5.095  6.172  5.483  5.671   5.250   6.130
+v7_airmass     5.106  6.638  5.010  6.329  5.365  5.610   5.161   6.192
+
+### PAIRED DAY-LEVEL BOOTSTRAP vs v5_shipped (family P, 4000 resamples) ###
+  v6_airmass: pooled 5.248 vs 6.026 (delta -0.779)  folds 7/8  days 60.0%  CI [-1.341,-0.184]  P(better) 99.4%
+  v7_airmass: pooled 5.197 vs 6.026 (delta -0.830)  folds 7/8  days 60.0%  CI [-1.549,-0.246]  P(better) 99.6%
+
+refit on all training data...
+weights: {'hbt': 0.5585, 'cat': 0.1527, 'ridge': 0.05, 'enet': 0.1009, 'ridge_e': 0.1379}
+family-P CV (pooled weights): mean 5.2530 worst 6.6560 [np.float64(6.47), np.float64(6.656), np.float64(6.37), np.float64(5.839), np.float64(5.094), np.float64(4.311), np.float64(4.11), np.float64(4.005), np.float64(4.423)]
+
+wrote outputs/submissions/v7_airmass.csv  (734 rows, datetimes match sample_submission)
+pred: {'count': 734.0, 'mean': 57.7, 'std': 18.31, 'min': 25.63, '25%': 38.78, '50%': 61.91, '75%': 74.66, 'max': 88.8}
+RMSE between prediction vectors:
+  vs v6_airmass: 1.385
+  vs v5_final: 2.512
+
+1124s  logged.

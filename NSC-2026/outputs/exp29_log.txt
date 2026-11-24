@@ -1,0 +1,20 @@
+features 118
+  single config, 3 seeds        (118) P  5.000 Q  4.518 R  5.583  avg  5.034
+  single config, 6 seeds        (118) P  5.007 Q  4.532 R  5.590  avg  5.043  folds 4/18
+  plateau avg (4 cfg x 2 seeds) (118) P  5.007 Q  4.525 R  5.588  avg  5.040  folds 8/18
+  plateau avg (4 cfg x 3 seeds) (118) P  5.015 Q  4.536 R  5.597  avg  5.049  folds 8/18
+
+  top 12 by gain: ['T_minus_min18', 'air_temperature_minus_q18', 'air_temperature_s1', 'rh_tmin18', 'rh_q18', 'air_temperature_minus_q96', 'air_temperature_s2', 'air_temperature_minus_q48', 'rh_q48', 'T_minus_min96', 'T', 'co2']
+  bottom 12 by gain: ['sin2', 'co2_x_T', 'esT_ratio_daily', 'co2_s-4', 'sin3', 'co2_slope', 'cos2', 'pressure_a1h', 'air_temperature', 'air_temperature_a1h', 'air_temperature_s-1', 'co2_a1h']
+  prune bottom 20               ( 98) P  5.017 Q  4.549 R  5.583  avg  5.050  folds 6/18
+  prune bottom 40               ( 78) P  4.995 Q  4.524 R  5.543  avg  5.021  folds 10/18
+  prune bottom 60               ( 58) P  4.951 Q  4.386 R  5.514  avg  4.950  folds 14/18
+
+=== RANKING ===
+  prune bottom 60                  avg  4.950
+  prune bottom 40                  avg  5.021
+  single config, 3 seeds           avg  5.034
+  plateau avg (4 cfg x 2 seeds)    avg  5.040
+  single config, 6 seeds           avg  5.043
+  plateau avg (4 cfg x 3 seeds)    avg  5.049
+  prune bottom 20                  avg  5.050

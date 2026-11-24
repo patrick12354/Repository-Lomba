@@ -1,0 +1,48 @@
+features 82
+  fold 0 done (34s)
+  fold 1 done (65s)
+  fold 2 done (93s)
+  fold 3 done (126s)
+  fold 4 done (157s)
+  fold 5 done (193s)
+  fold 6 done (221s)
+  fold 7 done (250s)
+  fold 8 done (278s)
+
+per-model CV mean: {'hbt': 5.464, 'cat': 6.739, 'ridge': 6.494, 'enet': 6.345, 'ridge_e': 6.259, 'lgb_l2': 5.615}
+
+correlation of residuals:
+           hbt    cat  ridge   enet  ridge_e  lgb_l2
+hbt      1.000  0.740  0.773  0.772    0.718   0.965
+cat      0.740  1.000  0.547  0.551    0.613   0.760
+ridge    0.773  0.547  1.000  0.993    0.890   0.802
+enet     0.772  0.551  0.993  1.000    0.890   0.802
+ridge_e  0.718  0.613  0.890  0.890    1.000   0.765
+lgb_l2   0.965  0.760  0.802  0.802    0.765   1.000
+
+model set                              shrink  nested   worst
+hbt                                      0.00   5.301   6.906
+hbt+cat                                  0.00   5.297   6.481
+hbt+cat                                  0.25   5.326   6.449
+hbt+cat                                  0.50   5.371   6.444
+hbt+cat+ridge+enet                       0.00   5.245   6.484
+hbt+cat+ridge+enet                       0.25   5.207   6.532
+hbt+cat+ridge+enet                       0.50   5.210   6.615
+hbt+cat+ridge+enet+ridge_e               0.00   5.189   6.481
+hbt+cat+ridge+enet+ridge_e               0.25   5.172   6.549
+hbt+cat+ridge+enet+ridge_e               0.50   5.197   6.654
+hbt+cat+ridge_e                          0.00   5.189   6.481
+hbt+cat+ridge_e                          0.25   5.186   6.476
+hbt+cat+ridge_e                          0.50   5.197   6.490
+hbt+cat+ridge+enet+ridge_e+lgb_l2        0.00   5.189   6.481
+hbt+cat+ridge+enet+ridge_e+lgb_l2        0.25   5.174   6.548
+hbt+cat+ridge+enet+ridge_e+lgb_l2        0.50   5.188   6.644
+hbt+cat+lgb_l2                           0.00   5.297   6.481
+hbt+cat+lgb_l2                           0.25   5.304   6.476
+hbt+cat+lgb_l2                           0.50   5.317   6.478
+hbt+ridge_e                              0.00   5.191   6.860
+hbt+ridge_e                              0.25   5.174   6.869
+hbt+ridge_e                              0.50   5.181   6.908
+
+best: (5.17212251849927, ['hbt', 'cat', 'ridge', 'enet', 'ridge_e'], 0.25)
+278s

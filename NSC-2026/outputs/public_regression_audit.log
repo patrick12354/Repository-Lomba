@@ -1,0 +1,117 @@
+{
+  "scores_reported_by_user": {
+    "v21": 2.86595,
+    "full": 2.93028
+  },
+  "public_delta": 0.06433,
+  "public_mse_delta": 0.37287147590000025,
+  "public_mse_relative": 0.04539645530248748,
+  "submission_hashes": {
+    "v21": "5396077ee744458aa8d21b2ea336f61a",
+    "physics": "24ead6b72bf62d9f0492f3d72aff1c31",
+    "dsh": "4272e15f36d73d459a36ea7efeca3b2b",
+    "full": "dbec78e8d3340cdcc52c19a189dea902"
+  },
+  "simulation": [
+    {
+      "block": "B1_last15d",
+      "scenario": "220 random rows of this 720-row holdout",
+      "p_worse": 0.05975,
+      "p_ge_observed": 5e-05,
+      "q025": -0.09768549079206862,
+      "q50": -0.04273517064942833,
+      "q975": 0.010773477319401776
+    },
+    {
+      "block": "B2_prev15d",
+      "scenario": "220 random rows of this 720-row holdout",
+      "p_worse": 0.00045,
+      "p_ge_observed": 0.0,
+      "q025": -0.13039819731077945,
+      "q50": -0.08196774693572717,
+      "q975": -0.03344865269021953
+    },
+    {
+      "block": "B3_shift7d",
+      "scenario": "220 random rows of this 720-row holdout",
+      "p_worse": 0.9077,
+      "p_ge_observed": 0.1084,
+      "q025": -0.016075438508017938,
+      "q50": 0.033476420948168606,
+      "q975": 0.0825563054574112
+    }
+  ],
+  "moves": [
+    {
+      "before": "v21",
+      "after": "physics",
+      "rms": 0.2130958754682725,
+      "mean": -4.549796809363039e-16,
+      "max_abs": 1.3725521564921195,
+      "sd_before": 18.889376082527324,
+      "sd_after": 18.913974823411746,
+      "rows_gt1": 2
+    },
+    {
+      "before": "physics",
+      "after": "dsh",
+      "rms": 0.330935047040141,
+      "mean": 1.1471296210840854e-15,
+      "max_abs": 0.8704702778349827,
+      "sd_before": 18.913974823411746,
+      "sd_after": 19.195110693874984,
+      "rows_gt1": 0
+    },
+    {
+      "before": "dsh",
+      "after": "full",
+      "rms": 0.26202148754936944,
+      "mean": -1.936083748665123e-16,
+      "max_abs": 0.9698096205486735,
+      "sd_before": 19.195110693874984,
+      "sd_after": 19.110388492912456,
+      "rows_gt1": 0
+    },
+    {
+      "before": "v21",
+      "after": "full",
+      "rms": 0.41968211941850203,
+      "mean": 4.985415652812692e-16,
+      "max_abs": 1.3795286789157188,
+      "sd_before": 18.889376082527324,
+      "sd_after": 19.110388492912456,
+      "rows_gt1": 8
+    }
+  ],
+  "caveat": "No test targets read. Subset simulations condition on old, repeatedly-used holdouts; not private odds."
+}
+ before   after      block     base  candidate     delta
+    v21 physics B1_last15d 4.232249   4.225273 -0.006975
+    v21 physics B2_prev15d 6.586373   6.571617 -0.014756
+    v21 physics B3_shift7d 4.690131   4.689279 -0.000852
+physics     dsh B1_last15d 4.225273   4.199771 -0.025502
+physics     dsh B2_prev15d 6.571617   6.540115 -0.031503
+physics     dsh B3_shift7d 4.689279   4.719273  0.029994
+    dsh    full B1_last15d 4.199771   4.190073 -0.009698
+    dsh    full B2_prev15d 6.540115   6.504306 -0.035808
+    dsh    full B3_shift7d 4.719273   4.723834  0.004561
+    v21    full B1_last15d 4.232249   4.190073 -0.042176
+    v21    full B2_prev15d 6.586373   6.504306 -0.082067
+    v21    full B3_shift7d 4.690131   4.723834  0.033703
+     block   feature  lag  train_mean  forecast_mean  outside_p01_p99  outside_minmax
+B1_last15d         T    0   27.205156      28.444528         0.088889        0.043056
+B1_last15d       co2    0  481.139492     483.655292         0.008333        0.000000
+B1_last15d  pressure    0 1008.847865    1009.232778         0.081944        0.027778
+B1_last15d rh_tmin48    0   58.297821      61.018443         0.020833        0.000000
+B2_prev15d         T    0   27.716179      26.145493         0.080556        0.040278
+B2_prev15d       co2    0  486.227967     470.587972         0.084722        0.000000
+B2_prev15d  pressure    0 1009.283741    1007.944028         0.045833        0.012500
+B2_prev15d rh_tmin48    0   59.334091      56.171925         0.086111        0.044444
+B3_shift7d         T    0   27.326873      28.060604         0.047222        0.008333
+B3_shift7d       co2    0  481.866870     481.193653         0.027778        0.000000
+B3_shift7d  pressure    0 1008.006012    1013.198993         0.045833        0.012500
+B3_shift7d rh_tmin48    0   59.050710      57.353983         0.015278        0.000000
+      test         T    0   27.509400      24.641042         0.057221        0.000000
+      test       co2    0  481.757076     478.396281         0.005450        0.000000
+      test  pressure    0 1008.942354    1013.202766         0.149864        0.062670
+      test rh_tmin48    0   58.965686      59.762129         0.020436        0.000000

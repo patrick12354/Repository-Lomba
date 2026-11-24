@@ -1,0 +1,622 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/07-chatbot.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f07 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #fff; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f07 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f07 .kick { position: absolute; left: 96px; top: 70px; }
+#f07 .dika-wrap { position: absolute; left: 150px; top: 380px; }
+#f07 .phone { position: absolute; left: 640px; top: 120px; width: 1180px; height: 850px; border-radius: 36px; background: #f7f7f8; border: 4px solid #d9d9de; overflow: hidden; }
+#f07 .phone .top { height: 92px; background: #ffffff; border-bottom: 2px solid #e6e6ea; display: flex; align-items: center; gap: 16px; padding: 0 34px; font: 700 34px 'Geist', sans-serif; color: #2a2a31; }
+#f07 .phone .top .av { width: 46px; height: 46px; border-radius: 50%; background: #c9c9d1; display: grid; place-items: center; }
+#f07 .phone .top small { font: 600 24px 'Geist Mono', monospace; color: #9a9aa3; margin-left: auto; }
+#f07 .msg { position: absolute; font: 600 37px/1.38 'Geist', sans-serif; border-radius: 28px; padding: 26px 32px; }
+#f07 .me { right: 40px; top: 130px; width: 560px; background: #dfe3ea; color: #2a2e36; }
+#f07 .me img { display: block; width: 220px; height: 220px; border-radius: 14px; margin-bottom: 16px; }
+#f07 .bot { left: 40px; top: 520px; width: 760px; background: #ffffff; color: #22252b; border: 2px solid #e6e6ea; }
+#f07 .bot .conf { display: block; width: max-content; margin-top: 14px; padding: 6px 16px; border-radius: 999px; background: #e7f5ea; color: #2d7a43; font: 700 30px 'Geist Mono', monospace; }
+#f07 .bot .ghost-r, #f07 .bot .ghost-c { position: absolute; inset: 26px 32px; pointer-events: none; mix-blend-mode: multiply; }
+#f07 .bot .ghost-r { color: rgba(226,64,64,.55); transform: translate(5px, 0); }
+#f07 .bot .ghost-c { color: rgba(40,170,210,.5); transform: translate(-5px, 0); }
+#f07 .scan { position: absolute; left: 40px; top: 596px; width: 760px; height: 18px; background: rgba(220,38,38,.14); }
+#f07 .stamp { position: absolute; left: 1330px; top: 760px; padding: 24px 40px; border: 6px solid var(--bad); border-radius: 18px; color: var(--bad); transform: rotate(-7deg); background: #fff; }
+#f07 .stamp .a { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 54px; letter-spacing: .14em; }
+#f07 .stamp .b { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 150px; line-height: .95; }
+#f07 .src { position: absolute; left: 640px; bottom: 30px; }
+#f07 .dimb { position: absolute; inset: 0; background: rgba(255,255,255,.84); opacity: 0; }
+#f07 .budi { position: absolute; left: 330px; top: 250px; width: 1260px; height: 560px; border-radius: 36px; background: #fff; border: 3px solid var(--line-2); box-shadow: 0 30px 80px rgba(16,24,40,.22); overflow: hidden; opacity: 0; }
+#f07 .budi .pic { position: absolute; left: 40px; top: 30px; width: 360px; height: 530px; overflow: hidden; }
+#f07 .budi .pic .dika-badge, #f07 .budi .pic .dika-torso rect { display: none; }
+#f07 .budi .bk { position: absolute; left: 440px; top: 80px; }
+#f07 .budi .bt { position: absolute; left: 440px; top: 136px; width: 760px; font-size: 64px; line-height: 1.15; font-weight: 700; color: var(--ink); }
+#f07 .budi .bt b { color: var(--bad); }
+#f07 .budi .bc { position: absolute; left: 440px; bottom: 70px; display: flex; gap: 16px; }
+#f07 .dim { position: absolute; inset: 0; background: rgba(16,49,58,.86); opacity: 0; }
+#f07 .ask { position: absolute; left: 0; right: 0; top: 380px; text-align: center; color: #fff; font: 700 118px/1 'Oswald', sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+#f07 .ask b { color: #fbbf24; }
+#f07 .ask small { display: block; margin-top: 30px; font: 700 40px 'Geist', sans-serif; letter-spacing: .1em; color: #aad39c; }
+</style>
+<div data-hf-id="hf-8l3b" id="f07" data-composition-id="f07" data-width="1920" data-height="1080">
+<div data-hf-id="hf-wua0" class="scene"><div data-hf-id="hf-1ctk" class="dolly">
+  
+  <div data-hf-id="hf-3u1q" class="kick eyebrow">Chatbot AI umum · citra medis</div>
+  <div data-hf-id="hf-movi" class="dika-wrap"><svg data-hf-id="hf-af3a" class="dika " viewBox="0 0 320 640" width="300" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-01r1" class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-p7ta" class="dika-rig">
+    <!-- kaki -->
+    <g data-hf-id="hf-zlsb" class="dika-legs">
+      <rect data-hf-id="hf-3dir" x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect data-hf-id="hf-vjea" x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse data-hf-id="hf-0fa9" cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse data-hf-id="hf-vfvc" cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g data-hf-id="hf-75v1" class="dika-arm-l">
+      <path data-hf-id="hf-o0dh" d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-9d41" x="70" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle data-hf-id="hf-rh3t" class="dika-hand-l" cx="85" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g data-hf-id="hf-096l" class="dika-torso">
+      <path data-hf-id="hf-16o2" d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path data-hf-id="hf-ixdl" d="M134,250 L160,306 L186,250 Z" fill="#2f7f8a" />
+      <path data-hf-id="hf-dj44" d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path data-hf-id="hf-0k1f" d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line data-hf-id="hf-5ni9" x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-efbl" x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-kuce" x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g data-hf-id="hf-2vx9" class="dika-badge"><rect data-hf-id="hf-0kwm" x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect data-hf-id="hf-0ol0" x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle data-hf-id="hf-wotr" cx="200" cy="322" r="6" fill="#aad39c" /><rect data-hf-id="hf-hbmb" x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g data-hf-id="hf-vnyn" class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path data-hf-id="hf-rbi2" d="M130,256 C116,300 128,334 150,346" />
+        <path data-hf-id="hf-uro7" d="M190,256 C204,300 192,334 170,346" />
+        <path data-hf-id="hf-49v1" d="M150,346 Q160,352 170,346" />
+        <path data-hf-id="hf-yv77" d="M160,350 C162,372 176,380 186,384" />
+        <circle data-hf-id="hf-uoye" cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g data-hf-id="hf-08hf" class="dika-arm-r">
+      <path data-hf-id="hf-paxy" d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-dmvi" x="220" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle data-hf-id="hf-6pxo" class="dika-hand-r" cx="235" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g data-hf-id="hf-io36" class="dika-head">
+      <path data-hf-id="hf-9idq" class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect data-hf-id="hf-8vmz" x="142" y="226" width="36" height="34" rx="10" fill="#b97c5a" />
+      <path data-hf-id="hf-h3vw" d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#1d2430" />
+      <ellipse data-hf-id="hf-725f" cx="99" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse data-hf-id="hf-3rcg" cx="221" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse data-hf-id="hf-r98y" cx="160" cy="178" rx="62" ry="68" fill="#d39a76" />
+      <path data-hf-id="hf-h3h4" d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#1d2430" />
+      <g data-hf-id="hf-3mtu" class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g data-hf-id="hf-wfzk" opacity="1"><path data-hf-id="hf-pbtc" d="M124,158 Q137,151 150,157" /><path data-hf-id="hf-ebv8" d="M170,157 Q183,151 196,158" /></g>
+        <g data-hf-id="hf-x7nd" opacity="0"><path data-hf-id="hf-hsbz" d="M124,158 Q138,156 150,150" /><path data-hf-id="hf-71iz" d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g data-hf-id="hf-17lw" class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse data-hf-id="hf-3jud" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-ytvh" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-nojc" class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-cdq7" class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse data-hf-id="hf-4221" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-4u6p" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-xosw" class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-u979" class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle data-hf-id="hf-2cwe" cx="138" cy="180" r="16" /><circle data-hf-id="hf-dn0p" cx="182" cy="180" r="16" /><path data-hf-id="hf-azij" d="M154,178 Q160,173 166,178" /><path data-hf-id="hf-df2h" d="M122,176 L104,172" /><path data-hf-id="hf-9zwu" d="M198,176 L216,172" />
+      </g>
+      <path data-hf-id="hf-yjmv" d="M159,190 q-5,11 3,13" fill="none" stroke="#b97c5a" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse data-hf-id="hf-s6y0" cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse data-hf-id="hf-bjqb" cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g data-hf-id="hf-tvo7" class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path data-hf-id="hf-p3a3" class="dika-m-smile" opacity="0" d="M145,214 Q160,228 175,214" />
+        <path data-hf-id="hf-7t57" class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse data-hf-id="hf-3s55" class="dika-m-oh" opacity="1" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path data-hf-id="hf-ius4" class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+  <div data-hf-id="hf-kda4" class="phone">
+    <div data-hf-id="hf-0o66" class="top"><span data-hf-id="hf-23os" class="av"><svg data-hf-id="hf-h4wu" width="26" height="26" viewBox="0 0 26 26"><path data-hf-id="hf-kjei" d="M13,2 L15.5,10.5 L24,13 L15.5,15.5 L13,24 L10.5,15.5 L2,13 L10.5,10.5 Z" fill="#ffffff" /></svg></span>Asisten AI <small data-hf-id="hf-syjz">model umum</small></div>
+    <div data-hf-id="hf-wsed" class="msg me"><img data-hf-id="hf-8c66" src="../../assets/mri/sub-654/dwi_z15.png" alt="" />Ini MRI-nya. Ada stroke? Lesinya di mana?</div>
+    <div data-hf-id="hf-rcn3" class="msg bot" data-layout-allow-overlap>Otak tampak normal. Tidak terlihat tanda infark maupun perdarahan pada gambar ini.<span data-hf-id="hf-941n" class="conf">yakin 96%</span>
+      <div data-hf-id="hf-nv0p" class="ghost-r">Otak tampak normal. Tidak terlihat tanda infark maupun perdarahan pada gambar ini.</div>
+      <div data-hf-id="hf-gnlg" class="ghost-c">Otak tampak normal. Tidak terlihat tanda infark maupun perdarahan pada gambar ini.</div>
+    </div>
+    <div data-hf-id="hf-az1f" class="scan"></div>
+  </div>
+  <div data-hf-id="hf-ivv9" class="stamp"><div data-hf-id="hf-exao" class="a">HALUSINASI</div><div data-hf-id="hf-zf2s" class="b">74,4%</div></div>
+  <div data-hf-id="hf-4ox2" class="src">von der Stück dkk. 2026 · 7 model visi-bahasa, 180 citra klinis</div>
+  <div data-hf-id="hf-02ng" class="dimb"></div>
+  <div data-hf-id="hf-piha" class="budi">
+    <div data-hf-id="hf-m79s" class="pic"><svg data-hf-id="hf-8e7w" class="dika " viewBox="0 0 320 640" width="360" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-2ne9" class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-5kgi" class="dika-rig">
+    <!-- kaki -->
+    <g data-hf-id="hf-p4kr" class="dika-legs">
+      <rect data-hf-id="hf-l40j" x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect data-hf-id="hf-iegm" x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse data-hf-id="hf-qut1" cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse data-hf-id="hf-yq9c" cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g data-hf-id="hf-hmht" class="dika-arm-l">
+      <path data-hf-id="hf-kim1" d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-pprp" x="70" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle data-hf-id="hf-05rh" class="dika-hand-l" cx="85" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g data-hf-id="hf-qzrl" class="dika-torso">
+      <path data-hf-id="hf-iu06" d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path data-hf-id="hf-r13h" d="M134,250 L160,306 L186,250 Z" fill="#2f7f8a" />
+      <path data-hf-id="hf-q4ak" d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path data-hf-id="hf-mndf" d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line data-hf-id="hf-0x1x" x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-wyh1" x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-exdu" x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g data-hf-id="hf-o94h" class="dika-badge"><rect data-hf-id="hf-neey" x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect data-hf-id="hf-30jw" x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle data-hf-id="hf-wwjz" cx="200" cy="322" r="6" fill="#aad39c" /><rect data-hf-id="hf-v6gj" x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g data-hf-id="hf-4at4" class="dika-steth" opacity="0" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path data-hf-id="hf-bee6" d="M130,256 C116,300 128,334 150,346" />
+        <path data-hf-id="hf-q8bb" d="M190,256 C204,300 192,334 170,346" />
+        <path data-hf-id="hf-elk1" d="M150,346 Q160,352 170,346" />
+        <path data-hf-id="hf-ul03" d="M160,350 C162,372 176,380 186,384" />
+        <circle data-hf-id="hf-wa0q" cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g data-hf-id="hf-sf2r" class="dika-arm-r">
+      <path data-hf-id="hf-muju" d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-cg0i" x="220" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle data-hf-id="hf-xr6s" class="dika-hand-r" cx="235" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g data-hf-id="hf-p25y" class="dika-head">
+      <path data-hf-id="hf-iwcy" class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect data-hf-id="hf-m68b" x="142" y="226" width="36" height="34" rx="10" fill="#b97c5a" />
+      <path data-hf-id="hf-vo1w" d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#1d2430" />
+      <ellipse data-hf-id="hf-yrvn" cx="99" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse data-hf-id="hf-0ydk" cx="221" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse data-hf-id="hf-spg6" cx="160" cy="178" rx="62" ry="68" fill="#d39a76" />
+      <path data-hf-id="hf-ig4w" d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#1d2430" />
+      <g data-hf-id="hf-zogm" class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g data-hf-id="hf-bsgd" opacity="0"><path data-hf-id="hf-i8yw" d="M124,158 Q137,151 150,157" /><path data-hf-id="hf-lq5o" d="M170,157 Q183,151 196,158" /></g>
+        <g data-hf-id="hf-mtag" opacity="1"><path data-hf-id="hf-7aof" d="M124,158 Q138,156 150,150" /><path data-hf-id="hf-dcmz" d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g data-hf-id="hf-8p30" class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse data-hf-id="hf-58z4" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-613s" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-whvt" class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-apa7" class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse data-hf-id="hf-4uo3" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-5msr" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-ww6u" class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-ga4p" class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle data-hf-id="hf-03wy" cx="138" cy="180" r="16" /><circle data-hf-id="hf-wrlp" cx="182" cy="180" r="16" /><path data-hf-id="hf-7hd7" d="M154,178 Q160,173 166,178" /><path data-hf-id="hf-3szh" d="M122,176 L104,172" /><path data-hf-id="hf-6hw2" d="M198,176 L216,172" />
+      </g>
+      <path data-hf-id="hf-gsjr" d="M159,190 q-5,11 3,13" fill="none" stroke="#b97c5a" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse data-hf-id="hf-7p5s" cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse data-hf-id="hf-eg0z" cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g data-hf-id="hf-2b2v" class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path data-hf-id="hf-o1ln" class="dika-m-smile" opacity="0" d="M145,214 Q160,228 175,214" />
+        <path data-hf-id="hf-3v16" class="dika-m-worried" opacity="1" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse data-hf-id="hf-142k" class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path data-hf-id="hf-f2b0" class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div data-hf-id="hf-m84k" class="bk eyebrow">Yang Dika butuhkan</div>
+    <div data-hf-id="hf-zxdp" class="bt">Tempat berlatih sendiri yang <b data-hf-id="hf-0h0w">menilai bacaannya.</b></div>
+    <div data-hf-id="hf-9ldh" class="bc"><span data-hf-id="hf-8yha" class="chip">MRI asli</span><span data-hf-id="hf-gmu1" class="chip">dinilai</span><span data-hf-id="hf-m8wq" class="chip">dibimbing</span></div>
+  </div>
+  <div data-hf-id="hf-y8te" class="dim"></div>
+  <div data-hf-id="hf-s8vl" class="ask">Lalu, apa <b data-hf-id="hf-dulc">jalan keluarnya?</b></div>
+</div></div>
+</div>
+<!-- @sfx glitch@0.0:0.45 thud_soft@0.75:0.35 keys_clack@1.2:0.35 notif_pop@~lari+0.1:0.5 typing@~Masalahnya:0.35 tech_beep@~salah-0.4:0.45 glitch_heavy@~salah:0.6 error_buzz@~salah+0.35:0.45 reverse_suck@~halusinasi-1.2:0.4 stamp@~halusinasi:0.7 impact_boom@~halusinasi+0.05:0.45 counter_roll@~tujuh-0.5:0.3 reverse_suck@~Lalu-1.0:0.4 bass_drop@~Lalu:0.45 question_pop@~keluarnya+0.3:0.5 whoosh_deep@~Dika-0.2:0.4 pop@~bacaannya+0.2:0.35 pop_hi@~bacaannya+0.35:0.35 pop@~bacaannya+0.5:0.35 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f07", T0 = 0.5, DUR = 22.3, VO_AT = 0.5, VOW = [["Jadi",0],["mahasiswa",0.48],["lari",1.12],["ke",1.6],["chatbot",1.8],["AI",2.12],["Masalahnya",3.16],["untuk",4.16],["citra",4.507],["medis",4.84],["chatbot",5.56],["umum",5.92],["sering",6.32],["salah",6.84],["dengan",7.253],["sangat",7.56],["yakin",8],["Satu",9.08],["evaluasi",9.28],["mencatat",9.88],["tingkat",10.4],["halusinasi",10.72],["sampai",11.56],["tujuh",12.04],["puluh",12.32],["empat",12.56],["persen",12.8],["Dika",13.88],["butuh",14.24],["tempat",14.48],["berlatih",14.72],["yang",15.28],["benar-benar",15.64],["menilai",16.28],["bacaannya",16.76],["Lalu",18.08],["apa",18.8],["jalan",19.08],["keluarnya",19.36]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out", duration: 0.6 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a);
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk: iris (lingkaran dari titik), push (geser dari kanan), fade (blur crossfade), none
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || T0 === 0) return;
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-40px 0 80px rgba(16,24,40,.18)" }, { x: 0, duration: d, ease: "power3.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { scale: 0.965, filter: "blur(3px)", duration: 0.5, ease: "power2.in" }, END - 0.5);
+  };
+  const blink = (sel, times) => times.forEach((t) => {
+    tl.to(R.querySelectorAll(sel), { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(R.querySelectorAll(sel), { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: o.from ?? 0.6, opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(2)", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 40, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar ambient: grid titik yang bergeser, cahaya lembut, partikel neurotransmiter melayang
+  const ambient = (o = {}) => {
+    const svg = svgEl("svg", { viewBox: "0 0 1920 1080", class: "amb" });
+    D.insertBefore(svg, D.firstChild);
+    const defs = svgEl("defs", {}, svg);
+    const pid = `amb-d-${ID}`, gid = `amb-g-${ID}`;
+    const pat = svgEl("pattern", { id: pid, width: 48, height: 48, patternUnits: "userSpaceOnUse" }, defs);
+    svgEl("circle", { cx: 24, cy: 24, r: 2.4, fill: o.dot ?? "#d5e1e3" }, pat);
+    const rg = svgEl("radialGradient", { id: gid }, defs);
+    svgEl("stop", { offset: "0", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "1" }, rg);
+    svgEl("stop", { offset: "1", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "0" }, rg);
+    const blobs = [0, 1, 2].map(() => svgEl("circle", { cx: (200 + frnd() * 1520).toFixed(0), cy: (150 + frnd() * 780).toFixed(0), r: (380 + frnd() * 240).toFixed(0), fill: `url(#${gid})` }, svg));
+    const grid = svgEl("rect", { x: -96, y: -96, width: 2112, height: 1272, fill: `url(#${pid})`, opacity: o.grid ?? 0.6 }, svg);
+    const cols = o.cols ?? ["#195764", "#6fa77a", "#e07a1f"];
+    const parts = [];
+    for (let i = 0; i < (o.n ?? 24); i++) parts.push(svgEl("circle", { cx: (frnd() * 1920).toFixed(0), cy: (frnd() * 1080).toFixed(0), r: (3 + frnd() * 9).toFixed(1), fill: cols[i % cols.length], opacity: (0.1 + frnd() * 0.16).toFixed(2) }, svg));
+    tl.fromTo(grid, { x: 0, y: 0 }, { x: -48, y: -48, duration: END, ease: "none" }, 0);
+    blobs.forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 420, y: (frnd() - 0.5) * 260, duration: END, ease: "sine.inOut" }, 0));
+    parts.forEach((p) => tl.fromTo(p, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 180, y: -80 - frnd() * 200, duration: END, ease: "none" }, 0));
+    return svg;
+  };
+  // kamera pelan maju sepanjang frame supaya tidak ada gambar yang diam
+  const drift = (amt = 0.04) => tl.fromTo(D, { scale: 1 }, { scale: 1 + amt, duration: END, ease: "none" }, 0);
+  // guncangan kamera (benturan angka/stempel)
+  const shake = (t, amp = 12, d = 0.42) => {
+    const n = 7, st = d / n;
+    for (let i = 0; i < n; i++) {
+      const k = 1 - i / n;
+      tl.to(D, { x: (i % 2 ? -1 : 1) * amp * k, y: (((i * 5) % 3) - 1) * amp * 0.6 * k, duration: st, ease: "sine.inOut" }, t + i * st);
+    }
+    tl.to(D, { x: 0, y: 0, duration: st, ease: "sine.out" }, t + d);
+  };
+  // ledakan garis + gelombang kejut di titik (x, y) — dipakai saat angka mendarat
+  const burst = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const col = o.color ?? "#e07a1f", n = o.n ?? 12, r0 = o.r0 ?? 70, r1 = o.r1 ?? 220;
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    const ring = svgEl("circle", { cx: x, cy: y, r: r0 * 0.5, fill: "none", stroke: o.ring ?? col }, g);
+    tl.fromTo(ring, { attr: { r: r0 * 0.4, "stroke-width": 16 } }, { attr: { r: r1 * 1.2, "stroke-width": 0 }, duration: 0.75, ease: "expo.out" }, t);
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 + (o.rot ?? 0.2), c = Math.cos(a), s = Math.sin(a);
+      const L = 34 + (i % 3) * 16;
+      const ln = svgEl("line", { x1: x, y1: y, x2: x, y2: y, "stroke-width": 0, stroke: i % 3 === 1 ? (o.c2 ?? "#195764") : col, "stroke-linecap": "round" }, g);
+      tl.fromTo(ln, { attr: { x1: x + c * r0, y1: y + s * r0, x2: x + c * (r0 + L), y2: y + s * (r0 + L), "stroke-width": 9 } },
+        { attr: { x1: x + c * r1, y1: y + s * r1, x2: x + c * r1, y2: y + s * r1, "stroke-width": 0 }, duration: 0.6, ease: "expo.out" }, t);
+    }
+    tl.set(g, { opacity: 0 }, t + 0.8);
+  };
+  // kilatan layar penuh
+  const flash = (t, o = {}) => {
+    const el = div(FX, { background: o.color ?? "#ffffff" }, "flash");
+    tl.fromTo(el, { opacity: 0 }, { opacity: o.a ?? 0.7, duration: 0.05, ease: "none" }, t);
+    tl.to(el, { opacity: 0, duration: o.d ?? 0.45, ease: "power2.out" }, t + 0.05);
+  };
+  // konfeti balistik (deterministik: posisi = fungsi waktu)
+  const confetti = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const cols = o.cols ?? ["#e07a1f", "#195764", "#aad39c", "#f09a6c", "#2563eb", "#fbbf24"];
+    const P = [];
+    for (let i = 0; i < (o.n ?? 70); i++) {
+      const a = -Math.PI / 2 + (frnd() - 0.5) * (o.spread ?? 2.4), v = 650 + frnd() * 950;
+      const el = svgEl("rect", { x: -8, y: -5, width: 16, height: 10, rx: 2, fill: cols[i % cols.length] }, g);
+      P.push({ el, vx: Math.cos(a) * v, vy: Math.sin(a) * v, spin: (frnd() - 0.5) * 1500, sx: 0.5 + frnd() * 0.9 });
+    }
+    const dur = o.d ?? 2.6, G = 1500, p = { k: 0 };
+    const put = () => {
+      const tt = p.k * dur, drag = 1 - Math.min(0.55, tt * 0.22);
+      P.forEach((q) => q.el.setAttribute("transform", `translate(${(x + q.vx * tt * drag).toFixed(1)},${(y + q.vy * tt * drag + 0.5 * G * tt * tt).toFixed(1)}) rotate(${(q.spin * tt).toFixed(0)}) scale(${q.sx.toFixed(2)},1)`));
+    };
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    tl.fromTo(p, { k: 0 }, { k: 1, duration: dur, ease: "none", onUpdate: put, onStart: put }, t);
+    tl.to(g, { opacity: 0, duration: 0.5 }, t + dur - 0.5);
+  };
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: o.y ?? 46, opacity: 0, rotation: o.r ?? 4 }, { y: 0, opacity: 1, rotation: 0, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(1.8)", stagger: o.stagger ?? 0.045 }, t));
+  };
+  // stabilo menyapu di bawah teks penting
+  const mark = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => { el.classList.add("hl-mark"); if (o.color) el.style.setProperty("--hlc", o.color); });
+    tl.fromTo(els, { backgroundSize: "0% 38%" }, { backgroundSize: "100% 38%", duration: o.d ?? 0.55, ease: "power2.inOut" }, t);
+  };
+  // angka mendarat: membal + burst + shake (satu panggilan untuk semua momen "hit")
+  const hit = (sel, x, y, t, o = {}) => {
+    tl.fromTo(sel, { scale: 1 }, { scale: o.s ?? 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false, transformOrigin: o.origin ?? "50% 50%" }, t);
+    burst(x, y, t, o);
+    if (o.shake !== 0) shake(t, o.shake ?? 9);
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ambient();
+  if (R.dataset.drift !== "0") drift(Number(R.dataset.drift || 0.04));
+  // ---- akhir helper ----
+
+enter("glitch");
+  rise(".kick", 0.55, { y: 14 });
+  tl.fromTo(".dika-wrap", { y: 520 }, { y: 0, duration: 0.7, ease: "back.out(1.5)" }, 0.7);
+  bob(".dika-wrap .dika-rig", 1.4, END, 4, 2.3);
+  blink(".dika-wrap .dika-lid", [2.4, 5.0, 9.6, 12.6]);
+  tl.fromTo(".dika-wrap .dika-arm-r", { rotation: 0, svgOrigin: "212 272" }, { rotation: -60, duration: 0.5 }, w("lari"));
+  // ponsel dan percakapan
+  tl.fromTo(".phone", { y: 80, opacity: 0, rotation: 2 }, { y: 0, opacity: 1, rotation: 0, duration: 0.7 }, 0.8);
+  rise(".phone .top", 1.1, { y: 10 });
+  pop(".msg.me", w("lari") + 0.1, { from: 0.7, origin: "100% 100%" });
+  const bot = $1(".msg.bot");
+  const textNode = [...bot.childNodes].find((n) => n.nodeType === 3);
+  const full = textNode.textContent;
+  pop(".msg.bot", w("Masalahnya") - 0.2, { from: 0.8, origin: "0% 0%" });
+  const tp = { n: 0 };
+  tl.fromTo(tp, { n: 0 }, { n: full.length, duration: 2.6, ease: "none", onUpdate: () => { textNode.textContent = full.slice(0, Math.round(tp.n)); } }, w("Masalahnya"));
+  pop(".bot .conf", w("salah") - 0.4, { ease: "back.out(3)" });
+  // jawaban yakin tapi salah: glitch
+  const tg = w("salah");
+  tl.fromTo(".bot .ghost-r", { opacity: 0, x: 0 }, { opacity: 1, x: 7, duration: 0.06, yoyo: true, repeat: 9, ease: "steps(1)" }, tg);
+  tl.fromTo(".bot .ghost-c", { opacity: 0, x: 0 }, { opacity: 1, x: -7, duration: 0.07, yoyo: true, repeat: 9, ease: "steps(1)" }, tg + 0.03);
+  tl.to(".bot .ghost-r", { opacity: 0.8, x: 4, duration: 0.2 }, tg + 0.8);
+  tl.to(".bot .ghost-c", { opacity: 0.7, x: -4, duration: 0.2 }, tg + 0.8);
+  tl.fromTo(".msg.bot", { x: 0 }, { x: 10, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)", immediateRender: false }, tg);
+  tl.fromTo(".scan", { opacity: 0, y: -60 }, { opacity: 1, y: 160, duration: 1.0, ease: "none" }, tg);
+  tl.to(".scan", { opacity: 0, duration: 0.2 }, tg + 1.0);
+  tl.to(".msg.bot", { borderColor: "#dc2626", backgroundColor: "#fff5f5", duration: 0.3 }, tg + 0.2);
+  // Dika kaget lalu cemas
+  tl.to(".dika-wrap .dika-m-oh", { opacity: 0, duration: 0.1 }, tg);
+  tl.to(".dika-wrap .dika-m-worried", { opacity: 1, duration: 0.1 }, tg);
+  tl.to(".dika-wrap .dika-brows > g:nth-child(1)", { opacity: 0, duration: 0.1 }, tg);
+  tl.to(".dika-wrap .dika-brows > g:nth-child(2)", { opacity: 1, duration: 0.1 }, tg);
+  tl.fromTo(".dika-wrap .dika-sweat", { opacity: 0 }, { opacity: 1, duration: 0.3 }, tg + 0.4);
+  // stempel halusinasi
+  const ts = w("halusinasi");
+  tl.fromTo(".stamp", { scale: 2.6, opacity: 0, rotation: -24 }, { scale: 1, opacity: 1, rotation: -7, duration: 0.32, ease: "power4.in" }, ts - 0.25);
+  tl.fromTo(".stamp", { x: 0 }, { x: 6, duration: 0.05, yoyo: true, repeat: 3, immediateRender: false }, ts + 0.07);
+  count($1(".stamp .b"), 0, 74.4, w("tujuh") - 0.5, 1.4, { dec: 1, suf: "%" });
+  // jawaban salah: kilatan merah + guncangan; stempel: burst + guncangan keras
+  flash(tg, { color: "#dc2626", a: 0.22, d: 0.35 });
+  shake(tg, 8, 0.5);
+  burst(1560, 900, ts + 0.07, { color: "#dc2626", c2: "#10313a", r0: 120, r1: 330, n: 16 });
+  shake(ts + 0.07, 16, 0.5);
+  flash(ts + 0.07, { color: "#ffffff", a: 0.5, d: 0.3 });
+  rise(".src", 3.0, { y: 10 });
+  // yang Dika butuhkan
+  const tb = w("Dika");
+  tl.fromTo(".dimb", { opacity: 0 }, { opacity: 1, duration: 0.35 }, tb - 0.2);
+  tl.fromTo(".budi", { y: 140, scale: 0.9, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.6)" }, tb - 0.1);
+  tl.fromTo(".budi .pic .dika-rig", { y: 60 }, { y: 0, duration: 0.6, ease: "back.out(1.6)" }, tb);
+  rise(".budi .bk", tb + 0.2, { y: 14 });
+  words(".budi .bt", w("tempat") - 0.1, { stagger: 0.06 });
+  mark(".budi .bt b", w("menilai") - 0.1, { color: "rgba(220,38,38,.16)" });
+  pop($(".budi .chip"), w("bacaannya") + 0.2, { stagger: 0.12 });
+  blink(".budi .dika-lid", [tb + 1.2]);
+  // pertanyaan besar menutup babak masalah
+  const tq = w("Lalu");
+  tl.to([".budi", ".dimb"], { opacity: 0, duration: 0.3, ease: "power2.in" }, tq - 0.15);
+  tl.fromTo(".dim", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, tq - 0.1);
+  words(".ask", tq - 0.05, { y: 80, stagger: 0.12, ease: "back.out(2.2)" });
+  tl.fromTo(".ask b", { scale: 1 }, { scale: 1.08, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "50% 50%", immediateRender: false }, w("keluarnya") + 0.3);
+  burst(1180, 450, w("keluarnya") + 0.3, { color: "#fbbf24", c2: "#aad39c", r0: 140, r1: 360, n: 18 });
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

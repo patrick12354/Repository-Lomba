@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:54.552Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:54.662Z"
+    },
+    "language": {
+      "value": "id",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:54.782Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:54.891Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:55.006Z"
+    },
+    "voice": {
+      "value": "elevenlabs:eESTQeTcGUli0jYysKtx",
+      "confirmed_in": [
+        "sinaps-demo"
+      ],
+      "updated_at": "2026-10-21T04:56:55.127Z"
+    }
+  },
+  "sightings": {}
+}

@@ -1,0 +1,62 @@
+{
+  "shipped": {
+    "inc_h1_delta": 0.0,
+    "inc_h1_blocks": 0,
+    "inc_h4_delta": 0.0,
+    "inc_h4_blocks": 0,
+    "recon_delta": 0.0,
+    "recon_blocks": 0,
+    "recon_pooled": 5.183179321759161,
+    "adopted": false
+  },
+  "physics": {
+    "inc_h1_delta": 0.0007236194374919958,
+    "inc_h1_blocks": 2,
+    "inc_h4_delta": -0.06362072512637651,
+    "inc_h4_blocks": 3,
+    "recon_delta": -0.024866444582761993,
+    "recon_blocks": 3,
+    "recon_pooled": 5.158312877176399,
+    "adopted": true
+  },
+  "capacity": {
+    "inc_h1_delta": 0.00952185331059637,
+    "inc_h1_blocks": 1,
+    "inc_h4_delta": 0.0016881262843075895,
+    "inc_h4_blocks": 1,
+    "recon_delta": 0.012015306844378534,
+    "recon_blocks": 0,
+    "recon_pooled": 5.195194628603539,
+    "adopted": false
+  },
+  "physics_capacity": {
+    "inc_h1_delta": 0.0342844208305945,
+    "inc_h1_blocks": 0,
+    "inc_h4_delta": 0.0032850361166455086,
+    "inc_h4_blocks": 1,
+    "recon_delta": 0.008491238583570038,
+    "recon_blocks": 1,
+    "recon_pooled": 5.19167056034273,
+    "adopted": false
+  },
+  "wide": {
+    "inc_h1_delta": -0.0034806388395209886,
+    "inc_h1_blocks": 1,
+    "inc_h4_delta": -0.035320500160743805,
+    "inc_h4_blocks": 3,
+    "recon_delta": -0.02048070628875524,
+    "recon_blocks": 3,
+    "recon_pooled": 5.162698615470405,
+    "adopted": false
+  },
+  "wide_capacity": {
+    "inc_h1_delta": 0.027568136010909905,
+    "inc_h1_blocks": 0,
+    "inc_h4_delta": -0.041432552578298,
+    "inc_h4_blocks": 2,
+    "recon_delta": 0.00032651348446025946,
+    "recon_blocks": 1,
+    "recon_pooled": 5.18350583524362,
+    "adopted": false
+  }
+}

@@ -1,0 +1,18 @@
+  note: code[final_pipeline.py]: 25e56f15 on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+  B1_last15d   [212 s]  control 4.26121  seq 4.41063  both 4.27139
+  B2_prev15d   [107 s]  control 6.58350  seq 7.21155  both 6.78220
+  B3_shift7d   [146 s]  control 4.63015  seq 5.18636  both 4.74557
+  H1_last7d    [255 s]  control 5.21383  seq 5.47685  both 5.26502
+  H2_last14d   [190 s]  control 2.79040  seq 4.28127  both 3.14085
+  H3_last21d   [134 s]  control 5.20359  seq 5.69326  both 5.21997
+
+arm         d_primary        d_7d     worst_H
+control     +0.000000   +0.000000   +0.000000
+   per block: {'B1': 0.0, 'B2': 0.0, 'B3': 0.0, 'H1': 0.0, 'H2': 0.0, 'H3': 0.0}
+seq         +0.432178   +0.639946   +1.490874
+   per block: {'B1': 0.14942, 'B2': 0.62805, 'B3': 0.55621, 'H1': 0.26302, 'H2': 1.49087, 'H3': 0.48968}
+both        +0.122298   +0.100972   +0.350451
+   per block: {'B1': 0.01018, 'B2': 0.1987, 'B3': 0.11542, 'H1': 0.05118, 'H2': 0.35045, 'H3': 0.01639}

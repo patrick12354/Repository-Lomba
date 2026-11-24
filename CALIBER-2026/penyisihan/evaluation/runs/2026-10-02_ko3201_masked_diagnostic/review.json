@@ -1,0 +1,11 @@
+{
+  "reviewer": "internal — prototype author (claude-opus-5-5); not a domain-expert or independent review",
+  "reviewed_at": "2026-10-02",
+  "factual_statements_checked": 4,
+  "supported_by_cited_evidence": 4,
+  "unsupported_assertions": 0,
+  "post_hoc_comparison_with_rca": "The top hypothesis (water-contaminated lube oil degrading the bearing oil film) is broadly consistent with the documented RCA. The cooler leak appears as one candidate, not as a conclusion. Level: supported broad hypothesis, not a verified specific root cause.",
+  "validity": "contaminated",
+  "validity_reason": "The generating model saw the target RCA earlier in the same session, so this run cannot count as a masked diagnostic test result (design §10.3 item 4).",
+  "decision": "display only as a format demonstration, with a contamination banner; excluded from any accuracy count"
+}

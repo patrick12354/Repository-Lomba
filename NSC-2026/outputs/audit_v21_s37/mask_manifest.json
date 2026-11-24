@@ -1,0 +1,84 @@
+{
+  "created": "2026-09-07T00:42:24",
+  "arms": [
+    "C0",
+    "D0",
+    "M1"
+  ],
+  "blocks": [
+    "15d",
+    "7d"
+  ],
+  "sensors": [
+    "air_temperature",
+    "co2",
+    "pressure"
+  ],
+  "p_mask": 0.05,
+  "train_seeds": [
+    2026090701,
+    2026090702,
+    2026090703,
+    2026090704,
+    2026090705
+  ],
+  "stress_seeds": [
+    2026090791,
+    2026090792,
+    2026090793
+  ],
+  "hbt_seed_positions": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "lgb_kw": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 900,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "min_child_samples": 25,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.7,
+    "reg_lambda": 3.0,
+    "verbose": -1
+  },
+  "clip": [
+    5.0,
+    100.0
+  ],
+  "models": [
+    "hbt",
+    "cat",
+    "ridge",
+    "enet",
+    "ridge_e",
+    "l2"
+  ],
+  "blend_shrink": 0.25,
+  "increment": {
+    "physics": false,
+    "deshrink": false,
+    "lags": false
+  },
+  "weights": "0.5 per copy; total equals n_train",
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "helper_code": {
+    "src/v21_sensor_masking.py": "094900621a23594df08c47d716e8ba66",
+    "src/an86_v21_mask_training_benchmark.py": "d8cbca05e3a9b900ec8c64c54a0d01ba"
+  },
+  "incumbent_submission_md5": "5396077ee744458aa8d21b2ea336f61a"
+}

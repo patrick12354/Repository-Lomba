@@ -1,0 +1,17 @@
+incumbent pooled 5.47413
+  B1_last15d  anchor pinned to within 2.36e-05, moved 0.03669 RMS, first row -0.4896
+  B2_prev15d  anchor pinned to within 1.06e-05, moved 0.01683 RMS, first row +0.0222
+  B3_shift7d  anchor pinned to within 1.72e-05, moved 0.15084 RMS, first row -2.2839
+  boundary_anchor pooled 5.47507  (+0.00094)  [94 s]
+  bootstrap dMSE +0.0116 [+0.0002, +0.0348]
+
+BY LEAD TIME (all three blocks)
+candidate  boundary_anchor  incumbent    delta
+lead                                          
+0-6h               3.35562    3.67061 -0.31498
+168-360h           4.76205    4.76203  0.00001
+24-72h             5.38865    5.38865  0.00000
+6-24h              5.87551    5.89279 -0.01728
+72-168h            6.01335    6.01335  0.00000
+
+PASSES THE SECTION-180 BAR: no

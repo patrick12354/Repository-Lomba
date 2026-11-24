@@ -1,0 +1,12 @@
+  v9_base             (118) P  5.000/ 6.433 Q  4.518/ 5.883 R  5.583/ 6.528  avg  5.034
+  +warmstart          (123) P  5.000/ 6.433 Q  4.518/ 5.883 R  5.583/ 6.528  avg  5.034  folds 0/18
+  +soil_temp_anom     (127) P  5.030/ 6.443 Q  4.584/ 6.019 R  5.620/ 6.581  avg  5.078  folds 4/18
+  +co2_q96            (122) P  5.019/ 6.550 Q  4.544/ 6.017 R  5.653/ 6.638  avg  5.072  folds 5/18
+  +soil+co2q96        (131) P  5.043/ 6.550 Q  4.555/ 6.016 R  5.686/ 6.717  avg  5.095  folds 4/18
+
+=== RANKING ===
+  v9_base                avg  5.034
+  +warmstart             avg  5.034
+  +co2_q96               avg  5.072
+  +soil_temp_anom        avg  5.078
+  +soil+co2q96           avg  5.095

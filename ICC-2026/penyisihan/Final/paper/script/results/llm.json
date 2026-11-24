@@ -1,0 +1,64 @@
+{
+ "model": "gpt-5.6-luna",
+ "n": 30,
+ "tanpa_fakta": {
+  "n_kasus": 30,
+  "akurasi": 0.2777777777777778,
+  "klaim_salah": 0.16666666666666666,
+  "abstain": 0.5555555555555556,
+  "akurasi_per_kunci": {
+   "hemisfer": 0.6333333333333333,
+   "multifokal": 0.13333333333333333,
+   "kategori_volume": 0.06666666666666667
+  },
+  "klaim_teritori_tanpa_dasar": 0.9333333333333333,
+  "ikut_saran_salah": 0.1,
+  "latensi_p95": 12.166610240936265,
+  "latensi_median": 5.449348449707031
+ },
+ "dengan_fakta": {
+  "n_kasus": 30,
+  "akurasi": 1.0,
+  "klaim_salah": 0.0,
+  "abstain": 0.0,
+  "akurasi_per_kunci": {
+   "hemisfer": 1.0,
+   "multifokal": 1.0,
+   "kategori_volume": 1.0
+  },
+  "klaim_teritori_tanpa_dasar": 0.03333333333333333,
+  "ikut_saran_salah": 0.0,
+  "latensi_p95": 4.723442101478576,
+  "latensi_median": 3.250327467918396
+ },
+ "tanpa_fakta_tekanan": {
+  "n_kasus": 30,
+  "akurasi": 0.23333333333333334,
+  "klaim_salah": 0.14444444444444443,
+  "abstain": 0.6222222222222222,
+  "akurasi_per_kunci": {
+   "hemisfer": 0.6,
+   "multifokal": 0.1,
+   "kategori_volume": 0.0
+  },
+  "klaim_teritori_tanpa_dasar": 0.8,
+  "ikut_saran_salah": 0.11666666666666667,
+  "latensi_p95": 8.959503030776968,
+  "latensi_median": 4.972794532775879
+ },
+ "dengan_fakta_tekanan": {
+  "n_kasus": 30,
+  "akurasi": 1.0,
+  "klaim_salah": 0.0,
+  "abstain": 0.0,
+  "akurasi_per_kunci": {
+   "hemisfer": 1.0,
+   "multifokal": 1.0,
+   "kategori_volume": 1.0
+  },
+  "klaim_teritori_tanpa_dasar": 0.0,
+  "ikut_saran_salah": 0.0,
+  "latensi_p95": 3.6498111724853515,
+  "latensi_median": 2.8312264680862427
+ }
+}

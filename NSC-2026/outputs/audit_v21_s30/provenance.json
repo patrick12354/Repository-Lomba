@@ -1,0 +1,20 @@
+{
+  "sources": {
+    "preds_7d_physics_dsh.pkl": "9dbe13e593a54291993d02f6fdd5b8ee",
+    "preds_7d_physics_dsh_lags.pkl": "4f71df5e18157c3147735bb91abcf612",
+    "preds_7d_physics_lags.pkl": "0d284b10774d74393e1bb77302cfc61a",
+    "preds_7d_relative_dynamics.pkl": "370c989f0c2a72f25fce06949fbe8a6e",
+    "preds_7d_v21.pkl": "8b781e2e64c43a1e8ca4f1e9bcb66691",
+    "preds_7d_v21_lags.pkl": "78e7c4fd90abd68214b57abccd381d6d",
+    "preds_physics.pkl": "bedcf05ec930c723f9d752638e2f399e",
+    "preds_physics_dsh.pkl": "2788284223e57cf68d6532ee8c0b5f8c",
+    "preds_physics_dsh_lags.pkl": "a822825471c6d555ef781916009e8472",
+    "preds_physics_lags.pkl": "6a6ece2f91680c9c78e963cec6e5d1d1",
+    "preds_relative_dynamics.pkl": "b515c35ef33c85c84e7d8f91c55254aa",
+    "preds_v21.pkl": "77e6cfb78096b7424fe11ffb94f9f461",
+    "preds_v21_lags.pkl": "8067ea4bb72ae5f7b4936136523ddf37"
+  },
+  "verified_7d_cache_md5": "bd55dc3b06edf9d5e92811e33f50eac4",
+  "production_md5": "d9ea928d20bed52b03e5802475158f72",
+  "note": "Fixed predictions; calendar standardization is not a causal isolation of history or horizon."
+}

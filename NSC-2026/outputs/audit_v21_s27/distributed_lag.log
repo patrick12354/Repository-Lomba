@@ -1,0 +1,16 @@
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, manifest verified
+control : v21 physics + half de-shrink (blend forced to zero)
+  pooled 5.49596  (41 s)
+candidate: distributed-lag Ridge blended in at the strength chosen per origin
+  pooled 5.50039  (41 s)
+
+per-origin selection
+             origin  alpha  blend  rows  val_rows  train_rows  best_mse  zero_blend_mse     gain
+2023-08-14 14:30:00   10.0    0.5  2207       552        1655 10.397531       11.197073 0.799542
+2023-07-30 14:30:00   10.0    0.5  1487       372        1115 15.293309       18.029418 2.736109
+2023-08-07 14:30:00   10.0    0.3  1871       468        1403 12.910503       13.371720 0.461217
+  bootstrap dMSE +0.0453 [-0.5513, +0.7285] over 12 blocks, worse in 53% of draws
+
+            candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot_mean   boot_lo  boot_hi  boot_p_worse
+     incumbent_blend0 5.495961    4.199771    6.540115    4.719273 1440       NaN      NaN           NaN           NaN           NaN        NaN        NaN       NaN      NaN           NaN
+distributed_lag_blend 5.500387    4.130138    6.591698    4.684761 1440  0.004426 0.048673     -0.069633      0.051584     -0.034512      False   0.045312 -0.551291 0.728479         0.531

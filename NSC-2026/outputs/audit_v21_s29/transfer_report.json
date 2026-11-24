@@ -1,0 +1,256 @@
+{
+  "hold_days": 7,
+  "n_holdouts": 3,
+  "history_days": {
+    "H1_last7d": 54,
+    "H2_last14d": 47,
+    "H3_last21d": 40
+  },
+  "anchor": "v21",
+  "arms": {
+    "v21": {
+      "physics": false,
+      "deshrink": false,
+      "lags": false
+    },
+    "physics_dsh": {
+      "physics": true,
+      "deshrink": true,
+      "lags": false
+    },
+    "physics_dsh_lags": {
+      "physics": true,
+      "deshrink": true,
+      "lags": true
+    },
+    "physics_lags": {
+      "physics": true,
+      "deshrink": false,
+      "lags": true
+    },
+    "v21_lags": {
+      "physics": false,
+      "deshrink": false,
+      "lags": true
+    }
+  },
+  "seeds": [
+    20260905,
+    20260906,
+    20260907,
+    20260908,
+    20260909
+  ],
+  "results": [
+    {
+      "candidate": "v21",
+      "pooled_7d": 4.5733181834,
+      "H1_last7d": 5.1792523326,
+      "H2_last14d": 2.7784273078,
+      "H3_last21d": 5.310499467,
+      "n": 1008,
+      "d_pooled_7d": null,
+      "d_H1_last7d": null,
+      "d_H2_last14d": null,
+      "d_H3_last21d": null
+    },
+    {
+      "candidate": "physics_dsh",
+      "pooled_7d": 4.5775881644,
+      "H1_last7d": 5.1851877549,
+      "H2_last14d": 2.7909874893,
+      "H3_last21d": 5.3091578419,
+      "n": 1008,
+      "d_pooled_7d": 0.0042699811,
+      "d_H1_last7d": 0.0059354223,
+      "d_H2_last14d": 0.0125601815,
+      "d_H3_last21d": -0.0013416251
+    },
+    {
+      "candidate": "physics_dsh_lags",
+      "pooled_7d": 4.5754223914,
+      "H1_last7d": 5.2005836904,
+      "H2_last14d": 2.740390785,
+      "H3_last21d": 5.3148525664,
+      "n": 1008,
+      "d_pooled_7d": 0.002104208,
+      "d_H1_last7d": 0.0213313578,
+      "d_H2_last14d": -0.0380365228,
+      "d_H3_last21d": 0.0043530994
+    },
+    {
+      "candidate": "physics_lags",
+      "pooled_7d": 4.5655192799,
+      "H1_last7d": 5.1868686275,
+      "H2_last14d": 2.7411707788,
+      "H3_last21d": 5.3022896457,
+      "n": 1008,
+      "d_pooled_7d": -0.0077989035,
+      "d_H1_last7d": 0.0076162949,
+      "d_H2_last14d": -0.037256529,
+      "d_H3_last21d": -0.0082098213
+    },
+    {
+      "candidate": "v21_lags",
+      "pooled_7d": 4.5704649505,
+      "H1_last7d": 5.1880421731,
+      "H2_last14d": 2.7366097497,
+      "H3_last21d": 5.3162613819,
+      "n": 1008,
+      "d_pooled_7d": -0.0028532328,
+      "d_H1_last7d": 0.0087898405,
+      "d_H2_last14d": -0.0418175581,
+      "d_H3_last21d": 0.0057619149
+    },
+    {
+      "candidate": "relative_dynamics",
+      "pooled_7d": 4.5755589856,
+      "H1_last7d": 5.2636627015,
+      "H2_last14d": 2.6962993284,
+      "H3_last21d": 5.275513718,
+      "n": 1008,
+      "d_pooled_7d": 0.0022408023,
+      "d_H1_last7d": 0.0844103689,
+      "d_H2_last14d": -0.0821279794,
+      "d_H3_last21d": -0.034985749
+    }
+  ],
+  "direction": [
+    {
+      "arm": "physics_dsh",
+      "block": "H1_last7d",
+      "alignment": -0.060902215,
+      "movement_mse": 0.1224195441,
+      "d_mse": 0.0615173291,
+      "control_sd": 18.3117812118,
+      "candidate_sd": 18.5109431781
+    },
+    {
+      "arm": "physics_dsh",
+      "block": "H2_last14d",
+      "alignment": -0.0769483641,
+      "movement_mse": 0.1469012248,
+      "d_mse": 0.0699528607,
+      "control_sd": 17.1271496252,
+      "candidate_sd": 17.415133969
+    },
+    {
+      "arm": "physics_dsh",
+      "block": "H3_last21d",
+      "alignment": -0.1827042385,
+      "movement_mse": 0.1684566392,
+      "d_mse": -0.0142475993,
+      "control_sd": 17.3249009805,
+      "candidate_sd": 17.6584817858
+    },
+    {
+      "arm": "physics_dsh_lags",
+      "block": "H1_last7d",
+      "alignment": 0.0141514344,
+      "movement_mse": 0.2072645617,
+      "d_mse": 0.2214159961,
+      "control_sd": 18.3117812118,
+      "candidate_sd": 18.491275318
+    },
+    {
+      "arm": "physics_dsh_lags",
+      "block": "H2_last14d",
+      "alignment": -0.4136222318,
+      "movement_mse": 0.2037055813,
+      "d_mse": -0.2099166505,
+      "control_sd": 17.1271496252,
+      "candidate_sd": 17.4413312156
+    },
+    {
+      "arm": "physics_dsh_lags",
+      "block": "H3_last21d",
+      "alignment": -0.2150367785,
+      "movement_mse": 0.2612899919,
+      "d_mse": 0.0462532134,
+      "control_sd": 17.3249009805,
+      "candidate_sd": 17.6901098667
+    },
+    {
+      "arm": "physics_lags",
+      "block": "H1_last7d",
+      "alignment": -0.0504723339,
+      "movement_mse": 0.1294237678,
+      "d_mse": 0.0789514339,
+      "control_sd": 18.3117812118,
+      "candidate_sd": 18.2984227537
+    },
+    {
+      "arm": "physics_lags",
+      "block": "H2_last14d",
+      "alignment": -0.2928351759,
+      "movement_mse": 0.0871941097,
+      "d_mse": -0.2056410662,
+      "control_sd": 17.1271496252,
+      "candidate_sd": 17.1618519323
+    },
+    {
+      "arm": "physics_lags",
+      "block": "H3_last21d",
+      "alignment": -0.1744109904,
+      "movement_mse": 0.0872818881,
+      "d_mse": -0.0871291023,
+      "control_sd": 17.3249009805,
+      "candidate_sd": 17.3406705689
+    },
+    {
+      "arm": "v21_lags",
+      "block": "H1_last7d",
+      "alignment": -0.0057600752,
+      "movement_mse": 0.0968869398,
+      "d_mse": 0.0911268646,
+      "control_sd": 18.3117812118,
+      "candidate_sd": 18.2991878451
+    },
+    {
+      "arm": "v21_lags",
+      "block": "H2_last14d",
+      "alignment": -0.2924843439,
+      "movement_mse": 0.0618589613,
+      "d_mse": -0.2306253827,
+      "control_sd": 17.1271496252,
+      "candidate_sd": 17.1759236196
+    },
+    {
+      "arm": "v21_lags",
+      "block": "H3_last21d",
+      "alignment": -0.0066911625,
+      "movement_mse": 0.0679216538,
+      "d_mse": 0.0612304913,
+      "control_sd": 17.3249009805,
+      "candidate_sd": 17.3623616832
+    },
+    {
+      "arm": "relative_dynamics",
+      "block": "H1_last7d",
+      "alignment": 0.2812181856,
+      "movement_mse": 0.6002721252,
+      "d_mse": 0.8814903108,
+      "control_sd": 18.3117812118,
+      "candidate_sd": 18.4971256243
+    },
+    {
+      "arm": "relative_dynamics",
+      "block": "H2_last14d",
+      "alignment": -0.8198677794,
+      "movement_mse": 0.3702395429,
+      "d_mse": -0.4496282365,
+      "control_sd": 17.1271496252,
+      "candidate_sd": 17.1889757296
+    },
+    {
+      "arm": "relative_dynamics",
+      "block": "H3_last21d",
+      "alignment": -0.701193042,
+      "movement_mse": 0.3308334418,
+      "d_mse": -0.3703596002,
+      "control_sd": 17.3249009805,
+      "candidate_sd": 17.3066582707
+    }
+  ],
+  "note": "diagnostic only; reuses the primary calendar and a 7-day horizon"
+}

@@ -1,0 +1,64 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+stage=screen  blocks=['B1_last15d', 'B2_prev15d']  hbt seeds=[0, 1]  inc seeds=[20260905, 20260906]
+  control B1_last15d   z 4.252853  [5 s]
+  control B2_prev15d   z 6.596975  [5 s]
+  A01  hbt_view       B1 +0.00003  B2 +0.00411  [13 s]
+  A02  hbt_view       B1 +0.00792  B2 +0.00163  [13 s]
+  A03  hbt_view       B1 +0.00721  B2 +0.00863  [12 s]
+  A04  hbt_view       B1 -0.01039  B2 +0.00335  [11 s]
+  B01  hbt_params     B1 -0.07947  B2 +0.01682  [8 s]
+  B02  hbt_params     B1 +0.00641  B2 +0.00217  [13 s]
+  B03  hbt_params     B1 +0.48131  B2 +0.02955  [8 s]
+  B04  hbt_params     B1 -0.02329  B2 -0.00184  [13 s]
+  B05  hbt_params     B1 -0.00536  B2 +0.00674  [10 s]
+  B06  hbt_params     B1 +0.08576  B2 +0.02450  [10 s]
+  B07  hbt_params     B1 -0.07242  B2 +0.02342  [10 s]
+  B08  hbt_params     B1 +0.00847  B2 -0.00509  [11 s]
+  C01  history        B1 +0.79502  B2 +0.02768  [9 s]
+  C02  history        B1 +0.11568  B2 +0.03403  [9 s]
+  C03  history        B1 -0.01086  B2 +0.03256  [9 s]
+  C04  history        B1 -0.04915  B2 +0.03757  [9 s]
+  D01  inc_params     B1 -0.02212  B2 -0.02866  [7 s]
+  D02  inc_params     B1 +0.02006  B2 +0.02219  [15 s]
+  D03  inc_params     B1 -0.02112  B2 +0.00132  [8 s]
+  D04  inc_params     B1 +0.01530  B2 +0.00916  [15 s]
+  D05  inc_params     B1 -0.02555  B2 -0.02508  [10 s]
+  D06  inc_params     B1 -0.01577  B2 +0.00888  [10 s]
+  E00  joint_level    B1 +0.25777  B2 +0.02053  [10 s]
+  E01  joint_level    B1 +0.23456  B2 +0.02087  [10 s]
+  E02  joint_level    B1 +0.20318  B2 +0.01861  [10 s]
+  F01  inference_avg  B1 -0.00600  B2 -0.00052  [12 s]
+  F02  inference_avg  B1 -0.00399  B2 -0.00042  [12 s]
+
+block  B1_last15d  B2_prev15d
+id                           
+A01       0.00003     0.00411
+A02       0.00792     0.00163
+A03       0.00721     0.00863
+A04      -0.01039     0.00335
+B01      -0.07947     0.01682
+B02       0.00641     0.00217
+B03       0.48131     0.02955
+B04      -0.02329    -0.00184
+B05      -0.00536     0.00674
+B06       0.08576     0.02450
+B07      -0.07242     0.02342
+B08       0.00847    -0.00509
+C01       0.79502     0.02768
+C02       0.11568     0.03403
+C03      -0.01086     0.03256
+C04      -0.04915     0.03757
+D01      -0.02212    -0.02866
+D02       0.02006     0.02219
+D03      -0.02112     0.00132
+D04       0.01530     0.00916
+D05      -0.02555    -0.02508
+D06      -0.01577     0.00888
+E00       0.25777     0.02053
+E01       0.23456     0.02087
+E02       0.20318     0.01861
+F01      -0.00600    -0.00052
+F02      -0.00399    -0.00042
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\campaign_v21_s38\ledger_screen.csv

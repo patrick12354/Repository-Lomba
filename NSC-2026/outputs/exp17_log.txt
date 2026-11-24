@@ -1,0 +1,23 @@
+features 82
+reference                        mean  5.596  worst  6.882
+colsample=0.5                    mean  5.502  worst  6.884
+colsample=0.7                    mean  5.518  worst  6.823
+colsample=0.85                   mean  5.559  worst  6.840
+huber alpha=2.0                  mean  5.566  worst  6.966
+huber alpha=3.0                  mean  5.598  worst  6.881
+huber alpha=6.0                  mean  5.563  worst  6.841
+huber alpha=8.0                  mean  5.600  worst  7.136
+num_leaves=15                    mean  5.470  worst  6.843
+num_leaves=63                    mean  5.607  worst  6.902
+min_child=10                     mean  5.737  worst  7.145
+min_child=15                     mean  5.653  worst  6.877
+min_child=40                     mean  5.488  worst  6.951
+subsample=0.6                    mean  5.495  worst  6.976
+subsample=1.0                    mean  5.658  worst  6.737
+reg_lambda=1.0                   mean  5.624  worst  6.915
+reg_lambda=10.0                  mean  5.580  worst  6.989
+n=2500 lr=.01                    mean  5.585  worst  6.903
+n=1800 lr=.015                   mean  5.572  worst  6.836
+n=4000 lr=.006                   mean  5.571  worst  6.873
+
+867s

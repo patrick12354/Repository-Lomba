@@ -1,0 +1,24 @@
+  note: code[final_pipeline.py]: 6159d2cc on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+  B1_last15d   [40 s]  plain 4.26121  phys 4.25421  phys_lags 4.24481  lags 4.25553  phys_dsh_lags 4.22130
+  B2_prev15d   [37 s]  plain 6.58350  phys 6.56873  phys_lags 6.53250  lags 6.54325  phys_dsh_lags 6.49962
+  B3_shift7d   [38 s]  plain 4.63015  phys 4.62962  phys_lags 4.63144  lags 4.62508  phys_dsh_lags 4.66185
+  H1_last7d    [41 s]  plain 5.21383  phys 5.20465  phys_lags 5.22244  lags 5.22351  phys_dsh_lags 5.23640
+  H2_last14d   [40 s]  plain 2.79040  phys 2.80057  phys_lags 2.75277  lags 2.74857  phys_dsh_lags 2.75195
+  H3_last21d   [39 s]  plain 5.20359  phys 5.19239  phys_lags 5.19490  lags 5.20898  phys_dsh_lags 5.20596
+
+arm             d_primary       d_7d    worst_H       d_B3
+plain           +0.000000  +0.000000  +0.000000  +0.000000
+   per block: {'B1_last15d': 0.0, 'B2_prev15d': 0.0, 'B3_shift7d': 0.0, 'H1_last7d': 0.0, 'H2_last14d': 0.0, 'H3_last21d': 0.0}
+phys            -0.011452  -0.005687  +0.010176  -0.000529
+   per block: {'B1_last15d': -0.007, 'B2_prev15d': -0.01476, 'B3_shift7d': -0.00053, 'H1_last7d': -0.00918, 'H2_last14d': 0.01018, 'H3_last21d': -0.01119}
+phys_lags       -0.036565  -0.007669  +0.008606  +0.001291
+   per block: {'B1_last15d': -0.0164, 'B2_prev15d': -0.051, 'B3_shift7d': 0.00129, 'H1_last7d': 0.00861, 'H2_last14d': -0.03763, 'H3_last21d': -0.00868}
+lags            -0.026060  -0.002732  +0.009677  -0.005067
+   per block: {'B1_last15d': -0.00568, 'B2_prev15d': -0.04024, 'B3_shift7d': -0.00507, 'H1_last7d': 0.00968, 'H2_last14d': -0.04182, 'H3_last21d': 0.00539}
+phys_dsh_lags   -0.065121  +0.001742  +0.022573  +0.031700
+   per block: {'B1_last15d': -0.03991, 'B2_prev15d': -0.08388, 'B3_shift7d': 0.0317, 'H1_last7d': 0.02257, 'H2_last14d': -0.03844, 'H3_last21d': 0.00238}
+
+negative control `phys_dsh_lags` scored public 2.93028 against 2.86595; it should be the worst arm here or this harness disagrees with the leaderboard.

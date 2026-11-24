@@ -1,0 +1,58 @@
+# === Dataset ===
+# train_waveforms.npy = 126 MB, di atas batas 100 MB per file GitHub.
+# Dataset diunduh ulang dari platform kompetisi, tidak di-commit.
+seismic-dataset/
+*.npy
+
+# Submission hasil generate
+submission*.csv
+!sample_submission.csv
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Artefak model / cache fitur
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.txt.model
+cache/
+artifacts/
+
+# === OS / editor ===
+Thumbs.db
+desktop.ini
+.DS_Store
+.idea/
+cache/
+
+# artefak sementara: mk_kaggle.py menulis ulang notebook batch-1 tiap kali di-import
+Case 1/kaggle/
+
+# Semi-final: data MRI OpenNeuro ds004889 (unduh ulang dari openneuro.org)
+semi-final/data/
+
+# Secret (API key ElevenLabs dll) — jangan pernah di-commit
+.env
+
+# === Final/videos (proyek HyperFrames) ===
+# hasil render video tidak di-commit
+Final/videos/**/renders/
+# cache/preview lokal HyperFrames
+Final/videos/**/.thumbnails/
+Final/videos/**/.waveform-cache/
+Final/videos/**/.scratch/
+Final/videos/**/.hyperframes/
+node_modules/
+
+# File > 20 MB: .gitignore tidak bisa menyaring per ukuran, jadi hook
+# .git/hooks/pre-commit otomatis meng-unstage file > 20 MB dan menambahkan
+# path-nya di bawah baris ini.
+# --- file besar (> 20 MB, otomatis) ---

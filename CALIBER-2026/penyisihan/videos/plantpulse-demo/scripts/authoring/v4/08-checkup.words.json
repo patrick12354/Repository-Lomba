@@ -1,0 +1,230 @@
+[
+  {
+    "id": "w0",
+    "text": "In",
+    "start": 0,
+    "end": 0.244
+  },
+  {
+    "id": "w1",
+    "text": "Investigation,",
+    "start": 0.302,
+    "end": 1.057
+  },
+  {
+    "id": "w2",
+    "text": "a",
+    "start": 1.091,
+    "end": 1.126
+  },
+  {
+    "id": "w3",
+    "text": "machine",
+    "start": 1.184,
+    "end": 1.474
+  },
+  {
+    "id": "w4",
+    "text": "checkup",
+    "start": 1.498,
+    "end": 1.823
+  },
+  {
+    "id": "w5",
+    "text": "pins",
+    "start": 1.869,
+    "end": 2.125
+  },
+  {
+    "id": "w6",
+    "text": "every",
+    "start": 2.194,
+    "end": 2.426
+  },
+  {
+    "id": "w7",
+    "text": "reading",
+    "start": 2.485,
+    "end": 2.752
+  },
+  {
+    "id": "w8",
+    "text": "to",
+    "start": 2.798,
+    "end": 2.868
+  },
+  {
+    "id": "w9",
+    "text": "the",
+    "start": 2.926,
+    "end": 3.007
+  },
+  {
+    "id": "w10",
+    "text": "part",
+    "start": 3.065,
+    "end": 3.297
+  },
+  {
+    "id": "w11",
+    "text": "where",
+    "start": 3.344,
+    "end": 3.553
+  },
+  {
+    "id": "w12",
+    "text": "it",
+    "start": 3.611,
+    "end": 3.715
+  },
+  {
+    "id": "w13",
+    "text": "is",
+    "start": 3.762,
+    "end": 3.843
+  },
+  {
+    "id": "w14",
+    "text": "measured.",
+    "start": 3.901,
+    "end": 4.342
+  },
+  {
+    "id": "w15",
+    "text": "All",
+    "start": 4.598,
+    "end": 4.807
+  },
+  {
+    "id": "w16",
+    "text": "four",
+    "start": 4.865,
+    "end": 5.05
+  },
+  {
+    "id": "w17",
+    "text": "readings",
+    "start": 5.108,
+    "end": 5.492
+  },
+  {
+    "id": "w18",
+    "text": "are",
+    "start": 5.538,
+    "end": 5.677
+  },
+  {
+    "id": "w19",
+    "text": "inside",
+    "start": 5.735,
+    "end": 6.084
+  },
+  {
+    "id": "w20",
+    "text": "their",
+    "start": 6.118,
+    "end": 6.258
+  },
+  {
+    "id": "w21",
+    "text": "limits.",
+    "start": 6.316,
+    "end": 6.711
+  },
+  {
+    "id": "w22",
+    "text": "But",
+    "start": 7.001,
+    "end": 7.163
+  },
+  {
+    "id": "w23",
+    "text": "only",
+    "start": 7.221,
+    "end": 7.465
+  },
+  {
+    "id": "w24",
+    "text": "one",
+    "start": 7.546,
+    "end": 7.732
+  },
+  {
+    "id": "w25",
+    "text": "of",
+    "start": 7.79,
+    "end": 7.906
+  },
+  {
+    "id": "w26",
+    "text": "six",
+    "start": 7.976,
+    "end": 8.22
+  },
+  {
+    "id": "w27",
+    "text": "R",
+    "start": 8.359,
+    "end": 8.464
+  },
+  {
+    "id": "w28",
+    "text": "C",
+    "start": 8.522,
+    "end": 8.591
+  },
+  {
+    "id": "w29",
+    "text": "A",
+    "start": 8.731,
+    "end": 8.812
+  },
+  {
+    "id": "w30",
+    "text": "actions",
+    "start": 8.893,
+    "end": 9.3
+  },
+  {
+    "id": "w31",
+    "text": "is",
+    "start": 9.358,
+    "end": 9.451
+  },
+  {
+    "id": "w32",
+    "text": "closed.",
+    "start": 9.509,
+    "end": 9.938
+  },
+  {
+    "id": "w33",
+    "text": "Five",
+    "start": 10.344,
+    "end": 10.646
+  },
+  {
+    "id": "w34",
+    "text": "of",
+    "start": 10.704,
+    "end": 10.82
+  },
+  {
+    "id": "w35",
+    "text": "eleven",
+    "start": 10.89,
+    "end": 11.215
+  },
+  {
+    "id": "w36",
+    "text": "checks",
+    "start": 11.262,
+    "end": 11.529
+  },
+  {
+    "id": "w37",
+    "text": "pass.",
+    "start": 11.587,
+    "end": 12.167
+  }
+]

@@ -1,0 +1,41 @@
+building 3 non-overlapping 7-day holdouts
+  H1_last7d      origin 2023-08-22  history 54 d  hold 336  level RMSE 5.27264
+  H2_last14d     origin 2023-08-15  history 47 d  hold 336  level RMSE 2.82172
+  H3_last21d     origin 2023-08-08  history 40 d  hold 336  level RMSE 5.49106
+training history per origin (final fit is ~61 d): {'H1_last7d': 54, 'H2_last14d': 47, 'H3_last21d': 40}
+  v21                pooled_7d 4.573318  (23 s)
+  physics_dsh        pooled_7d 4.577588  (37 s)
+  physics_dsh_lags   pooled_7d 4.575422  (45 s)
+  physics_lags       pooled_7d 4.565519  (30 s)
+  v21_lags           pooled_7d 4.570465  (28 s)
+  relative_dynamics  pooled_7d 4.575559  (15 s)
+
+7-day holdout diagnostic (NOT the primary metric; same calendar, shorter horizon)
+
+        candidate  pooled_7d  H1_last7d  H2_last14d  H3_last21d    n  d_pooled_7d  d_H1_last7d  d_H2_last14d  d_H3_last21d
+              v21   4.573318   5.179252    2.778427    5.310499 1008          NaN          NaN           NaN           NaN
+      physics_dsh   4.577588   5.185188    2.790987    5.309158 1008     0.004270     0.005935      0.012560     -0.001342
+ physics_dsh_lags   4.575422   5.200584    2.740391    5.314853 1008     0.002104     0.021331     -0.038037      0.004353
+     physics_lags   4.565519   5.186869    2.741171    5.302290 1008    -0.007799     0.007616     -0.037257     -0.008210
+         v21_lags   4.570465   5.188042    2.736610    5.316261 1008    -0.002853     0.008790     -0.041818      0.005762
+relative_dynamics   4.575559   5.263663    2.696299    5.275514 1008     0.002241     0.084410     -0.082128     -0.034986
+
+direction vs v21 on the 7-day holdouts
+              arm      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+      physics_dsh  H1_last7d  -0.060902      0.122420  0.061517   18.311781     18.510943
+      physics_dsh H2_last14d  -0.076948      0.146901  0.069953   17.127150     17.415134
+      physics_dsh H3_last21d  -0.182704      0.168457 -0.014248   17.324901     17.658482
+ physics_dsh_lags  H1_last7d   0.014151      0.207265  0.221416   18.311781     18.491275
+ physics_dsh_lags H2_last14d  -0.413622      0.203706 -0.209917   17.127150     17.441331
+ physics_dsh_lags H3_last21d  -0.215037      0.261290  0.046253   17.324901     17.690110
+     physics_lags  H1_last7d  -0.050472      0.129424  0.078951   18.311781     18.298423
+     physics_lags H2_last14d  -0.292835      0.087194 -0.205641   17.127150     17.161852
+     physics_lags H3_last21d  -0.174411      0.087282 -0.087129   17.324901     17.340671
+         v21_lags  H1_last7d  -0.005760      0.096887  0.091127   18.311781     18.299188
+         v21_lags H2_last14d  -0.292484      0.061859 -0.230625   17.127150     17.175924
+         v21_lags H3_last21d  -0.006691      0.067922  0.061230   17.324901     17.362362
+relative_dynamics  H1_last7d   0.281218      0.600272  0.881490   18.311781     18.497126
+relative_dynamics H2_last14d  -0.819868      0.370240 -0.449628   17.127150     17.188976
+relative_dynamics H3_last21d  -0.701193      0.330833 -0.370360   17.324901     17.306658
+
+wrote transfer_report.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s29

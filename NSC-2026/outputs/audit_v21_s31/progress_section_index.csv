@@ -1,0 +1,227 @@
+section,line,title
+1,79,Leaderboard scoreboard
+2,141,Data understanding
+3,233,Method
+4,272,Diagnostics — where the error actually lives
+5,328,Experiment log
+6,374,Bias correction — tested and rejected
+7,407,Adversarial validation — distribution shift into the test window
+8,437,Feature pruning — the second real win
+9,457,Blend weighting — nested test
+10,477,Hyper-parameters — third win
+11,499,Submissions ready to upload
+12,513,"Hyper-parameters, part 2 — the plateau"
+13,535,DECISIVE HEAD-TO-HEAD
+14,569,Mechanism-level evidence (independent of CV)
+15,597,FINAL RECOMMENDATION *(superseded)*
+16,645,The CV↔LB mapping is now calibrated
+17,660,Fresh error analysis — the error is a *slow* error
+18,685,"The physics reparameterisation, killed properly this time"
+19,710,What actually worked: the daily minimum temperature as a dewpoint proxy
+20,795,Two more corrections that failed
+21,816,"Hyper-parameters — the optimum moved, and reversed"
+22,841,Blend — real diversity at last
+23,869,DECISIVE HEAD-TO-HEAD — v5 vs v6 vs v7
+24,895,FINAL RECOMMENDATION *(superseded)*
+25,940,"Standing decisions, updated"
+26,986,Where the code lives
+27,1047,Cleaning is already at its optimum — my hypothesis was wrong
+28,1098,"The quantile block — right feature, wrong reason"
+29,1161,"Hyper-parameters — the delta moves with the features, again"
+30,1200,DECISIVE HEAD-TO-HEAD — v8 vs v7
+31,1228,RECOMMENDATION — submit `outputs/submissions/v8_qblock.csv`
+32,1269,"Calibration, now on four points"
+33,1297,Integrity audit
+34,1324,Fresh error analysis — the balance has flipped
+35,1350,"Under-dispersion — the §6 verdict reverses, and my explanation was wrong too"
+36,1432,Chasing the fast component — nothing works
+37,1455,Three more negatives
+38,1472,"Feature pruning — a phantom gain, caught"
+39,1502,The target's own history — closed
+40,1538,DECISIVE HEAD-TO-HEAD — v9 vs v8
+41,1560,RECOMMENDATION — submit `outputs/submissions/v9_disp.csv` *(WRONG — see §46)*
+42,1595,Where the search stands
+43,1618,Rule-by-rule audit
+44,1739,The compliant submission *(regressed — see §45–46)*
+45,1775,Was v8 cheating? No — and the question is worth answering properly
+46,1799,Why the calibration lost — regime-dependent dispersion
+47,1871,"Standing rule — no cheating, and what that means concretely"
+48,1900,Current state and the recommendation *(state carried forward to §55)*
+49,1944,"The harness, and two exact reproductions"
+50,1964,"Eleven model classes — one marginal, ten dead"
+51,1991,"Two more structural ideas, both dead"
+52,2023,The knobs nobody had re-tuned
+53,2065,The finding: improving a blend member made the blend worse
+54,2123,The LightGBM member is genuinely at its optimum
+55,2148,Where this leaves the search
+56,2170,"Standing decisions and code, filed"
+57,2204,"Is the unseen 70 % structurally harder? Four checks, all no"
+58,2266,The overfitting audit
+59,2283,"Two more regime extrapolations, both falsified"
+60,2308,`lin` as a sixth member — rejected on mechanism
+61,2330,ADOPTED — one blend weight vector per time-of-day band
+62,2393,State
+63,2415,Added to the standing rules (§25)
+64,2426,Session-8 code
+65,2458,What a public 30 % slice can and cannot tell you
+66,2510,"Three fragility hypotheses, all killed"
+67,2550,"Three target-free difficulty estimators, and one self-inflicted false alarm"
+68,2568,"CatBoost carries 5.5 %RH of seed noise — measured, NOT yet adopted"
+69,2601,ADOPTED — the per-time-of-day-band bias correction. LB 3.02942 → **3.00589**
+70,2698,State
+71,2720,"Standing rules, updated (appended to §25)"
+72,2739,Session-9 code
+73,2762,ADOPTED — one harmonic instead of three bands
+74,2846,CLOSED — a second conditioning axis
+75,2875,Where the search stands now
+76,2900,Everything session 9 said about the private slice was wrong
+77,2923,Cross-validation has no resolution on distribution shift. None.
+78,2951,"What actually shifts — the §19.2 audit, run against the private slice"
+79,2993,The adopted changes are fine — they just do not address this
+80,3015,"The low-support filter — overwhelming at member level, inconclusive at blend level"
+81,3060,Why the blend eats the gain — and why that is itself a warning
+82,3085,Extra shrinkage is not free insurance
+83,3105,"State, and the honest recommendation"
+84,3136,Session-11 code
+85,3153,That number does not mean v12 is worse
+86,3173,§68 FALSIFIED — averaging more CatBoost seeds makes the blend worse
+87,3206,The wide-diurnal-range bias — a priced bet that knowingly breaks §63
+88,3310,Session-12 code
+89,3324,The bundling mistake
+90,3354,CLOSED — the low-support feature filter
+91,3370,"The wide-range correction, re-verified where it will actually ship"
+92,3414,What this correction actually is
+93,3435,State — and v15 is designed to be readable
+94,3454,Session-13 code
+95,3466,"FALSIFIED — the wide-range correction, and why the pricing was wrong"
+96,3499,"The information ceiling, measured"
+97,3527,"Correction to §7 — right decision, wrong reason"
+98,3538,ADOPTED — a plain-L2 LightGBM as a sixth member
+99,3559,"Is 2.7 reachable, or is it a leaderboard artefact?"
+100,3589,State
+101,3606,Session-14 code
+102,3616,Design checkpoint
+103,3638,Baseline reproduction — confirmed
+104,3668,"The daily block is not a per-row measurement, and one column inverts"
+105,3730,The control nobody ran: a duplicate member clears the adoption gate
+106,3752,"The mechanism, and the change it demands *(its stability argument is wrong — §128)*"
+107,3809,Removing the floor is also the answer to §78
+108,3829,"ADOPTED — the robust-core member, on band weight alone"
+109,3851,The stress gate's statistic was the wrong one
+110,3888,"NOT ADOPTED — the same loosening one layer up, and why the difference matters"
+111,3951,Corrections to earlier sections
+112,3962,State
+113,4003,"Standing rules, added to §25"
+114,4029,Session-16 code
+115,4053,"Eight candidates, fixed before scoring"
+116,4092,"ADOPTED — the pressure block, removed from one member instead of from all of them *(lost on the public slice; §130 has the reason and it is not simple)*"
+117,4120,"NOT ADOPTED — `lin`, and the limits of the stress harness"
+118,4164,"The transfer cost of a post-hoc correction, measured for the first time"
+119,4189,State *(superseded by §124)*
+120,4213,"Standing rules, added to §25"
+121,4229,Session-17 code *(continued in §126)*
+122,4237,"The drop-one ablation on v18, and one more member removed"
+123,4292,Two structural mismatches between the meta-learner and what ships — both dead
+124,4315,State *(the recommendation here was falsified by the leaderboard — see §133)*
+125,4356,"Standing rules, added to §25"
+126,4369,"Session-17 code, continued"
+127,4383,"The post-mortem can be exact, and it is not a noise result"
+128,4432,§106's justification measured the wrong statistic
+129,4451,"But shrinkage is not the culprit either, and the test window is not the far one"
+130,4475,What the change actually did — and why the public slice is the worst place to judge it *(the mechanism is real but the private slice is on the wrong side of it — §138)*
+131,4517,"§89's mistake, repeated"
+132,4529,"Seed matching — CV and the stress blocks disagree, so it is not adopted"
+133,4547,"State, and the honest answer *(resolved in §138 — the answer is that they are mildly bad on private too)*"
+134,4602,"Standing rules, added to §25"
+135,4617,Session-18 code
+136,4631,"§130's mechanism, tested inside cross-validation — and falsified there"
+137,4649,"…but the test could not have seen it, because no fold goes out of support"
+138,4666,"The curve, and the number that decides it"
+139,4717,"Where sessions 16–18 land, corrected"
+140,4729,State and recommendation
+141,4761,"Standing rules, added to §25"
+142,4773,NOT ADOPTED — a worst-case blend
+143,4796,Session-19 code
+144,4805,"The public/private partition was an assumption, not a fact"
+145,4824,The nested meta-evaluation was not label-isolated
+146,4853,Error breakdown and routes prematurely declared closed
+147,4876,New candidate: learn RH increments and reconcile the predicted path
+148,4919,Recommendation after the audit
+149,4938,Session-20 artifacts and checks
+150,4960,"ADOPTED — `--increment`, the session-20 dynamics candidate, shipped"
+151,5003,The candidate survives a production-shaped holdout
+152,5043,"Seeds, episodes, and why the default averages five"
+153,5073,v20's advantage does not survive an honest evaluation
+154,5106,What the change does to the file
+155,5141,State and recommendation
+156,5176,Session-21 code and checks
+157,5209,"`v21_increment_v16` scored 2.86595, and what that does and does not establish"
+158,5240,REJECTED — every extension of the reconciliation that the screen turned up
+159,5301,The twelve cache folds are not twelve observations
+160,5326,State and recommendation
+161,5349,Session-22 code and checks
+162,5369,"Where the remaining error lives, and what each route could be worth at best"
+163,5400,"The day-level ceiling is real, and this time it is measured"
+164,5441,REJECTED — vapour-pressure increments and per-row reconciliation weights
+165,5496,Two smaller questions closed while looking
+166,5506,State and recommendation
+167,5533,Session-23 code and checks
+168,5550,Why the increment produced a 0.16 leaderboard move
+169,5586,"The lever nobody had pulled, and its ceiling"
+170,5612,ADOPTED — `--inc-physics`: give the increment model the identity instead of making it learn one
+171,5665,NOT ADOPTED — four more increment features
+172,5689,State and recommendation
+173,5722,Session-24 code and checks
+174,5741,"NOT ADOPTED — four learners for the change target, and the contradiction they exposed"
+175,5766,"Why: the reconciliation wants amplitude, and squared error rewards shrinkage"
+176,5793,ADOPTED — `--inc-deshrink`: give the change back the amplitude the learner removed
+177,5849,State and recommendation
+179,5876,"A provenance near-miss, and the guard that came out of it"
+178,5906,Session-25 code and checks
+180,5930,"The session-26 evaluation contract, frozen before anything was run"
+181,5956,Five claims from sessions 23-25 that do not survive re-derivation
+182,6030,"`an47`: one forward harness, with a manifest"
+183,6078,"Tahap 1 — the three shipped configurations, re-scored on one implementation"
+184,6115,"REJECTED — gains fitted to the solve, and one learner per horizon"
+185,6166,REJECTED — a physical spline for the change
+186,6196,"CLOSED — the boundary anchor works exactly as predicted, and that is worth nothing"
+187,6225,"Where the remaining error actually lives, on five-seed predictions"
+188,6288,State and recommendation
+189,6337,Session-26 code and checks
+190,6368,"The inner calibration set was not label-isolated, and what an honest one leaves"
+191,6443,"The three controls, re-scored on the repaired harness"
+192,6467,"NOT ADOPTED — the de-shrink factor is too small, measured forward"
+193,6517,REJECTED — level contributions after reconciliation
+194,6557,REJECTED — temporal block bagging of the increment models
+195,6582,"REJECTED — a distributed-lag trajectory model, and why its own metric misled it"
+196,6625,"What the breakdown actually supports, on inner rows and with the slice named"
+197,6670,State and recommendation
+198,6720,Session-27 code and checks
+199,6773,Frozen experiment contract and completed regression checks
+200,6803,Night-state gate — rejected before outer evaluation
+201,6834,"Separating the representation from the learner, and the factor from the vector"
+202,6895,"ADOPTED — `--inc-lags`: the trajectory, into the learner that was already winning"
+203,6938,"Production integration, and a fingerprint that knows what it is protecting"
+204,6969,State and recommendation
+205,7022,Session-28 code and checks
+206,7064,Public 2.93028: the session-28 recommendation lost to the scored incumbent
+207,7091,"Evidence for episode-dependent transfer, not a promised private recovery"
+208,7118,Next strategy and audit artifacts
+209,7139,"The lag/de-shrink 2x2, completed: the two mechanisms are independent"
+210,7189,"REJECTED as a candidate — relative-dynamics increments, and the block that liked them"
+211,7247,"The advantage does not survive a longer training history, and public agrees with the diagnostic"
+212,7315,"State and recommendation: no new submission, and why the bar alone stopped being enough"
+213,7391,Session-29 code and checks
+214,7430,Session-30 audit: the 7-day comparison also changed the calendar
+215,7465,Session-30 residual decomposition: level error remains a meaningful research target
+216,7485,Session-30 methodology corrections and next experiment families
+217,7512,Session-30 artifacts and scope
+218,7528,P0 control — the endpoint mistake was real and immaterial
+219,7555,"REJECTED — sensor ablation, and absolute pressure turns out to be free"
+220,7597,CLOSED — slow member disagreement carries no forward signal
+221,7640,"State, decision, and session-30 code"
+222,7682,"Standing state, and two sections annotated in place"
+223,7723,Session-31 review: sensor matched-calendar reporting still included overlap
+224,7749,Session-31 review: timestamp-forward calibration is not always origin-forward
+225,7775,Session-31 structural finding: daily bias is not the solver's nullspace
+226,7804,Session-31 plan and verified scope

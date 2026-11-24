@@ -1,0 +1,147 @@
+{
+  "v12": {
+    "pooled_base": 5.418498309966231,
+    "pooled_increment": 5.305450465182048,
+    "nonoverlapping_base": 5.662729730126408,
+    "nonoverlapping_increment": 5.549165466101927,
+    "ci_3day_blocks": [
+      -0.2634359551520503,
+      0.009542245340349049
+    ],
+    "ci_7day_blocks": [
+      -0.22860415013105467,
+      -0.0060502035255751005
+    ]
+  },
+  "v16": {
+    "pooled_base": 5.392637495692912,
+    "pooled_increment": 5.28360821036176,
+    "nonoverlapping_base": 5.644890810040729,
+    "nonoverlapping_increment": 5.5369419680395335,
+    "ci_3day_blocks": [
+      -0.24789764167317188,
+      0.01100431130761277
+    ],
+    "ci_7day_blocks": [
+      -0.2180197831072711,
+      -0.005167762656000159
+    ]
+  },
+  "v20": {
+    "pooled_base": 5.458164262175241,
+    "pooled_increment": 5.320973091243107,
+    "nonoverlapping_base": 5.767722242742916,
+    "nonoverlapping_increment": 5.630308212024743,
+    "ci_3day_blocks": [
+      -0.28053624783601017,
+      -0.016739414493089404
+    ],
+    "ci_7day_blocks": [
+      -0.23642628238678615,
+      -0.03502070433496511
+    ]
+  },
+  "backbone_comparison": {
+    "base": {
+      "v12": 5.418498309966231,
+      "v16": 5.392637495692912,
+      "v20": 5.458164262175241
+    },
+    "base_wins_by_block": {
+      "v12": 1,
+      "v16": 1,
+      "v20": 1
+    },
+    "increment": {
+      "v12": 5.305450465182048,
+      "v16": 5.28360821036176,
+      "v20": 5.320973091243107
+    },
+    "increment_wins_by_block": {
+      "v12": 1,
+      "v16": 1,
+      "v20": 1
+    }
+  },
+  "submission_move": {
+    "v12": {
+      "rms": 1.0663220069548784,
+      "max_abs": 3.936544234033782,
+      "mean": -3.2313237765220903e-14,
+      "rms_near220": 1.2334989211229732,
+      "rms_far514": 0.9861442577208563,
+      "rows_moved_over_1rh": 248,
+      "sd_before": 18.951115263987813,
+      "sd_after": 18.866920584279157
+    },
+    "v16": {
+      "rms": 1.0712079681938844,
+      "max_abs": 4.161195320707343,
+      "mean": -3.044975715713072e-14,
+      "rms_near220": 1.2233581624288026,
+      "rms_far514": 0.9990286688958231,
+      "rows_moved_over_1rh": 248,
+      "sd_before": 18.97966900629005,
+      "sd_after": 18.889376082527324
+    },
+    "v20": {
+      "rms": 1.1297687919206685,
+      "max_abs": 4.166109397821778,
+      "mean": -3.125323191282675e-14,
+      "rms_near220": 1.2376740287149262,
+      "rms_far514": 1.080294816484579,
+      "rows_moved_over_1rh": 265,
+      "sd_before": 19.081777815136896,
+      "sd_after": 18.970983797956436
+    }
+  },
+  "diurnal_amplitude": {
+    "v12": {
+      "base": 24.00462709885781,
+      "increment": 23.91288101039302
+    },
+    "v16": {
+      "base": 24.038254522242223,
+      "increment": 23.938325527068503
+    },
+    "v20": {
+      "base": 24.154415238309163,
+      "increment": 24.02778698810276
+    }
+  },
+  "zero_increment_control": {
+    "v12": {
+      "rms_increment_vs_base": 1.0663220069548784,
+      "rms_smoothing_vs_base": 5.821021089322442,
+      "rms_increment_vs_smoothing": 5.749750450441871,
+      "step1_model_vs_stack_rms": 1.023125608839038,
+      "step1_model_sd": 3.3282628607488407,
+      "step1_stack_sd": 3.4228077007495705,
+      "step4_model_vs_stack_rms": 2.378758500434494,
+      "step4_model_sd": 11.667972912684553,
+      "step4_stack_sd": 11.752348745082239
+    },
+    "v16": {
+      "rms_increment_vs_base": 1.0712079681938844,
+      "rms_smoothing_vs_base": 5.827583294248625,
+      "rms_increment_vs_smoothing": 5.749750450441874,
+      "step1_model_vs_stack_rms": 1.027575926421107,
+      "step1_model_sd": 3.3282628607488407,
+      "step1_stack_sd": 3.429471220825475,
+      "step4_model_vs_stack_rms": 2.3871786629466696,
+      "step4_model_sd": 11.667972912684553,
+      "step4_stack_sd": 11.76566497104211
+    },
+    "v20": {
+      "rms_increment_vs_base": 1.1297687919206685,
+      "rms_smoothing_vs_base": 5.852546561558343,
+      "rms_increment_vs_smoothing": 5.749750450441873,
+      "step1_model_vs_stack_rms": 1.107003810211498,
+      "step1_model_sd": 3.3282628607488407,
+      "step1_stack_sd": 3.466054227105902,
+      "step4_model_vs_stack_rms": 2.4787262699980404,
+      "step4_model_sd": 11.667972912684553,
+      "step4_stack_sd": 11.819074751327179
+    }
+  }
+}

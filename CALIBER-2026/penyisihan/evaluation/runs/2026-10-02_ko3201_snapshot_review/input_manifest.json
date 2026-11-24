@@ -1,0 +1,38 @@
+{
+  "run_id": "2026-10-02_ko3201_snapshot_review",
+  "mode": "snapshot_review",
+  "cutoff": null,
+  "task": "Post-incident snapshot review of KO-3201 as of review date 2026-10-02: summarise what the evidence shows, the documented RCA findings, open follow-up, conflicts, and draft the most important verification action.",
+  "allowed_evidence": [
+    "EV-01",
+    "EV-02",
+    "EV-03",
+    "EV-04",
+    "EV-05",
+    "EV-06",
+    "EV-07",
+    "EV-08",
+    "EV-09",
+    "EV-10",
+    "EV-11",
+    "EV-12",
+    "EV-13",
+    "EV-14",
+    "CF-01",
+    "CF-02",
+    "CF-03",
+    "CF-04",
+    "CF-05",
+    "CF-06",
+    "CF-07"
+  ],
+  "excluded_inputs": [],
+  "forbidden_strings": [],
+  "source_hashes": {
+    "E2": "73f16cd575d51af260103bfce4a902adccd7629d72f5dd264842f816f7b940a5",
+    "L3": "5b6d42937bc03f92ab65aaecc6aa7188130e883d603c8f3d338fb531045c6c03",
+    "R2": "7db64c0b6e9492713b461d26397aa08392c7c071032d0a610e5844245f13baa9",
+    "P2": "70e5870795e3492101e00def9f702ea89688ebc44e106752e669e3bd748c37f6"
+  },
+  "model": "claude-opus-5-5"
+}

@@ -1,0 +1,54 @@
+{
+  "config": {
+    "seeds": [
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909
+    ],
+    "alpha": 100.0,
+    "blend": 0.25,
+    "strength": 0.5,
+    "clip": [
+      1.0,
+      1.5
+    ],
+    "inc_spec": [
+      [
+        1,
+        4.0
+      ],
+      [
+        4,
+        1.0
+      ]
+    ],
+    "arms": [
+      "lgb_lags",
+      "fixed_old",
+      "fixed_matched"
+    ],
+    "selection": "fixed designs; no outer or inner alpha/blend search"
+  },
+  "code": {
+    "src\\an60_v21_lag_factor_ablation.py": "62db477647fe36860aa8318945489528",
+    "src\\an59_v21_candidate_contract.py": "d61eae3a7ed34258a8aff864a6216d65",
+    "src\\an56_v21_distributed_lag.py": "4e8a2bfb507daf8a45886a9803291a83",
+    "final_pipeline.py": "56b9ece3c6ce7c62dc5f4109c6bcec3d"
+  },
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "level_cache_md5": "ca01f4de0014566ee9c327cd4c8f78f9",
+  "state": "complete",
+  "outputs": {
+    "lag_factor_direction.csv": "a965814de5e2c8b2ce4bac9490eac648",
+    "lag_factor_factors.csv": "85345efc27cef0775d3b68786f9abb61",
+    "lag_factor_oof.csv": "157d2513b29e78dc03194bdaebd83806",
+    "lag_factor_scores.csv": "5a00389aec28bc91f749e1594270668f",
+    "lag_factor_vectors.csv": "f6f97a7c6be798869aee32fc42766dcc"
+  }
+}

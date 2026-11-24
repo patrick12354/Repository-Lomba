@@ -1,0 +1,30 @@
+features 118   train rows 2933   test rows 734
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4801, 'cat': 0.2278, 'ridge': 0.05, 'enet': 0.1921, 'ridge_e': 0.05}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.536, 'cat': 0.1795, 'ridge': 0.05, 'enet': 0.1845, 'ridge_e': 0.05}
+  band 1: {'hbt': 0.4613, 'cat': 0.1717, 'ridge': 0.1154, 'enet': 0.121, 'ridge_e': 0.1306}
+  band 2: {'hbt': 0.452, 'cat': 0.3138, 'ridge': 0.05, 'enet': 0.121, 'ridge_e': 0.0631}
+harmonic bias correction (shrunk 0.50): sin -0.083  cos -0.823   amplitude 0.827 %RH, peak 12.4 h
+wide-range correction: cut 22.54 C, subtracting 0.606 %RH from rows above it
+CV: mean 4.7289  worst 6.0892
+  per fold: [np.float64(6.052), np.float64(6.089), np.float64(5.723), np.float64(5.518), np.float64(4.609), np.float64(3.891), np.float64(3.356), np.float64(3.215), np.float64(4.107)]
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+wide-range occupancy: train 0.230  test 0.512  shift 0.282
+  NOTE: this FAILS the section 63 occupancy guard. It is a priced bet, not an adoption - see progress.md section 87.
+
+dispersion check: CV fold prediction std 16.27-17.67   test prediction std 18.99
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v15_rngonly.csv
+prediction summary: {'count': 734.0, 'mean': 56.519, 'std': 19.004, 'min': 22.958, '25%': 37.742, '50%': 60.606, '75%': 73.617, 'max': 89.403}

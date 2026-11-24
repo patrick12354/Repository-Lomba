@@ -1,0 +1,747 @@
+{
+  "controls": [
+    {
+      "candidate": "level_only",
+      "pooled": 5.6734520326,
+      "B1_last15d": 4.2932257667,
+      "B2_prev15d": 6.7782245794,
+      "B3_shift7d": 4.8108852296,
+      "n": 1440,
+      "inner_rmse": null,
+      "inner_n": null,
+      "d_pooled": null,
+      "d_mse": null,
+      "d_B1_last15d": null,
+      "d_B2_prev15d": null,
+      "d_B3_shift7d": null,
+      "promotable": null,
+      "boot_dmse": null,
+      "boot_lo": null,
+      "boot_hi": null,
+      "boot_p_worse": null
+    },
+    {
+      "candidate": "v21_increment",
+      "pooled": 5.5358938698,
+      "B1_last15d": 4.2322485291,
+      "B2_prev15d": 6.5863733772,
+      "B3_shift7d": 4.690130627,
+      "n": 1440,
+      "inner_rmse": 6.4796651409,
+      "inner_n": 1152.0,
+      "d_pooled": null,
+      "d_mse": null,
+      "d_B1_last15d": null,
+      "d_B2_prev15d": null,
+      "d_B3_shift7d": null,
+      "promotable": null,
+      "boot_dmse": null,
+      "boot_lo": null,
+      "boot_hi": null,
+      "boot_p_worse": null
+    },
+    {
+      "candidate": "v21_physics",
+      "pooled": 5.5244495654,
+      "B1_last15d": 4.2252731264,
+      "B2_prev15d": 6.5716172293,
+      "B3_shift7d": 4.6892789187,
+      "n": 1440,
+      "inner_rmse": 6.462506497,
+      "inner_n": 1152.0,
+      "d_pooled": -0.0114443044,
+      "d_mse": -0.1265779373,
+      "d_B1_last15d": -0.0069754027,
+      "d_B2_prev15d": -0.0147561479,
+      "d_B3_shift7d": -0.0008517083,
+      "promotable": false,
+      "boot_dmse": -0.1274052371,
+      "boot_lo": -0.2303853477,
+      "boot_hi": -0.0304524832,
+      "boot_p_worse": 0.0045
+    },
+    {
+      "candidate": "v21_physics_deshrink_half",
+      "pooled": 5.4959610758,
+      "B1_last15d": 4.1997712074,
+      "B2_prev15d": 6.5401145326,
+      "B3_shift7d": 4.719272605,
+      "n": 1440,
+      "inner_rmse": 6.4157591794,
+      "inner_n": 1152.0,
+      "d_pooled": -0.039932794,
+      "d_mse": -0.4405327906,
+      "d_B1_last15d": -0.0324773217,
+      "d_B2_prev15d": -0.0462588446,
+      "d_B3_shift7d": 0.029141978,
+      "promotable": true,
+      "boot_dmse": -0.4406080648,
+      "boot_lo": -0.8284069326,
+      "boot_hi": -0.0951754081,
+      "boot_p_worse": 0.0035
+    },
+    {
+      "candidate": "v21_physics_forward_factor",
+      "pooled": 5.4813781631,
+      "B1_last15d": 4.1951099888,
+      "B2_prev15d": 6.5185938144,
+      "B3_shift7d": 4.7440824449,
+      "n": 1440,
+      "inner_rmse": 6.3761976604,
+      "inner_n": 1152.0,
+      "d_pooled": -0.0545157067,
+      "d_mse": -0.6006143705,
+      "d_B1_last15d": -0.0371385403,
+      "d_B2_prev15d": -0.0677795628,
+      "d_B3_shift7d": 0.0539518178,
+      "promotable": false,
+      "boot_dmse": -0.5995529376,
+      "boot_lo": -1.3106153736,
+      "boot_hi": 0.0025614128,
+      "boot_p_worse": 0.0265
+    }
+  ],
+  "forward_factor": [
+    {
+      "h": 1,
+      "factor": 1.2987227002,
+      "raw": 1.2987227002,
+      "oof_rows": 288,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 14:00:00",
+          "train_rows": 288
+        },
+        {
+          "start": "2023-07-11 14:30:00",
+          "train_rows": 577
+        }
+      ],
+      "train_end": "2023-07-23 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1371124466,
+      "raw": 1.1371124466,
+      "oof_rows": 288,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 15:00:00",
+          "train_rows": 284
+        },
+        {
+          "start": "2023-07-11 15:00:00",
+          "train_rows": 572
+        }
+      ],
+      "train_end": "2023-07-23 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.3179771286,
+      "raw": 1.3179771286,
+      "oof_rows": 312,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 02:00:00",
+          "train_rows": 312
+        },
+        {
+          "start": "2023-07-12 14:30:00",
+          "train_rows": 625
+        }
+      ],
+      "train_end": "2023-07-25 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1617281663,
+      "raw": 1.1617281663,
+      "oof_rows": 312,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 03:00:00",
+          "train_rows": 308
+        },
+        {
+          "start": "2023-07-12 15:00:00",
+          "train_rows": 620
+        }
+      ],
+      "train_end": "2023-07-25 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.3462571305,
+      "raw": 1.3462571305,
+      "oof_rows": 336,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 14:00:00",
+          "train_rows": 336
+        },
+        {
+          "start": "2023-07-13 14:30:00",
+          "train_rows": 673
+        }
+      ],
+      "train_end": "2023-07-27 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.2096138456,
+      "raw": 1.2096138456,
+      "oof_rows": 336,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 15:00:00",
+          "train_rows": 332
+        },
+        {
+          "start": "2023-07-13 15:00:00",
+          "train_rows": 668
+        }
+      ],
+      "train_end": "2023-07-27 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2788491403,
+      "raw": 1.2788491403,
+      "oof_rows": 360,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 02:00:00",
+          "train_rows": 360
+        },
+        {
+          "start": "2023-07-14 14:30:00",
+          "train_rows": 721
+        }
+      ],
+      "train_end": "2023-07-29 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1677977063,
+      "raw": 1.1677977063,
+      "oof_rows": 360,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 03:00:00",
+          "train_rows": 356
+        },
+        {
+          "start": "2023-07-14 15:00:00",
+          "train_rows": 716
+        }
+      ],
+      "train_end": "2023-07-29 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2257304459,
+      "raw": 1.2257304459,
+      "oof_rows": 384,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 14:00:00",
+          "train_rows": 384
+        },
+        {
+          "start": "2023-07-15 14:30:00",
+          "train_rows": 769
+        }
+      ],
+      "train_end": "2023-07-31 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1733276611,
+      "raw": 1.1733276611,
+      "oof_rows": 384,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 15:00:00",
+          "train_rows": 380
+        },
+        {
+          "start": "2023-07-15 15:00:00",
+          "train_rows": 764
+        }
+      ],
+      "train_end": "2023-07-31 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2401983232,
+      "raw": 1.2401983232,
+      "oof_rows": 817,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-08 02:00:00",
+          "train_rows": 408
+        }
+      ],
+      "train_end": "2023-08-02 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1426906854,
+      "raw": 1.1426906854,
+      "oof_rows": 816,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-08 03:00:00",
+          "train_rows": 404
+        }
+      ],
+      "train_end": "2023-08-02 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2590174561,
+      "raw": 1.2590174561,
+      "oof_rows": 865,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-08 14:00:00",
+          "train_rows": 432
+        }
+      ],
+      "train_end": "2023-08-04 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1512020926,
+      "raw": 1.1512020926,
+      "oof_rows": 864,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-08 15:00:00",
+          "train_rows": 428
+        }
+      ],
+      "train_end": "2023-08-04 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.277082952,
+      "raw": 1.277082952,
+      "oof_rows": 913,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-09 02:00:00",
+          "train_rows": 456
+        }
+      ],
+      "train_end": "2023-08-06 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1645174938,
+      "raw": 1.1645174938,
+      "oof_rows": 912,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-09 03:00:00",
+          "train_rows": 452
+        }
+      ],
+      "train_end": "2023-08-06 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.1986843484,
+      "raw": 1.1986843484,
+      "oof_rows": 1105,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-11 02:00:00",
+          "train_rows": 552
+        }
+      ],
+      "train_end": "2023-08-14 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1369969196,
+      "raw": 1.1369969196,
+      "oof_rows": 1104,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-11 03:00:00",
+          "train_rows": 548
+        }
+      ],
+      "train_end": "2023-08-14 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.0,
+      "raw": null,
+      "oof_rows": 0,
+      "splits_used": 0,
+      "fallback": "no forward split had 800 training rows",
+      "skipped": [
+        {
+          "start": "2023-07-04 08:00:00",
+          "train_rows": 228
+        },
+        {
+          "start": "2023-07-09 02:30:00",
+          "train_rows": 457
+        },
+        {
+          "start": "2023-07-13 21:00:00",
+          "train_rows": 686
+        }
+      ],
+      "train_end": "2023-07-18 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.0,
+      "raw": null,
+      "oof_rows": 0,
+      "splits_used": 0,
+      "fallback": "no forward split had 800 training rows",
+      "skipped": [
+        {
+          "start": "2023-07-04 09:00:00",
+          "train_rows": 224
+        },
+        {
+          "start": "2023-07-09 03:00:00",
+          "train_rows": 452
+        },
+        {
+          "start": "2023-07-13 21:00:00",
+          "train_rows": 680
+        }
+      ],
+      "train_end": "2023-07-18 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.0,
+      "raw": null,
+      "oof_rows": 0,
+      "splits_used": 0,
+      "fallback": "no forward split had 800 training rows",
+      "skipped": [
+        {
+          "start": "2023-07-04 20:00:00",
+          "train_rows": 252
+        },
+        {
+          "start": "2023-07-10 02:30:00",
+          "train_rows": 505
+        },
+        {
+          "start": "2023-07-15 09:00:00",
+          "train_rows": 758
+        }
+      ],
+      "train_end": "2023-07-20 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.0,
+      "raw": null,
+      "oof_rows": 0,
+      "splits_used": 0,
+      "fallback": "no forward split had 800 training rows",
+      "skipped": [
+        {
+          "start": "2023-07-04 21:00:00",
+          "train_rows": 248
+        },
+        {
+          "start": "2023-07-10 03:00:00",
+          "train_rows": 500
+        },
+        {
+          "start": "2023-07-15 09:00:00",
+          "train_rows": 752
+        }
+      ],
+      "train_end": "2023-07-20 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2673764083,
+      "raw": 1.2673764083,
+      "oof_rows": 276,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 08:00:00",
+          "train_rows": 276
+        },
+        {
+          "start": "2023-07-11 02:30:00",
+          "train_rows": 553
+        }
+      ],
+      "train_end": "2023-07-22 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.0961481194,
+      "raw": 1.0961481194,
+      "oof_rows": 276,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 09:00:00",
+          "train_rows": 272
+        },
+        {
+          "start": "2023-07-11 03:00:00",
+          "train_rows": 548
+        }
+      ],
+      "train_end": "2023-07-22 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2364303107,
+      "raw": 1.2364303107,
+      "oof_rows": 372,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 08:00:00",
+          "train_rows": 372
+        },
+        {
+          "start": "2023-07-15 02:30:00",
+          "train_rows": 745
+        }
+      ],
+      "train_end": "2023-07-30 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1688742379,
+      "raw": 1.1688742379,
+      "oof_rows": 372,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-07 09:00:00",
+          "train_rows": 368
+        },
+        {
+          "start": "2023-07-15 03:00:00",
+          "train_rows": 740
+        }
+      ],
+      "train_end": "2023-07-30 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.3023755262,
+      "raw": 1.3023755262,
+      "oof_rows": 300,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 20:00:00",
+          "train_rows": 300
+        },
+        {
+          "start": "2023-07-12 02:30:00",
+          "train_rows": 601
+        }
+      ],
+      "train_end": "2023-07-24 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1180603431,
+      "raw": 1.1180603431,
+      "oof_rows": 300,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-05 21:00:00",
+          "train_rows": 296
+        },
+        {
+          "start": "2023-07-12 03:00:00",
+          "train_rows": 596
+        }
+      ],
+      "train_end": "2023-07-24 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.3453050157,
+      "raw": 1.3453050157,
+      "oof_rows": 324,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 08:00:00",
+          "train_rows": 324
+        },
+        {
+          "start": "2023-07-13 02:30:00",
+          "train_rows": 649
+        }
+      ],
+      "train_end": "2023-07-26 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1902393041,
+      "raw": 1.1902393041,
+      "oof_rows": 324,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 09:00:00",
+          "train_rows": 320
+        },
+        {
+          "start": "2023-07-13 03:00:00",
+          "train_rows": 644
+        }
+      ],
+      "train_end": "2023-07-26 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.3585290927,
+      "raw": 1.3585290927,
+      "oof_rows": 348,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 20:00:00",
+          "train_rows": 348
+        },
+        {
+          "start": "2023-07-14 02:30:00",
+          "train_rows": 697
+        }
+      ],
+      "train_end": "2023-07-28 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1955838392,
+      "raw": 1.1955838392,
+      "oof_rows": 348,
+      "splits_used": 1,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-06 21:00:00",
+          "train_rows": 344
+        },
+        {
+          "start": "2023-07-14 03:00:00",
+          "train_rows": 692
+        }
+      ],
+      "train_end": "2023-07-28 14:30:00"
+    },
+    {
+      "h": 1,
+      "factor": 1.2852305603,
+      "raw": 1.2852305603,
+      "oof_rows": 937,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-09 08:00:00",
+          "train_rows": 468
+        }
+      ],
+      "train_end": "2023-08-07 14:30:00"
+    },
+    {
+      "h": 4,
+      "factor": 1.1847057872,
+      "raw": 1.1847057872,
+      "oof_rows": 936,
+      "splits_used": 2,
+      "fallback": "",
+      "skipped": [
+        {
+          "start": "2023-07-09 09:00:00",
+          "train_rows": 464
+        }
+      ],
+      "train_end": "2023-08-07 14:30:00"
+    }
+  ],
+  "interpolated_factor": {
+    "1": {
+      "mean": 1.2110839532800497,
+      "min": 1.2032446796585519,
+      "max": 1.2253258818574515
+    },
+    "4": {
+      "mean": 1.0898407730911517,
+      "min": 1.0651248237645898,
+      "max": 1.1127544840866406
+    }
+  },
+  "forward_vs_half": {
+    "blocks": 12,
+    "mean": -0.15894487274852065,
+    "lo": -0.4785156468295231,
+    "hi": 0.10217210876983693,
+    "p_worse": 0.1375
+  }
+}

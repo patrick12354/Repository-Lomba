@@ -1,0 +1,20 @@
+  note: code[final_pipeline.py]: 06f5c0d2 on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+stage=confirm  blocks=['B1_last15d', 'B2_prev15d', 'B3_shift7d', 'H1_last7d', 'H2_last14d', 'H3_last21d']  hbt seeds=[0, 1, 2, 3, 4]  inc seeds=[20260905, 20260906, 20260907, 20260908, 20260909]
+  control B1_last15d   z 4.232249  [43 s] (reproduces frozen v21)
+  control B2_prev15d   z 6.586373  [37 s] (reproduces frozen v21)
+  control B3_shift7d   z 4.690131  [40 s] (reproduces frozen v21)
+  control H1_last7d    z 5.179252  [45 s]
+  control H2_last14d   z 2.778427  [15 s]
+  control H3_last21d   z 5.310499  [33 s]
+  L02  hbt_params     B1 -0.00549  B2 -0.00016  B3 +0.00002  H1 +0.03041  H2 -0.01098  H3 +0.00161  [165 s]
+  L03  hbt_params     B1 -0.00163  B2 -0.00015  B3 +0.00059  H1 +0.00347  H2 -0.03064  H3 -0.00405  [78 s]
+
+block  B1_last15d  B2_prev15d  B3_shift7d  H1_last7d  H2_last14d  H3_last21d
+id                                                                          
+L02      -0.00549    -0.00016     0.00002    0.03041    -0.01098     0.00161
+L03      -0.00163    -0.00015     0.00059    0.00347    -0.03064    -0.00405
+
+wrote outputs\campaign_v21_s45\ledger_confirm.csv

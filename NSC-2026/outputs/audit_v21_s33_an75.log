@@ -1,0 +1,40 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+
+B1_last15d  origin 2023-08-14  train 2213  folds 2
+  seed 0  alpha legacy 1000 -> replayed 10000  (96 s)
+  seed 1  alpha legacy 10000 -> replayed 10000  (95 s)
+  seed 2  alpha legacy 10000 -> replayed 10000  (96 s)
+  legacy    q 6.78524  recon 4.487504  (v21 base 4.232249)
+  replayed  q 6.86444  recon 4.476199  (v21 base 4.232249)
+
+B2_prev15d  origin 2023-07-30  train 1493  folds 2
+  seed 0  alpha legacy 10000 -> replayed 10000  (49 s)
+  seed 1  alpha legacy 10000 -> replayed 10000  (49 s)
+  seed 2  alpha legacy 10000 -> replayed 100  (50 s)
+  legacy    q 7.22426  recon 6.384149  (v21 base 6.586373)
+  replayed  q 8.27624  recon 6.445082  (v21 base 6.586373)
+
+B3_shift7d  origin 2023-08-07  train 1877  folds 2
+  seed 0  alpha legacy 10000 -> replayed 10000  (70 s)
+  seed 1  alpha legacy 10000 -> replayed 10000  (75 s)
+  seed 2  alpha legacy 10000 -> replayed 10000  (77 s)
+  legacy    q 4.82258  recon 4.281395  (v21 base 4.690131)
+  replayed  q 4.82258  recon 4.281395  (v21 base 4.690131)
+
+     block      arm              origin         horizon_end   n  n_train                      alphas   q_rmse  level_rmse  recon_rmse  base_rmse
+B1_last15d   legacy 2023-08-14 14:30:00 2023-08-29 14:30:00 720     2213  [1000.0, 10000.0, 10000.0] 6.785240    4.293226    4.487504   4.232249
+B1_last15d replayed 2023-08-14 14:30:00 2023-08-29 14:30:00 720     2213 [10000.0, 10000.0, 10000.0] 6.864445    4.293226    4.476199   4.232249
+B2_prev15d   legacy 2023-07-30 14:30:00 2023-08-14 14:30:00 720     1493 [10000.0, 10000.0, 10000.0] 7.224259    6.778225    6.384149   6.586373
+B2_prev15d replayed 2023-07-30 14:30:00 2023-08-14 14:30:00 720     1493   [10000.0, 10000.0, 100.0] 8.276239    6.778225    6.445082   6.586373
+B3_shift7d   legacy 2023-08-07 14:30:00 2023-08-22 14:30:00 720     1877 [10000.0, 10000.0, 10000.0] 4.822582    4.810885    4.281395   4.690131
+B3_shift7d replayed 2023-08-07 14:30:00 2023-08-22 14:30:00 720     1877 [10000.0, 10000.0, 10000.0] 4.822582    4.810885    4.281395   4.690131
+
+                                 alphas                                 q_rmse           recon_rmse           base_rmse           n_train         
+arm                              legacy                     replayed    legacy  replayed     legacy  replayed    legacy  replayed  legacy replayed
+block                                                                                                                                             
+B1_last15d   [1000.0, 10000.0, 10000.0]  [10000.0, 10000.0, 10000.0]   6.78524  6.864445   4.487504  4.476199  4.232249  4.232249    2213     2213
+B2_prev15d  [10000.0, 10000.0, 10000.0]    [10000.0, 10000.0, 100.0]  7.224259  8.276239   6.384149  6.445082  6.586373  6.586373    1493     1493
+B3_shift7d  [10000.0, 10000.0, 10000.0]  [10000.0, 10000.0, 10000.0]  4.822582  4.822582   4.281395  4.281395  4.690131  4.690131    1877     1877
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s33\replay_delta.csv

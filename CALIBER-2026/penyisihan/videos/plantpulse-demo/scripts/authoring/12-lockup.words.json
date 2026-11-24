@@ -1,0 +1,74 @@
+[
+  {
+    "id": "w0",
+    "text": "PlantPulse.",
+    "start": 0.299,
+    "end": 1.024
+  },
+  {
+    "id": "w1",
+    "text": "A",
+    "start": 1.237,
+    "end": 1.621
+  },
+  {
+    "id": "w2",
+    "text": "repair",
+    "start": 1.664,
+    "end": 1.92
+  },
+  {
+    "id": "w3",
+    "text": "is",
+    "start": 2.048,
+    "end": 2.133
+  },
+  {
+    "id": "w4",
+    "text": "not",
+    "start": 2.176,
+    "end": 2.304
+  },
+  {
+    "id": "w5",
+    "text": "a",
+    "start": 2.347,
+    "end": 2.389
+  },
+  {
+    "id": "w6",
+    "text": "fix,",
+    "start": 2.432,
+    "end": 2.837
+  },
+  {
+    "id": "w7",
+    "text": "until",
+    "start": 3.029,
+    "end": 3.157
+  },
+  {
+    "id": "w8",
+    "text": "the",
+    "start": 3.285,
+    "end": 3.413
+  },
+  {
+    "id": "w9",
+    "text": "evidence",
+    "start": 3.456,
+    "end": 3.584
+  },
+  {
+    "id": "w10",
+    "text": "says",
+    "start": 3.755,
+    "end": 3.925
+  },
+  {
+    "id": "w11",
+    "text": "so.",
+    "start": 4.011,
+    "end": 4.139
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "lags": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    24,
+    48
+  ],
+  "lag_cols": [
+    "T",
+    "co2",
+    "pressure",
+    "rh_tmin48"
+  ],
+  "alphas": [
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "blends": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "val_fraction": 0.25,
+  "selection": [
+    {
+      "origin": "2023-08-14 14:30:00",
+      "alpha": 10.0,
+      "blend": 0.5,
+      "rows": 2207,
+      "val_rows": 552,
+      "train_rows": 1655,
+      "best_mse": 10.3975310458,
+      "zero_blend_mse": 11.1970734304,
+      "gain": 0.7995423846
+    },
+    {
+      "origin": "2023-07-30 14:30:00",
+      "alpha": 10.0,
+      "blend": 0.5,
+      "rows": 1487,
+      "val_rows": 372,
+      "train_rows": 1115,
+      "best_mse": 15.2933087863,
+      "zero_blend_mse": 18.029417757,
+      "gain": 2.7361089707
+    },
+    {
+      "origin": "2023-08-07 14:30:00",
+      "alpha": 10.0,
+      "blend": 0.3,
+      "rows": 1871,
+      "val_rows": 468,
+      "train_rows": 1403,
+      "best_mse": 12.9105032076,
+      "zero_blend_mse": 13.371720086,
+      "gain": 0.4612168784
+    }
+  ],
+  "results": [
+    {
+      "candidate": "incumbent_blend0",
+      "pooled": 5.4959610758,
+      "B1_last15d": 4.1997712074,
+      "B2_prev15d": 6.5401145326,
+      "B3_shift7d": 4.719272605,
+      "n": 1440,
+      "d_pooled": null,
+      "d_mse": null,
+      "d_B1_last15d": null,
+      "d_B2_prev15d": null,
+      "d_B3_shift7d": null,
+      "promotable": null,
+      "boot_mean": null,
+      "boot_lo": null,
+      "boot_hi": null,
+      "boot_p_worse": null
+    },
+    {
+      "candidate": "distributed_lag_blend",
+      "pooled": 5.5003874017,
+      "B1_last15d": 4.1301378979,
+      "B2_prev15d": 6.5916981181,
+      "B3_shift7d": 4.6847607718,
+      "n": 1440,
+      "d_pooled": 0.0044263258,
+      "d_mse": 0.0486734212,
+      "d_B1_last15d": -0.0696333095,
+      "d_B2_prev15d": 0.0515835855,
+      "d_B3_shift7d": -0.0345118332,
+      "promotable": false,
+      "boot_mean": 0.045311903,
+      "boot_lo": -0.5512907696,
+      "boot_hi": 0.7284793952,
+      "boot_p_worse": 0.531
+    }
+  ],
+  "bootstrap": {
+    "blocks": 12,
+    "mean": 0.045311903002516446,
+    "lo": -0.5512907695784435,
+    "hi": 0.7284793951587161,
+    "p_worse": 0.531
+  }
+}

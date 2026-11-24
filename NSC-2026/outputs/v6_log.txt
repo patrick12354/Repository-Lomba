@@ -1,0 +1,27 @@
+features 82  train 2933  test 734
+NaNs in test features: 27 / 60188
+weights: {'hbt': 0.4925, 'cat': 0.1901, 'ridge': 0.05, 'enet': 0.05, 'ridge_e': 0.2174}
+family-P CV (pooled weights): mean 5.2939  worst 6.6288  per fold [np.float64(6.392), np.float64(6.629), np.float64(6.253), np.float64(5.928), np.float64(5.052), np.float64(4.303), np.float64(4.143), np.float64(4.141), np.float64(4.805)]
+
+refit on all training data, predict test...
+wrote outputs/submissions/v6_airmass.csv  (734 rows, datetimes match sample_submission)
+
+pred: {'count': 734.0, 'mean': 57.14, 'std': 18.17, 'min': 25.1, '25%': 38.45, '50%': 61.22, '75%': 73.79, 'max': 90.07}
+train y: {'count': 2933.0, 'mean': 58.19, 'std': 18.0, 'min': 18.47, '25%': 43.11, '50%': 56.69, '75%': 73.77, 'max': 97.09}
+
+per-model test-prediction spread:
+          hbt     cat   ridge    enet  ridge_e
+count  734.00  734.00  734.00  734.00   734.00
+mean    57.22   55.22   58.65   58.16    58.05
+std     18.87   17.25   18.36   18.05    18.24
+min     24.51   24.63   25.09   24.19    27.04
+25%     38.45   38.40   39.50   39.58    38.92
+50%     61.32   57.43   61.85   61.66    60.74
+75%     73.97   69.66   75.70   74.92    74.55
+max     89.27   89.56   94.28   92.76    96.63
+
+RMSE between prediction vectors:
+  vs v5_final: 2.236
+  vs v4_nosoil: 2.539
+
+logged.

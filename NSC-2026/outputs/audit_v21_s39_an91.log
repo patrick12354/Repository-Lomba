@@ -1,0 +1,43 @@
+  B1_last15d
+    control reproduces the banked level exactly
+    seq  origin 2023-08-14  horizon 2023-08-29  train 2213  rows 720
+    seq  origin 2023-07-23  horizon 2023-07-31  train 1157  rows 384
+    seq  origin 2023-07-25  horizon 2023-08-02  train 1253  rows 384
+    seq  origin 2023-07-27  horizon 2023-08-04  train 1349  rows 384
+    seq  origin 2023-07-29  horizon 2023-08-06  train 1445  rows 384
+    seq  origin 2023-07-31  horizon 2023-08-08  train 1541  rows 384
+    seq  origin 2023-08-02  horizon 2023-08-10  train 1637  rows 384
+    seq  origin 2023-08-04  horizon 2023-08-12  train 1733  rows 384
+    seq  origin 2023-08-06  horizon 2023-08-14  train 1829  rows 384
+    seq   weight 0.2738 (floor 0.0357) | level 4.29323 -> 4.54744 | recon 4.23225 -> 4.54064 (+0.30839)
+    dup   weight 0.0357 (floor 0.0357) | level 4.29323 -> 4.31013 | recon 4.23225 -> 4.24144 (+0.00919)
+    noise weight 0.1614 (floor 0.0357) | level 4.29323 -> 4.32319 | recon 4.23225 -> 4.24734 (+0.01509)
+  B2_prev15d
+    control reproduces the banked level exactly
+    seq  origin 2023-07-30  horizon 2023-08-14  train 1493  rows 720
+    seq  origin 2023-07-18  horizon 2023-07-26  train 917  rows 384
+    seq  origin 2023-07-20  horizon 2023-07-28  train 1013  rows 384
+    seq  origin 2023-07-22  horizon 2023-07-30  train 1109  rows 384
+    seq   weight 0.1281 (floor 0.0357) | level 6.77822 -> 6.66688 | recon 6.58637 -> 6.46189 (-0.12448)
+    dup   weight 0.0357 (floor 0.0357) | level 6.77822 -> 6.73634 | recon 6.58637 -> 6.54876 (-0.03761)
+    noise weight 0.0357 (floor 0.0357) | level 6.77822 -> 6.73414 | recon 6.58637 -> 6.54654 (-0.03984)
+  B3_shift7d
+    control reproduces the banked level exactly
+    seq  origin 2023-08-07  horizon 2023-08-22  train 1877  rows 720
+    seq  origin 2023-07-18  horizon 2023-07-26  train 917  rows 384
+    seq  origin 2023-07-20  horizon 2023-07-28  train 1013  rows 384
+    seq  origin 2023-07-22  horizon 2023-07-30  train 1109  rows 384
+    seq  origin 2023-07-24  horizon 2023-08-01  train 1205  rows 384
+    seq  origin 2023-07-26  horizon 2023-08-03  train 1301  rows 384
+    seq  origin 2023-07-28  horizon 2023-08-05  train 1397  rows 384
+    seq  origin 2023-07-30  horizon 2023-08-07  train 1493  rows 384
+    seq   weight 0.2188 (floor 0.0357) | level 4.81089 -> 4.49123 | recon 4.69013 -> 4.36904 (-0.32109)
+    dup   weight 0.0357 (floor 0.0357) | level 4.81089 -> 4.78476 | recon 4.69013 -> 4.65944 (-0.03069)
+    noise weight 0.2088 (floor 0.0357) | level 4.81089 -> 4.79125 | recon 4.69013 -> 4.66178 (-0.02835)
+
+arm        pooled       ctrl      delta   per block
+dup      5.246793   5.269079  -0.022285   B1 +0.00919  B2 -0.03761  B3 -0.03069
+noise    5.248150   5.269079  -0.020929   B1 +0.01509  B2 -0.03984  B3 -0.02835
+seq      5.210951   5.269079  -0.058127   B1 +0.30839  B2 -0.12448  B3 -0.32109
+
+seq is only evidence to the extent it beats `dup` and `noise` (section 105).

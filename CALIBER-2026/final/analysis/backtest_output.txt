@@ -1,0 +1,41 @@
+Universe 7481 materials | moved in test 868 | of which NO history in fit window 344
+               AUC_who_moves  recall_topK     MAE  total_bias
+method                                                       
+zero                   0.500        0.249   53.54      -1.000
+naive_mean             0.791        0.503   85.03       1.444
+sba                    0.787        0.494   66.50       1.035
+tsb                    0.790        0.501   69.99       1.132
+cleansed_mean          0.790        0.500   61.76       0.947
+eb_installed           0.772        0.453   44.46      -0.492
+lgbm_2part             0.886        0.570  116.01       2.071
+hybrid                 0.874        0.523   39.05      -0.608
+
+Cold-start materials (no history): 5895 | moved in test 344
+  naive_mean     AUC on cold-start = 0.500 (predicts 0 for all)
+  sba            AUC on cold-start = 0.613
+  eb_installed   AUC on cold-start = 0.587
+  lgbm_2part     AUC on cold-start = 0.836
+  hybrid         AUC on cold-start = 0.819
+
+Stocking trade-off (hold q-quantile of forecast over 7 months; service = parts whose test demand fully covered, among movers)
+  naive_mean     q=0.80  units held= 1,049,271  movers fully covered=0.516
+  naive_mean     q=0.90  units held= 1,122,054  movers fully covered=0.561
+  naive_mean     q=0.95  units held= 1,153,135  movers fully covered=0.566
+  sba            q=0.80  units held=   896,864  movers fully covered=0.521
+  sba            q=0.90  units held=   956,191  movers fully covered=0.550
+  sba            q=0.95  units held=   993,156  movers fully covered=0.560
+  cleansed_mean  q=0.80  units held=   841,360  movers fully covered=0.470
+  cleansed_mean  q=0.90  units held=   905,677  movers fully covered=0.518
+  cleansed_mean  q=0.95  units held=   932,588  movers fully covered=0.528
+  eb_installed   q=0.80  units held=   263,152  movers fully covered=0.494
+  eb_installed   q=0.90  units held=   319,923  movers fully covered=0.618
+  eb_installed   q=0.95  units held=   363,689  movers fully covered=0.743
+  lgbm_2part     q=0.80  units held= 1,315,822  movers fully covered=0.919
+  lgbm_2part     q=0.90  units held= 1,375,555  movers fully covered=0.937
+  lgbm_2part     q=0.95  units held= 1,427,857  movers fully covered=0.956
+  hybrid         q=0.80  units held=   190,314  movers fully covered=0.495
+  hybrid         q=0.90  units held=   229,013  movers fully covered=0.620
+  hybrid         q=0.95  units held=   263,710  movers fully covered=0.705
+  actual test demand units = 400,527
+
+LGBM who-moves feature importance (split count): {'fl_pm': 1065, 'fl_notif': 907, 'inst': 895, 'lt_med': 881, 'mn': 865, 'cat': 836, 'n_fl': 830, 'mx': 508, 'crit_r': 403, 'recency': 367}

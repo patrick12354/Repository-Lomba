@@ -1,0 +1,92 @@
+{
+ "n_subjek": 30,
+ "n_kasus": 600,
+ "ulang": 4,
+ "akurasi_aturan": 0.8416666666666667,
+ "akurasi_dice_saja": 0.41333333333333333,
+ "akurasi_latih": 0.855,
+ "ambang_final": {
+  "dice_geser": 0.6,
+  "vol_geser": 0.15,
+  "vol_over": 0.2,
+  "vol_under": -0.35,
+  "recall": 0.9
+ },
+ "ambang_stabil": 0.8,
+ "recall_per_jenis": {
+  "geser": 0.758,
+  "hampir_benar": 0.967,
+  "lesi_terlewat": 0.6,
+  "over": 0.992,
+  "under": 0.892
+ },
+ "per_jenis": {
+  "geser": {
+   "dice": 0.461,
+   "recall_lesi": 0.5,
+   "galat_vol": 0.0,
+   "hd95": 8.95
+  },
+  "hampir_benar": {
+   "dice": 0.929,
+   "recall_lesi": 1.0,
+   "galat_vol": 0.007,
+   "hd95": 0.933
+  },
+  "lesi_terlewat": {
+   "dice": 0.948,
+   "recall_lesi": 0.134,
+   "galat_vol": -0.099,
+   "hd95": 0.0
+  },
+  "over": {
+   "dice": 0.637,
+   "recall_lesi": 1.0,
+   "galat_vol": 1.142,
+   "hd95": 3.987
+  },
+  "under": {
+   "dice": 0.566,
+   "recall_lesi": 0.38,
+   "galat_vol": -0.605,
+   "hd95": 6.133
+  }
+ },
+ "konfusi": {
+  "geser": {
+   "geser": 91,
+   "hampir_benar": 5,
+   "lesi_terlewat": 24,
+   "over": 0,
+   "under": 0
+  },
+  "hampir_benar": {
+   "geser": 0,
+   "hampir_benar": 116,
+   "lesi_terlewat": 4,
+   "over": 0,
+   "under": 0
+  },
+  "lesi_terlewat": {
+   "geser": 0,
+   "hampir_benar": 0,
+   "lesi_terlewat": 72,
+   "over": 0,
+   "under": 48
+  },
+  "over": {
+   "geser": 0,
+   "hampir_benar": 1,
+   "lesi_terlewat": 0,
+   "over": 119,
+   "under": 0
+  },
+  "under": {
+   "geser": 0,
+   "hampir_benar": 0,
+   "lesi_terlewat": 13,
+   "over": 0,
+   "under": 107
+  }
+ }
+}

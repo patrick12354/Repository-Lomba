@@ -1,0 +1,29 @@
+
+B1_last15d  origin 2023-08-14 14:30:00  horizon ends 2023-08-29 14:30:00
+    inner fold 0  2023-07-23 -> 2023-07-31  n=384
+    inner fold 1  2023-07-25 -> 2023-08-02  n=384
+    inner fold 2  2023-07-27 -> 2023-08-04  n=384
+    inner fold 3  2023-07-29 -> 2023-08-06  n=384
+    inner fold 4  2023-07-31 -> 2023-08-08  n=384
+    inner fold 5  2023-08-02 -> 2023-08-10  n=384
+    inner fold 6  2023-08-04 -> 2023-08-12  n=384
+    inner fold 7  2023-08-06 -> 2023-08-14  n=384
+  outer n=720 level RMSE 4.25458 | inner folds 7, scored rows 960 over 21 days
+
+B2_prev15d  origin 2023-07-30 14:30:00  horizon ends 2023-08-14 14:30:00
+    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 6.75486 | inner folds 2, scored rows 480 over 11 days
+
+B3_shift7d  origin 2023-08-07 14:30:00  horizon ends 2023-08-22 14:30:00
+    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+    inner fold 3  2023-07-24 -> 2023-08-01  n=384
+    inner fold 4  2023-07-26 -> 2023-08-03  n=384
+    inner fold 5  2023-07-28 -> 2023-08-05  n=384
+    inner fold 6  2023-07-30 -> 2023-08-07  n=384
+  outer n=720 level RMSE 4.84892 | inner folds 6, scored rows 864 over 19 days
+
+wrote forward_predictions.pkl (7920 rows) and manifest.json

@@ -1,0 +1,945 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/04-kelas.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f04 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #f5f3ec; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* permukaan: kertas hangat, cahaya dari tengah-atas, tepi sedikit turun, butir halus (diam) */
+.ground { position: absolute; left: -40px; top: -40px; width: 2000px; height: 1160px; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 62% at 50% 40%, rgba(255,255,255,.85), rgba(255,255,255,0) 70%),
+    radial-gradient(ellipse 120% 100% at 50% 45%, rgba(16,49,58,0) 55%, rgba(16,49,58,.07)),
+    #f5f3ec; }
+.ground::after { content: ""; position: absolute; inset: 0; background: url('../../assets/tex/grain.png'); opacity: .07; mix-blend-mode: multiply; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f04 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f04 .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#f04 .wall { position: absolute; left: 0; top: 0; width: 1920px; height: 780px; background: linear-gradient(#f3f8f7, #e9f1ef); }
+#f04 .floor { position: absolute; left: 0; top: 780px; width: 1920px; height: 300px; background: linear-gradient(#dfe6e3, #cfd9d5); }
+#f04 .skirt { position: absolute; left: 0; top: 770px; width: 1920px; height: 14px; background: #c3cfcb; }
+#f04 .screen { position: absolute; left: 110px; top: 90px; width: 790px; height: 470px; border-radius: 18px; background: #fff; border: 6px solid #10313a; box-shadow: 0 20px 50px rgba(16,24,40,.18); overflow: hidden; }
+#f04 .screen .glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0), rgba(25,87,100,.10)); }
+#f04 .screen .hd { position: absolute; left: 36px; top: 26px; right: 36px; display: flex; justify-content: space-between; font: 700 26px 'Geist', sans-serif; color: var(--muted); }
+#f04 .screen h3 { position: absolute; left: 36px; top: 70px; margin: 0; font-size: 58px; line-height: 1.05; font-weight: 700; color: var(--ink); }
+#f04 .screen h3 b { color: var(--teal); }
+#f04 .screen img { position: absolute; right: 40px; bottom: 34px; width: 230px; height: 230px; border-radius: 12px; }
+#f04 .screen .bul { position: absolute; left: 40px; bottom: 44px; font: 700 32px/1.6 'Geist', sans-serif; color: var(--ink-2); }
+#f04 .screen .bul i { font-style: normal; color: var(--nt-d); }
+#f04 .stand { position: absolute; left: 495px; top: 560px; width: 14px; height: 220px; background: #9fb1ad; }
+#f04 .clock { position: absolute; left: 1700px; top: 80px; width: 120px; height: 120px; }
+#f04 .tdesk { position: absolute; left: 640px; top: 640px; width: 420px; height: 160px; border-radius: 10px 10px 0 0; background: #8a6a4d; }
+#f04 .tdesk::before { content: ""; position: absolute; left: -14px; right: -14px; top: -18px; height: 22px; border-radius: 8px; background: #a8835f; }
+#f04 .dosen { position: absolute; left: 820px; top: 300px; }
+#f04 .row2 { position: absolute; top: 400px; }
+#f04 .row1 { position: absolute; top: 470px; }
+#f04 .desk { position: absolute; border-radius: 10px 10px 0 0; background: #9a7656; }
+#f04 .desk::before { content: ""; position: absolute; left: -10px; right: -10px; top: -20px; height: 24px; border-radius: 8px; background: #b98f68; }
+#f04 .book { position: absolute; width: 90px; height: 16px; border-radius: 4px; }
+#f04 .lap { position: absolute; left: 1525px; top: 742px; width: 150px; height: 50px; }
+#f04 .tag { position: absolute; left: 1395px; top: 452px; padding: 12px 24px; border-radius: 16px; background: var(--ink); color: #fff; font: 700 34px 'Geist', sans-serif; white-space: nowrap; box-shadow: 0 10px 26px rgba(16,24,40,.25); }
+#f04 .tag small { display: block; font: 600 22px 'Geist', sans-serif; color: #aad39c; letter-spacing: .06em; text-transform: uppercase; }
+#f04 .tag::after { content: ""; position: absolute; left: 60px; bottom: -16px; border: 10px solid transparent; border-top: 10px solid var(--ink); border-bottom: 0; }
+#f04 .cap { position: absolute; left: 110px; top: 600px; }
+#f04 .chat { position: absolute; padding: 8px 16px; border-radius: 16px; background: #fff; border: 3px solid var(--line-2); font: 700 28px 'Geist', sans-serif; color: var(--ink-2); }
+</style>
+<div id="f04" data-composition-id="f04" data-width="1920" data-height="1080" data-amb="0" data-drift="0.015">
+<div class="scene"><div class="dolly">
+  <div class="world">
+    <div class="wall"></div><div class="floor"></div><div class="skirt"></div>
+    <svg class="clock" viewBox="-60 -60 120 120"><circle r="54" fill="#fff" stroke="#10313a" stroke-width="7" /><line class="ch-h" x1="0" y1="0" x2="0" y2="-26" stroke="#10313a" stroke-width="7" stroke-linecap="round" /><line class="ch-m" x1="0" y1="0" x2="0" y2="-40" stroke="#e07a1f" stroke-width="5" stroke-linecap="round" /><circle r="6" fill="#10313a" /></svg>
+    <div class="stand"></div>
+    <div class="screen">
+      <div class="glow"></div>
+      <h3>Membaca<br /><b>MRI stroke</b></h3>
+      <div class="bul"><i>●</i> DWI · ADC<br /><i>●</i> lesi infark</div>
+      <img src="../../assets/mri/sub-654/dwi_z15.png" alt="" />
+    </div>
+    <div class="dosen"><svg class="dika " viewBox="0 0 320 640" width="230" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#5c4a7a" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#5c4a7a" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="0" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#5c4a7a" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#c48d68" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#9aa3a8" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#e2b08e" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#9aa3a8" />
+      <g class="dika-brows" fill="none" stroke="#6b7280" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="1" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#c48d68" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="tdesk"></div>
+    <!-- baris belakang -->
+    <div class="row2" style="left: 1235px"><svg class="dika " viewBox="0 0 320 640" width="170" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#2563eb" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#c48d68" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#2563eb" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#2563eb" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#c48d68" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#a96f4c" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#3b2a20" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#a96f4c" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#a96f4c" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#c48d68" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#3b2a20" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#c48d68" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#c48d68" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#a96f4c" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="row2" style="left: 1480px"><svg class="dika " viewBox="0 0 320 640" width="170" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#6fa77a" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#6fa77a" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#6fa77a" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="1" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#c2620f" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#c2620f" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#c2620f" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#c2620f" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#c2620f" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#e2b08e" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#c2620f" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#c2620f" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="row2" style="left: 1725px"><svg class="dika " viewBox="0 0 320 640" width="170" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#195764" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#a96f4c" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#195764" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#195764" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#a96f4c" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#8a5a3c" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#2a2220" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#8a5a3c" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#8a5a3c" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#a96f4c" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#2a2220" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#a96f4c" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#a96f4c" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#8a5a3c" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="desk" style="left: 1200px; top: 650px; width: 720px; height: 130px"></div>
+    <!-- baris depan: teman berhijab, Dika, teman -->
+    <div class="row1 fa" style="left: 1140px"><svg class="dika " viewBox="0 0 320 640" width="230" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#aad39c" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#aad39c" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#aad39c" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="1" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#195764" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#195764" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#195764" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#195764" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#195764" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#d39a76" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#195764" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#195764" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="row1 dk" style="left: 1400px"><svg class="dika " viewBox="0 0 320 640" width="230" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#2f7f8a" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#2f7f8a" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#b97c5a" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#1d2430" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#d39a76" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#1d2430" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#b97c5a" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="row1 fb" style="left: 1660px"><svg class="dika " viewBox="0 0 320 640" width="230" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#e07a1f" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#e07a1f" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#e07a1f" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#c48d68" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#5a3a28" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#e2b08e" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#5a3a28" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#c48d68" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="1" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <div class="desk" style="left: 1090px; top: 800px; width: 860px; height: 280px"></div>
+    <div class="book" style="left: 1190px; top: 770px; background: #e07a1f"></div>
+    <div class="book" style="left: 1205px; top: 756px; background: #195764"></div>
+    <svg class="lap" viewBox="0 0 150 50"><path d="M20,0 H130 L140,40 H10 Z" fill="#334155" /><rect x="0" y="40" width="150" height="10" rx="4" fill="#64748b" /><circle cx="75" cy="20" r="6" fill="#aad39c" /></svg>
+    <div class="book" style="left: 1760px; top: 770px; background: #6fa77a"></div>
+    <div class="chat" style="left: 1150px; top: 400px">MRI?</div>
+    <div class="chat" style="left: 1760px; top: 420px">kuis?</div>
+    <div class="tag">Dika</div>
+  </div>
+</div></div>
+</div>
+<!-- @sfx class_chatter@0.0:0.35 school_bell@0.2:0.45 hop@~Dika-0.1:0.45 notif_pop@~Dika+0.1:0.5 whoosh_deep@~kelas-0.4:0.45 projector_on@~neuroradiologi-0.2:0.45 snap@~belajar:0.4 shutter@~MRI:0.4 mar5@~stroke:0.45 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f04", T0 = 0.5, DUR = 9.1, VO_AT = 0.5, VOW = [["Dika",0],["dan",0.12],["teman-temannya",0.16],["masuk",0.36],["kelas",0.48],["neuroradiologi",0.54],["belajar",3.45],["membaca",3.57],["MRI",3.75],["stroke",3.89]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 0.55 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  // tanpa pantulan: back/elastic/bounce diganti kurva yang mendarat lalu diam (masuk = expo.out, keluar = power3.in)
+  const calm = (v) => {
+    if (v && typeof v === "object" && typeof v.ease === "string" && /back|elastic|bounce/.test(v.ease))
+      v.ease = /\.in\b|\.in\(/.test(v.ease) && !/inOut/.test(v.ease) ? "power3.in" : /inOut/.test(v.ease) ? "power3.inOut" : "expo.out";
+    return v;
+  };
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a.map(calm));
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk. Satu tata bahasa untuk seluruh film: "push" (kamera geser, adegan lama mundur ke kiri),
+  // "cut" (potong keras, untuk pergantian babak) dan "zoom" (sekali, masuk ke logo). Jenis lama dipetakan ke push.
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || kind === "cut" || T0 === 0) return;
+    if (!["push", "zoom"].includes(kind)) kind = "push";
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-30px 0 60px rgba(16,24,40,.16)" }, { x: 0, duration: d, ease: "power4.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { x: -480, duration: 0.62, ease: "power4.inOut" }, END - 0.5);
+  };
+  const blinkAt = (lids, times) => times.forEach((t) => {
+    tl.to(lids, { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(lids, { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // kedip manual tidak dipakai lagi: semua tokoh berkedip otomatis (lihat akhir helper)
+  const blink = () => {};
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  // masuk: sebagian besar gerak di beberapa frame pertama lalu ekor panjang, tanpa pantulan; tidak tumbuh dari nol
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: Math.max(0.82, o.from ?? 0.86), opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 32, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar: permukaan kertas hangat yang diam (cahaya lembut di tengah, vinyet tipis, butir kertas).
+  // Sengaja tidak bergerak: saat jeda presenter bicara, yang hidup hanya tokohnya.
+  const ground = () => {
+    const g = div(D, {}, "ground");
+    D.insertBefore(g, D.firstChild);
+    return g;
+  };
+  // (lama) kamera merayap sepanjang frame — dimatikan: jeda harus tenang
+  const drift = () => {};
+  // hentakan kecil sekali pakai (stempel mendarat): dua ayunan pendek, bukan gempa
+  const thud = (t, amp = 6) => {
+    tl.to(D, { y: amp, duration: 0.05, ease: "power2.out" }, t);
+    tl.to(D, { y: 0, duration: 0.28, ease: "power3.out" }, t + 0.05);
+  };
+  // guncangan/burst/kilat/konfeti/stabilo: efek "AI default" — sekarang tidak menggambar apa pun
+  const shake = () => {};
+  const burst = () => {};
+  const flash = () => {};
+  const confetti = () => {};
+  const mark = () => {};
+  const hit = () => {};
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: Math.min(o.y ?? 26, 30), opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.5, ease: "expo.out", stagger: Math.min(o.stagger ?? 0.05, 0.06) }, t));
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ground();
+  // semua tokoh hidup saat jeda: kedip dengan jarak acak-tetap (berbiji) sampai akhir frame
+  R.querySelectorAll("svg.dika, svg.sina").forEach((el, k) => {
+    const lids = el.querySelectorAll(".dika-lid, .sina-lid");
+    const ts = [];
+    for (let t = 1.1 + k * 0.7 + frnd() * 0.8; t < END - 0.4; t += 2.8 + frnd() * 2.2) ts.push(+t.toFixed(2));
+    blinkAt(lids, ts);
+  });
+  // ---- akhir helper ----
+
+  const W = $1(".world");
+  enter("cut");
+  // kamera: mulai dekat di Dika, mundur memperlihatkan seluruh kelas saat "kelas neuroradiologi"
+  tl.set(W, { transformOrigin: "0px 0px" }, 0);
+  tl.set(W, { scale: 2.0, x: -2000, y: -520 }, 0);
+  tl.to(W, { scale: 1, x: 0, y: 0, duration: 1.3, ease: "power4.inOut" }, w("kelas") - 0.3);
+  // jam dinding
+  tl.fromTo(".ch-m", { rotation: 0, svgOrigin: "0 0" }, { rotation: 360, duration: END, ease: "none" }, 0);
+  tl.fromTo(".ch-h", { rotation: 40, svgOrigin: "0 0" }, { rotation: 70, duration: END, ease: "none" }, 0);
+  // semua tokoh bernapas & berkedip
+  bob(".row2 .dika-rig", 0.2, END, 3, 2.4);
+  bob(".fa .dika-rig", 0.3, END, 4, 2.1);
+  bob(".fb .dika-rig", 0.5, END, 4, 2.3);
+  bob(".dosen .dika-rig", 0.4, END, 3, 2.6);
+  blink(".dk .dika-lid", [1.9, 4.8, 7.6]);
+  blink(".fa .dika-lid", [1.2, 5.6]);
+  blink(".fb .dika-lid", [2.6, 6.4]);
+  blink(".row2 .dika-lid", [3.1, 6.9]);
+  blink(".dosen .dika-lid", [2.2, 6.1]);
+  // obrolan sebelum kelas
+  pop($(".chat")[0], 0.3, { from: 0.4, ease: "back.out(3)" });
+  pop($(".chat")[1], 0.7, { from: 0.4, ease: "back.out(3)" });
+  tl.to(".chat", { opacity: 0, scale: 0.6, duration: 0.25 }, w("kelas") - 0.6);
+  tl.fromTo(".fa .dika-head", { rotation: 0, svgOrigin: "160 240" }, { rotation: 10, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.4);
+  tl.fromTo(".fb .dika-head", { rotation: 0, svgOrigin: "160 240" }, { rotation: -10, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.8);
+  // Dika menyapa, label nama
+  tl.fromTo(".dk .dika-rig", { y: 0 }, { y: -18, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, w("Dika") - 0.1);
+  tl.fromTo(".dk .dika-arm-r", { rotation: 0, svgOrigin: "212 272" }, { rotation: -150, duration: 0.4, ease: "back.out(1.8)" }, w("Dika"));
+  tl.to(".dk .dika-arm-r", { rotation: -130, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut" }, w("Dika") + 0.4);
+  tl.to(".dk .dika-arm-r", { rotation: 0, duration: 0.4 }, w("kelas") - 0.2);
+  tl.fromTo(".tag", { y: 30, scale: 0.5, opacity: 0, transformOrigin: "60px 100%" }, { y: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, w("Dika") + 0.1);
+  // proyektor menyala, dosen menunjuk layar
+  tl.fromTo(".screen", { filter: "brightness(.35)" }, { filter: "brightness(1)", duration: 0.5, ease: "steps(3)" }, w("neuroradiologi") - 0.2);
+  tl.set(".screen", { filter: "none" }, w("neuroradiologi") + 0.35);
+  words(".screen h3", w("neuroradiologi"), { stagger: 0.08 });
+  rise(".screen .bul", w("belajar"), { y: 20 });
+  pop(".screen img", w("MRI") - 0.1, { from: 0.4, ease: "back.out(2)" });
+  tl.fromTo(".dosen .dika-arm-l", { rotation: 0, svgOrigin: "108 272" }, { rotation: 118, duration: 0.5, ease: "back.out(1.6)" }, w("neuroradiologi"));
+  tl.fromTo(".dosen .dika-head", { rotation: 0, svgOrigin: "160 240" }, { rotation: -10, duration: 0.4 }, w("neuroradiologi"));
+  // semua menoleh ke layar
+  [".dk", ".fa", ".fb"].forEach((k, i) => tl.to(`${k} .dika-head`, { rotation: -8, duration: 0.4, ease: "power2.out" }, w("membaca") + i * 0.08));
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

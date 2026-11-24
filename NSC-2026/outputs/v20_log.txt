@@ -1,0 +1,29 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.5735, 'cat': 0.2371, 'ridge': 0.0, 'enet': 0.1895, 'ridge_e': 0.0, 'l2': 0.0}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.648, 'cat': 0.1726, 'ridge': 0.0, 'enet': 0.1794, 'ridge_e': 0.0, 'l2': 0.0}
+  band 1: {'hbt': 0.4314, 'cat': 0.1405, 'ridge': 0.1043, 'enet': 0.0947, 'ridge_e': 0.0786, 'l2': 0.1505}
+  band 2: {'hbt': 0.536, 'cat': 0.3518, 'ridge': 0.0, 'enet': 0.0947, 'ridge_e': 0.0174, 'l2': 0.0}
+harmonic bias correction (shrunk 0.50): sin -0.083  cos -0.857   amplitude 0.861 %RH, peak 12.4 h
+CV: mean 4.7016  worst 6.0294
+  per fold: [np.float64(6.019), np.float64(6.029), np.float64(5.654), np.float64(5.472), np.float64(4.555), np.float64(3.751), np.float64(3.243), np.float64(3.351), np.float64(4.24)]
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+dispersion check: CV fold prediction std 16.25-17.68   test prediction std 19.08
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v20_shrinkonly.csv
+prediction summary: {'count': 734.0, 'mean': 56.888, 'std': 19.095, 'min': 23.72, '25%': 38.051, '50%': 60.889, '75%': 74.255, 'max': 88.895}

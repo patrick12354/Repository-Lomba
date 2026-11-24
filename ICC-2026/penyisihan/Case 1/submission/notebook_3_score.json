@@ -1,0 +1,36 @@
+{
+  "eb_twmae_oof": 0.18552,
+  "bias_rnd": 0.047,
+  "history": [
+    {
+      "nb": 1,
+      "cv": 0.1826,
+      "lb": 0.2005,
+      "bias_rnd": 0.076
+    },
+    {
+      "nb": 2,
+      "cv": 0.1789,
+      "lb": 0.2262,
+      "bias_rnd": 0.137
+    },
+    {
+      "nb": 3,
+      "cv": 0.18552,
+      "lb": null,
+      "bias_rnd": 0.047
+    }
+  ],
+  "config": {
+    "w_B": 0.35,
+    "lam_dec": 0.95,
+    "expansion": "per-subset",
+    "alpha": 1.15,
+    "group_features": "full (TANPA masking)",
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  }
+}

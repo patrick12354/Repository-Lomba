@@ -1,0 +1,34 @@
+
+against the declared control (v21_physics_deshrink_half), section-180 bar
+
+                 candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d  d_pooled  d_B1_last15d  d_B2_prev15d  d_B3_shift7d  promotable
+v21_physics_forward_factor 5.481378    4.195110    6.518594    4.744082 -0.014583     -0.004661     -0.021521      0.024810       False
+ v21_physics_deshrink_half 5.495961    4.199771    6.540115    4.719273  0.000000      0.000000      0.000000      0.000000       False
+     distributed_lag_blend 5.500387    4.130138    6.591698    4.684761  0.004426     -0.069633      0.051584     -0.034512       False
+       level_contributions 5.505798    4.225460    6.540115    4.666060  0.009836      0.025689      0.000000     -0.053213       False
+         block_bagged_5bag 5.514244    4.156816    6.598081    4.781622  0.018283     -0.042956      0.057966      0.062349       False
+               v21_physics 5.524450    4.225273    6.571617    4.689279  0.028488      0.025502      0.031503     -0.029994       False
+             v21_increment 5.535894    4.232249    6.586373    4.690131  0.039933      0.032477      0.046259     -0.029142       False
+
+delta against the configuration that scored 2.86595 in public (v21_increment): 
+                 candidate   pooled  d_pooled_vs_public
+v21_physics_forward_factor 5.481378           -0.054516
+ v21_physics_deshrink_half 5.495961           -0.039933
+     distributed_lag_blend 5.500387           -0.035506
+       level_contributions 5.505798           -0.030096
+         block_bagged_5bag 5.514244           -0.021649
+               v21_physics 5.524450           -0.011444
+             v21_increment 5.535894            0.000000
+
+paired calendar-block bootstrap of pooled dMSE, both block lengths
+                 candidate  3d_blocks   3d_mean     3d_lo    3d_hi  3d_p_worse  7d_blocks   7d_mean     7d_lo    7d_hi  7d_p_worse  days_improved  days  worst_day  worst_day_dmse  dmse_ex_best_day
+             v21_increment         12  0.440608  0.095175 0.828407      0.9965          6  0.435363  0.025443 0.894094      0.9830              9    31 2023-08-06        4.094180          0.509512
+               v21_physics         12  0.313203  0.001036 0.676830      0.9760          6  0.308797 -0.001842 0.645352      0.9745             14    31 2023-08-07        3.166102          0.369169
+v21_physics_forward_factor         12 -0.158945 -0.478516 0.102172      0.1375          6 -0.151047 -0.446314 0.107585      0.2000             17    31 2023-08-08        0.930698         -0.065006
+       level_contributions         12  0.106048 -0.091124 0.406856      0.7680          6  0.114229 -0.088297 0.389396      0.7795              5    31 2023-08-26        1.536536          0.145648
+         block_bagged_5bag         12  0.193403 -0.284934 0.700017      0.7660          6  0.180976 -0.396211 0.885069      0.6700             15    31 2023-08-05        3.610289          0.233417
+     distributed_lag_blend         12  0.045312 -0.551291 0.728479      0.5310          6  0.035148 -0.559958 0.720474      0.5180             18    31 2023-08-05        5.588655          0.103323
+
+PASSES THE SECTION-180 BAR AGAINST v21_physics_deshrink_half: none
+
+wrote decision.csv, decision_bootstrap.csv and decision.json to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s27

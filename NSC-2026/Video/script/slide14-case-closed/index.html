@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <title>Slide 14 — Case Closed</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Light.ttf"); font-weight: 300; }
+      @font-face { font-family: "Rustic"; src: url("assets/fonts/RusticPrintedStamp.ttf"); }
+      :root { --ink: #2b2521; --red: #a91d1a; --ivory: #efe5cf; --kraft: #c19d63; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #120d09; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); background: #120d09; }
+      svg text { font-family: "Poppins", sans-serif; }
+      .rus { font-family: "Rustic"; }
+
+      /* camera rig: #view (perspective) > #tilt (rotateX) > #shake (impact jitter) > #cam (2880×1620 world, pan/zoom) */
+      #view { position: absolute; inset: 0; overflow: hidden; perspective: 2600px; perspective-origin: 50% 40%; }
+      #tilt { position: absolute; inset: 0; transform-origin: 50% 55%; }
+      #shake { position: absolute; inset: 0; }
+      #cam { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; transform-origin: 0 0; }
+      #desk { position: absolute; left: -400px; top: -400px; width: 3680px; height: 2420px; background: #3b2516 url("assets/tex/desk.jpg") center / 2880px 1620px; }
+
+      /* paper objects (built in scene.js) */
+      .obj { position: absolute; transform-origin: 50% 50%; }
+      .paper { position: absolute; inset: 0; background: var(--ivory) url("assets/tex/paper.png") center / cover; }
+      .obj > svg, .paper > svg { position: absolute; left: 0; top: 0; overflow: visible; }
+      .tab { position: absolute; height: 74px; width: 196px; display: flex; align-items: center; padding-left: 26px;
+             font-family: "Rustic"; font-size: 36px; color: var(--ivory); border-radius: 0 12px 12px 0; }
+      .tab::after { content: ""; position: absolute; inset: 0; border-radius: 0 12px 12px 0; background: url("assets/tex/paper.png") center / cover; mix-blend-mode: multiply; opacity: 0.55; }
+
+      /* the case folder (same kraft map as slide 1) */
+      .kraft { position: absolute; inset: 0; background: var(--kraft) url("assets/tex/paper.png") center / cover; background-blend-mode: multiply; }
+      #coverWrap { position: absolute; perspective: 2400px; }
+      #coverRot { position: absolute; inset: 0; transform-style: preserve-3d; transform-origin: 0% 50%; }
+      .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      #coverBack { transform: rotateY(180deg); }
+      .edge { position: absolute; inset: 22px; border: 3px solid rgba(90, 60, 25, 0.35); }
+
+
+      /* ending: back in Pak Anton's greenhouse (garden.js draws it) */
+      #garden { position: absolute; inset: 0; overflow: hidden; opacity: 0; background: #e9eee2; }
+      #gWorld { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+      #gardenSvg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+      #gPaper { position: absolute; inset: 0; pointer-events: none; opacity: 0.32; mix-blend-mode: multiply; background: url("assets/tex/paper.png") center / cover; }
+      #gVig { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 58%, rgba(20,12,6,0.38) 100%); }
+      #nbSheet { position: absolute; left: 56px; top: 70px; width: 660px; height: 310px; filter: drop-shadow(0 14px 18px rgba(0,0,0,0.45)); }
+      #nbSheet .paper { background-color: #f4ecd9; }
+      #nbSheet .rules { position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, transparent 0 39px, rgba(70,110,160,0.22) 39px 41px); }
+      #nbSheet .lbl { position: absolute; left: 14px; top: 10px; height: 44px; padding: 0 16px; display: flex; align-items: center; background: #ddcca5; font-size: 27px; font-weight: 700; }
+      #bigStamp { position: absolute; left: 800px; top: 26px; width: 820px; height: 176px; display: flex; align-items: center; justify-content: center;
+                  border: 13px solid var(--red); outline: 4px solid var(--red); outline-offset: -30px; font-family: "Rustic"; font-size: 128px; line-height: 1; padding-top: 16px;
+                  color: var(--red); mix-blend-mode: multiply; opacity: 0; }
+
+      /* screen-space light + overlays */
+      #lamp { position: absolute; inset: 0; pointer-events: none;
+              background: radial-gradient(ellipse 58% 64% at 50% 46%, rgba(255, 226, 170, 0.12), rgba(255, 226, 170, 0) 52%, rgba(10, 5, 2, 0.62) 100%); }
+      #dim { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 50% 56% at 50% 44%, rgba(0,0,0,0) 30%, rgba(8, 4, 1, 0.75) 100%); opacity: 0; }
+      .strip { position: absolute; left: 50%; isolation: isolate; padding: 22px 70px 18px; text-align: center; white-space: nowrap;
+               filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.55)); }
+      .strip .paper { z-index: -1; }
+      #head { bottom: 40px; font-size: 46px; font-weight: 700; }
+      #quote { bottom: 40px; font-size: 44px; line-height: 1.35; font-weight: 700; font-style: italic; color: var(--red); }
+      #sign { bottom: 34px; font-family: "Rustic"; font-size: 44px; color: var(--ivory); letter-spacing: 2px; filter: none; text-shadow: 0 4px 12px rgba(0,0,0,0.8); }
+      #flash { position: absolute; inset: 0; background: #fff3dc; opacity: 0; pointer-events: none; mix-blend-mode: soft-light; }
+      #dust { position: absolute; inset: 0; pointer-events: none; }
+      .mote { position: absolute; border-radius: 50%; background: #fff3d6; }
+      #grain { position: absolute; left: -60px; top: -60px; width: 2040px; height: 1200px; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay;
+               background: url("assets/tex/grain.png") 0 0 / 480px 270px repeat; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="35" data-width="1920" data-height="1080" data-fps="30">
+      <div id="view">
+        <div id="tilt">
+          <div id="shake">
+            <div id="cam"><div id="desk"></div></div>
+          </div>
+        </div>
+      </div>
+      <div id="lamp" data-layout-allow-occlusion></div>
+      <div id="dim" data-layout-allow-occlusion></div>
+      <div id="garden" data-layout-allow-occlusion>
+        <div id="gWorld">
+          <svg id="gardenSvg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9eee2" /><stop offset="1" stop-color="#f5ecd6" /></linearGradient>
+              <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b6846" /><stop offset="1" stop-color="#553a25" /></linearGradient>
+              <linearGradient id="ray" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffbe9" stop-opacity="0.55" /><stop offset="1" stop-color="#fffbe9" stop-opacity="0" /></linearGradient>
+              <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7e8581" /><stop offset="0.45" stop-color="#b7bdb8" /><stop offset="1" stop-color="#7a807c" /></linearGradient>
+            </defs>
+            <g id="gSky"></g><g id="gBackPlants"></g><g id="gSensor"></g><g id="gMidPlants"></g><g id="gCrate"></g><g id="gInspect"></g>
+            <g id="anton"></g><g id="gFront"></g><g id="gPosts"></g><g id="gBubble"></g>
+          </svg>
+        </div>
+        <div id="gPaper"></div>
+        <div id="gVig"></div>
+        <div id="nbSheet"><div class="paper"><div class="rules"></div></div><div class="lbl">Catatan sensor</div></div>
+        <div id="bigStamp">CASE CLOSED</div>
+      </div>
+      <div id="dust" data-layout-allow-occlusion></div>
+      <div class="strip" id="head"><div class="paper"></div>Memahami bukti, bukan sekadar memilih algoritma</div>
+      <div class="strip" id="quote"><div class="paper"></div>“Petunjuk terpenting bukan selalu yang paling terlihat,<br />melainkan yang berhasil kita pahami.”</div>
+      <div class="strip" id="sign">Tim Heisenberg · NSC 2026 — Terima kasih</div>
+      <div id="flash" data-layout-allow-occlusion></div>
+      <div id="grain" data-layout-allow-occlusion></div>
+    </div>
+    <script src="assets/pred.js"></script>
+    <script src="assets/tmin.js"></script>
+    <script src="garden.js"></script>
+    <script src="scene.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = window.SCENE_TL;
+    </script>
+  </body>
+</html>

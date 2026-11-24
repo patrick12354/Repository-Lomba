@@ -1,0 +1,21 @@
+v5 feats 68   v6 feats 82   train 2933  test 734
+  OOF v5/P done (340s)
+  OOF v5/Q done (586s)
+  OOF v5/R done (737s)
+  OOF v6/P done (1017s)
+  OOF v6/Q done (1217s)
+  OOF v6/R done (1393s)
+
+candidate         P mean    P wst    Q mean    Q wst    R mean    R wst     avg
+v5_shipped         5.878    7.451     5.786    7.661     6.374    7.271   6.013
+v6_full            5.172    6.549     5.095    6.172     5.483    5.671   5.250
+v6_compact         5.186    6.476     5.126    6.120     5.517    5.678   5.276
+v6_single          5.301    6.906     5.243    6.505     5.740    6.200   5.428
+
+########## PAIRED DAY-LEVEL BOOTSTRAP (family P, v6 vs v5) ##########
+  v6_full vs v5_shipped: pooled 5.248 vs 6.026 (delta -0.779)
+     folds won 7/8  days won 60.0%  bootstrap delta -0.749  95% CI [-1.341, -0.184]  P(better) 99.4%
+  v6_compact vs v5_shipped: pooled 5.253 vs 6.026 (delta -0.773)
+     folds won 7/8  days won 53.3%  bootstrap delta -0.731  95% CI [-1.331, -0.150]  P(better) 99.5%
+
+1395s

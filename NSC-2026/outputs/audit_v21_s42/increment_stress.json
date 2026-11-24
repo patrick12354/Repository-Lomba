@@ -1,0 +1,42 @@
+{
+  "plain": {
+    "pooled": 3.9963796307888413,
+    "d_pooled": 0.0,
+    "worst": 6.319430913570979,
+    "d_worst": 0.0,
+    "blocks_improved": 0,
+    "n_blocks": 5
+  },
+  "phys": {
+    "pooled": 3.988620486570576,
+    "d_pooled": -0.007759144218265401,
+    "worst": 6.3126994725089585,
+    "d_worst": -0.006731441062020949,
+    "blocks_improved": 4,
+    "n_blocks": 5
+  },
+  "phys_lags": {
+    "pooled": 3.988783331537396,
+    "d_pooled": -0.007596299251445338,
+    "worst": 6.345700588165853,
+    "d_worst": 0.026269674594873393,
+    "blocks_improved": 3,
+    "n_blocks": 5
+  },
+  "lags": {
+    "pooled": 3.997794425461946,
+    "d_pooled": 0.00141479467310468,
+    "worst": 6.358170979389409,
+    "d_worst": 0.03874006581842959,
+    "blocks_improved": 3,
+    "n_blocks": 5
+  },
+  "phys_dsh_lags": {
+    "pooled": 3.9857809023328996,
+    "d_pooled": -0.010598728455941675,
+    "worst": 6.368086474219343,
+    "d_worst": 0.048655560648363405,
+    "blocks_improved": 3,
+    "n_blocks": 5
+  }
+}

@@ -1,0 +1,16 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+stage=screen  blocks=['B1_last15d', 'B2_prev15d']  hbt seeds=[0, 1]  inc seeds=[20260905, 20260906]
+  control B1_last15d   z 4.252853  [5 s]
+  control B2_prev15d   z 6.596975  [5 s]
+  K01  hbt_features   B1 +0.06998  B2 +0.00411  [13 s]
+  K02  hbt_features   B1 +0.07134  B2 +0.00392  [13 s]
+  K03  hbt_features   B1 +0.00182  B2 -0.00124  [10 s]
+
+block  B1_last15d  B2_prev15d
+id                           
+K01       0.06998     0.00411
+K02       0.07134     0.00392
+K03       0.00182    -0.00124
+
+wrote outputs\campaign_v21_s41\ledger_screen.csv

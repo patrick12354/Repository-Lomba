@@ -1,0 +1,46 @@
+{
+  "lb_real": 0.18219,
+  "lb_real_jujur": 0.18369,
+  "lb_predicted": 0.194,
+  "bias_rnd": 0.0256,
+  "mean_test_rnd": 5.253,
+  "sd_test_rnd": 0.3939,
+  "status": "BELUM DISUBMIT",
+  "catatan": "gain vs nb6 di dalam derau (menang 7-8/12); nilainya di titik kalibrasi",
+  "config": {
+    "himpunan": {
+      "A_8kand": [
+        "swA_sqrt",
+        "resA_dep",
+        "resB_c30",
+        "resB_dep",
+        "resB_p05",
+        "cnn_sqrt",
+        "cnnres",
+        "spec_sqrt"
+      ],
+      "B_tanpa_spec": [
+        "swA_sqrt",
+        "resA_dep",
+        "resB_c30",
+        "resB_dep",
+        "resB_p05",
+        "cnn_sqrt",
+        "cnnres"
+      ],
+      "C_ramping5": [
+        "swA_sqrt",
+        "resA_dep",
+        "resB_dep",
+        "resB_c30",
+        "cnnres"
+      ]
+    },
+    "agregasi": "rata-rata 3 himpunan blend, tiap bobot = rata2 12 belahan",
+    "lam_dec": 0.95,
+    "lam_deep": 0.5,
+    "T_deep": 150,
+    "a_dec": 1.15,
+    "a_rnd": 1.05
+  }
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "id": "w0",
+    "text": "Then,",
+    "start": 0,
+    "end": 0.453
+  },
+  {
+    "id": "w1",
+    "text": "insight",
+    "start": 0.534,
+    "end": 0.952
+  },
+  {
+    "id": "w2",
+    "text": "becomes",
+    "start": 1.01,
+    "end": 1.358
+  },
+  {
+    "id": "w3",
+    "text": "action.",
+    "start": 1.416,
+    "end": 1.939
+  },
+  {
+    "id": "w4",
+    "text": "Every",
+    "start": 2.345,
+    "end": 2.612
+  },
+  {
+    "id": "w5",
+    "text": "corrective",
+    "start": 2.659,
+    "end": 3.135
+  },
+  {
+    "id": "w6",
+    "text": "and",
+    "start": 3.17,
+    "end": 3.239
+  },
+  {
+    "id": "w7",
+    "text": "preventive",
+    "start": 3.297,
+    "end": 3.82
+  },
+  {
+    "id": "w8",
+    "text": "step",
+    "start": 3.855,
+    "end": 4.122
+  },
+  {
+    "id": "w9",
+    "text": "gets",
+    "start": 4.191,
+    "end": 4.4
+  },
+  {
+    "id": "w10",
+    "text": "an",
+    "start": 4.435,
+    "end": 4.516
+  },
+  {
+    "id": "w11",
+    "text": "owner,",
+    "start": 4.574,
+    "end": 4.934
+  },
+  {
+    "id": "w12",
+    "text": "a",
+    "start": 4.981,
+    "end": 5.05
+  },
+  {
+    "id": "w13",
+    "text": "due",
+    "start": 5.108,
+    "end": 5.271
+  },
+  {
+    "id": "w14",
+    "text": "date,",
+    "start": 5.306,
+    "end": 5.631
+  },
+  {
+    "id": "w15",
+    "text": "and",
+    "start": 5.712,
+    "end": 5.875
+  },
+  {
+    "id": "w16",
+    "text": "the",
+    "start": 5.921,
+    "end": 6.002
+  },
+  {
+    "id": "w17",
+    "text": "evidence",
+    "start": 6.06,
+    "end": 6.49
+  },
+  {
+    "id": "w18",
+    "text": "required",
+    "start": 6.536,
+    "end": 6.943
+  },
+  {
+    "id": "w19",
+    "text": "to",
+    "start": 6.978,
+    "end": 7.047
+  },
+  {
+    "id": "w20",
+    "text": "close",
+    "start": 7.105,
+    "end": 7.361
+  },
+  {
+    "id": "w21",
+    "text": "it.",
+    "start": 7.407,
+    "end": 7.663
+  },
+  {
+    "id": "w22",
+    "text": "Try",
+    "start": 7.918,
+    "end": 8.115
+  },
+  {
+    "id": "w23",
+    "text": "to",
+    "start": 8.173,
+    "end": 8.243
+  },
+  {
+    "id": "w24",
+    "text": "close",
+    "start": 8.301,
+    "end": 8.568
+  },
+  {
+    "id": "w25",
+    "text": "it",
+    "start": 8.615,
+    "end": 8.707
+  },
+  {
+    "id": "w26",
+    "text": "without",
+    "start": 8.766,
+    "end": 9.091
+  },
+  {
+    "id": "w27",
+    "text": "that",
+    "start": 9.137,
+    "end": 9.3
+  },
+  {
+    "id": "w28",
+    "text": "evidence,",
+    "start": 9.358,
+    "end": 9.961
+  },
+  {
+    "id": "w29",
+    "text": "and",
+    "start": 10.066,
+    "end": 10.217
+  },
+  {
+    "id": "w30",
+    "text": "PlantPulse",
+    "start": 10.275,
+    "end": 10.902
+  },
+  {
+    "id": "w31",
+    "text": "refuses.",
+    "start": 10.96,
+    "end": 11.703
+  },
+  {
+    "id": "w32",
+    "text": "A",
+    "start": 12.167,
+    "end": 12.237
+  },
+  {
+    "id": "w33",
+    "text": "reviewer",
+    "start": 12.318,
+    "end": 12.736
+  },
+  {
+    "id": "w34",
+    "text": "who",
+    "start": 12.794,
+    "end": 12.934
+  },
+  {
+    "id": "w35",
+    "text": "is",
+    "start": 13.003,
+    "end": 13.096
+  },
+  {
+    "id": "w36",
+    "text": "not",
+    "start": 13.154,
+    "end": 13.293
+  },
+  {
+    "id": "w37",
+    "text": "the",
+    "start": 13.34,
+    "end": 13.421
+  },
+  {
+    "id": "w38",
+    "text": "owner",
+    "start": 13.479,
+    "end": 13.735
+  },
+  {
+    "id": "w39",
+    "text": "signs",
+    "start": 13.816,
+    "end": 14.118
+  },
+  {
+    "id": "w40",
+    "text": "off,",
+    "start": 14.187,
+    "end": 14.443
+  },
+  {
+    "id": "w41",
+    "text": "and",
+    "start": 14.466,
+    "end": 14.64
+  },
+  {
+    "id": "w42",
+    "text": "every",
+    "start": 14.71,
+    "end": 14.942
+  },
+  {
+    "id": "w43",
+    "text": "decision",
+    "start": 15,
+    "end": 15.418
+  },
+  {
+    "id": "w44",
+    "text": "is",
+    "start": 15.488,
+    "end": 15.581
+  },
+  {
+    "id": "w45",
+    "text": "written",
+    "start": 15.639,
+    "end": 15.952
+  },
+  {
+    "id": "w46",
+    "text": "to",
+    "start": 16.01,
+    "end": 16.091
+  },
+  {
+    "id": "w47",
+    "text": "a",
+    "start": 16.173,
+    "end": 16.196
+  },
+  {
+    "id": "w48",
+    "text": "tamper-evident",
+    "start": 16.254,
+    "end": 17.032
+  },
+  {
+    "id": "w49",
+    "text": "log.",
+    "start": 17.09,
+    "end": 17.554
+  }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "name": "no pruning",
+  "avg": 5.033644756702668,
+  "keep_n": null
+ },
+ {
+  "name": "keep top 98 (nested)",
+  "avg": 5.067804498318319,
+  "keep_n": 98
+ },
+ {
+  "name": "keep top 78 (nested)",
+  "avg": 5.040708892769337,
+  "keep_n": 78
+ },
+ {
+  "name": "keep top 58 (nested)",
+  "avg": 5.027993079689036,
+  "keep_n": 58
+ },
+ {
+  "name": "keep top 44 (nested)",
+  "avg": 5.025940967093734,
+  "keep_n": 44
+ },
+ {
+  "name": "keep top 32 (nested)",
+  "avg": 5.218379544337686,
+  "keep_n": 32
+ }
+]

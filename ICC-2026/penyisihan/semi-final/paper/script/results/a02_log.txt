@@ -1,0 +1,106 @@
+sub-220 vol=0.2ml rule=0.000
+sub-522 vol=50.3ml rule=0.170
+sub-138 vol=36.7ml rule=0.096
+sub-965 vol=45.3ml rule=0.473
+sub-803 vol=114.7ml rule=0.238
+sub-1358 vol=269.8ml rule=0.164
+sub-1015 vol=98.6ml rule=0.152
+sub-50 vol=34.5ml rule=0.306
+sub-1706 vol=0.4ml rule=0.000
+sub-915 vol=1.3ml rule=0.000
+sub-680 vol=33.5ml rule=0.034
+sub-1185 vol=1.1ml rule=0.000
+sub-341 vol=203.8ml rule=0.329
+sub-1309 vol=71.3ml rule=0.346
+sub-653 vol=6.1ml rule=0.305
+sub-778 vol=8.4ml rule=0.534
+sub-58 vol=15.0ml rule=0.037
+sub-1057 vol=25.0ml rule=0.337
+sub-794 vol=17.1ml rule=0.208
+sub-579 vol=2.4ml rule=0.000
+sub-1073 vol=276.9ml rule=0.000
+sub-618 vol=7.2ml rule=0.295
+sub-514 vol=2.5ml rule=0.000
+sub-1660 vol=42.9ml rule=0.651
+sub-745 vol=2.3ml rule=0.000
+sub-1010 vol=134.2ml rule=0.381
+sub-1140 vol=28.9ml rule=0.268
+sub-760 vol=83.4ml rule=0.774
+sub-544 vol=32.2ml rule=0.422
+sub-1443 vol=49.2ml rule=0.324
+latih: 250 pasien, 6416 slice
+epoch 0: loss 159.0 (16s)
+epoch 1: loss 143.8 (32s)
+epoch 2: loss 126.5 (47s)
+epoch 3: loss 107.7 (62s)
+epoch 4: loss 81.8 (78s)
+epoch 5: loss 44.6 (93s)
+epoch 6: loss 27.3 (108s)
+epoch 7: loss 24.5 (123s)
+epoch 8: loss 22.1 (189s)
+epoch 9: loss 21.6 (239s)
+epoch 10: loss 22.7 (261s)
+epoch 11: loss 20.1 (282s)
+epoch 12: loss 19.4 (303s)
+epoch 13: loss 19.4 (326s)
+epoch 14: loss 18.6 (351s)
+epoch 15: loss 19.3 (376s)
+epoch 16: loss 19.2 (403s)
+epoch 17: loss 18.0 (430s)
+epoch 18: loss 17.3 (466s)
+epoch 19: loss 17.2 (491s)
+epoch 20: loss 17.4 (511s)
+epoch 21: loss 16.6 (530s)
+epoch 22: loss 16.3 (551s)
+epoch 23: loss 16.5 (571s)
+epoch 24: loss 16.2 (591s)
+                 vol_ml  dice_rule  dice_unet  recall_lesi_unet
+participant_id                                                 
+sub-220           0.217      0.000      0.113             1.000
+sub-522          50.267      0.170      0.714             0.250
+sub-138          36.701      0.096      0.846             0.385
+sub-965          45.317      0.473      0.895             0.500
+sub-803         114.741      0.238      0.870             0.667
+sub-1358        269.831      0.164      0.933             0.500
+sub-1015         98.608      0.152      0.911             0.360
+sub-50           34.474      0.306      0.872             1.000
+sub-1706          0.374      0.000      0.780             1.000
+sub-915           1.269      0.000      0.584             1.000
+sub-680          33.454      0.034      0.733             0.429
+sub-1185          1.100      0.000      0.889             1.000
+sub-341         203.845      0.329      0.954             1.000
+sub-1309         71.349      0.346      0.871             0.733
+sub-653           6.059      0.305      0.796             1.000
+sub-778           8.408      0.534      0.737             0.250
+sub-58           15.016      0.038      0.882             1.000
+sub-1057         25.020      0.337      0.897             1.000
+sub-794          17.078      0.208      0.871             0.714
+sub-579           2.399      0.000      0.713             1.000
+sub-1073        276.881      0.000      0.006             0.500
+sub-618           7.206      0.295      0.795             1.000
+sub-514           2.480      0.000      0.685             0.500
+sub-1660         42.878      0.651      0.759             0.667
+sub-745           2.313      0.000      0.658             0.667
+sub-1010        134.241      0.381      0.922             1.000
+sub-1140         28.895      0.268      0.916             0.667
+sub-760          83.429      0.774      0.926             1.000
+sub-544          32.168      0.422      0.931             1.000
+sub-1443         49.189      0.324      0.937             0.667
+{
+ "n": 30,
+ "n_latih": 250,
+ "n_slice_latih": 6416,
+ "epoch": 25,
+ "res": 128,
+ "device": "mps",
+ "recall_lesi_unet_mean": 0.7484713064713067,
+ "dice_rule_mean": 0.22808030233666757,
+ "dice_rule_median": 0.22283071584955233,
+ "dice_unet_mean": 0.779938508612428,
+ "dice_unet_median": 0.8706008731307842,
+ "dice_unet_vol_ge5": 0.8250057230589806,
+ "n_vol_ge5": 23,
+ "dice_unet_vol_lt5": 0.6318605182880407,
+ "spearman_vol_dice": 0.49187986651835375,
+ "menit": 9.885033933321635
+}

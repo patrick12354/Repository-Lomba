@@ -1,0 +1,62 @@
+
+B1_last15d  origin 2023-08-14 14:30:00  horizon ends 2023-08-29 14:30:00
+  v12  base 4.22822  increment 4.18679  delta -0.04143
+  v16  base 4.25458  increment 4.21193  delta -0.04265
+  v20  base 4.40894  increment 4.31070  delta -0.09824
+
+B2_prev15d  origin 2023-07-30 14:30:00  horizon ends 2023-08-14 14:30:00
+  v12  base 6.80112  increment 6.63757  delta -0.16355
+  v16  base 6.75486  increment 6.60114  delta -0.15371
+  v20  base 6.86254  increment 6.69467  delta -0.16787
+
+B3_shift7d  origin 2023-08-07 14:30:00  horizon ends 2023-08-22 14:30:00
+  v12  base 4.89360  increment 4.78089  delta -0.11271
+  v16  base 4.84892  increment 4.73646  delta -0.11246
+  v20  base 4.77927  increment 4.64085  delta -0.13842
+
+     block              origin   n  meta_rows  meta_folds model     base  increment  moved_rms     delta
+B1_last15d 2023-08-14 14:30:00 720       3072           8   v12 4.228216   4.186787   0.979767 -0.041429
+B1_last15d 2023-08-14 14:30:00 720       3072           8   v16 4.254583   4.211930   0.989408 -0.042653
+B1_last15d 2023-08-14 14:30:00 720       3072           8   v20 4.408941   4.310705   1.090380 -0.098236
+B2_prev15d 2023-07-30 14:30:00 720       1152           3   v12 6.801118   6.637567   1.174559 -0.163551
+B2_prev15d 2023-07-30 14:30:00 720       1152           3   v16 6.754858   6.601144   1.153867 -0.153714
+B2_prev15d 2023-07-30 14:30:00 720       1152           3   v20 6.862542   6.694667   1.212502 -0.167875
+B3_shift7d 2023-08-07 14:30:00 720       2688           7   v12 4.893604   4.780893   0.975927 -0.112710
+B3_shift7d 2023-08-07 14:30:00 720       2688           7   v16 4.848921   4.736464   0.972803 -0.112456
+B3_shift7d 2023-08-07 14:30:00 720       2688           7   v20 4.779271   4.640854   1.037195 -0.138417
+
+{
+  "v12": {
+    "blocks": 3,
+    "blocks_improved": 3,
+    "mean_delta": -0.10589699199892759,
+    "mean_delta_nonoverlapping": -0.10249027534795108,
+    "pooled_base": 5.418498309966231,
+    "pooled_increment": 5.305450465182048,
+    "worst_block_base": 6.801117926741717,
+    "worst_block_increment": 6.637566695872625,
+    "moved_rms": 1.0434177542330432
+  },
+  "v16": {
+    "blocks": 3,
+    "blocks_improved": 3,
+    "mean_delta": -0.10294130247118982,
+    "mean_delta_nonoverlapping": -0.09818372176229184,
+    "pooled_base": 5.392637495692912,
+    "pooled_increment": 5.28360821036176,
+    "worst_block_base": 6.754858165504665,
+    "worst_block_increment": 6.601143882885006,
+    "moved_rms": 1.0386927953169123
+  },
+  "v20": {
+    "blocks": 3,
+    "blocks_improved": 3,
+    "mean_delta": -0.13484278330220612,
+    "mean_delta_nonoverlapping": -0.13305549393438865,
+    "pooled_base": 5.458164262175241,
+    "pooled_increment": 5.320973091243107,
+    "worst_block_base": 6.8625418952683335,
+    "worst_block_increment": 6.694667063264524,
+    "moved_rms": 1.1133589915075353
+  }
+}

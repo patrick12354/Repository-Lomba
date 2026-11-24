@@ -1,0 +1,16 @@
+{
+  "n": 1200,
+  "rmse": 6.024129006676807,
+  "bias": -0.5954638939532477,
+  "day_level_mse_share": 0.3631368109388855,
+  "within_day_rmse": 4.807478352249748,
+  "worst10pct_sse_share": 0.6261753081595158,
+  "lag1": 0.9330125752269,
+  "dataset": {
+    "train": 2933,
+    "test": 734,
+    "features": 118
+  },
+  "recent45_folds_unchanged": 16,
+  "recent45_folds_total": 18
+}

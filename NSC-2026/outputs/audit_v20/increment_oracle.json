@@ -1,0 +1,20 @@
+{
+  "pooled": {
+    "no reconciliation": 5.644890810040729,
+    "shipped increment models": 5.514358862716556,
+    "three quarters of its error": 5.234233290160411,
+    "half its error": 4.985228478951197,
+    "a quarter of its error": 4.772218375282969,
+    "ORACLE increments": 4.600205847345365
+  },
+  "mean_block_rmse": {
+    "no reconciliation": 5.504720534251133,
+    "shipped increment models": 5.384108754791919,
+    "three quarters of its error": 5.097443180675683,
+    "half its error": 4.841652898452344,
+    "a quarter of its error": 4.622151054234683,
+    "ORACLE increments": 4.44470525328178
+  },
+  "headroom_to_oracle": -0.9141530153711903,
+  "gain_if_error_halved": -0.5291303837653585
+}

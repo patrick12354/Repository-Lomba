@@ -1,0 +1,24 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+stage=stability  blocks=['B1_last15d', 'B2_prev15d', 'B3_shift7d', 'H1_last7d', 'H2_last14d', 'H3_last21d']  hbt seeds=[100, 101, 102, 103, 104]  inc seeds=[20261005, 20261006, 20261007, 20261008, 20261009]
+  control B1_last15d   z 4.249319  [11 s]
+  control B2_prev15d   z 6.579074  [10 s]
+  control B3_shift7d   z 4.677423  [11 s]
+  control H1_last7d    z 5.203602  [12 s]
+  control H2_last14d   z 2.774141  [12 s]
+  control H3_last21d   z 5.299037  [11 s]
+  B04  hbt_params     B1 -0.03258  B2 -0.00164  B3 -0.00020  H1 -0.05021  H2 -0.01734  H3 -0.00603  [85 s]
+  I01  hbt_params     B1 -0.01499  B2 -0.00133  B3 +0.00104  H1 -0.02409  H2 -0.00737  H3 -0.00515  [4009 s]
+  D01  inc_params     B1 -0.00551  B2 -0.01081  B3 +0.00839  H1 +0.03591  H2 -0.00509  H3 -0.00315  [70 s]
+  F01  inference_avg  B1 -0.00552  B2 -0.00049  B3 -0.00233  H1 -0.00947  H2 +0.00053  H3 -0.00406  [191 s]
+
+block  B1_last15d  B2_prev15d  B3_shift7d  H1_last7d  H2_last14d  H3_last21d
+id                                                                          
+B04      -0.03258    -0.00164    -0.00020   -0.05021    -0.01734    -0.00603
+D01      -0.00551    -0.01081     0.00839    0.03591    -0.00509    -0.00315
+F01      -0.00552    -0.00049    -0.00233   -0.00947     0.00053    -0.00406
+I01      -0.01499    -0.00133     0.00104   -0.02409    -0.00737    -0.00515
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\campaign_v21_s38\ledger_stability.csv

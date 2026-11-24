@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #s00 svg.full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+        #s00 .sky * { vector-effect: non-scaling-stroke; }
+        #s00 .lbl { font: 600 19px var(--mono); letter-spacing: 0.12em; fill: var(--ink-2); }
+        #s00 .lbl-sub { font: 500 15px var(--mono); letter-spacing: 0.06em; fill: var(--ink-3); }
+        #s00 .kick { position: absolute; left: 90px; top: 92px; }
+        #s00 .run { position: absolute; left: 1490px; top: 468px; }
+        #s00 .meter { position: absolute; right: 90px; top: 70px; width: 380px; padding: 18px 22px 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.94);
+          border: 1px solid var(--line-2); box-shadow: var(--shadow-pop); }
+        #s00 .meter .h { display: flex; justify-content: space-between; align-items: center; font: 600 17px/1 var(--mono); letter-spacing: 0.14em; color: var(--ink-3); }
+        #s00 .meter .h b { font: 600 17px/1 var(--mono); letter-spacing: 0.14em; }
+        #s00 .meter .bar { margin-top: 16px; height: 16px; border-radius: 8px; background: var(--well); overflow: hidden; box-shadow: inset 0 1px 2px rgba(38, 48, 78, 0.15); }
+        #s00 .meter .fill { height: 100%; width: 100%; border-radius: 8px; background: linear-gradient(90deg, #1d9a63, #36b97d); transform-origin: 0 50%; }
+        #s00 .tiles { position: absolute; inset: 0; mask-image: radial-gradient(62% 66% at 50% 45%, #000 55%, transparent 92%); }
+        #s00 .tile { position: absolute; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 16px; background: #ffffff; border: 1.5px solid rgba(24, 38, 72, 0.18);
+          box-shadow: 0 1px 0 #fff inset, 0 10px 22px -12px rgba(38, 48, 78, 0.35); }
+        #s00 .tile svg { position: absolute; inset: 0; width: 76px; height: 76px; }
+        #s00 .tile i { position: absolute; right: 7px; top: 7px; width: 11px; height: 11px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px rgba(29, 154, 99, 0.16); }
+        #s00 .tile.hero { border: 2.5px solid var(--ink-hi); }
+        #s00 .lanes { position: absolute; inset: 0; mask-image: radial-gradient(62% 66% at 50% 45%, #000 55%, transparent 92%); }
+        #s00 .flash { position: absolute; inset: 0; background: #faf9ef; opacity: 0; }
+        #s00 .ping { position: absolute; left: 960px; top: 470px; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 4px solid var(--danger); opacity: 0; }
+      </style>
+      <div data-hf-id="hf-p27o" id="root" data-composition-id="s00-plant" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-wfzt" class="pp" id="s00">
+          <div data-hf-id="hf-m7dd" class="bg"></div>
+          <div data-hf-id="hf-9x0m" class="grid" id="s00-grid"></div>
+
+          <!-- 1. The plant: a blueprint skyline that draws itself, product flowing along the pipe rack -->
+          <svg data-hf-id="hf-824k" class="full sky" id="s00-sky" viewBox="0 0 1920 1080">
+            <g data-hf-id="hf-ggsr" fill="none" stroke="#15213a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+              <g data-hf-id="hf-tzmy" id="s00-sky-fill" fill="#eef2f8" stroke="none" opacity="0">
+                <rect data-hf-id="hf-wyga" x="250" y="250" width="58" height="560" rx="29" /><rect data-hf-id="hf-aj6c" x="350" y="360" width="46" height="450" rx="23" />
+                <rect data-hf-id="hf-6ul3" x="520" y="540" width="330" height="270" /><rect data-hf-id="hf-i1ma" x="562" y="330" width="22" height="210" /><rect data-hf-id="hf-ifyn" x="664" y="300" width="22" height="240" /><rect data-hf-id="hf-alfw" x="766" y="330" width="22" height="210" />
+                <rect data-hf-id="hf-dogo" x="985" y="610" width="230" height="200" /><circle data-hf-id="hf-2z56" cx="1390" cy="660" r="74" /><circle data-hf-id="hf-ckem" cx="1556" cy="682" r="56" /><rect data-hf-id="hf-rf8w" x="1640" y="690" width="120" height="120" />
+              </g>
+              <g data-hf-id="hf-onvs" id="s00-sky-lines">
+                <path data-hf-id="hf-yajb" pathLength="1" d="M 40 810 L 1880 810" />
+                <rect data-hf-id="hf-3nnj" pathLength="1" x="250" y="250" width="58" height="560" rx="29" /><rect data-hf-id="hf-hhzl" pathLength="1" x="350" y="360" width="46" height="450" rx="23" />
+                <path data-hf-id="hf-u3cf" pathLength="1" d="M 236 360 L 322 360 M 236 470 L 322 470 M 236 580 L 322 580 M 236 690 L 322 690 M 338 470 L 408 470 M 338 600 L 408 600" />
+                <path data-hf-id="hf-urf1" pathLength="1" d="M 279 250 L 279 200 L 360 200 L 360 330 L 373 360" />
+                <rect data-hf-id="hf-17lk" pathLength="1" x="520" y="540" width="330" height="270" />
+                <path data-hf-id="hf-bwas" pathLength="1" d="M 540 600 L 830 600 M 540 660 L 830 660 M 540 720 L 830 720" />
+                <rect data-hf-id="hf-1lt3" pathLength="1" x="562" y="330" width="22" height="210" /><rect data-hf-id="hf-6k9s" pathLength="1" x="664" y="300" width="22" height="240" /><rect data-hf-id="hf-xyox" pathLength="1" x="766" y="330" width="22" height="210" />
+                <path data-hf-id="hf-ynn4" pathLength="1" d="M 985 810 L 985 610 L 1100 556 L 1215 610 L 1215 810" />
+                <path data-hf-id="hf-28b7" pathLength="1" d="M 1035 810 L 1035 720 L 1095 720 L 1095 810 M 1130 660 L 1190 660 L 1190 700 L 1130 700 Z" />
+                <circle data-hf-id="hf-351t" pathLength="1" cx="1390" cy="660" r="74" /><path data-hf-id="hf-2c22" pathLength="1" d="M 1340 716 L 1328 810 M 1440 716 L 1452 810 M 1390 734 L 1390 810" />
+                <circle data-hf-id="hf-w3y9" pathLength="1" cx="1556" cy="682" r="56" /><path data-hf-id="hf-he3m" pathLength="1" d="M 1518 724 L 1508 810 M 1594 724 L 1604 810" />
+                <rect data-hf-id="hf-aa21" pathLength="1" x="1640" y="690" width="120" height="120" /><path data-hf-id="hf-rysd" pathLength="1" d="M 1640 720 L 1760 720" />
+                <path data-hf-id="hf-bird" pathLength="1" d="M 1820 810 L 1820 230 M 1806 810 L 1820 600 L 1834 810" />
+                <path data-hf-id="hf-k1mv" pathLength="1" d="M 110 756 L 1860 756 M 110 772 L 1860 772" />
+                <path data-hf-id="hf-mmxj" pathLength="1" d="M 160 756 L 160 810 M 400 756 L 400 810 M 900 756 L 900 810 M 1260 756 L 1260 810 M 1600 756 L 1600 810" />
+              </g>
+              <path data-hf-id="hf-1zmi" id="s00-flare" d="M 1820 228 C 1800 200, 1812 170, 1822 150 C 1826 176, 1846 192, 1832 228 Z" fill="#f0a21a" stroke="#c97706" stroke-width="2" opacity="0" />
+              <path data-hf-id="hf-lebx" id="s00-rackflow" d="M 110 764 L 1860 764" stroke="#2f62e0" stroke-width="5" stroke-dasharray="16 22" opacity="0" />
+              <!-- the compressor house the camera dives into -->
+              <rect data-hf-id="hf-m5qk" id="s00-house-ring" x="970" y="540" width="260" height="285" rx="18" stroke="#2f62e0" stroke-width="4" opacity="0" />
+            </g>
+            <text data-hf-id="hf-9xph" class="lbl" id="s00-house-lbl" x="1100" y="870" text-anchor="middle" opacity="0">COMPRESSOR HOUSE</text>
+          </svg>
+
+          <div data-hf-id="hf-dcp1" class="kicker kick" id="s00-kick">A petrochemical plant</div>
+
+          <!-- 3. "One of hundreds": a field of machine tiles, joined by product lanes -->
+          <svg data-hf-id="hf-msps" class="full lanes" id="s00-lanes" viewBox="0 0 1920 1080" />
+          <div data-hf-id="hf-l9ts" class="tiles" id="s00-tiles"></div>
+          <div data-hf-id="hf-32by" class="ping" id="s00-ping"></div>
+
+          <!-- 2. The compressor itself, drawn up on paper with its parts named -->
+          <svg data-hf-id="hf-hdw9" class="full" id="s00-art" viewBox="0 0 1920 1080">
+            <g data-hf-id="hf-b7ju" id="s00-machine" transform="translate(400 215) scale(1.15)">
+              <g data-hf-id="hf-ku2r" id="s00-machine-body">
+<!-- art:compressor:s00 -->
+<!-- Cracked gas compressor train, side elevation, drawn as navy ink on paper (1000 x 560 units).
+     Shared by s00/s01/s03 via scripts/inline-art.mjs; s00 becomes the scene's id prefix.
+     Parts with ids are animated by the scenes: pipes' flow dashes, the turning shaft stripes, the DE bearing
+     (where vibration is measured), the status lamp, and the label layer. -->
+<defs data-hf-id="hf-mh0t">
+  <clippath data-hf-id="hf-2pxf" id="s00-cpl-clip"><rect data-hf-id="hf-v9fn" x="532" y="304" width="96" height="52" rx="10" /></clippath>
+  <clippath data-hf-id="hf-snsy" id="s00-shaft-clip"><rect data-hf-id="hf-idxs" x="512" y="320" width="120" height="20" /></clippath>
+  <lineargradient data-hf-id="hf-04af" id="s00-casing" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-rxzp" offset="0" stop-color="#f3f6fb" /><stop data-hf-id="hf-6179" offset="0.45" stop-color="#e1e8f3" /><stop data-hf-id="hf-6dsj" offset="1" stop-color="#c3cfe2" /></lineargradient>
+  <lineargradient data-hf-id="hf-z8sf" id="s00-motor" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-zlr8" offset="0" stop-color="#dbe3f0" /><stop data-hf-id="hf-w28c" offset="0.5" stop-color="#c4d0e3" /><stop data-hf-id="hf-zcjj" offset="1" stop-color="#a9b8d0" /></lineargradient>
+  <lineargradient data-hf-id="hf-54sa" id="s00-pipe" x1="0" y1="0" x2="1" y2="0"><stop data-hf-id="hf-biq4" offset="0" stop-color="#c9d3e4" /><stop data-hf-id="hf-zn5u" offset="0.4" stop-color="#eef2f8" /><stop data-hf-id="hf-ogoh" offset="1" stop-color="#b9c5d9" /></lineargradient>
+  <lineargradient data-hf-id="hf-9qoo" id="s00-pipeh" x1="0" y1="0" x2="0" y2="1"><stop data-hf-id="hf-d4v4" offset="0" stop-color="#eef2f8" /><stop data-hf-id="hf-oijq" offset="0.6" stop-color="#d3dbe8" /><stop data-hf-id="hf-tied" offset="1" stop-color="#b9c5d9" /></lineargradient>
+  <pattern data-hf-id="hf-4h20" id="s00-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect data-hf-id="hf-pczl" width="10" height="10" fill="#f0a21a" /><rect data-hf-id="hf-zbhn" width="4" height="10" fill="#e08f0a" /></pattern>
+</defs>
+<g data-hf-id="hf-htg8" class="ink" stroke="#15213a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <!-- process piping: gas in (suction, left) and gas out (discharge, right) rising off the top -->
+  <g data-hf-id="hf-of7u" id="s00-pipes">
+    <path data-hf-id="hf-g7ds" d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="#15213a" stroke-width="64" />
+    <path data-hf-id="hf-cxae" d="M 190 238 L 190 120 Q 190 70 140 70 L -40 70" fill="none" stroke="url(#s00-pipe)" stroke-width="58" />
+    <path data-hf-id="hf-p2bn" d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#15213a" stroke-width="56" />
+    <path data-hf-id="hf-yry2" d="M 380 238 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="url(#s00-pipeh)" stroke-width="50" />
+    <rect data-hf-id="hf-5sw4" x="150" y="196" width="80" height="16" rx="3" fill="#b4c1d6" /><rect data-hf-id="hf-3iim" x="344" y="196" width="72" height="16" rx="3" fill="#b4c1d6" />
+  </g>
+  <!-- flow dashes ride inside the pipes (scenes animate stroke-dashoffset) -->
+  <path data-hf-id="hf-0r0q" id="s00-flow-in" d="M -40 70 L 140 70 Q 190 70 190 120 L 190 230" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+  <path data-hf-id="hf-ip7b" id="s00-flow-out" d="M 380 230 L 380 160 Q 380 110 430 110 L 1040 110" fill="none" stroke="#2f62e0" stroke-width="6" stroke-dasharray="18 26" opacity="0.75" />
+
+  <!-- baseplate / skid -->
+  <rect data-hf-id="hf-8a77" x="40" y="452" width="900" height="44" rx="6" fill="#8b98ae" />
+  <rect data-hf-id="hf-78lb" x="40" y="452" width="900" height="10" rx="4" fill="#a6b2c5" stroke="none" />
+  <g data-hf-id="hf-s4tq" fill="#15213a" stroke="none"><circle data-hf-id="hf-0vt3" cx="80" cy="478" r="6" /><circle data-hf-id="hf-szqy" cx="300" cy="478" r="6" /><circle data-hf-id="hf-h2w6" cx="520" cy="478" r="6" /><circle data-hf-id="hf-nhni" cx="700" cy="478" r="6" /><circle data-hf-id="hf-vklg" cx="900" cy="478" r="6" /></g>
+
+  <!-- NDE bearing pedestal (left) -->
+  <rect data-hf-id="hf-404x" x="58" y="300" width="58" height="64" rx="8" fill="#aebbd2" />
+  <rect data-hf-id="hf-g2vf" x="68" y="364" width="38" height="88" fill="#97a5bd" />
+
+  <!-- compressor casing: barrel with end covers, horizontal split line and bolts -->
+  <rect data-hf-id="hf-jkp2" x="112" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect data-hf-id="hf-bzb8" x="446" y="226" width="22" height="214" rx="6" fill="#b9c6da" />
+  <rect data-hf-id="hf-z15j" x="130" y="236" width="320" height="194" rx="26" fill="url(#s00-casing)" />
+  <path data-hf-id="hf-jaik" d="M 132 333 L 448 333" stroke-width="2.5" />
+  <g data-hf-id="hf-a1rm" fill="#15213a" stroke="none"><circle data-hf-id="hf-yx35" cx="160" cy="333" r="5" /><circle data-hf-id="hf-k86q" cx="200" cy="333" r="5" /><circle data-hf-id="hf-puzq" cx="240" cy="333" r="5" /><circle data-hf-id="hf-2r0q" cx="280" cy="333" r="5" /><circle data-hf-id="hf-q5aj" cx="320" cy="333" r="5" /><circle data-hf-id="hf-v3qf" cx="360" cy="333" r="5" /><circle data-hf-id="hf-scxo" cx="400" cy="333" r="5" /><circle data-hf-id="hf-a4yv" cx="430" cy="333" r="5" /></g>
+  <path data-hf-id="hf-lk1b" d="M 150 252 L 430 252" stroke="#ffffff" stroke-width="5" opacity="0.8" />
+  <rect data-hf-id="hf-5jxk" x="170" y="430" width="40" height="22" fill="#97a5bd" /><rect data-hf-id="hf-bxbq" x="370" y="430" width="40" height="22" fill="#97a5bd" />
+
+  <!-- DE bearing housing with its vibration probe (the measurement point in the data) -->
+  <g data-hf-id="hf-exrj" id="s00-bearing">
+    <rect data-hf-id="hf-ixfi" x="466" y="292" width="62" height="80" rx="9" fill="#aebbd2" />
+    <rect data-hf-id="hf-t30w" x="476" y="372" width="42" height="80" fill="#97a5bd" />
+    <rect data-hf-id="hf-qyqd" x="490" y="262" width="14" height="30" rx="3" fill="#15213a" />
+    <path data-hf-id="hf-rs2x" d="M 497 262 Q 497 236 530 232" fill="none" stroke-width="3" />
+  </g>
+
+  <!-- shaft + coupling under its guard; the stripes slide to show the shaft turning -->
+  <rect data-hf-id="hf-eda3" x="512" y="320" width="120" height="20" fill="#c2ccdc" />
+  <g data-hf-id="hf-6qgk" clip-path="url(#s00-shaft-clip)"><g data-hf-id="hf-yh28" id="s00-shaft-stripes" stroke="none" fill="#8d9ab0">
+    <rect data-hf-id="hf-dolu" x="512" y="300" width="120" height="6" /><rect data-hf-id="hf-kbhn" x="512" y="316" width="120" height="6" /><rect data-hf-id="hf-4cxh" x="512" y="332" width="120" height="6" /><rect data-hf-id="hf-glqm" x="512" y="348" width="120" height="6" />
+  </g></g>
+  <rect data-hf-id="hf-6arg" x="532" y="304" width="96" height="52" rx="10" fill="url(#s00-hatch)" />
+  <g data-hf-id="hf-jbmt" clip-path="url(#s00-cpl-clip)" opacity="0.55"><g data-hf-id="hf-u1lz" id="s00-cpl-stripes" stroke="none" fill="#ffffff">
+    <rect data-hf-id="hf-0g8n" x="532" y="276" width="96" height="5" /><rect data-hf-id="hf-9wij" x="532" y="294" width="96" height="5" /><rect data-hf-id="hf-e13s" x="532" y="312" width="96" height="5" /><rect data-hf-id="hf-zpy4" x="532" y="330" width="96" height="5" /><rect data-hf-id="hf-9j2h" x="532" y="348" width="96" height="5" />
+  </g></g>
+  <rect data-hf-id="hf-4vfr" x="532" y="304" width="96" height="52" rx="10" fill="none" />
+
+  <!-- electric motor: finned body, terminal box, fan cowl, feet -->
+  <rect data-hf-id="hf-pcg7" x="628" y="246" width="250" height="184" rx="22" fill="url(#s00-motor)" />
+  <g data-hf-id="hf-s49x" stroke-width="2" opacity="0.55"><path data-hf-id="hf-gsty" d="M 660 262 L 660 414" /><path data-hf-id="hf-6m4a" d="M 690 262 L 690 414" /><path data-hf-id="hf-xtse" d="M 720 262 L 720 414" /><path data-hf-id="hf-qfqi" d="M 750 262 L 750 414" /><path data-hf-id="hf-4pma" d="M 780 262 L 780 414" /><path data-hf-id="hf-w6ti" d="M 810 262 L 810 414" /><path data-hf-id="hf-wbs6" d="M 840 262 L 840 414" /></g>
+  <path data-hf-id="hf-f4ic" d="M 878 270 L 912 282 Q 924 338 912 394 L 878 406 Z" fill="#b2bfd5" />
+  <rect data-hf-id="hf-l0ss" x="706" y="206" width="96" height="40" rx="6" fill="#b4c1d6" />
+  <rect data-hf-id="hf-1r19" x="650" y="430" width="44" height="22" fill="#97a5bd" /><rect data-hf-id="hf-kixd" x="812" y="430" width="44" height="22" fill="#97a5bd" />
+  <!-- status lamp on the terminal box -->
+  <rect data-hf-id="hf-nzrv" x="746" y="182" width="16" height="24" fill="#97a5bd" stroke-width="2.5" />
+  <circle data-hf-id="hf-9vl5" id="s00-lamp" cx="754" cy="172" r="15" fill="#1d9a63" />
+  <circle data-hf-id="hf-1klr" id="s00-lamp-glow" cx="754" cy="172" r="15" fill="none" stroke="#1d9a63" stroke-width="3" opacity="0" />
+</g>
+<!-- /art -->
+              </g>
+              <rect data-hf-id="hf-lzbd" id="s00-scan" x="-60" y="20" width="6" height="520" fill="#2f62e0" opacity="0" />
+              <g data-hf-id="hf-jlu5" id="s00-labels" fill="none" stroke="#2f62e0" stroke-width="2">
+                <g data-hf-id="hf-tmn6" id="s00-l1"><path data-hf-id="hf-f8m0" d="M 290 236 L 250 -10" /><circle data-hf-id="hf-0m89" cx="290" cy="236" r="6" fill="#2f62e0" stroke="none" /><text data-hf-id="hf-3p8s" class="lbl" x="250" y="-24" text-anchor="middle" stroke="none">COMPRESSOR</text></g>
+                <g data-hf-id="hf-poj5" id="s00-l2"><path data-hf-id="hf-2bco" d="M 760 246 L 860 0" /><circle data-hf-id="hf-lyp2" cx="760" cy="246" r="6" fill="#2f62e0" stroke="none" /><text data-hf-id="hf-o42l" class="lbl" x="860" y="-14" text-anchor="middle" stroke="none">ELECTRIC MOTOR</text></g>
+                <g data-hf-id="hf-owvc" id="s00-l3"><path data-hf-id="hf-ahng" d="M 580 360 L 620 560" /><circle data-hf-id="hf-f5ay" cx="580" cy="358" r="6" fill="#2f62e0" stroke="none" /><text data-hf-id="hf-ie6q" class="lbl" x="620" y="590" text-anchor="middle" stroke="none">COUPLING</text></g>
+                <g data-hf-id="hf-ir5j" id="s00-l4"><path data-hf-id="hf-zzys" d="M 497 372 L 440 560" /><circle data-hf-id="hf-3cbv" cx="497" cy="372" r="6" fill="#2f62e0" stroke="none" /><text data-hf-id="hf-7ztt" class="lbl" x="400" y="590" text-anchor="middle" stroke="none">BEARING</text></g>
+                <g data-hf-id="hf-et1i" id="s00-l5"><text data-hf-id="hf-czw9" class="lbl-sub" x="-30" y="40" stroke="none">GAS IN →</text></g>
+                <g data-hf-id="hf-auxh" id="s00-l6"><text data-hf-id="hf-zlk2" class="lbl-sub" x="880" y="80" stroke="none">→ GAS OUT</text></g>
+              </g>
+            </g>
+          </svg>
+          <div data-hf-id="hf-bqfk" class="run" id="s00-run"><span data-hf-id="hf-oio2" class="chip ok"><span data-hf-id="hf-9gry" class="dot"></span>RUNNING</span></div>
+
+          <div data-hf-id="hf-m6so" class="meter" id="s00-meter">
+            <div data-hf-id="hf-kj5c" class="h"><span data-hf-id="hf-a2ie">PRODUCTION</span><b data-hf-id="hf-oiwy" id="s00-mstate" style="color: var(--ok-ink)">● RUNNING</b></div>
+            <div data-hf-id="hf-ufsv" class="bar"><div data-hf-id="hf-k4m5" class="fill" id="s00-mfill"></div></div>
+          </div>
+          <div data-hf-id="hf-bl2e" class="flash" id="s00-flash"></div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const NS = "http://www.w3.org/2000/svg";
+          // ---- the machine field: 19 x 9 tiles, centre tile is our compressor -------------------------
+          const COLS = 19, ROWS = 9, PITCH = 98, CX = 960, CY = 470, HC = 9, HR = 4;
+          const G = {
+            comp: '<rect x="14" y="30" width="26" height="22" rx="5"/><rect x="44" y="32" width="20" height="18" rx="4"/><path d="M40 41 L44 41"/><path d="M20 30 L20 20 M34 30 L34 22"/><path d="M10 56 L66 56"/>',
+            pump: '<circle cx="30" cy="40" r="13"/><circle cx="30" cy="40" r="4"/><rect x="45" y="32" width="20" height="16" rx="4"/><path d="M30 27 L30 18 L40 18"/><path d="M12 58 L66 58"/>',
+            fan: '<circle cx="38" cy="38" r="20"/><path d="M38 38 L38 22 Q46 26 38 38 Q54 40 50 46 Q44 52 38 38 Q26 50 24 42 Q22 34 38 38"/>',
+            col: '<rect x="30" y="12" width="16" height="50" rx="8"/><path d="M26 26 L50 26 M26 40 L50 40 M26 54 L50 54"/>',
+            hx: '<rect x="12" y="28" width="52" height="22" rx="11"/><path d="M20 34 L56 34 M20 39 L56 39 M20 44 L56 44"/><path d="M24 50 L22 58 M52 50 L54 58"/>',
+          };
+          const KINDS = ["pump", "comp", "fan", "hx", "pump", "col", "fan", "pump", "hx", "comp"];
+          const tiles = document.getElementById("s00-tiles"), lanes = document.getElementById("s00-lanes");
+          const T = [];
+          for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+            const x = CX + (c - HC) * PITCH, y = CY + (r - HR) * PITCH, hero = r === HR && c === HC;
+            const k = hero ? "comp" : KINDS[(r * 7 + c * 3 + ((r * c) % 4)) % KINDS.length];
+            const d = document.createElement("div");
+            d.className = "tile" + (hero ? " hero" : ""); d.id = `s00-t${r}-${c}`;
+            d.style.left = x + "px"; d.style.top = y + "px";
+            d.innerHTML = `<svg viewBox="0 0 76 76" fill="none" stroke="${hero ? "#0b1426" : "#3a4864"}" stroke-width="${hero ? 3 : 2.4}" stroke-linejoin="round" stroke-linecap="round">${G[k]}</svg><i></i>`;
+            tiles.appendChild(d);
+            T.push({ el: d, r, c, x, y, dist: Math.hypot(c - HC, r - HR), hero });
+          }
+          // Product lanes along each row (behind the tiles); a lane right of the stopped machine stops with it.
+          const L = [];
+          for (let r = 0; r < ROWS; r++) {
+            const y = CY + (r - HR) * PITCH;
+            const base = document.createElementNS(NS, "path");
+            base.setAttribute("d", `M -60 ${y} L 1980 ${y}`); base.setAttribute("stroke", "rgba(24,38,72,0.16)"); base.setAttribute("stroke-width", "10"); base.setAttribute("stroke-linecap", "round");
+            const dash = document.createElementNS(NS, "path");
+            dash.setAttribute("d", `M -60 ${y} L 1980 ${y}`); dash.setAttribute("stroke", "#2f62e0"); dash.setAttribute("stroke-width", "4"); dash.setAttribute("stroke-dasharray", "14 20"); dash.setAttribute("opacity", "0"); dash.id = "s00-lane" + r;
+            lanes.append(base, dash);
+            L.push({ dash, r });
+          }
+          // Lanes that stop: the hero's row and its neighbours, cascading outward.
+          const STOP = 7.25;
+          const laneStop = (r) => ({ 4: STOP + 0.15, 3: STOP + 0.55, 5: STOP + 0.65, 2: STOP + 1.0, 6: STOP + 1.1 })[r];
+
+          // ---- continuous motion, a pure function of scene time (seek-safe) -------------------------
+          const flowIn = document.getElementById("s00-flow-in"), flowOut = document.getElementById("s00-flow-out");
+          const sh = document.getElementById("s00-shaft-stripes"), cp = document.getElementById("s00-cpl-stripes");
+          const rack = document.getElementById("s00-rackflow"), flare = document.getElementById("s00-flare");
+          const sim = (t) => {
+            flowIn.style.strokeDashoffset = -t * 90; flowOut.style.strokeDashoffset = -t * 90;
+            sh.setAttribute("transform", `translate(0 ${(t * 160) % 16})`); cp.setAttribute("transform", `translate(0 ${(t * 160) % 18})`);
+            rack.style.strokeDashoffset = -t * 80;
+            flare.setAttribute("transform", `translate(1822 228) scale(${1 + 0.08 * Math.sin(t * 17) + 0.05 * Math.sin(t * 29)} ${1 + 0.14 * Math.sin(t * 13) + 0.06 * Math.sin(t * 31)}) translate(-1822 -228)`);
+            for (const l of L) { const s = laneStop(l.r); l.dash.style.strokeDashoffset = -Math.min(t, s ?? t) * 70; }
+          };
+          const clock = { t: 0 };
+          sim(0);
+
+          const tl = gsap.timeline({ paused: true });
+          tl.to(clock, { t: 10, duration: 10, ease: "none", onUpdate: () => sim(clock.t) }, 0);
+
+          // 1. Skyline draws itself (0 - 1.5 s), product flows along the rack, the flare lights.
+          tl.fromTo("#s00-grid", { opacity: 0 }, { opacity: 0.45, duration: 1.0 }, 0);
+          tl.fromTo("#s00-sky-lines > *", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut", stagger: 0.035 }, 0.05);
+          tl.to("#s00-sky-fill", { opacity: 1, duration: 0.6 }, 0.8);
+          tl.to("#s00-flare", { opacity: 1, duration: 0.3 }, 0.9);
+          tl.to("#s00-rackflow", { opacity: 0.8, duration: 0.4 }, 0.9);
+          tl.fromTo("#s00-kick", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 0.3);
+          tl.fromTo("#s00-house-ring", { opacity: 0, scale: 1.15, transformOrigin: "1100px 682px" }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, 1.1);
+          tl.fromTo("#s00-house-lbl", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.2);
+
+          // 2. "This is a compressor": dive into the house; the machine is drawn up behind a scan line.
+          tl.to("#s00-sky", { scale: 4.2, transformOrigin: "1100px 690px", opacity: 0, duration: 0.75, ease: "power3.in" }, 1.55);
+          tl.to("#s00-kick", { opacity: 0, duration: 0.3 }, 1.6);
+          tl.fromTo("#s00-art", { opacity: 0, scale: 0.7, transformOrigin: "960px 520px" }, { opacity: 1, scale: 1, duration: 0.9, ease: "expo.out" }, 2.15);
+          tl.fromTo("#s00-machine-body", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.9, ease: "power2.inOut" }, 2.15);
+          tl.fromTo("#s00-scan", { x: -40, opacity: 1 }, { x: 1010, duration: 0.9, ease: "power2.inOut" }, 2.15);
+          tl.to("#s00-scan", { opacity: 0, duration: 0.2 }, 3.0);
+          ["#s00-l1", "#s00-l4", "#s00-l3", "#s00-l2", "#s00-l5", "#s00-l6"].forEach((s, i) =>
+            tl.fromTo(s, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 2.75 + i * 0.12));
+          tl.fromTo("#s00-run", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 3.2);
+
+          // 3. "one of hundreds of machines": the drawing shrinks into its tile; the field fills around it.
+          tl.to("#s00-labels, #s00-run", { opacity: 0, duration: 0.3 }, 3.75);
+          tl.to("#s00-machine", { attr: { transform: "translate(925 450) scale(0.072)" }, duration: 0.85, ease: "power3.inOut" }, 3.85);
+          tl.to("#s00-art", { opacity: 0, duration: 0.2 }, 4.6);
+          T.forEach((o) => tl.fromTo(o.el, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, o.hero ? 4.5 : 4.45 + o.dist * 0.07));
+          tl.fromTo("#s00-lanes", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.45);
+          tl.fromTo("#s00-meter", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 5.3);
+          // "keep the plant running": product runs down every lane.
+          L.forEach((l, i) => tl.to(l.dash, { opacity: 0.85, duration: 0.4 }, 5.45 + Math.abs(i - HR) * 0.06));
+          tl.fromTo("#s00-mfill", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 5.5);
+
+          // 4. "when it stops": the hero tile trips red; "production stops with it": the lanes and machines downstream stall.
+          const hero = T.find((o) => o.hero).el;
+          tl.to(hero, { borderColor: "#d63c43", backgroundColor: "#fdecec", boxShadow: "0 0 0 6px rgba(214,60,67,0.2), 0 14px 30px -10px rgba(214,60,67,0.6)", scale: 1.25, duration: 0.2 }, STOP - 0.1);
+          tl.to(hero.querySelector("i"), { backgroundColor: "#d63c43", boxShadow: "0 0 0 3px rgba(214,60,67,0.25)", duration: 0.15 }, STOP - 0.1);
+          tl.to(hero, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.3, ease: "none" }, STOP);
+          tl.fromTo("#s00-ping", { opacity: 0.9, scale: 0.6 }, { opacity: 0, scale: 2.8, duration: 0.9, ease: "expo.out", immediateRender: false }, STOP);
+          L.forEach((l) => { const s = laneStop(l.r); if (s) tl.to(l.dash, { stroke: "#9aa3b5", duration: 0.3 }, s); });
+          T.filter((o) => !o.hero && Math.abs(o.r - HR) <= 2 && o.c >= HC - 1).forEach((o) => {
+            const at = STOP + 0.25 + Math.abs(o.r - HR) * 0.35 + Math.abs(o.c - HC) * 0.07;
+            tl.to(o.el, { opacity: 0.45, duration: 0.3 }, at);
+            tl.to(o.el.querySelector("i"), { backgroundColor: "#d48a06", boxShadow: "0 0 0 3px rgba(212,138,6,0.2)", duration: 0.2 }, at);
+          });
+          tl.to("#s00-mfill", { scaleX: 0.04, background: "linear-gradient(90deg, #d63c43, #e2575d)", duration: 1.0, ease: "power2.inOut" }, 7.75);
+          tl.set("#s00-mstate", { textContent: "● STOPPED", color: "#a41f27" }, 8.0);
+          tl.to("#s00-meter", { keyframes: { x: [0, -8, 6, -3, 0] }, duration: 0.3, ease: "none" }, 8.0);
+
+          // Hand-off: dive into the stopped machine.
+          tl.to("#s00-tiles, #s00-lanes", { scale: 9, transformOrigin: "960px 470px", duration: 0.9, ease: "power3.in" }, 9.05);
+          tl.to("#s00-meter", { opacity: 0, y: -16, duration: 0.4, ease: "power2.in" }, 9.05);
+          tl.to("#s00-flash", { opacity: 1, duration: 0.35, ease: "power2.in" }, 9.6);
+          // time-warp (written by scripts/warp.mjs): [authored s, current s] anchors through every spoken word.
+          const WARP = [[0,0],[1.4,1.4],[1.748,1.655],[1.899,1.911],[1.992,2.062],[4.094,2.816],[4.256,3.014],[4.407,3.211],[4.825,3.734],[4.953,3.954],[5.336,4.453],[5.522,4.674],[5.881,5.498],[6.195,5.87],[6.775,6.911],[6.973,7.12],[7.089,7.236],[8.018,9.309],[8.923,10.005],[10,11.08]];
+          window.__timelines["s00-plant"] = ((src, P) => {
+            const end = P[P.length - 1];
+            const back = (t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][1]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return a0 + (a1 - a0) * ((t - b0) / (b1 - b0)); } return end[0]; };
+            const w = gsap.timeline({ paused: true });
+            w.fromTo(src, { time: 0 }, { time: end[0], duration: end[1], ease: (p) => back(p * end[1]) / end[0], immediateRender: true });
+            return w;
+          })(tl, WARP);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

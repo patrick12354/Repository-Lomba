@@ -1,0 +1,33 @@
+{
+  "rows": 380,
+  "same_asset_repeats": 0,
+  "splits": [
+    {
+      "cutoff": "2025-01-01",
+      "top_k": 10,
+      "after_total": 232,
+      "hits_topk": 12,
+      "seen_before": 119,
+      "families_total": 177,
+      "topk_family_share": 0.05649717514124294
+    },
+    {
+      "cutoff": "2025-07-01",
+      "top_k": 10,
+      "after_total": 158,
+      "hits_topk": 7,
+      "seen_before": 100,
+      "families_total": 177,
+      "topk_family_share": 0.05649717514124294
+    },
+    {
+      "cutoff": "2026-01-01",
+      "top_k": 10,
+      "after_total": 84,
+      "hits_topk": 4,
+      "seen_before": 58,
+      "families_total": 177,
+      "topk_family_share": 0.05649717514124294
+    }
+  ]
+}

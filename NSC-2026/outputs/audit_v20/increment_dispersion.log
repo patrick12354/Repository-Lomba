@@ -1,0 +1,38 @@
+B1_last15d  base 4.25458
+   h=1 train-OOF de-shrink factor: lgb 1.2047  ens3 1.2219
+   h=4 train-OOF de-shrink factor: lgb 1.0916  ens3 1.1031
+   incumbent           inc h1 1.8155 (disp 0.883)  h4 3.4295 (disp 0.936)  -> reconciled 4.18134
+   deshrink            inc h1 1.9525 (disp 1.063)  h4 3.5159 (disp 1.022)  -> reconciled 4.15210
+   deshrink_half       inc h1 1.8579 (disp 0.973)  h4 3.4412 (disp 0.979)  -> reconciled 4.15582
+   ens3                inc h1 1.7773 (disp 0.847)  h4 3.3712 (disp 0.927)  -> reconciled 4.19629
+   ens3_deshrink       inc h1 1.8750 (disp 1.035)  h4 3.4481 (disp 1.022)  -> reconciled 4.15668
+   ens3_deshrink_half  inc h1 1.7962 (disp 0.941)  h4 3.3697 (disp 0.975)  -> reconciled 4.16371
+B2_prev15d  base 6.75486
+   h=1 train-OOF de-shrink factor: lgb 1.2032  ens3 1.2222
+   h=4 train-OOF de-shrink factor: lgb 1.0651  ens3 1.0868
+   incumbent           inc h1 2.0540 (disp 0.870)  h4 4.3804 (disp 0.903)  -> reconciled 6.56723
+   deshrink            inc h1 2.1986 (disp 1.046)  h4 4.3976 (disp 0.961)  -> reconciled 6.51353
+   deshrink_half       inc h1 2.1032 (disp 0.958)  h4 4.3764 (disp 0.932)  -> reconciled 6.53548
+   ens3                inc h1 2.0099 (disp 0.841)  h4 4.3915 (disp 0.900)  -> reconciled 6.60905
+   ens3_deshrink       inc h1 2.1296 (disp 1.027)  h4 4.4310 (disp 0.978)  -> reconciled 6.54877
+   ens3_deshrink_half  inc h1 2.0426 (disp 0.934)  h4 4.3892 (disp 0.939)  -> reconciled 6.57202
+B3_shift7d  base 4.84892
+   h=1 train-OOF de-shrink factor: lgb 1.2253  ens3 1.2492
+   h=4 train-OOF de-shrink factor: lgb 1.1128  ens3 1.1231
+   incumbent           inc h1 1.5996 (disp 0.957)  h4 2.9469 (disp 0.972)  -> reconciled 4.72637
+   deshrink            inc h1 1.8562 (disp 1.172)  h4 3.2207 (disp 1.082)  -> reconciled 4.82342
+   deshrink_half       inc h1 1.6939 (disp 1.064)  h4 3.0268 (disp 1.027)  -> reconciled 4.76065
+   ens3                inc h1 1.5342 (disp 0.940)  h4 2.8732 (disp 0.973)  -> reconciled 4.74189
+   ens3_deshrink       inc h1 1.7982 (disp 1.174)  h4 3.1962 (disp 1.093)  -> reconciled 4.85565
+   ens3_deshrink_half  inc h1 1.6239 (disp 1.057)  h4 2.9660 (disp 1.033)  -> reconciled 4.78181
+
+AGAINST THE SHIPPED CONFIGURATION (negative = better)
+                   recon_delta recon_blocks recon_pooled inc_h1_delta inc_h4_delta   disp_h1   disp_h4 adopted
+incumbent                  0.0            0     5.158313          0.0          0.0  0.902961  0.936942   False
+deshrink              0.004702            2     5.163015     0.179432      0.12579  1.093947   1.02167   False
+deshrink_half        -0.007663            2      5.15065     0.061948     0.029192  0.998454  0.979306    True
+ens3                  0.024094            0     5.182407    -0.049226    -0.040305  0.875796  0.933267   False
+ens3_deshrink          0.02872            2     5.187033     0.111246     0.106182  1.078756  1.031083   False
+ens3_deshrink_half    0.014201            1     5.172514    -0.002145    -0.010647  0.977276  0.982175   False
+
+PASSES THE PRE-REGISTERED BAR: ['deshrink_half']

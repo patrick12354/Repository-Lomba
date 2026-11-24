@@ -1,0 +1,111 @@
+{
+ "text": "Dika bertanya ke tutor. Dalam mode Sokratik, tutor tidak langsung memberi jawaban. Ia membimbing dengan pertanyaan, berpijak pada temuan kasus ini.",
+ "end": 10.4,
+ "words": [
+  {
+   "w": "Dika",
+   "s": 0,
+   "e": 0.32
+  },
+  {
+   "w": "bertanya",
+   "s": 0.4,
+   "e": 0.88
+  },
+  {
+   "w": "ke",
+   "s": 0.92,
+   "e": 0.96
+  },
+  {
+   "w": "tutor.",
+   "s": 1.04,
+   "e": 2
+  },
+  {
+   "w": "Dalam",
+   "s": 2.08,
+   "e": 2.32
+  },
+  {
+   "w": "mode",
+   "s": 2.44,
+   "e": 2.56
+  },
+  {
+   "w": "Sokratik,",
+   "s": 2.6,
+   "e": 3.4
+  },
+  {
+   "w": "tutor",
+   "s": 3.44,
+   "e": 3.76
+  },
+  {
+   "w": "tidak",
+   "s": 3.84,
+   "e": 4
+  },
+  {
+   "w": "langsung",
+   "s": 4.08,
+   "e": 4.4
+  },
+  {
+   "w": "memberi",
+   "s": 4.48,
+   "e": 4.76
+  },
+  {
+   "w": "jawaban.",
+   "s": 4.8,
+   "e": 5.88
+  },
+  {
+   "w": "Ia",
+   "s": 5.92,
+   "e": 6.08
+  },
+  {
+   "w": "membimbing",
+   "s": 6.12,
+   "e": 6.72
+  },
+  {
+   "w": "dengan",
+   "s": 6.76,
+   "e": 6.96
+  },
+  {
+   "w": "pertanyaan,",
+   "s": 7.08,
+   "e": 8
+  },
+  {
+   "w": "berpijak",
+   "s": 8.08,
+   "e": 8.56
+  },
+  {
+   "w": "pada",
+   "s": 8.64,
+   "e": 8.8
+  },
+  {
+   "w": "temuan",
+   "s": 8.88,
+   "e": 9.2
+  },
+  {
+   "w": "kasus",
+   "s": 9.28,
+   "e": 9.52
+  },
+  {
+   "w": "ini.",
+   "s": 9.6,
+   "e": 10.4
+  }
+ ]
+}

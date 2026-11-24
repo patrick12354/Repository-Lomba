@@ -1,0 +1,32 @@
+B1_last15d  base 4.25458
+   shipped           inc h1 1.8074  h4 3.5364  -> reconciled 4.21193  (132 feats)
+   physics           inc h1 1.8155  h4 3.4295  -> reconciled 4.18134  (138 feats)
+   capacity          inc h1 1.8246  h4 3.5407  -> reconciled 4.21832  (132 feats)
+   physics_capacity  inc h1 1.8483  h4 3.4879  -> reconciled 4.19487  (138 feats)
+   wide              inc h1 1.8087  h4 3.4976  -> reconciled 4.17773  (148 feats)
+   wide_capacity     inc h1 1.8416  h4 3.4698  -> reconciled 4.18979  (148 feats)
+B2_prev15d  base 6.75486
+   shipped           inc h1 2.0575  h4 4.4410  -> reconciled 6.60114  (132 feats)
+   physics           inc h1 2.0540  h4 4.3804  -> reconciled 6.56723  (138 feats)
+   capacity          inc h1 2.0690  h4 4.3901  -> reconciled 6.61568  (132 feats)
+   physics_capacity  inc h1 2.1010  h4 4.4452  -> reconciled 6.62948  (138 feats)
+   wide              inc h1 2.0457  h4 4.4031  -> reconciled 6.57963  (148 feats)
+   wide_capacity     inc h1 2.1033  h4 4.3629  -> reconciled 6.61283  (148 feats)
+B3_shift7d  base 4.84892
+   shipped           inc h1 1.6021  h4 2.9703  -> reconciled 4.73646  (132 feats)
+   physics           inc h1 1.5996  h4 2.9469  -> reconciled 4.72637  (138 feats)
+   capacity          inc h1 1.6019  h4 3.0219  -> reconciled 4.75159  (132 feats)
+   physics_capacity  inc h1 1.6205  h4 3.0245  -> reconciled 4.75066  (138 feats)
+   wide              inc h1 1.6021  h4 2.9410  -> reconciled 4.73074  (148 feats)
+   wide_capacity     inc h1 1.6047  h4 2.9908  -> reconciled 4.74790  (148 feats)
+
+AGAINST THE SHIPPED INCREMENT MODEL (negative = better)
+                 inc_h1_delta inc_h1_blocks inc_h4_delta inc_h4_blocks recon_delta recon_blocks recon_pooled adopted
+shipped                   0.0             0          0.0             0         0.0            0     5.183179   False
+physics              0.000724             2    -0.063621             3   -0.024866            3     5.158313    True
+capacity             0.009522             1     0.001688             1    0.012015            0     5.195195   False
+physics_capacity     0.034284             0     0.003285             1    0.008491            1     5.191671   False
+wide                -0.003481             1    -0.035321             3   -0.020481            3     5.162699   False
+wide_capacity        0.027568             0    -0.041433             2    0.000327            1     5.183506   False
+
+PASSES THE PRE-REGISTERED BAR: ['physics']

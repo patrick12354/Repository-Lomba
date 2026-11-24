@@ -1,0 +1,9 @@
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; }
+body { position: relative; font-family: var(--sans); color: var(--ink); background: #faf8ee; }
+.machine { position: absolute; filter: drop-shadow(0 40px 50px rgba(38,48,78,.35)); }
+.shake path, .shake line { }
+.stamp { position: absolute; font: 700 1px/1 var(--display); letter-spacing: -0.04em; }
+.sticker { position: absolute; padding: 18px 30px; border-radius: 20px; font: 700 64px/1 var(--display); letter-spacing: -0.03em; box-shadow: 0 24px 50px -14px rgba(38,48,78,.5); }
+.mascot { position: absolute; filter: drop-shadow(0 24px 30px rgba(38,48,78,.4)); }
+.wm { position: absolute; font: 700 54px/1 var(--display); letter-spacing: -0.04em; color: var(--ink-hi); }
+.wm span { color: var(--accent); }

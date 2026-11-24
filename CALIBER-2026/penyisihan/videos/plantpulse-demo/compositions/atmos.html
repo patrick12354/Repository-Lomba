@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- The film's ground: paper under the app's light-theme "Pipo" bloom mesh (prototype/src/components/ThemeBackdrop.tsx),
+     one continuous layer under every scene so the light never resets at a cut. Mood blooms (trip red, normal green,
+     follow-up amber) and the brightness of the mesh are keyed to scene-local cue times below. -->
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #atmos { position: absolute; inset: 0; overflow: hidden; background: #faf9ef; }
+        #atmos .mesh { position: absolute; inset: 0; background-color: #faf9ef; }
+        #atmos .wash { position: absolute; inset: 0; }
+        #atmos .vig { position: absolute; inset: 0; background: radial-gradient(120% 95% at 50% 45%, transparent 55%, rgba(38, 48, 78, 0.12) 100%); }
+      </style>
+      <div data-hf-id="hf-f3d7" id="root" data-composition-id="atmos" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-qiud" id="atmos"><div data-hf-id="hf-asjd" class="mesh" id="atmos-mesh"></div><div data-hf-id="hf-1epd" class="wash" id="atmos-wash"></div><div data-hf-id="hf-e4a6" class="vig"></div></div>
+      </div>
+      <script>
+        (() => {
+          const S = {"s00-plant":0,"s01-trip":11.08,"s02-scatter":24.29,"s03-false-finish":36.74,"s04-thesis":46.4,"s05-overview":55.07,"s06-queue":70.25,"s07-evidence":80.48,"s08-checkup":90.77,"s09-ai":105.19,"s10-actions":127.78,"s11-trust":145.32,"s12-lockup":165.8,"end":176.8}; // scene starts (written by build.mjs)
+          const W = {"s00-plant":[[0,0],[1.4,1.4],[1.748,1.655],[1.899,1.911],[1.992,2.062],[4.094,2.816],[4.256,3.014],[4.407,3.211],[4.825,3.734],[4.953,3.954],[5.336,4.453],[5.522,4.674],[5.881,5.498],[6.195,5.87],[6.775,6.911],[6.973,7.12],[7.089,7.236],[8.018,9.309],[8.923,10.005],[10,11.08]],"s01-trip":[[0,0],[0.3,0.3],[0.625,0.555],[2.738,1.252],[2.959,1.554],[3.11,1.763],[3.284,1.96],[3.679,2.39],[3.771,2.506],[4.05,2.785],[4.921,4.538],[6.999,5.06],[7.475,5.466],[7.614,5.606],[7.997,5.966],[8.322,6.395],[8.531,6.604],[8.764,6.836],[9.135,7.254],[9.878,7.661],[10.412,8.16],[10.784,8.555],[11.608,9.809],[11.84,10.087],[12.699,10.795],[13.001,11.213],[14.557,12.467],[15.3,13.21]],"s02-scatter":[[0,0],[0.3,0.3],[0.497,2.502],[0.741,2.804],[1.287,3.141],[1.449,3.385],[1.867,3.837],[2.041,4.023],[2.169,4.162],[2.378,4.522],[2.645,5.022],[2.843,5.498],[6.163,6.438],[6.372,6.624],[6.546,6.786],[6.79,7.03],[7.057,7.262],[7.672,7.703],[7.916,7.97],[8.195,8.284],[8.334,8.423],[8.636,8.853],[8.949,9.294],[9.135,9.503],[9.704,10.107],[10.168,10.536],[10.482,10.966],[11.26,11.813],[11.9,12.45]],"s03-false-finish":[[0,0],[0.3,0.3],[0.59,0.718],[0.718,0.892],[1.055,1.229],[1.774,1.972],[1.96,2.216],[2.494,2.506],[2.796,2.889],[2.97,3.086],[3.11,3.202],[3.423,3.47],[3.713,3.911],[4.189,4.491],[4.375,4.689],[4.886,5.165],[5.048,5.385],[5.257,5.594],[5.536,5.942],[5.641,6.198],[5.838,6.465],[6.233,6.894],[6.755,7.959],[7.092,8.284],[7.324,8.493],[7.87,8.934],[8.6,9.66]],"s04-thesis":[[0,0],[4.51,5.183],[8,8.67]]}; // time-warp per scene (written by warp.mjs)
+          const T = S.end;
+          // Pipo blooms, as in the app: apricot, sky blue, paper.
+          const BLOOMS = [
+            { rgb: "230, 176, 147", x: 68.1, y: 46.03, r: 41.1 },
+            { rgb: "163, 206, 255", x: 25.17, y: 75.99, r: 44.6 },
+            { rgb: "250, 249, 239", x: 53.11, y: 12.71, r: 66.65 },
+          ];
+          const hash = (n) => { const v = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return (v - Math.floor(v)) * Math.PI * 2; };
+          const PHASE = BLOOMS.map((_, i) => [hash(i + 1), hash(i + 11)]);
+          // Envelopes: [scene, local seconds, value]; values ease between keys (smoothstep).
+          const wm = (P, t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][0]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return b0 + (b1 - b0) * ((t - a0) / (a1 - a0)); } return P[P.length - 1][1] + (t - P[P.length - 1][0]); };
+          const K = (keys) => keys.map(([s, t, v]) => [S[s] + (W[s] ? wm(W[s], t) : t), v]);
+          const ENV = {
+            // How awake the mesh is. Act 1 (the problem) sits on quiet paper; the blooms wake on the PlantPulse lockup.
+            mesh: K([["s00-plant", 0, 0.24], ["s04-thesis", 6.0, 0.24], ["s04-thesis", 7.3, 1], ["s12-lockup", 9.4, 1], ["end", 0, 0.75]]),
+            // Red: a soft flare when the machine stops in the plant view, the TRIP, and faintly again when the sources disagree.
+            red: K([["s00-plant", 0, 0], ["s00-plant", 7.1, 0], ["s00-plant", 7.35, 0.3], ["s00-plant", 9.0, 0.12], ["s01-trip", 0, 0],
+              ["s01-trip", 7.9, 0], ["s01-trip", 8.02, 0.62], ["s01-trip", 9.9, 0.2], ["s01-trip", 14.3, 0.16], ["s02-scatter", 1.0, 0],
+              ["s02-scatter", 6.2, 0], ["s02-scatter", 6.8, 0.16], ["s02-scatter", 11.0, 0.16], ["s02-scatter", 11.7, 0]]),
+            // False finish: green on "runs fine again", cracked to amber on "But".
+            green: K([["s03-false-finish", 1.9, 0], ["s03-false-finish", 2.5, 0.34], ["s03-false-finish", 4.1, 0.3], ["s03-false-finish", 4.5, 0]]),
+            amber: K([["s03-false-finish", 4.1, 0], ["s03-false-finish", 4.4, 0.36], ["s03-false-finish", 6.4, 0.2], ["s03-false-finish", 8.0, 0.16], ["s03-false-finish", 8.6, 0]]),
+            // The drift clock runs slower in act 1 (held breath) and at full app speed after the logo.
+            speed: K([["s00-plant", 0, 0.35], ["s04-thesis", 6.0, 0.35], ["s04-thesis", 8.0, 0.8]]),
+          };
+          const ss = (x) => x * x * (3 - 2 * x);
+          const at = (keys, t) => {
+            if (t <= keys[0][0]) return keys[0][1];
+            for (let i = 1; i < keys.length; i++) if (t <= keys[i][0]) { const [a, va] = keys[i - 1], [b, vb] = keys[i]; return va + (vb - va) * ss(b > a ? (t - a) / (b - a) : 1); }
+            return keys[keys.length - 1][1];
+          };
+          // Integrate the variable-speed drift clock once (1/30 s steps), so phase at any t is a pure lookup.
+          const DT = 1 / 30, PH = [0];
+          for (let i = 1; i <= Math.ceil(T / DT) + 1; i++) PH.push(PH[i - 1] + at(ENV.speed, i * DT) * DT);
+          const phase = (t) => { const f = t / DT, i = Math.min(PH.length - 2, Math.floor(f)); return PH[i] + (PH[i + 1] - PH[i]) * (f - i); };
+          const mesh = document.getElementById("atmos-mesh"), wash = document.getElementById("atmos-wash");
+          const bloom = (rgb, x, y, r, a) => `radial-gradient(circle at ${x.toFixed(3)}% ${y.toFixed(3)}%, rgba(${rgb}, ${a.toFixed(3)}) 0%, rgba(${rgb}, ${(a * 0.844).toFixed(3)}) ${(r * 0.25).toFixed(2)}%, rgba(${rgb}, ${(a * 0.5).toFixed(3)}) ${(r * 0.5).toFixed(2)}%, rgba(${rgb}, ${(a * 0.156).toFixed(3)}) ${(r * 0.75).toFixed(2)}%, rgba(${rgb}, 0) ${r.toFixed(2)}%)`;
+          const paint = (t) => {
+            const ph = phase(t), m = at(ENV.mesh, t);
+            mesh.style.backgroundImage = BLOOMS.map((b, i) => {
+              const [p, p2] = PHASE[i];
+              const x = b.x + (Math.sin(ph * 0.55 + p) - Math.sin(p)) * 14 * 0.72;
+              const y = b.y + (Math.sin(ph * 0.43 + p2) - Math.sin(p2)) * 14 * 0.72;
+              return bloom(b.rgb, x, y, b.r, i === 2 ? 1 : m);
+            }).join(", ");
+            const red = at(ENV.red, t), green = at(ENV.green, t), amber = at(ENV.amber, t), w = [];
+            if (red > 0.001) w.push(bloom("214, 60, 67", 38, 44, 70, red));
+            if (green > 0.001) w.push(bloom("29, 154, 99", 50, 50, 62, green));
+            if (amber > 0.001) w.push(bloom("230, 150, 20", 50, 46, 62, amber));
+            wash.style.backgroundImage = w.length ? w.join(", ") : "none";
+          };
+          const clock = { t: 0 };
+          paint(0);
+          const tl = gsap.timeline({ paused: true });
+          tl.to(clock, { t: T, duration: T, ease: "none", onUpdate: () => paint(clock.t) }, 0);
+          window.__timelines["atmos"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

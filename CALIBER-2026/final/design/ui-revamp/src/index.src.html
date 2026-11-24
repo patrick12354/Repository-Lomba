@@ -1,0 +1,56 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sparekit UI Revamp</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap">
+<style>/*__CSS__*/</style>
+
+<div class="bar">
+  <div class="bar-name">Sparekit <small>kurasi UI</small></div>
+  <div class="seg" id="seg-view" role="group" aria-label="Versi">
+    <button type="button" data-v="before">Before</button>
+    <button type="button" data-v="a">A · Machine Hall</button>
+    <button type="button" data-v="b">B · Plant Map</button>
+    <button type="button" data-v="c">C · Control Deck</button>
+  </div>
+  <div class="seg" id="seg-screen" role="group" aria-label="Halaman">
+    <button type="button" data-s="shutdown">Shutdown</button>
+    <button type="button" data-s="todo">To do</button>
+  </div>
+  <div class="bar-tools">
+    <button type="button" class="tool" id="btn-compare" aria-pressed="false">Geser before/after</button>
+    <button type="button" class="tool tool-pick" id="btn-pick" aria-pressed="false">Pilih</button>
+  </div>
+</div>
+<div class="brief" id="brief"></div>
+
+<div class="stage-wrap" id="stage">
+  <section class="opt before" id="opt-before" hidden>
+    <img data-s="shutdown" src="__BEFORE_SHUTDOWN__" alt="Current Shutdown page of the Sparekit app">
+    <img data-s="todo" src="__BEFORE_TODO__" alt="Current To do page of the Sparekit app" hidden>
+  </section>
+  <section class="opt theme-a" id="opt-a" hidden><div class="screen screen-shutdown"></div><div class="screen screen-todo" hidden></div></section>
+  <section class="opt theme-b" id="opt-b" hidden><div class="screen screen-shutdown"></div><div class="screen screen-todo" hidden></div></section>
+  <section class="opt theme-c" id="opt-c" hidden><div class="screen screen-shutdown"></div><div class="screen screen-todo" hidden></div></section>
+
+  <div class="cmp" id="cmp" hidden>
+    <div class="cmp-img" id="cmp-img"><img id="cmp-pic" alt=""><span class="cmp-tag" style="left:12px">Before</span></div>
+    <div class="cmp-handle" id="cmp-handle" role="slider" tabindex="0" aria-label="Geser pembatas before dan after" aria-valuemin="0" aria-valuemax="100"><div class="cmp-grip">⇆</div></div>
+  </div>
+</div>
+
+<aside class="pick" id="pick" hidden aria-label="Pilihan kurasi">
+  <h3>Mana yang kamu mau?</h3>
+  <div class="pick-row"><span>Hero 3D</span><div class="seg"><button type="button" data-group="hero" data-val="A">A</button><button type="button" data-group="hero" data-val="B">B</button><button type="button" data-group="hero" data-val="C">C</button></div></div>
+  <div class="pick-row"><span>Warna dan kartu metrik</span><div class="seg"><button type="button" data-group="cards" data-val="A">A</button><button type="button" data-group="cards" data-val="B">B</button><button type="button" data-group="cards" data-val="C">C</button></div></div>
+  <div class="pick-row"><span>To-do</span><div class="seg"><button type="button" data-group="todo" data-val="A">A</button><button type="button" data-group="todo" data-val="B">B</button><button type="button" data-group="todo" data-val="C">C</button></div></div>
+  <label class="pick-row"><span>Catatan</span><textarea id="pick-note" placeholder="Misal: hero A, tapi furnace jadi model default"></textarea></label>
+  <code class="pick-out" id="pick-out"></code>
+  <div class="pick-foot"><span style="font-size:12px;color:var(--chrome-dim)">Tempel hasilnya ke chat</span><button type="button" class="tool tool-pick" id="pick-copy">Salin pilihan</button></div>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script>/*__DATA__*/</script>
+<script>/*__SCENES__*/</script>
+<script>/*__APP__*/</script>

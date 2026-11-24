@@ -1,0 +1,425 @@
+{
+  "created": "2026-09-07T21:28:27",
+  "stage": "screen",
+  "ids": [
+    "J01",
+    "J02",
+    "J03",
+    "J04"
+  ],
+  "blocks": [
+    "B1_last15d",
+    "B2_prev15d"
+  ],
+  "seeds_hbt": [
+    0,
+    1
+  ],
+  "seeds_inc": [
+    20260905,
+    20260906
+  ],
+  "registry": {
+    "n_core": 27,
+    "counts": {
+      "A": 4,
+      "B": 8,
+      "C": 4,
+      "D": 6,
+      "E": 3,
+      "F": 2
+    },
+    "aug_seeds": [
+      2026090801,
+      2026090802,
+      2026090803,
+      2026090804,
+      2026090805
+    ],
+    "view_seeds": [
+      2026090891,
+      2026090892,
+      2026090893,
+      2026090894,
+      2026090895,
+      2026090896,
+      2026090897,
+      2026090898,
+      2026090899
+    ],
+    "screen_hbt_seeds": [
+      0,
+      1
+    ],
+    "confirm_hbt_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "stability_hbt_seeds": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "screen_blocks": [
+      "B1_last15d",
+      "B2_prev15d"
+    ],
+    "lgb_kw": {
+      "objective": "huber",
+      "alpha": 2.0,
+      "n_estimators": 900,
+      "learning_rate": 0.03,
+      "num_leaves": 15,
+      "min_child_samples": 25,
+      "subsample": 0.8,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_lambda": 3.0,
+      "verbose": -1
+    },
+    "inc_kw": {
+      "objective": "regression",
+      "n_estimators": 500,
+      "learning_rate": 0.03,
+      "num_leaves": 15,
+      "min_child_samples": 30,
+      "reg_lambda": 5.0,
+      "colsample_bytree": 0.8,
+      "verbose": -1
+    },
+    "trials": [
+      {
+        "id": "A01",
+        "family": "A",
+        "component": "hbt_view",
+        "params": {
+          "p": 0.025,
+          "mode": "all"
+        },
+        "note": "train hbt entirely on a masked reconstruction at p=0.025",
+        "kind": "novel",
+        "digest": "bc33e35e3173b9931729f1e0d02d009b"
+      },
+      {
+        "id": "A02",
+        "family": "A",
+        "component": "hbt_view",
+        "params": {
+          "p": 0.05,
+          "mode": "all"
+        },
+        "note": "train hbt entirely on a masked reconstruction at p=0.050",
+        "kind": "novel",
+        "digest": "c627dd3648abcbf81645318b79848513"
+      },
+      {
+        "id": "A03",
+        "family": "A",
+        "component": "hbt_view",
+        "params": {
+          "p": 0.1,
+          "mode": "all"
+        },
+        "note": "train hbt entirely on a masked reconstruction at p=0.100",
+        "kind": "novel",
+        "digest": "37474c9307b80bf6453278c93a2bb824"
+      },
+      {
+        "id": "A04",
+        "family": "A",
+        "component": "hbt_view",
+        "params": {
+          "p": 0.05,
+          "mode": "episode",
+          "episode_hours": 24
+        },
+        "note": "per 24h episode, take the original or the masked feature rows with prob 0.5",
+        "kind": "novel",
+        "digest": "8a2a52e65f991abf5d357e63ba3d5a48"
+      },
+      {
+        "id": "B01",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "num_leaves": 7
+        },
+        "note": "hbt num_leaves=7, everything else incumbent",
+        "kind": "retest",
+        "digest": "169dd82c05586ace4af30b0c27e8dd47"
+      },
+      {
+        "id": "B02",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "num_leaves": 31
+        },
+        "note": "hbt num_leaves=31, everything else incumbent",
+        "kind": "retest",
+        "digest": "cb1e0be7ad50e618ebce79937030d1c9"
+      },
+      {
+        "id": "B03",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "n_estimators": 500
+        },
+        "note": "hbt n_estimators=500, everything else incumbent",
+        "kind": "retest",
+        "digest": "e63472da601440f3c8f013b5a54eba0d"
+      },
+      {
+        "id": "B04",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "n_estimators": 1400
+        },
+        "note": "hbt n_estimators=1400, everything else incumbent",
+        "kind": "retest",
+        "digest": "673826b59af9442051797c4ee3b607bd"
+      },
+      {
+        "id": "B05",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "reg_lambda": 10.0
+        },
+        "note": "hbt reg_lambda=10.0, everything else incumbent",
+        "kind": "retest",
+        "digest": "741b127a41ad3cc87dc3c11f0ba7f0c9"
+      },
+      {
+        "id": "B06",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "reg_lambda": 30.0
+        },
+        "note": "hbt reg_lambda=30.0, everything else incumbent",
+        "kind": "retest",
+        "digest": "cb934faf4c28070ebe379ed9764602e2"
+      },
+      {
+        "id": "B07",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "min_child_samples": 50
+        },
+        "note": "hbt min_child_samples=50, everything else incumbent",
+        "kind": "retest",
+        "digest": "9f2618e007eb59b31a8ad252a1c7da0c"
+      },
+      {
+        "id": "B08",
+        "family": "B",
+        "component": "hbt_params",
+        "params": {
+          "colsample_bytree": 1.0
+        },
+        "note": "hbt colsample_bytree=1.0, everything else incumbent",
+        "kind": "retest",
+        "digest": "941747f7490656f6ab0879fc853aecd0"
+      },
+      {
+        "id": "C01",
+        "family": "C",
+        "component": "history",
+        "params": {
+          "target": "hbt",
+          "days": 21
+        },
+        "note": "fit hbt on the last 21 days of labels only; raw context unchanged",
+        "kind": "novel",
+        "digest": "b62714bcf84eb625ea06c65cae332013"
+      },
+      {
+        "id": "C02",
+        "family": "C",
+        "component": "history",
+        "params": {
+          "target": "hbt",
+          "days": 28
+        },
+        "note": "fit hbt on the last 28 days of labels only; raw context unchanged",
+        "kind": "novel",
+        "digest": "42c19cf39c6801a14c154e4308cd4a9d"
+      },
+      {
+        "id": "C03",
+        "family": "C",
+        "component": "history",
+        "params": {
+          "target": "inc",
+          "days": 21
+        },
+        "note": "fit inc on the last 21 days of labels only; raw context unchanged",
+        "kind": "novel",
+        "digest": "24050c4f47cf7528e2769d8a925db5ff"
+      },
+      {
+        "id": "C04",
+        "family": "C",
+        "component": "history",
+        "params": {
+          "target": "inc",
+          "days": 28
+        },
+        "note": "fit inc on the last 28 days of labels only; raw context unchanged",
+        "kind": "novel",
+        "digest": "3af0244e22cac219dc916ea3cbae0cfe"
+      },
+      {
+        "id": "D01",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "num_leaves": 7
+        },
+        "note": "both increment horizons num_leaves=7",
+        "kind": "retest",
+        "digest": "7a4ca179558f071dd3ddb3a113530847"
+      },
+      {
+        "id": "D02",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "num_leaves": 31
+        },
+        "note": "both increment horizons num_leaves=31",
+        "kind": "retest",
+        "digest": "2fbf5748ff923b5bfd5bb1562d142d17"
+      },
+      {
+        "id": "D03",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "n_estimators": 250
+        },
+        "note": "both increment horizons n_estimators=250",
+        "kind": "retest",
+        "digest": "64fddb9a8aabd680e1d616a04c49d561"
+      },
+      {
+        "id": "D04",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "n_estimators": 900
+        },
+        "note": "both increment horizons n_estimators=900",
+        "kind": "retest",
+        "digest": "fa72bf8b22e902911e91b5d4c7a6adc7"
+      },
+      {
+        "id": "D05",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "min_child_samples": 60
+        },
+        "note": "both increment horizons min_child_samples=60",
+        "kind": "retest",
+        "digest": "d7b7a140d9da3c0edf6468a303d84de0"
+      },
+      {
+        "id": "D06",
+        "family": "D",
+        "component": "inc_params",
+        "params": {
+          "reg_lambda": 15.0
+        },
+        "note": "both increment horizons reg_lambda=15.0",
+        "kind": "retest",
+        "digest": "b5d5b074cd5bea418c0896a8811ff5d0"
+      },
+      {
+        "id": "E00",
+        "family": "E",
+        "component": "joint_level",
+        "params": {
+          "beta": 0.0
+        },
+        "note": "level loss with change penalty beta=0.00 (E00 is the L2 plumbing control)",
+        "kind": "novel",
+        "digest": "be237e26e03bc5b2f03774af2aa2518f"
+      },
+      {
+        "id": "E01",
+        "family": "E",
+        "component": "joint_level",
+        "params": {
+          "beta": 0.25
+        },
+        "note": "level loss with change penalty beta=0.25 (E00 is the L2 plumbing control)",
+        "kind": "novel",
+        "digest": "aa5d227c4f4ca342077d1f084b3f502d"
+      },
+      {
+        "id": "E02",
+        "family": "E",
+        "component": "joint_level",
+        "params": {
+          "beta": 1.0
+        },
+        "note": "level loss with change penalty beta=1.00 (E00 is the L2 plumbing control)",
+        "kind": "novel",
+        "digest": "2da1a92489d284fbfd1e4d5eebb0516b"
+      },
+      {
+        "id": "F01",
+        "family": "F",
+        "component": "inference_avg",
+        "params": {
+          "p": 0.05,
+          "n_views": 5,
+          "weight": 0.5
+        },
+        "note": "q = 0.5*original + 0.5*mean of 5 masked-horizon views",
+        "kind": "novel",
+        "digest": "fa41b9192cb13a19ef75390cf1df6de4"
+      },
+      {
+        "id": "F02",
+        "family": "F",
+        "component": "inference_avg",
+        "params": {
+          "p": 0.05,
+          "n_views": 9,
+          "weight": 0.5
+        },
+        "note": "q = 0.5*original + 0.5*mean of 9 masked-horizon views",
+        "kind": "novel",
+        "digest": "292bcd83eb77243f74e750be8fffdc75"
+      }
+    ]
+  },
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "helper_code": {
+    "src/v21_campaign_registry.py": "b0db9d0f4464451a35bcf3f9ba6d7a93",
+    "src/v21_campaign_models.py": "a11826712ee6886c7c94cbf89a64e899",
+    "src/v21_joint_level_loss.py": "b8a8070439ee20882507226dbe52955e",
+    "src/v21_sensor_masking.py": "db176efa756bc82e0cfb1f69aea4571b",
+    "src/an89_v21_campaign_run.py": "1ba9bc0c83ed93687deac102d5f3fc6f"
+  }
+}

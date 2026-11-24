@@ -1,0 +1,103 @@
+{
+  "candidate": "robust_hbt",
+  "n_features_full": 118,
+  "n_features_robust": 93,
+  "removed": [
+    "T_minus_dailymean",
+    "T_over_dailymax",
+    "T_rng18",
+    "T_rng48",
+    "T_rng96",
+    "air_temperature_a24h",
+    "air_temperature_minus_q18",
+    "air_temperature_qrng18",
+    "air_temperature_qrng48",
+    "air_temperature_qrng96",
+    "esT_ratio_daily",
+    "p_tend48h",
+    "pressure",
+    "pressure_c1h",
+    "pressure_c24h",
+    "pressure_c6h",
+    "pressure_s-1",
+    "pressure_s-2",
+    "pressure_s-4",
+    "pressure_s1",
+    "pressure_s2",
+    "pressure_s4",
+    "pressure_sd6h",
+    "pressure_slope",
+    "rh_q18"
+  ],
+  "standard": {
+    "base": 4.746445432600319,
+    "candidate": 4.730960833706441,
+    "delta": -0.015484598893877259,
+    "folds_won": 13,
+    "n_folds": 18,
+    "bootstrap_ci": [
+      -0.031581175360745464,
+      0.00022128876080132915
+    ],
+    "families": {
+      "P": {
+        "delta": -0.023808904533365025,
+        "won": 7,
+        "n": 9
+      },
+      "Q": {
+        "delta": -0.009257789020826745,
+        "won": 2,
+        "n": 4
+      },
+      "R": {
+        "delta": -0.005482296641239693,
+        "won": 4,
+        "n": 5
+      }
+    }
+  },
+  "stress": [
+    {
+      "split": 0,
+      "start": "2023-08-10 06:00:00",
+      "end": "2023-08-13 05:30:00",
+      "n_train": 1812,
+      "n_valid": 144,
+      "base": 4.239828897015803,
+      "candidate": 4.174364977094957,
+      "delta": -0.06546391992084644,
+      "base_bias": -1.9324024883097328,
+      "candidate_bias": -1.7805048630817006
+    },
+    {
+      "split": 1,
+      "start": "2023-08-19 06:00:00",
+      "end": "2023-08-22 05:30:00",
+      "n_train": 2244,
+      "n_valid": 144,
+      "base": 1.7524167033078064,
+      "candidate": 1.7618563366871733,
+      "delta": 0.00943963337936693,
+      "base_bias": -0.3123279335477053,
+      "candidate_bias": -0.37142933393338684
+    },
+    {
+      "split": 2,
+      "start": "2023-08-22 06:00:00",
+      "end": "2023-08-25 05:30:00",
+      "n_train": 2388,
+      "n_valid": 144,
+      "base": 2.6692556784943964,
+      "candidate": 2.6932637891923106,
+      "delta": 0.024008110697914198,
+      "base_bias": 1.115491534300742,
+      "candidate_bias": 1.1350052677211615
+    }
+  ],
+  "stress_mean_delta": -0.01067205861452177,
+  "stress_worst_delta": -0.06546391992084644,
+  "passed": true,
+  "reasons": [],
+  "seconds": 514.1987764835358
+}

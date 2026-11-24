@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/pp.css"><link rel="stylesheet" href="common.css">
+<style>
+  body { background: #0b1426; }
+  .glow { position: absolute; inset: 0; background:
+    radial-gradient(760px 620px at 22% 62%, rgba(214,60,67,.7), transparent 70%),
+    radial-gradient(760px 620px at 80% 62%, rgba(29,154,99,.65), transparent 70%),
+    radial-gradient(1200px 500px at 50% 110%, rgba(47,98,224,.35), transparent 70%); }
+  .dots { position: absolute; inset: 0; opacity: .35; background-image: radial-gradient(rgba(255,255,255,.35) 1.5px, transparent 1.5px); background-size: 34px 34px; mask-image: radial-gradient(80% 70% at 50% 50%, #000, transparent); }
+  .machine { width: 860px; top: 470px; filter: drop-shadow(0 40px 50px rgba(0,0,0,.55)); }
+  .m1 { left: -40px; transform: rotate(-5deg); }
+  .m2 { left: 1100px; }
+  .h { position: absolute; top: 60px; font: 700 168px/0.86 var(--display); letter-spacing: -0.055em; color: #fff; }
+  .h1 { left: 70px; } .h1 b { color: #ff5a60; font-weight: 700; }
+  .h2 { right: 70px; text-align: right; } .h2 b { color: #3ee08f; font-weight: 700; }
+  .bolt { position: absolute; left: 790px; top: -40px; width: 340px; height: 1160px; filter: drop-shadow(0 0 30px rgba(255,255,255,.55)) drop-shadow(0 0 80px rgba(255,210,63,.6)); }
+  .pill { position: absolute; top: 410px; padding: 12px 24px; border-radius: 999px; font: 700 38px/1 var(--mono); letter-spacing: .1em; }
+  .pt { left: 76px; background: var(--danger); color: #fff; box-shadow: 0 0 40px rgba(214,60,67,.8); }
+  .pv { right: 76px; background: #3ee08f; color: #062b1a; box-shadow: 0 0 40px rgba(62,224,143,.7); }
+  .mascot { left: 860px; bottom: 30px; height: 260px; filter: drop-shadow(0 0 30px rgba(255,255,255,.4)); }
+  .wm { right: 70px; bottom: 50px; color: #fff; } .wm span { color: #7fa6ff; }
+</style></head><body>
+<div class="glow"></div><div class="dots"></div>
+<svg class="machine m1" viewBox="0 0 1000 560"><!-- art:compressor:c1 --><!-- /art --></svg>
+<svg class="machine m2" viewBox="0 0 1000 560"><!-- art:compressor:c3 --><!-- /art --></svg>
+<svg class="bolt" viewBox="0 0 340 1160"><path d="M210 0 L90 470 L200 470 L60 1160 L300 380 L180 380 L290 0 Z" fill="#ffd23f" stroke="#fff" stroke-width="10" stroke-linejoin="round"/></svg>
+<div class="h h1"><b>$1.58M</b><br>LOST</div>
+<div class="h h2"><b>FIXED.</b><br>PROVEN.</div>
+<div class="pill pt">● TRIP</div><div class="pill pv">✓ VERIFIED</div>
+<img class="mascot" src="../../assets/mascot/mascot-figure.png">
+<div class="wm">Plant<span>Pulse</span></div>
+</body></html>

@@ -1,0 +1,112 @@
+features 118  train rows 2933  (0s)
+    computed P0 hbt (4s)
+    computed P0 cat (33s)
+    computed P0 ridge (0s)
+    computed P0 enet (0s)
+    computed P0 ridge_e (0s)
+    computed P1 hbt (3s)
+    computed P1 cat (35s)
+    computed P1 ridge (0s)
+    computed P1 enet (0s)
+    computed P1 ridge_e (0s)
+    computed P2 hbt (3s)
+    computed P2 cat (34s)
+    computed P2 ridge (0s)
+    computed P2 enet (0s)
+    computed P2 ridge_e (0s)
+    computed P3 hbt (3s)
+    computed P3 cat (37s)
+    computed P3 ridge (0s)
+    computed P3 enet (0s)
+    computed P3 ridge_e (0s)
+    computed P4 hbt (3s)
+    computed P4 cat (36s)
+    computed P4 ridge (0s)
+    computed P4 enet (0s)
+    computed P4 ridge_e (0s)
+    computed P5 hbt (3s)
+    computed P5 cat (39s)
+    computed P5 ridge (0s)
+    computed P5 enet (0s)
+    computed P5 ridge_e (0s)
+    computed P6 hbt (4s)
+    computed P6 cat (43s)
+    computed P6 ridge (0s)
+    computed P6 enet (0s)
+    computed P6 ridge_e (0s)
+    computed P7 hbt (5s)
+    computed P7 cat (40s)
+    computed P7 ridge (0s)
+    computed P7 enet (0s)
+    computed P7 ridge_e (0s)
+    computed P8 hbt (5s)
+    computed P8 cat (39s)
+    computed P8 ridge (0s)
+    computed P8 enet (0s)
+    computed P8 ridge_e (0s)
+    computed Q0 hbt (3s)
+    computed Q0 cat (44s)
+    computed Q0 ridge (0s)
+    computed Q0 enet (0s)
+    computed Q0 ridge_e (0s)
+    computed Q1 hbt (3s)
+    computed Q1 cat (37s)
+    computed Q1 ridge (0s)
+    computed Q1 enet (0s)
+    computed Q1 ridge_e (0s)
+    computed Q2 hbt (5s)
+    computed Q2 cat (40s)
+    computed Q2 ridge (0s)
+    computed Q2 enet (0s)
+    computed Q2 ridge_e (0s)
+    computed Q3 hbt (3s)
+    computed Q3 cat (45s)
+    computed Q3 ridge (0s)
+    computed Q3 enet (0s)
+    computed Q3 ridge_e (0s)
+    computed R0 hbt (3s)
+    computed R0 cat (38s)
+    computed R0 ridge (0s)
+    computed R0 enet (0s)
+    computed R0 ridge_e (0s)
+    computed R1 hbt (4s)
+    computed R1 cat (39s)
+    computed R1 ridge (0s)
+    computed R1 enet (0s)
+    computed R1 ridge_e (0s)
+    computed R2 hbt (3s)
+    computed R2 cat (36s)
+    computed R2 ridge (0s)
+    computed R2 enet (0s)
+    computed R2 ridge_e (0s)
+    computed R3 hbt (4s)
+    computed R3 cat (37s)
+    computed R3 ridge (0s)
+    computed R3 enet (0s)
+    computed R3 ridge_e (0s)
+    computed R4 hbt (6s)
+    computed R4 cat (37s)
+    computed R4 ridge (0s)
+    computed R4 enet (0s)
+    computed R4 ridge_e (0s)
+  family P: 9 folds, 6480 rows
+  family Q: 4 folds, 2880 rows
+  family R: 5 folds, 5040 rows
+
+v8 baseline              P  4.788/ 6.338 Q  4.012/ 4.467 R  5.164/ 5.891  avg  4.655
+
+  solo hbt               P  4.985/ 6.503 Q  4.214/ 4.492 R  5.468/ 5.853  avg  4.889  | d +0.235  2/15
+  solo cat               P  6.195/ 9.227 Q  4.979/ 6.340 R  7.075/ 8.591  avg  6.083  | d +1.428  0/15
+  solo ridge             P  6.589/ 7.955 Q  5.470/ 6.701 R  6.844/ 6.938  avg  6.301  | d +1.646  0/15
+  solo enet              P  6.258/ 7.775 Q  5.207/ 5.969 R  6.485/ 6.785  avg  5.983  | d +1.329  0/15
+  solo ridge_e           P  7.141/ 8.950 Q  5.869/ 6.950 R  7.421/ 7.773  avg  6.810  | d +2.156  0/15
+
+residual correlations (family P):
+           hbt    cat  ridge   enet  ridge_e
+hbt      1.000  0.638  0.667  0.689    0.605
+cat      0.638  1.000  0.377  0.406    0.512
+ridge    0.667  0.377  1.000  0.990    0.856
+enet     0.689  0.406  0.990  1.000    0.856
+ridge_e  0.605  0.512  0.856  0.856    1.000
+
+total 766s

@@ -1,0 +1,20 @@
+name: analytics
+on:
+  schedule: [{ cron: "0 22 * * 0" }]   # Monday 05:00 WIB
+  workflow_dispatch: {}
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r analytics/requirements.txt
+      - run: python -m analytics.patterns && python -m analytics.anomaly
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: prototype/package-lock.json }
+      - run: cd prototype && npm ci && npx tsx scripts/label-patterns.ts

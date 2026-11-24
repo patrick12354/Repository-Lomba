@@ -1,0 +1,27 @@
+{
+  "FD_sel": 0.8,
+  "bobot": {
+    "swA_sqrt": 0.0519,
+    "resA_dep": 0.1634,
+    "resB_dep": 0.0824,
+    "resB_c30": 0.0545,
+    "resB_p05": 0.0205,
+    "cnnres": 0.0168,
+    "cnn3_avg": 0.4315,
+    "cnn3_dir": 0.179
+  },
+  "w_modelB": 0.15746737186480053,
+  "lb_real": 0.1772857627182648,
+  "dec": 0.1413142358276416,
+  "rnd": 0.21184664149553017,
+  "gain_dec": -0.0010458203482752715,
+  "menang_dec": 9,
+  "bias_rnd": 0.02755741451325111,
+  "mean_rnd_te": 5.262841798663847,
+  "sd_rnd_te": 0.3941994855461924,
+  "korel_nb8": 0.9986342387553723,
+  "basis": "blend 8 kandidat nb8, bobot dipilih dengan objektif FD_sel=0,80",
+  "lb_actual": 0.1871,
+  "status": "DISUBMIT -- GAGAL",
+  "catatan": "Taruhan kalah 0,0022. Membuktikan Model B (fitur agregat grup) membawa sinyal nyata yang transfer ke test -- bobot 0,32-nya sah. Aturan 'gain sisi desimal harus negatif' DICABUT sebagai kriteria seleksi."
+}

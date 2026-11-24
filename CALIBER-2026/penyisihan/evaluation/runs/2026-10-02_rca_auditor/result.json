@@ -1,0 +1,177 @@
+{
+  "model": "gpt-6.1-sol",
+  "label": "internal",
+  "cases": [
+    {
+      "tag": "PU-2101B",
+      "claims": 44,
+      "dropped": [],
+      "cost_usd": 0.051804,
+      "conflicts": [
+        {
+          "slide": 6,
+          "quote": "Seal-flush flow measured 3–4 L/min vs 6 L/min minimum — seal ran dry intermittently.",
+          "note": "Limit differs from Equipment Info, which has no effective date — a threshold-version question.",
+          "refs": [
+            "E1:info:Seal Flush Flow"
+          ]
+        },
+        {
+          "slide": 6,
+          "quote": "Seal cooler outlet temp normal (42 °C) — cooling adequate.",
+          "note": "Weekly record shows 96.9 °C on 2026-03-12. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E1:hist:2026-03-12"
+          ]
+        },
+        {
+          "slide": 7,
+          "quote": "seal-flush flow dropped below the 6 L/min minimum",
+          "note": "Limit differs from Equipment Info, which has no effective date — a threshold-version question.",
+          "refs": [
+            "E1:info:Seal Flush Flow"
+          ]
+        },
+        {
+          "slide": 11,
+          "quote": "seal-flush flow dropped below the 6 L/min minimum",
+          "note": "Limit differs from Equipment Info, which has no effective date — a threshold-version question.",
+          "refs": [
+            "E1:info:Seal Flush Flow"
+          ]
+        }
+      ],
+      "expected_hits": null
+    },
+    {
+      "tag": "KO-3201",
+      "claims": 51,
+      "dropped": [],
+      "cost_usd": 0.053435300000000005,
+      "conflicts": [
+        {
+          "slide": 3,
+          "quote": "KO-3201 drive-end (DE) radial vibration trending up (from 28 to 52 micron over 5 days).",
+          "note": "Weekly record shows 76.5 micron on 2026-04-29. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E2:hist:2026-04-29"
+          ]
+        },
+        {
+          "slide": 3,
+          "quote": "KO-3201 drive-end (DE) radial vibration trending up (from 28 to 52 micron over 5 days).",
+          "note": "Weekly record shows 76.5 micron on 2026-04-29. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E2:hist:2026-04-29"
+          ]
+        },
+        {
+          "slide": 3,
+          "quote": "Plant rate cut to minimum; lube-oil sample taken — water content 1,800 ppm (spec < 500 ppm).",
+          "note": "Weekly record shows 1530 ppm on 2026-04-29. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E2:hist:2026-04-29"
+          ]
+        },
+        {
+          "slide": 6,
+          "quote": "Water content 1,800 ppm vs < 500 ppm spec — film breakdown.",
+          "note": "Weekly record shows 1530 ppm on 2026-04-29. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E2:hist:2026-04-29"
+          ]
+        },
+        {
+          "slide": 6,
+          "quote": "Bearing in service 3 years vs 6-year design — within life.",
+          "note": "Equipment Info records 5 years (bearing) / 24 months (seal element).",
+          "refs": [
+            "E2:info:design_life"
+          ]
+        },
+        {
+          "slide": 7,
+          "quote": "Alert at 60 micron gave little lead time before 75 micron trip.",
+          "note": "Limit differs from Equipment Info, which has no effective date — a threshold-version question.",
+          "refs": [
+            "E2:info:DE Radial Vibration"
+          ]
+        }
+      ],
+      "expected_hits": {
+        "CF-01 alert threshold 60 vs 45 micron": true,
+        "CF-02 vibration rise 28→52 vs weekly 71.7": true,
+        "CF-03 water >500 ppm ~2 weeks vs 11 weeks": false,
+        "CF-04 supply pressure 1.8 vs 1.078 barg": false,
+        "CF-05 bearing design life 6 vs 5 years": true
+      }
+    },
+    {
+      "tag": "PM-4405B",
+      "claims": 39,
+      "dropped": [],
+      "cost_usd": 0.043854,
+      "conflicts": [],
+      "expected_hits": null
+    },
+    {
+      "tag": "HE-3301",
+      "claims": 36,
+      "dropped": [],
+      "cost_usd": 0.04305,
+      "conflicts": [],
+      "expected_hits": null
+    },
+    {
+      "tag": "BL-5702",
+      "claims": 52,
+      "dropped": [],
+      "cost_usd": 0.058292,
+      "conflicts": [
+        {
+          "slide": 3,
+          "quote": "OPP running normal; BL-5702 vibration trending up (4.2 → 8.5 mm/s) with 2X harmonic rising.",
+          "note": "Weekly record shows 11.22 mm/s on 2026-06-17. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E5:hist:2026-06-17"
+          ]
+        },
+        {
+          "slide": 3,
+          "quote": "Coupling element found worn/cracked; laser alignment showed 0.35 mm offset (spec < 0.05 mm).",
+          "note": "Weekly record shows 0.306 mm on 2026-06-17. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E5:hist:2026-06-17"
+          ]
+        },
+        {
+          "slide": 3,
+          "quote": "Coupling element replaced, unit re-aligned to < 0.05 mm, blower restarted to 38 T/H.",
+          "note": "Weekly record shows 0.306 mm on 2026-06-17. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E5:hist:2026-06-17"
+          ]
+        },
+        {
+          "slide": 6,
+          "quote": "Offset 0.35 mm vs < 0.05 mm spec — angular/parallel misalignment.",
+          "note": "Weekly record shows 0.306 mm on 2026-06-17. A different sampling point or method may explain it; an owner must decide which record is authoritative.",
+          "refs": [
+            "E5:hist:2026-06-17"
+          ]
+        }
+      ],
+      "expected_hits": null
+    }
+  ],
+  "injection": {
+    "leaked_claims": 0,
+    "conflicts_still_found": 7,
+    "pass": true
+  },
+  "summary": {
+    "ko3201_expected_found": 3,
+    "of": 5,
+    "injection_pass": true
+  }
+}

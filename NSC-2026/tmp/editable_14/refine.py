@@ -1,0 +1,13 @@
+from pathlib import Path
+p=Path(__file__).with_name('build.mjs')
+s=p.read_text(encoding='utf-8')
+s=s.replace("const labelW=small?110:245", "const labelW=small?140:245")
+s=s.replace("small?'? ? ?':'? ? ?    Target tidak diberikan'", "small?'? ? ?':'Target tidak diberikan'")
+s=s.replace("small?23:25,C.red,true", "small?23:21,C.red,true")
+s=s.replace("shape(s,'editable-name-label',522,408,170,48,C.paper);text(s,'Pak Anton',531,412,151,34,27,C.ink,true);text(s,'Tanaman layu',68,748,240,39,27,C.ink,true);text(s,'Sensor lingkungan',83,330,240,42,24,C.ink,true);", "shape(s,'editable-name-label',478,432,192,49,C.paper);text(s,'Pak Anton',484,437,180,34,27,C.ink,true);shape(s,'sensor-label-paper',77,330,300,45,C.paper);text(s,'Sensor lingkungan',84,332,285,40,24,C.ink,true);shape(s,'leaf-label-paper',67,750,243,43,C.paper);text(s,'Tanaman layu',74,752,230,39,27,C.ink,true);shape(s,'logbook-label-paper',312,696,185,43,C.paper);text(s,'Catatan sensor',319,698,172,38,22,C.ink,true);")
+s=s.replace("Membatasi pengaruh\\ngalat ekstrem", "Batasi pengaruh\\ngalat ekstrem")
+s=s.replace("105,493,349,100,32,C.ink,true", "105,493,349,100,28,C.ink,true")
+s=s.replace("connect(s,level,opt,C.ink);connect(s,inc,opt,C.ink);", "pathLine(s,[[461,283],[496,283],[496,432],[534,432]],C.ink,3);pathLine(s,[[461,545],[496,545],[496,593],[534,593]],C.ink,3);arrow(s,929,451,49,C.ink);")
+s=s.replace("connect(s,oof,cb,C.ink);", "shape(s,'OOF-to-half',1210,338,24,25,C.ink,'none',0,'downArrow');shape(s,'half-to-CatBoost',1210,515,24,25,C.ink,'none',0,'downArrow');")
+p.write_text(s,encoding='utf-8')
+print('Refined diagrams, labels and text fit.')

@@ -1,0 +1,65 @@
+{
+ "model": "gpt-5.6-luna",
+ "n_kasus": 36,
+ "n_jawaban": 144,
+ "n_llm": 144,
+ "A_bocor_judge": {
+  "n": 36,
+  "k": 2,
+  "p": 0.05555555555555555
+ },
+ "A_bocor_regex": {
+  "n": 36,
+  "k": 0,
+  "p": 0.0
+ },
+ "A_bocor_salah_satu": {
+  "n": 36,
+  "k": 2,
+  "p": 0.05555555555555555
+ },
+ "B_di_luar_fakta_judge": {
+  "n": 36,
+  "k": 0,
+  "p": 0.0
+ },
+ "B_fact_check": {
+  "n": 36,
+  "k": 0,
+  "p": 0.0
+ },
+ "C_ikut_salah_judge": {
+  "n": 36,
+  "k": 0,
+  "p": 0.0
+ },
+ "C_fact_check": {
+  "n": 36,
+  "k": 5,
+  "p": 0.1388888888888889
+ },
+ "D_menebak_judge": {
+  "n": 36,
+  "k": 0,
+  "p": 0.0
+ },
+ "D_menebak_regex": {
+  "n": 36,
+  "k": 15,
+  "p": 0.4166666666666667
+ },
+ "semua_di_luar_fakta_judge": {
+  "n": 144,
+  "k": 1,
+  "p": 0.006944444444444444
+ },
+ "latensi_s": {
+  "median": 5.342499999999999,
+  "p95": 9.7655,
+  "maks": 13.053
+ },
+ "latensi_per_mode": {
+  "sokratik": 8.206249999999999,
+  "penjelasan": 10.411349999999993
+ }
+}

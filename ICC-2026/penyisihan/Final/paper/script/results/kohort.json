@@ -1,0 +1,42 @@
+{
+ "n_participants": 1505,
+ "n_mask": 1456,
+ "n_mask_nonempty": 1456,
+ "n_nihss": 1106,
+ "n_rankin": 738,
+ "vol_median": 8.330992438077926,
+ "vol_q1": 1.7396023541688919,
+ "vol_q3": 34.47647470343113,
+ "frac_vol_lt1": 0.16689560439560439,
+ "frac_vol_gt50": 0.18475274725274726,
+ "frac_multifocal": 0.6723901098901099,
+ "n_acute_mask": 1451,
+ "foci_median": 2.0,
+ "age_median": 65.0,
+ "nihss_median": 5.0,
+ "spearman_vol_nihss": 0.4827579800228199,
+ "n_vol_nihss": 950,
+ "frac_multifocal_sig": 0.5975274725274725,
+ "D_t1": -0.1687130085201442,
+ "D_t2": 0.7727307105612182,
+ "tingkat": {
+  "mudah": {
+   "n": 486,
+   "vol_median": 23.11581774997711,
+   "foci_median": 1.0,
+   "frac_lt1": 0.0
+  },
+  "sedang": {
+   "n": 485,
+   "vol_median": 2.9736871585845948,
+   "foci_median": 2.0,
+   "frac_lt1": 0.3402061855670103
+  },
+  "sulit": {
+   "n": 485,
+   "vol_median": 5.448528349399567,
+   "foci_median": 5.0,
+   "frac_lt1": 0.16082474226804125
+  }
+ }
+}

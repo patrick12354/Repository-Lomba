@@ -1,0 +1,218 @@
+[
+ {
+  "kolom": "env_id",
+  "hilang_latih": 0.0,
+  "hilang_uji": 0.0,
+  "rerata_latih": 95732.47,
+  "rerata_uji": 190968.04,
+  "rasio_sd": 0.26,
+  "dipakai": false
+ },
+ {
+  "kolom": "co2",
+  "hilang_latih": 9.3,
+  "hilang_uji": 8.6,
+  "rerata_latih": 481.49,
+  "rerata_uji": 478.55,
+  "rasio_sd": 0.88,
+  "dipakai": true
+ },
+ {
+  "kolom": "pressure",
+  "hilang_latih": 9.9,
+  "hilang_uji": 9.4,
+  "rerata_latih": 1008.88,
+  "rerata_uji": 1013.28,
+  "rasio_sd": 0.87,
+  "dipakai": true
+ },
+ {
+  "kolom": "air_temperature",
+  "hilang_latih": 10.4,
+  "hilang_uji": 9.8,
+  "rerata_latih": 27.56,
+  "rerata_uji": 24.58,
+  "rasio_sd": 1.09,
+  "dipakai": true
+ },
+ {
+  "kolom": "env_battery",
+  "hilang_latih": 98.0,
+  "hilang_uji": 98.0,
+  "rerata_latih": 100.0,
+  "rerata_uji": 100.0,
+  "rasio_sd": 0.0,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_ec_line1",
+  "hilang_latih": 9.3,
+  "hilang_uji": 12.0,
+  "rerata_latih": 361.23,
+  "rerata_uji": 228.98,
+  "rasio_sd": 0.66,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_humidity_line1",
+  "hilang_latih": 10.3,
+  "hilang_uji": 11.2,
+  "rerata_latih": 26.32,
+  "rerata_uji": 24.54,
+  "rasio_sd": 0.59,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_temp_line1",
+  "hilang_latih": 9.8,
+  "hilang_uji": 11.7,
+  "rerata_latih": 23.83,
+  "rerata_uji": 21.56,
+  "rasio_sd": 0.48,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_ec_line2",
+  "hilang_latih": 9.7,
+  "hilang_uji": 10.6,
+  "rerata_latih": 408.42,
+  "rerata_uji": 182.14,
+  "rasio_sd": 0.24,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_humidity_line2",
+  "hilang_latih": 9.0,
+  "hilang_uji": 8.7,
+  "rerata_latih": 26.85,
+  "rerata_uji": 20.28,
+  "rasio_sd": 0.21,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_temp_line2",
+  "hilang_latih": 9.8,
+  "hilang_uji": 11.2,
+  "rerata_latih": 24.7,
+  "rerata_uji": 22.24,
+  "rasio_sd": 0.44,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_ec_line3",
+  "hilang_latih": 10.8,
+  "hilang_uji": 11.0,
+  "rerata_latih": 481.81,
+  "rerata_uji": 225.4,
+  "rasio_sd": 0.23,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_humidity_line3",
+  "hilang_latih": 9.4,
+  "hilang_uji": 11.0,
+  "rerata_latih": 26.9,
+  "rerata_uji": 21.73,
+  "rasio_sd": 0.15,
+  "dipakai": false
+ },
+ {
+  "kolom": "soil_temp_line3",
+  "hilang_latih": 10.2,
+  "hilang_uji": 9.8,
+  "rerata_latih": 24.78,
+  "rerata_uji": 22.58,
+  "rasio_sd": 0.46,
+  "dipakai": false
+ },
+ {
+  "kolom": "water_volume_line1",
+  "hilang_latih": 9.7,
+  "hilang_uji": 9.8,
+  "rerata_latih": 19552.36,
+  "rerata_uji": 38280.0,
+  "rasio_sd": 0.0,
+  "dipakai": false
+ },
+ {
+  "kolom": "water_volume_line2",
+  "hilang_latih": 9.5,
+  "hilang_uji": 10.2,
+  "rerata_latih": 13258.44,
+  "rerata_uji": 25028.0,
+  "rasio_sd": 0.0,
+  "dipakai": false
+ },
+ {
+  "kolom": "water_volume_line3",
+  "hilang_latih": 9.3,
+  "hilang_uji": 10.1,
+  "rerata_latih": 8618.84,
+  "rerata_uji": 15094.0,
+  "rasio_sd": 0.0,
+  "dipakai": false
+ },
+ {
+  "kolom": "gdd",
+  "hilang_latih": 10.2,
+  "hilang_uji": 15.5,
+  "rerata_latih": 405.53,
+  "rerata_uji": 841.7,
+  "rasio_sd": 0.14,
+  "dipakai": true
+ },
+ {
+  "kolom": "standard_day_degree",
+  "hilang_latih": 9.9,
+  "hilang_uji": 15.4,
+  "rerata_latih": 17.57,
+  "rerata_uji": 15.53,
+  "rasio_sd": 0.69,
+  "dipakai": true
+ },
+ {
+  "kolom": "daily_mean_temperature",
+  "hilang_latih": 9.6,
+  "hilang_uji": 16.9,
+  "rerata_latih": 27.53,
+  "rerata_uji": 25.4,
+  "rasio_sd": 0.69,
+  "dipakai": true
+ },
+ {
+  "kolom": "daily_max_above_Tbase",
+  "hilang_latih": 10.3,
+  "hilang_uji": 17.4,
+  "rerata_latih": 26.74,
+  "rerata_uji": 25.92,
+  "rasio_sd": 0.76,
+  "dipakai": true
+ },
+ {
+  "kolom": "daily_max",
+  "hilang_latih": 9.4,
+  "hilang_uji": 17.6,
+  "rerata_latih": 36.78,
+  "rerata_uji": 35.85,
+  "rasio_sd": 0.75,
+  "dipakai": true
+ },
+ {
+  "kolom": "daily_max_reduction",
+  "hilang_latih": 9.9,
+  "hilang_uji": 14.7,
+  "rerata_latih": 16.7,
+  "rerata_uji": 17.69,
+  "rasio_sd": 0.78,
+  "dipakai": true
+ },
+ {
+  "kolom": "ontario_units",
+  "hilang_latih": 10.4,
+  "hilang_uji": 15.0,
+  "rerata_latih": 26.36,
+  "rerata_uji": 24.2,
+  "rasio_sd": 0.61,
+  "dipakai": true
+ }
+]

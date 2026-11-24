@@ -1,0 +1,90 @@
+{
+  "model": "gpt-6.1-sol",
+  "label": "internal",
+  "passed": 3,
+  "of": 4,
+  "rows": [
+    {
+      "file": "cooler-repair-record.pdf",
+      "expect": "repair_record",
+      "mustWarn": true,
+      "why": "a different action",
+      "got": "repair_record",
+      "date": "2026-04-30",
+      "tags": [
+        "KO-3201"
+      ],
+      "warnings": [
+        "This looks like a Repair record (cooler tube plug + re-test): Proves the cooler tube was repaired — a different action. It does not show a sensor exists.",
+        "No installation or commissioning record for the online water-in-oil sensor is shown.",
+        "No signal validation against a lab sample or DCS alarm configuration is shown.",
+        "The signed field reads 'M. Planner (signature on file)', but no actual signature is visible.",
+        "The hydro re-test is marked passed without test pressure, duration, or measured results.",
+        "The document is marked 'SYNTHETIC TEST DOCUMENT' and the company heading includes 'FICTIONAL'."
+      ],
+      "pass": true,
+      "cost_usd": 0.017538
+    },
+    {
+      "file": "sensor-commissioning-record.pdf",
+      "expect": "installation_record",
+      "mustWarn": false,
+      "why": "the right document",
+      "got": "installation_record",
+      "date": "2026-10-12",
+      "tags": [
+        "KO-3201",
+        "WIO-TEST-01"
+      ],
+      "warnings": [
+        "No signal validation against a lab sample is shown.",
+        "No DCS alarm configuration or alarm setpoints are shown.",
+        "The signed field reads 'I. Engineer (signature on file)', but no actual signature is visible.",
+        "The document is marked 'SYNTHETIC TEST DOCUMENT' and identifies the company as fictional."
+      ],
+      "pass": false,
+      "cost_usd": 0.017258
+    },
+    {
+      "file": "signal-validation-ko3202.pdf",
+      "expect": "signal_validation",
+      "mustWarn": true,
+      "why": "wrong asset on purpose",
+      "got": "signal_validation",
+      "date": "2026-10-14",
+      "tags": [
+        "KO-3202",
+        "WIO-TEST-02"
+      ],
+      "warnings": [
+        "The document names KO-3202, WIO-TEST-02, not KO-3201.",
+        "The equipment tag is KO-3202, not the action's target asset KO-3201.",
+        "No actual signature is visible; the document states 'signature on file'.",
+        "The tolerance limits are not specified.",
+        "No installation/commissioning record or DCS alarm configuration is shown.",
+        "The document is explicitly marked as synthetic and the company as fictional."
+      ],
+      "pass": true,
+      "cost_usd": 0.017388
+    },
+    {
+      "file": "undated-alarm-config.png",
+      "expect": "alarm_config",
+      "mustWarn": true,
+      "why": "no date on purpose",
+      "got": "alarm_config",
+      "date": null,
+      "tags": [
+        "KO-3201"
+      ],
+      "warnings": [
+        "No date is legible on the document; evidence must be dated.",
+        "No date is recorded on the screen print.",
+        "No signature is visible.",
+        "The document is marked 'SYNTHETIC TEST DOCUMENT' and the company header is labeled fictional."
+      ],
+      "pass": true,
+      "cost_usd": 0.007488
+    }
+  ]
+}

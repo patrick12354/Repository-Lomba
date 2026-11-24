@@ -1,0 +1,13 @@
+arm,outside_7d,n,delta_mse
+v21,False,1008,0.0
+v21,True,432,0.0
+physics_dsh,False,1008,-0.2420269634029098
+physics_dsh,True,432,-0.9037130540185517
+physics_dsh_lags,False,1008,-0.23917608441554905
+physics_dsh_lags,True,432,-1.824477668030165
+physics_lags,False,1008,-0.09252624872073935
+physics_lags,True,432,-1.1308517956755422
+v21_lags,False,1008,-0.0481132161646369
+v21_lags,True,432,-0.8459600662723417
+relative_dynamics,False,1008,-0.17066818215595114
+relative_dynamics,True,432,2.4323109319673466

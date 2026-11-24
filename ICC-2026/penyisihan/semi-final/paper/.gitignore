@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+script/preview/
+.env
+script/results/llm_img/

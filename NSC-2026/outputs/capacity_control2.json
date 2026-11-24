@@ -1,0 +1,27 @@
+{
+  "tod-shrink 0.50, 3 bands": {
+    "real_delta": 0.0,
+    "capacity_delta": 0.0,
+    "signal": 0.0
+  },
+  "tod-shrink 0.25, 3 bands": {
+    "real_delta": -0.026159152981009903,
+    "capacity_delta": 0.00044305840239733385,
+    "signal": -0.026602211383407237
+  },
+  "tod-shrink 0.00, 3 bands": {
+    "real_delta": -0.03433447913841903,
+    "capacity_delta": 0.001038952143583849,
+    "signal": -0.035373431282002876
+  },
+  "tod-shrink 0.50, 6 bands": {
+    "real_delta": -0.010889469432833643,
+    "capacity_delta": 0.0011357842932238071,
+    "signal": -0.01202525372605745
+  },
+  "tod-shrink 0.25, 6 bands": {
+    "real_delta": -0.041182221160878996,
+    "capacity_delta": 0.0024609798807393446,
+    "signal": -0.04364320104161834
+  }
+}

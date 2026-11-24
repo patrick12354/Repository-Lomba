@@ -1,0 +1,22 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+control : v21 increment (no physics, no de-shrink, no lags)
+  pooled 5.535894  (23 s)  [reproduces the frozen v21 predictions exactly]
+candidate: relative-dynamics increments, de-shrink off, level stack untouched
+  pooled 5.590738  (14 s)
+
+        candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot3_lo  boot3_hi  boot7_lo  boot7_hi  days_improved
+              v21 5.535894    4.232249    6.586373    4.690131 1440       NaN      NaN           NaN           NaN           NaN        NaN       NaN       NaN       NaN       NaN            NaN
+relative_dynamics 5.590738    4.221079    6.685446    4.603417 1440  0.054844 0.610226      -0.01117      0.099072     -0.086713      False -0.424042  1.726834 -0.487697  1.758754           17.0
+
+direction vs v21
+              arm  vs      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+relative_dynamics v21 B1_last15d  -0.696786      0.602366 -0.094420   17.158458     17.339185
+relative_dynamics v21 B2_prev15d   0.636615      0.678255  1.314871   16.201210     16.002931
+relative_dynamics v21 B3_shift7d  -1.235128      0.429254 -0.805874   17.376910     17.334858
+
+bootstrap vs v21: 3d +0.6048 [-0.4240, +1.7268] | 7d +0.5856 [-0.4877, +1.7588] | 17/31 days
+design columns {1: 57, 4: 57}  (incumbent physics design is 138, with lags 158)
+pressure +25 hPa leaves the design identical: {1: True, 4: True}
+
+wrote relative_dynamics.csv and the predictions to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s29

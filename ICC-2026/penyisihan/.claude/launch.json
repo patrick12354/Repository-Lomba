@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sinaps-api",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:/Patrick/Satu Data/Final/videos/sinaps-demo/tools/run_api.ps1"],
+      "port": 8000
+    },
+    {
+      "name": "sinaps-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:/Patrick/Satu Data/Final/mvp", "run", "dev"],
+      "port": 5173
+    }
+  ]
+}

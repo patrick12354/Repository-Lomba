@@ -1,0 +1,36 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  B1_last15d  train 2213  scalars 118  forward folds 2  degenerate []
+     A0  q 7.6155 (anchor 10.0559, level 4.2932)  recon 4.459616 vs 4.232249
+     A1  q 7.5138 (anchor 10.0559, level 4.2932)  recon 4.470340 vs 4.232249
+     A2  q 6.7852 (anchor 10.0559, level 4.2932)  recon 4.487504 vs 4.232249
+  B2_prev15d  train 1493  scalars 118  forward folds 2  degenerate []
+     A0  q 8.2673 (anchor 8.5739, level 6.7782)  recon 6.614508 vs 6.586373
+     A1  q 8.4785 (anchor 8.5739, level 6.7782)  recon 6.652823 vs 6.586373
+     A2  q 7.2243 (anchor 8.5739, level 6.7782)  recon 6.384149 vs 6.586373
+  B3_shift7d  train 1877  scalars 118  forward folds 2  degenerate []
+     A0  q 5.8953 (anchor 8.2506, level 4.8109)  recon 4.470211 vs 4.690131
+     A1  q 5.9466 (anchor 8.2506, level 4.8109)  recon 4.523753 vs 4.690131
+     A2  q 4.8226 (anchor 8.2506, level 4.8109)  recon 4.281395 vs 4.690131
+
+  control reproduces the frozen v21 predictions exactly (2160 rows)
+
+candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled     d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot3_lo  boot3_hi  days_improved
+      v21 5.535894    4.232249    6.586373    4.690131 1440       NaN       NaN           NaN           NaN           NaN        NaN       NaN       NaN            NaN
+       A0 5.640917    4.459616    6.614508    4.470211 1440  0.105023  1.173827      0.227368      0.028135     -0.219920      False -2.536704  4.422149           12.0
+       A1 5.667627    4.470340    6.652823    4.523753 1440  0.131733  1.475875      0.238091      0.066450     -0.166378      False -2.092936  4.563463           11.0
+       A2 5.517928    4.487504    6.384149    4.281395 1440 -0.017966 -0.198595      0.255255     -0.202224     -0.408735      False -3.501377  2.961153           13.0
+
+direction vs v21
+arm      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+ A0 B1_last15d  -0.228395      2.204646  1.976251   17.158458     17.191140
+ A0 B2_prev15d  -1.131613      1.503016  0.371404   16.201210     16.063480
+ A0 B3_shift7d  -3.389620      1.375080 -2.014540   17.376910     17.401732
+ A1 B1_last15d  -0.040807      2.112818  2.072011   17.158458     17.158628
+ A1 B2_prev15d  -0.764260      1.643998  0.879739   16.201210     16.128160
+ A1 B3_shift7d  -2.803742      1.270758 -1.532983   17.376910     17.359601
+ A2 B1_last15d   0.929208      1.296555  2.225763   17.158458     17.080200
+ A2 B2_prev15d  -3.599495      0.976543 -2.622952   16.201210     16.066651
+ A2 B3_shift7d  -4.615273      0.948294 -3.666980   17.376910     17.305490
+
+wrote sequence_random-conv.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s31

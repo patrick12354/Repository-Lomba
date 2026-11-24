@@ -1,0 +1,196 @@
+{
+ "text": "Hasilnya? Modul penilaian mengenali jenis kesalahan dengan akurasi sembilan puluh tujuh koma delapan persen, dibanding empat puluh tujuh persen kalau hanya memakai Dice. Dan dari empat ratus tiga puluh dua jawaban tutor, tidak satu pun keluar dari fakta.",
+ "end": 16.16,
+ "words": [
+  {
+   "w": "Hasilnya?",
+   "s": 0,
+   "e": 0.88
+  },
+  {
+   "w": "Modul",
+   "s": 1.12,
+   "e": 1.44
+  },
+  {
+   "w": "penilaian",
+   "s": 1.52,
+   "e": 2
+  },
+  {
+   "w": "mengenali",
+   "s": 2.04,
+   "e": 2.48
+  },
+  {
+   "w": "jenis",
+   "s": 2.56,
+   "e": 2.8
+  },
+  {
+   "w": "kesalahan",
+   "s": 2.88,
+   "e": 3.44
+  },
+  {
+   "w": "dengan",
+   "s": 3.48,
+   "e": 3.76
+  },
+  {
+   "w": "akurasi",
+   "s": 3.84,
+   "e": 4.32
+  },
+  {
+   "w": "sembilan",
+   "s": 4.4,
+   "e": 4.88
+  },
+  {
+   "w": "puluh",
+   "s": 4.96,
+   "e": 5.12
+  },
+  {
+   "w": "tujuh",
+   "s": 5.28,
+   "e": 5.52
+  },
+  {
+   "w": "koma",
+   "s": 5.6,
+   "e": 5.76
+  },
+  {
+   "w": "delapan",
+   "s": 5.84,
+   "e": 6.16
+  },
+  {
+   "w": "persen,",
+   "s": 6.24,
+   "e": 6.96
+  },
+  {
+   "w": "dibanding",
+   "s": 7,
+   "e": 7.52
+  },
+  {
+   "w": "empat",
+   "s": 7.64,
+   "e": 7.84
+  },
+  {
+   "w": "puluh",
+   "s": 7.92,
+   "e": 8.08
+  },
+  {
+   "w": "tujuh",
+   "s": 8.12,
+   "e": 8.28
+  },
+  {
+   "w": "persen",
+   "s": 8.32,
+   "e": 8.64
+  },
+  {
+   "w": "kalau",
+   "s": 8.8,
+   "e": 9.04
+  },
+  {
+   "w": "hanya",
+   "s": 9.12,
+   "e": 9.36
+  },
+  {
+   "w": "memakai",
+   "s": 9.44,
+   "e": 9.76
+  },
+  {
+   "w": "Dice.",
+   "s": 9.84,
+   "e": 10.72
+  },
+  {
+   "w": "Dan",
+   "s": 10.88,
+   "e": 11.04
+  },
+  {
+   "w": "dari",
+   "s": 11.12,
+   "e": 11.36
+  },
+  {
+   "w": "empat",
+   "s": 11.44,
+   "e": 11.6
+  },
+  {
+   "w": "ratus",
+   "s": 11.68,
+   "e": 11.92
+  },
+  {
+   "w": "tiga",
+   "s": 12.08,
+   "e": 12.24
+  },
+  {
+   "w": "puluh",
+   "s": 12.32,
+   "e": 12.48
+  },
+  {
+   "w": "dua",
+   "s": 12.56,
+   "e": 12.72
+  },
+  {
+   "w": "jawaban",
+   "s": 12.8,
+   "e": 13.12
+  },
+  {
+   "w": "tutor,",
+   "s": 13.2,
+   "e": 13.92
+  },
+  {
+   "w": "tidak",
+   "s": 14,
+   "e": 14.24
+  },
+  {
+   "w": "satu",
+   "s": 14.28,
+   "e": 14.64
+  },
+  {
+   "w": "pun",
+   "s": 14.76,
+   "e": 14.88
+  },
+  {
+   "w": "keluar",
+   "s": 14.96,
+   "e": 15.2
+  },
+  {
+   "w": "dari",
+   "s": 15.28,
+   "e": 15.44
+  },
+  {
+   "w": "fakta.",
+   "s": 15.52,
+   "e": 16.16
+  }
+ ]
+}

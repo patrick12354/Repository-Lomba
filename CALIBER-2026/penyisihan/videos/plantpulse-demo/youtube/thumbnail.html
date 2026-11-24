@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../assets/pp.css">
+<style>
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  body { position: relative; background: #faf8ee; font-family: var(--sans); color: var(--ink); }
+  .bloom { position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 700px at 100% 0%, rgba(230, 176, 147, 0.75), transparent 70%),
+      radial-gradient(1000px 800px at 85% 100%, rgba(163, 206, 255, 0.85), transparent 70%),
+      radial-gradient(700px 600px at 0% 100%, rgba(163, 206, 255, 0.45), transparent 70%); }
+  .grid { position: absolute; inset: 0; opacity: 0.55;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px; mask-image: linear-gradient(90deg, #000 0%, transparent 55%); }
+
+  /* Real capture of the app, tilted on a plate. */
+  .shotwrap { position: absolute; left: 930px; top: 150px; width: 1240px; height: 760px; transform: perspective(2200px) rotateY(-14deg) rotateX(4deg) rotateZ(-2deg); transform-origin: 0 50%; }
+  .shotwrap .plate { inset: 0; }
+  .shotwrap img { width: 1400px; margin: -40px 0 0 -170px; }
+
+  .tag { left: 1020px; top: 600px; transform: rotate(-4deg) scale(1.08); transform-origin: 0 0; }
+  .tag .band { font-size: 22px; }
+
+  .kick { position: absolute; left: 96px; top: 96px; display: flex; gap: 14px; }
+  .kick .chip { font-size: 26px; padding: 12px 20px; }
+  h1 { position: absolute; left: 90px; top: 210px; margin: 0; font: 700 150px/0.94 var(--display); letter-spacing: -0.045em; color: var(--ink-hi); }
+  h1 .no { color: var(--danger); }
+  .sub { position: absolute; left: 96px; top: 690px; font: 600 54px/1.1 var(--sans); letter-spacing: -0.02em; color: var(--ink-2); }
+  .sub b { color: var(--accent); font-weight: 700; }
+  .brand { position: absolute; left: 96px; top: 880px; display: flex; align-items: center; gap: 22px; }
+  .brand img { height: 120px; filter: drop-shadow(0 14px 18px rgba(38, 48, 78, 0.3)); }
+  .brand .wm { font: 700 72px/1 var(--display); letter-spacing: -0.04em; color: var(--ink-hi); }
+  .brand .wm span { color: var(--accent); }
+  .brand small { display: block; margin-top: 10px; font: 500 24px/1 var(--mono); letter-spacing: 0.08em; color: var(--ink-3); }
+</style>
+</head>
+<body>
+  <div class="bloom"></div>
+  <div class="grid"></div>
+
+  <div class="shotwrap">
+    <div class="plate"><img src="../assets/captures/inv-causes.jpg" alt=""></div>
+  </div>
+
+  <div class="tag">
+    <div class="hole"></div>
+    <div class="unit">ZCU · COMPRESSOR</div>
+    <div class="num">KO-3201</div>
+    <div class="name">32 h offline · US$1.58M loss</div>
+    <div class="band trip">● TRIP</div>
+  </div>
+
+  <div class="kick"><span class="chip kq">CALIBER 2026 · Case 2</span><span class="chip">3-min demo</span></div>
+  <h1>A repair<br>is <span class="no">not</span><br>a fix.</h1>
+  <div class="sub">…until the <b>evidence</b> says so.</div>
+  <div class="brand">
+    <img src="../assets/mascot/mascot-figure.png" alt="">
+    <div><div class="wm">Plant<span>Pulse</span></div><small>AI reliability workspace</small></div>
+  </div>
+</body>
+</html>

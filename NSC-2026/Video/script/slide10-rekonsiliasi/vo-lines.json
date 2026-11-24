@@ -1,0 +1,14 @@
+[
+ "Dari data sensor yang sama, kami membangun dua jalur prediksi yang berbeda.",
+ "Jalur pertama disebut Level Prediction, yang memperkirakan nilai kelembapan pada setiap titik waktu.",
+ "Jalur kedua disebut Increment Prediction, yang memperkirakan perubahan kelembapan untuk interval tiga puluh menit dan dua jam.",
+ "Namun, kedua prediksi ini dapat menghasilkan jawaban yang berbeda.",
+ "Sebagai contoh, selisih antara dua prediksi level belum tentu sama dengan perubahan yang diperkirakan model increment.",
+ "Untuk menyelesaikannya, kami menggunakan Temporal Reconciliation berbasis Weighted Least Squares.",
+ "Prinsipnya adalah mencari satu lintasan kelembapan yang tetap dekat dengan prediksi level, sekaligus meminimalkan ketidaksesuaian terhadap prediksi perubahan.",
+ "Melalui optimasi ini, seluruh titik disesuaikan secara bersama-sama.",
+ "Prediksi level menjaga posisi setiap titik, sementara prediksi increment mempertahankan dinamika perubahan antarwaktu.",
+ "Hasilnya bukan sekadar smoothing, atau menghaluskan grafik.",
+ "Kami merekonstruksi rangkaian prediksi berdasarkan dua sumber informasi yang saling melengkapi.",
+ "Kini, tujuh ratus tiga puluh empat titik tidak lagi diperlakukan sebagai prediksi terpisah, melainkan sebagai satu lintasan yang saling terhubung."
+]

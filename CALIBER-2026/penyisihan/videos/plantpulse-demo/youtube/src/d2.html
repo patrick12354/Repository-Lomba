@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../assets/pp.css"><link rel="stylesheet" href="common.css">
+<style>
+  body { background: #0b1426; }
+  .glow { position: absolute; inset: 0; background:
+    radial-gradient(760px 620px at 22% 62%, rgba(214,60,67,.7), transparent 70%),
+    radial-gradient(760px 620px at 80% 62%, rgba(29,154,99,.65), transparent 70%),
+    radial-gradient(1200px 500px at 50% 110%, rgba(47,98,224,.35), transparent 70%); }
+  .dots { position: absolute; inset: 0; opacity: .35; background-image: radial-gradient(rgba(255,255,255,.35) 1.5px, transparent 1.5px); background-size: 34px 34px; mask-image: radial-gradient(80% 70% at 50% 50%, #000, transparent); }
+  .machine { width: 860px; top: 470px; filter: drop-shadow(0 40px 50px rgba(0,0,0,.55)); }
+  .m1 { left: -40px; transform: rotate(-5deg); }
+  .m2 { left: 1100px; }
+  .h { position: absolute; top: 60px; font: 700 168px/0.86 var(--display); letter-spacing: -0.055em; color: #fff; }
+  .h1 { left: 70px; } .h1 b { color: #ff5a60; font-weight: 700; }
+  .h2 { right: 70px; text-align: right; } .h2 b { color: #3ee08f; font-weight: 700; }
+  .bolt { position: absolute; left: 790px; top: -40px; width: 340px; height: 1160px; filter: drop-shadow(0 0 30px rgba(255,255,255,.55)) drop-shadow(0 0 80px rgba(255,210,63,.6)); }
+  .pill { position: absolute; top: 410px; padding: 12px 24px; border-radius: 999px; font: 700 38px/1 var(--mono); letter-spacing: .1em; }
+  .pt { left: 76px; background: var(--danger); color: #fff; box-shadow: 0 0 40px rgba(214,60,67,.8); }
+  .pv { right: 76px; background: #3ee08f; color: #062b1a; box-shadow: 0 0 40px rgba(62,224,143,.7); }
+  .mascot { left: 860px; bottom: 30px; height: 260px; filter: drop-shadow(0 0 30px rgba(255,255,255,.4)); }
+  .wm { right: 70px; bottom: 50px; color: #fff; } .wm span { color: #7fa6ff; }
+  .pt { display: none; }
+  .rep { position: absolute; left: 76px; top: 405px; padding: 14px 26px; border-radius: 999px; background: #3ee08f; color: #062b1a; font: 700 40px/1 var(--mono); letter-spacing: .1em; opacity: .9; }
+  .no { position: absolute; left: 70px; top: 500px; font: 700 66px/1.02 var(--display); letter-spacing: -0.03em; color: #fff; z-index: 4; text-shadow: 0 6px 20px rgba(0,0,0,.6); }
+  .no b { color: #ff5a60; }
+  .m1 { top: 650px; width: 800px; }
+  .h1 { top: 50px; }
+  #g2 { position: absolute; left: 0; top: 0; z-index: 3; }
+</style></head><body>
+<div class="glow"></div><div class="dots"></div>
+<svg class="machine m1" viewBox="0 0 1000 560"><!-- art:compressor:c1 --><!-- /art --></svg>
+<svg class="machine m2" viewBox="0 0 1000 560"><!-- art:compressor:c3 --><!-- /art --></svg>
+<svg class="bolt" viewBox="0 0 340 1160"><path d="M210 0 L90 470 L200 470 L60 1160 L300 380 L180 380 L290 0 Z" fill="#ffd23f" stroke="#fff" stroke-width="10" stroke-linejoin="round"/></svg>
+<div class="h h1"><b>$1.58M</b><br>LOST</div>
+<div class="h h2"><b>FIXED.</b><br>PROVEN.</div>
+<div class="pill pt">● TRIP</div><div class="pill pv">✓ VERIFIED</div>
+<img class="mascot" src="../../assets/mascot/mascot-figure.png">
+<div class="rep">✓ REPAIRED</div><svg id="g2" width="960" height="1080"></svg><div class="no">…the <b>evidence</b><br>says otherwise.</div>
+<div class="wm">Plant<span>Pulse</span></div>
+<script>
+  // Shattered-glass impact on the REPAIRED pill (deterministic).
+  let q = 23; const r = () => (q = (q * 9301 + 49297) % 233280) / 233280;
+  const cx = 250, cy = 428, N = 11, rays = [];
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2 + (r() - 0.5) * 0.35, len = 120 + r() * 90, pts = [[cx, cy]];
+    for (let d = 40; d < len; d += 36 + r() * 30) { const j = (r() - 0.5) * 0.22; pts.push([cx + Math.cos(a + j) * d, cy + Math.sin(a + j) * d]); }
+    rays.push(pts);
+  }
+  const ring = (rad) => rays.map(p => { const k = Math.min(p.length - 1, Math.round(rad / 52)); return p[k]; });
+  const path = (pts, close) => "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join(" L") + (close ? " Z" : "");
+  let d = rays.map(p => path(p)).join(" ") + " " + path(ring(70), true) + " " + path(ring(110), true);
+  const shards = [0, 3, 7].map(i => { const a = ring(70)[i], b = ring(70)[(i + 1) % N], c = ring(110)[(i + 1) % N], e = ring(110)[i]; return `<path d="${path([a, b, c, e], true)}" fill="rgba(255,255,255,.55)"/>`; }).join("");
+  document.getElementById("g2").innerHTML = shards +
+    `<path d="${d}" fill="none" stroke="#fff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" opacity=".95"/>` +
+    `<path d="${d}" fill="none" stroke="#0b1426" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<circle cx="${cx}" cy="${cy}" r="16" fill="#fff" stroke="#0b1426" stroke-width="3"/>`;
+</script></body></html>

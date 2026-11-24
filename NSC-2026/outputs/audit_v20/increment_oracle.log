@@ -1,0 +1,14 @@
+B1_last15d done
+B2_prev15d done
+
+block                        B1_last15d  B2_prev15d  pooled
+variant                                                    
+no reconciliation                4.2546      6.7549  5.5047
+shipped increment models         4.1927      6.5755  5.3841
+three quarters of its error      3.9086      6.2863  5.0974
+half its error                   3.6538      6.0295  4.8417
+a quarter of its error           3.4348      5.8095  4.6222
+ORACLE increments                3.2588      5.6307  4.4447
+
+headroom from a better increment model: -0.9394 to the oracle
+halving the increment error already collects -0.5425 of it

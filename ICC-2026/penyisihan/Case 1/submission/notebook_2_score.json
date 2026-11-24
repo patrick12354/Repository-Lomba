@@ -1,0 +1,31 @@
+{
+  "eb_twmae_oof": 0.17895,
+  "lb_estimate_composition_adjusted": 0.19018,
+  "notebook_1": {
+    "cv": 0.1826,
+    "lb_actual": 0.2005,
+    "lb_estimate": 0.19533
+  },
+  "stages": {
+    "A": 0.21598,
+    "B_full": 0.20568,
+    "B_masked": 0.19519,
+    "blend": 0.19537,
+    "smoothed": 0.18601,
+    "final": 0.17895
+  },
+  "config": {
+    "w_B": 0.45,
+    "lam_dec": 0.9,
+    "lam_deep": 0.5,
+    "T_deep": 100.0,
+    "a_dec": 1.2,
+    "a_rnd": 1.1,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "nfold": 5
+  }
+}

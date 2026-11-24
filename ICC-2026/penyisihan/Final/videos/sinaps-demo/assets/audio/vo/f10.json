@@ -1,0 +1,161 @@
+{
+ "text": "Kenalan dulu dengan Sina. Di SINAPS, latihan berjalan dalam satu siklus. Sistem memilih kasus untuk kompetensi terlemahmu. Kamu membaca MRI dan menandai lesi. Jawabanmu dinilai otomatis, tutor menjelaskan, lalu penguasaanmu diperbarui.",
+ "end": 17.44,
+ "words": [
+  {
+   "w": "Kenalan",
+   "s": 0,
+   "e": 0.4
+  },
+  {
+   "w": "dulu",
+   "s": 0.44,
+   "e": 0.64
+  },
+  {
+   "w": "dengan",
+   "s": 0.68,
+   "e": 0.96
+  },
+  {
+   "w": "Sina.",
+   "s": 1,
+   "e": 1.76
+  },
+  {
+   "w": "Di",
+   "s": 1.84,
+   "e": 1.92
+  },
+  {
+   "w": "SINAPS,",
+   "s": 2,
+   "e": 2.72
+  },
+  {
+   "w": "latihan",
+   "s": 2.84,
+   "e": 3.2
+  },
+  {
+   "w": "berjalan",
+   "s": 3.32,
+   "e": 3.76
+  },
+  {
+   "w": "dalam",
+   "s": 3.8,
+   "e": 4.08
+  },
+  {
+   "w": "satu",
+   "s": 4.12,
+   "e": 4.4
+  },
+  {
+   "w": "siklus.",
+   "s": 4.44,
+   "e": 5.44
+  },
+  {
+   "w": "Sistem",
+   "s": 5.48,
+   "e": 5.84
+  },
+  {
+   "w": "memilih",
+   "s": 5.92,
+   "e": 6.24
+  },
+  {
+   "w": "kasus",
+   "s": 6.36,
+   "e": 6.64
+  },
+  {
+   "w": "untuk",
+   "s": 6.72,
+   "e": 6.88
+  },
+  {
+   "w": "kompetensi",
+   "s": 6.96,
+   "e": 7.44
+  },
+  {
+   "w": "terlemahmu.",
+   "s": 7.52,
+   "e": 8.6
+  },
+  {
+   "w": "Kamu",
+   "s": 8.64,
+   "e": 8.96
+  },
+  {
+   "w": "membaca",
+   "s": 9,
+   "e": 9.36
+  },
+  {
+   "w": "MRI",
+   "s": 9.52,
+   "e": 10
+  },
+  {
+   "w": "dan",
+   "s": 10.08,
+   "e": 10.24
+  },
+  {
+   "w": "menandai",
+   "s": 10.32,
+   "e": 10.72
+  },
+  {
+   "w": "lesi.",
+   "s": 11.2,
+   "e": 11.72
+  },
+  {
+   "w": "Jawabanmu",
+   "s": 11.76,
+   "e": 12.32
+  },
+  {
+   "w": "dinilai",
+   "s": 12.4,
+   "e": 12.72
+  },
+  {
+   "w": "otomatis,",
+   "s": 12.8,
+   "e": 13.787
+  },
+  {
+   "w": "tutor",
+   "s": 13.813,
+   "e": 14.08
+  },
+  {
+   "w": "menjelaskan,",
+   "s": 14.16,
+   "e": 15.08
+  },
+  {
+   "w": "lalu",
+   "s": 15.12,
+   "e": 15.44
+  },
+  {
+   "w": "penguasaanmu",
+   "s": 15.52,
+   "e": 16.24
+  },
+  {
+   "w": "diperbarui.",
+   "s": 16.347,
+   "e": 17.44
+  }
+ ]
+}

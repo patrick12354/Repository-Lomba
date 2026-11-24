@@ -1,0 +1,19 @@
+== E1 Shutdown replay (order type 2030, Nov-25..Jan-26)
+2030 orders per month {Period('2025-05', 'M'): 4, Period('2025-06', 'M'): 2, Period('2025-07', 'M'): 2, Period('2025-08', 'M'): 5, Period('2025-09', 'M'): 2, Period('2025-10', 'M'): 2, Period('2025-11', 'M'): 31, Period('2025-12', 'M'): 22, Period('2026-01', 'M'): 4, Period('2026-02', 'M'): 2, Period('2026-03', 'M'): 1, Period('2026-04', 'M'): 3, Period('2026-05', 'M'): 1, Period('2026-06', 'M'): 1, Period('2026-07', 'M'): 1, Period('2026-08', 'M'): 1, Period('2026-09', 'M'): 5}
+kit materials 360 | orders 57 | short today 154 (A/B 137, A 124) | zero stock 77
+TA need > Max 164 (A/B 149) | non-stock in kit 82
+gap value (priced items) Rp11.36bn | LT p90 of short parts median 65d, p90 186d
+PR lines for kit materials per month {Period('2025-05', 'M'): 204, Period('2025-06', 'M'): 243, Period('2025-07', 'M'): 242, Period('2025-08', 'M'): 244, Period('2025-09', 'M'): 253, Period('2025-10', 'M'): 251, Period('2025-11', 'M'): 254, Period('2025-12', 'M'): 242, Period('2026-01', 'M'): 246, Period('2026-02', 'M'): 217, Period('2026-03', 'M'): 254, Period('2026-04', 'M'): 253, Period('2026-05', 'M'): 251, Period('2026-06', 'M'): 238, Period('2026-07', 'M'): 258, Period('2026-08', 'M'): 258, Period('2026-09', 'M'): 169}
+
+== E2 Planning lag: requested delivery shorter than achievable lead time
+PR lines 5196 | rush share 0.178 | late share rush 0.925 vs normal 0.529
+rush share of IDR value 0.197 | unit-price ratio rush/normal (median rel. to material median) 1.00
+
+== E4 Twin materials (identical normalised description, different material numbers)
+groups 155 | materials 641 | groups with one twin short while a sibling is above Max 57
+
+== E5 Ledger check: receipts (PO qty at PO delivery date) vs issues, walked back from snapshot
+materials 1030 | received/issued median 1.30 | implied opening stock < 0 0.361
+
+== Rejected: notification text -> parts kit
+category top-3 hit: text kNN 0.395 vs popularity baseline 0.497

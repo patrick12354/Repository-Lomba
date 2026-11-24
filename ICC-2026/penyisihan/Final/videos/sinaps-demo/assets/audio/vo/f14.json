@@ -1,0 +1,56 @@
+{
+ "text": "Sekarang lihat langsung. Begitu masuk, SINAPS sudah menyarankan langkah berikutnya.",
+ "end": 5.68,
+ "words": [
+  {
+   "w": "Sekarang",
+   "s": 0,
+   "e": 0.56
+  },
+  {
+   "w": "lihat",
+   "s": 0.64,
+   "e": 0.8
+  },
+  {
+   "w": "langsung.",
+   "s": 0.88,
+   "e": 1.76
+  },
+  {
+   "w": "Begitu",
+   "s": 1.813,
+   "e": 2.08
+  },
+  {
+   "w": "masuk,",
+   "s": 2.16,
+   "e": 2.84
+  },
+  {
+   "w": "SINAPS",
+   "s": 2.88,
+   "e": 3.28
+  },
+  {
+   "w": "sudah",
+   "s": 3.32,
+   "e": 3.52
+  },
+  {
+   "w": "menyarankan",
+   "s": 3.6,
+   "e": 4.16
+  },
+  {
+   "w": "langkah",
+   "s": 4.28,
+   "e": 4.56
+  },
+  {
+   "w": "berikutnya.",
+   "s": 4.6,
+   "e": 5.68
+  }
+ ]
+}

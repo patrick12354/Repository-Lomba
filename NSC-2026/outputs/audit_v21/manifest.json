@@ -1,0 +1,222 @@
+{
+  "created": "2026-09-05T19:37:36",
+  "seconds": 1041.8,
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "56b9ece3c6ce7c62dc5f4109c6bcec3d",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "305735434e9904b6c4c518e5ee2e345e"
+  },
+  "blocks": [
+    {
+      "name": "B1_last15d",
+      "origin": "2023-08-14 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00"
+    },
+    {
+      "name": "B2_prev15d",
+      "origin": "2023-07-30 14:30:00",
+      "horizon_end": "2023-08-14 14:30:00"
+    },
+    {
+      "name": "B3_shift7d",
+      "origin": "2023-08-07 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00"
+    }
+  ],
+  "primary_blocks": [
+    "B1_last15d",
+    "B2_prev15d"
+  ],
+  "bar": {
+    "pooled_gain": 0.02,
+    "require_both_blocks": true,
+    "b3_tolerance": 0.05
+  },
+  "config": {
+    "backbone": "v16",
+    "models": [
+      "hbt",
+      "cat",
+      "ridge",
+      "enet",
+      "ridge_e",
+      "l2"
+    ],
+    "blend_shrink": 0.25,
+    "seeds_oof": [
+      0,
+      1,
+      2
+    ],
+    "seeds_fit": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "seeds_inc": [
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909
+    ],
+    "inc_spec": [
+      [
+        1,
+        4.0
+      ],
+      [
+        4,
+        1.0
+      ]
+    ],
+    "inc_deshrink": 0.5,
+    "deshrink_clip": [
+      1.0,
+      1.5
+    ],
+    "deshrink_folds": 3,
+    "tod_bins": 3,
+    "tod_shrink": 0.5,
+    "harm_shrink": 0.5,
+    "inner": {
+      "val_days": 8,
+      "step_days": 2,
+      "score_tail_days": 2
+    },
+    "train_features_at_origin": false
+  },
+  "feature_columns": [
+    "T",
+    "esT",
+    "log_esT",
+    "sin1",
+    "cos1",
+    "sin2",
+    "cos2",
+    "sin3",
+    "cos3",
+    "tod",
+    "air_temperature",
+    "air_temperature_c1h",
+    "air_temperature_a1h",
+    "air_temperature_c6h",
+    "air_temperature_a6h",
+    "air_temperature_c24h",
+    "air_temperature_a24h",
+    "air_temperature_sd6h",
+    "co2",
+    "co2_c1h",
+    "co2_a1h",
+    "co2_c6h",
+    "co2_a6h",
+    "co2_c24h",
+    "co2_a24h",
+    "co2_sd6h",
+    "pressure",
+    "pressure_c1h",
+    "pressure_a1h",
+    "pressure_c6h",
+    "pressure_a6h",
+    "pressure_c24h",
+    "pressure_a24h",
+    "pressure_sd6h",
+    "air_temperature_s-4",
+    "air_temperature_s-2",
+    "air_temperature_s-1",
+    "air_temperature_s1",
+    "air_temperature_s2",
+    "air_temperature_s4",
+    "air_temperature_slope",
+    "co2_s-4",
+    "co2_s-2",
+    "co2_s-1",
+    "co2_s1",
+    "co2_s2",
+    "co2_s4",
+    "co2_slope",
+    "pressure_s-4",
+    "pressure_s-2",
+    "pressure_s-1",
+    "pressure_s1",
+    "pressure_s2",
+    "pressure_s4",
+    "pressure_slope",
+    "standard_day_degree",
+    "daily_mean_temperature",
+    "daily_max_above_Tbase",
+    "daily_max",
+    "daily_max_reduction",
+    "ontario_units",
+    "T_minus_soilT1",
+    "T_minus_soilT2",
+    "T_minus_soilT3",
+    "T_minus_dailymean",
+    "T_over_dailymax",
+    "co2_x_T",
+    "esT_ratio_daily",
+    "T_min18",
+    "T_max18",
+    "T_minus_min18",
+    "T_rng18",
+    "rh_tmin18",
+    "T_min48",
+    "T_max48",
+    "T_minus_min48",
+    "T_rng48",
+    "rh_tmin48",
+    "T_min96",
+    "T_max96",
+    "T_minus_min96",
+    "T_rng96",
+    "rh_tmin96",
+    "p_tend24h",
+    "p_tend48h",
+    "p_sd24h",
+    "co2_tend24h",
+    "co2_min18",
+    "co2_max18",
+    "co2_rng18",
+    "co2_minus_min18",
+    "co2_min48",
+    "co2_max48",
+    "co2_rng48",
+    "co2_minus_min48",
+    "air_temperature_q18",
+    "air_temperature_qhi18",
+    "air_temperature_qrng18",
+    "air_temperature_minus_q18",
+    "rh_q18",
+    "air_temperature_q48",
+    "air_temperature_qhi48",
+    "air_temperature_qrng48",
+    "air_temperature_minus_q48",
+    "rh_q48",
+    "air_temperature_q96",
+    "air_temperature_qhi96",
+    "air_temperature_qrng96",
+    "air_temperature_minus_q96",
+    "rh_q96",
+    "co2_q18",
+    "co2_qhi18",
+    "co2_qrng18",
+    "co2_minus_q18",
+    "co2_q48",
+    "co2_qhi48",
+    "co2_qrng48",
+    "co2_minus_q48"
+  ],
+  "rows": {
+    "total": 7920,
+    "outer": 2160,
+    "inner_scored": 2304
+  },
+  "cache_md5": "1af75516677393b187dc658a2e677ec7"
+}

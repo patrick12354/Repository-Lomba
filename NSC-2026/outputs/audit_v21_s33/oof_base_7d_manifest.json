@@ -1,0 +1,35 @@
+{
+  "created": "2026-09-06T23:33:28",
+  "note": "manifest written in session 36 for the session-33 pickle, AFTER verifying it reproduces every cached 7-day level to 1e-9",
+  "source": "outputs\\audit_v21_s29\\forward_7d.pkl",
+  "source_md5": "bd55dc3b06edf9d5e92811e33f50eac4",
+  "blocks": [
+    "H1_last7d",
+    "H2_last14d",
+    "H3_last21d"
+  ],
+  "models": [
+    "hbt",
+    "cat",
+    "ridge",
+    "enet",
+    "ridge_e",
+    "l2"
+  ],
+  "seeds_oof": [
+    0,
+    1,
+    2
+  ],
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "code": {
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72",
+    "src/an36_increment_production.py": "63f144908b5e6820d3a7ce3fa35cabca",
+    "src/an47_v21_forward_benchmark.py": "a38cd44ff7f87de626b6d6352911f367"
+  },
+  "cache_md5": "9241056ee4f988449e7e8dbae634d433"
+}

@@ -1,0 +1,74 @@
+{
+  "created": "2026-09-06T11:19:30",
+  "seconds": 1162.2,
+  "hold_days": 7,
+  "n_holdouts": 3,
+  "holdouts": [
+    {
+      "name": "H1_last7d",
+      "origin": "2023-08-22 14:30:00",
+      "horizon_end": "2023-08-29 14:30:00"
+    },
+    {
+      "name": "H2_last14d",
+      "origin": "2023-08-15 14:30:00",
+      "horizon_end": "2023-08-22 14:30:00"
+    },
+    {
+      "name": "H3_last21d",
+      "origin": "2023-08-08 14:30:00",
+      "horizon_end": "2023-08-15 14:30:00"
+    }
+  ],
+  "history_days": {
+    "H1_last7d": 54,
+    "H2_last14d": 47,
+    "H3_last21d": 40
+  },
+  "rows": 1008,
+  "cache_md5": "bd55dc3b06edf9d5e92811e33f50eac4",
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "build_code": {
+    "fp.es": "722e144eca213161dbe64b243c324572",
+    "fp.load_grid": "3efb47980a8b53dc312d09b09b45946e",
+    "fp.hampel": "b28beca681da0b631c2084fff516d88b",
+    "fp.clean_exog": "636cc3ef727cd6a2be212ae3659190a0",
+    "fp.build_features": "e56a9f138c77b02d00c35cacb9d4ea01",
+    "fp.make_features": "4b6d1d2f499c36b23f625037dc5e9a94",
+    "fp.tmin_block": "94cbef29c316993215fe80fe1d506d5f",
+    "fp.tend_block": "acf19567bd93e0a8b49f61dded0ceed3",
+    "fp.ordstat_block": "5a2c3563e204f1c235065d040602aa78",
+    "fp.qblock": "d60a71675ada425276839fbe0c62a36d",
+    "fp.low_support": "ba0e7481887aac729d1c3d3453e48979",
+    "fp.no_pressure": "616bd138eaf40b9498a9ea07afc058ca",
+    "fp.stable_core": "a262951da0c99422b0d31a37a4b9dbcd",
+    "fp.drop_soil": "9df9d8eda5205efd9f20d86b55fdf03e",
+    "fp.base_model": "d491c0e748d002eaa5b07eb936667857",
+    "fp.predict": "f3fa0c45a1fe302181c354b95a3561b1",
+    "fp._pipe": "bd918659b6a735873a128176f4e0adb3",
+    "fp.tod_blend_weights": "52964e201b1af8e69f75a404d3ca97c4",
+    "fp.apply_tod_blend": "d43cb6001d0931b59033dac7e8bc3afd",
+    "fp.harm_bias": "95d247d326c4addd16c877f797b6dd27",
+    "fp.apply_harm_bias": "3e2e49fc0d1f807c80bbe939dde5d497",
+    "a36.member_preds": "cf0d548f69d34df52197045911273fc8",
+    "a36.stack": "1808e2d45c8baf4c35551beb4d128701",
+    "a36.inner_origins": "77ab154b855e162f6e6d1058a272ae14",
+    "a47.member_preds": "5dc1341132e4d0b3d034dec792f989e4",
+    "a47.stack_on": "a8789ad0952c5a6c81e59cf98979f700",
+    "a47.stack_fallback": "71989c3de2d961eb4230bc1896348971",
+    "a47.meta_prior": "a88744c8b31b676394f0b69b9b6fd2e2",
+    "a47.frame_at": "9538c688609ac1e7b754727c379b8e2a",
+    "a47.blocks_of": "0971feb0226874bb3ba2ef6f9e6d78ef",
+    "a47.build_block": "25ffa99f4df96d10ed2604b59368d552",
+    "a47._days": "b4013a6ccf1f32ca838529bb829af8c1",
+    "constants": "8ee8f7e944f7240712ed8eae0df70a04"
+  },
+  "code": {
+    "src/an66_v21_transfer_report.py": "0b753facfe1e35952f8ad0f9c79c4d7d",
+    "final_pipeline.py": "d9ea928d20bed52b03e5802475158f72"
+  }
+}

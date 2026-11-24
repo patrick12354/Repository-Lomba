@@ -1,0 +1,9 @@
+anchor RH_phys: train RMSE 10.867  corr 0.907  bias +4.24
+BASE                               mean  6.102 worst  7.520 | slow  4.58 fast  4.03 | [np.float64(7.26), np.float64(7.52), np.float64(7.09), np.float64(7.01), np.float64(7.17), np.float64(4.05), np.float64(4.41), np.float64(4.95), np.float64(5.47)]
+anchor x1.0                        mean  6.068 worst  8.145 | slow  4.05 fast  4.41 | [np.float64(7.81), np.float64(8.15), np.float64(7.38), np.float64(6.15), np.float64(5.78), np.float64(4.63), np.float64(4.13), np.float64(4.96), np.float64(5.65)]
+anchor x0.5                        mean  6.123 worst  8.077 | slow  4.48 fast  4.13 | [np.float64(7.81), np.float64(8.08), np.float64(7.07), np.float64(6.25), np.float64(6.32), np.float64(4.31), np.float64(4.66), np.float64(5.21), np.float64(5.4)]
+regime-weight bw=3.0               mean  6.328 worst  8.026 | slow  4.89 fast  4.00 | [np.float64(7.57), np.float64(8.03), np.float64(7.32), np.float64(7.31), np.float64(6.73), np.float64(4.0), np.float64(4.67), np.float64(5.23), np.float64(6.1)]
+regime-weight bw=5.0               mean  6.238 worst  7.824 | slow  4.68 fast  4.10 | [np.float64(7.37), np.float64(7.82), np.float64(7.06), np.float64(7.14), np.float64(6.9), np.float64(4.17), np.float64(4.75), np.float64(5.04), np.float64(5.89)]
+regime-weight bw=8.0               mean  6.195 worst  7.649 | slow  4.67 fast  4.06 | [np.float64(7.42), np.float64(7.65), np.float64(7.14), np.float64(7.17), np.float64(7.27), np.float64(4.22), np.float64(4.47), np.float64(4.94), np.float64(5.48)]
+
+91s

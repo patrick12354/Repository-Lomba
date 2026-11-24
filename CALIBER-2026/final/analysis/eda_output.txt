@@ -1,0 +1,52 @@
+== Window: movement 2025-05-06 -> 2026-09-30 (16.8 months)
+materials 7481 {'Non Stock': 3825, 'Stock Item': 3656}
+
+== 1. Inventory health, stock items n = 3656
+below min 0.138 | zero 0.129 | over max 0.377 | no issue in window 0.682
+below-min rate by criticality {'A': 0.14, 'B': 0.135, 'C': 0.149, 'S': 0.122}
+no-issue rate by criticality {'A': 0.601, 'B': 0.705, 'C': 0.731, 'S': 0.873}
+non-stock items holding stock 0.44
+below-min AND consumed 155 | crit A/B 117
+zero stock AND consumed 154 | crit A/B 115
+priced stock items 764 | value Rp484.3bn | above-max Rp414.0bn | no-issue Rp318.8bn
+top-10% items value share 0.936
+
+== 2. Min vs lead-time demand, n = 672
+Min/LTD quantiles {0.1: 0.63, 0.25: 1.19, 0.5: 2.42, 0.75: 5.06, 0.9: 9.65}
+Min < LTD 0.199 | Min > 3x LTD 0.426
+months of cover (moving items) {0.25: 2.9, 0.5: 11.2, 0.75: 33.6, 0.9: 67.8}
+
+== 3. Demand classes (Syntetos-Boylan) {'single': 1220, 'intermittent': 414, 'lumpy': 153, 'erratic': 112, 'smooth': 31}
+issue lines per month {'2025-05': 668, '2025-06': 596, '2025-07': 948, '2025-08': 1388, '2025-09': 1043, '2025-10': 891, '2025-11': 1860, '2025-12': 2580, '2026-01': 2184, '2026-02': 843, '2026-03': 440, '2026-04': 660, '2026-05': 535, '2026-06': 824, '2026-07': 753, '2026-08': 568, '2026-09': 737}
+
+== 4. Procurement, PR-PO lines 6189 | negative LT dropped 2
+PR->PO delivery LT median 42.0 p90 157.0
+PO delivery later than PR requested 0.603 | >30d late 0.139
+LT by currency (median days) {'EUR': 184.0, 'IDR': 41.0, 'JPY': 50.0, 'SGD': 99.0, 'USD': 210.0}
+within-material LT CV median 0.49
+materials with exactly 1 supplier 1.0
+IDR spend Rp1634.2bn | on never-issued mats 0.026 | on currently over-max mats 0.360
+purchased materials 1250 | bought >2x what was issued 0.284
+same material unit-price max/min median 1.05
+
+== 5. Notifications 5795 {'Complete': 4490, 'In Progress': 1305}
+{'dur_med': {'Emergency': 4.0, 'High': 39.0, 'Low': 47.0, 'Medium': 41.0}, 'late_share': {'Emergency': 0.43, 'High': 0.46, 'Low': 0.5, 'Medium': 0.43}}
+completion late share by FL criticality {'A': 0.46, 'B': 0.44, 'C': 0.47, 'S': 0.44}
+open backlog 1305 median age (days, vs 30-Sep-26) 107.0 past required end 0.637
+movement orders traceable to a notification 0.205 | notifs with parts issued 0.176
+notif -> first part issue (days) median 6.0
+
+== 6. PM plan: FL with BoM 0.563
+PM items due next 12m 5415 | by month {'2026-11': 425, '2026-12': 816, '2027-01': 573, '2027-02': 540, '2027-03': 441, '2027-04': 443, '2027-05': 414, '2027-06': 310, '2027-07': 311, '2027-08': 296, '2027-09': 291, '2027-10': 327, '2027-11': 228}
+intrusive PM events next 6m 628 | BoM lines 3800 | short lines 1345 | events w/ short part 404 | events w/ short part whose LT > days-to-PM 179
+
+== 7. Extra
+notifs on FL with null criticality 394 | prefixes {'SITE': 394}
+A/B FLs 5249 | without PM plan 2930 | without BoM 3070 | without both 2134
+top-10 FL by notifs {'PX_BF-105': 114, 'PX_BF-106': 82, 'PX_BF-112': 73, 'PX_BF-102': 71, 'SITE_PX_S05': 64, 'PX_BF-110': 41, 'PX_BF-103': 38, 'PX_KC-372D': 33, 'PX_BF-109': 29, 'PX_BF-104': 28} | share of all notifs 0.099
+furnace PX_BF-1xx notifs 553 | share 0.095 | Emergency 20
+parts issued on furnace orders: lines 220 | top {'FIREBRICK,INSUL,26,76T,114W,230L': 6, 'ANTIRUST,SPRAY TYPE,350ML/CAN,TYPE-A': 5, 'FIREBRICK,INSUL,28,65T,114W,230L': 5, 'VALVE,GATE,1-1/2IN,300#,CF8,RF': 5, 'GREASE,LITHIUM,NLGI 3,16KG': 4}
+notifs per month {'2025-05': 1463, '2025-06': 348, '2025-07': 264, '2025-08': 274, '2025-09': 262, '2025-10': 279, '2025-11': 368, '2025-12': 236, '2026-01': 166, '2026-02': 132, '2026-03': 260, '2026-04': 240, '2026-05': 232, '2026-06': 231, '2026-07': 306, '2026-08': 346, '2026-09': 388}
+suppliers n>=50 36 | late share min/median/max 0.53 0.6 0.69 | worst {'BERKAH TEKNIK GLOBAL PT': 0.69, 'SINAR SEJAHTERA LESTARI PT': 0.67, 'PRIMA LOGAM NUSANTARA PT': 0.66}
+top-10 supplier spend share 0.776 | top-20% suppliers 0.914
+materials on >1 FL 2165 | max FLs per material 307 | consumed materials on >=5 FL 635

@@ -1,0 +1,22 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4801, 'cat': 0.2278, 'ridge': 0.05, 'enet': 0.1921, 'ridge_e': 0.05}
+CV: mean 4.9731  worst 6.3718
+  per fold: [np.float64(6.316), np.float64(6.372), np.float64(6.063), np.float64(5.847), np.float64(4.808), np.float64(4.009), np.float64(3.6), np.float64(3.491), np.float64(4.252)]
+
+dispersion check: CV fold prediction std 15.67-17.06   test prediction std 18.42
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/final_submission_v2.csv
+prediction summary: {'count': 734.0, 'mean': 56.823, 'std': 18.432, 'min': 23.91, '25%': 38.805, '50%': 60.631, '75%': 73.519, 'max': 88.972}

@@ -1,0 +1,308 @@
+[
+  {
+    "id": "w0",
+    "text": "Behind",
+    "start": 0,
+    "end": 0.337
+  },
+  {
+    "id": "w1",
+    "text": "the",
+    "start": 0.383,
+    "end": 0.476
+  },
+  {
+    "id": "w2",
+    "text": "scenes,",
+    "start": 0.522,
+    "end": 0.975
+  },
+  {
+    "id": "w3",
+    "text": "sixteen",
+    "start": 1.022,
+    "end": 1.405
+  },
+  {
+    "id": "w4",
+    "text": "source",
+    "start": 1.463,
+    "end": 1.776
+  },
+  {
+    "id": "w5",
+    "text": "files",
+    "start": 1.846,
+    "end": 2.241
+  },
+  {
+    "id": "w6",
+    "text": "pass",
+    "start": 2.368,
+    "end": 2.67
+  },
+  {
+    "id": "w7",
+    "text": "six",
+    "start": 2.763,
+    "end": 3.007
+  },
+  {
+    "id": "w8",
+    "text": "quality",
+    "start": 3.077,
+    "end": 3.402
+  },
+  {
+    "id": "w9",
+    "text": "checks",
+    "start": 3.46,
+    "end": 3.855
+  },
+  {
+    "id": "w10",
+    "text": "and",
+    "start": 3.936,
+    "end": 4.11
+  },
+  {
+    "id": "w11",
+    "text": "land",
+    "start": 4.191,
+    "end": 4.458
+  },
+  {
+    "id": "w12",
+    "text": "in",
+    "start": 4.551,
+    "end": 4.679
+  },
+  {
+    "id": "w13",
+    "text": "one",
+    "start": 4.76,
+    "end": 4.957
+  },
+  {
+    "id": "w14",
+    "text": "clean",
+    "start": 5.004,
+    "end": 5.283
+  },
+  {
+    "id": "w15",
+    "text": "data",
+    "start": 5.433,
+    "end": 5.712
+  },
+  {
+    "id": "w16",
+    "text": "model.",
+    "start": 5.77,
+    "end": 6.177
+  },
+  {
+    "id": "w17",
+    "text": "Every",
+    "start": 6.235,
+    "end": 6.548
+  },
+  {
+    "id": "w18",
+    "text": "headline",
+    "start": 6.606,
+    "end": 7.001
+  },
+  {
+    "id": "w19",
+    "text": "number",
+    "start": 7.036,
+    "end": 7.407
+  },
+  {
+    "id": "w20",
+    "text": "is",
+    "start": 7.5,
+    "end": 7.651
+  },
+  {
+    "id": "w21",
+    "text": "checked",
+    "start": 7.721,
+    "end": 8.022
+  },
+  {
+    "id": "w22",
+    "text": "against",
+    "start": 8.069,
+    "end": 8.429
+  },
+  {
+    "id": "w23",
+    "text": "its",
+    "start": 8.475,
+    "end": 8.626
+  },
+  {
+    "id": "w24",
+    "text": "source,",
+    "start": 8.649,
+    "end": 9.218
+  },
+  {
+    "id": "w25",
+    "text": "and",
+    "start": 9.253,
+    "end": 9.404
+  },
+  {
+    "id": "w26",
+    "text": "all",
+    "start": 9.474,
+    "end": 9.648
+  },
+  {
+    "id": "w27",
+    "text": "twenty-three",
+    "start": 9.718,
+    "end": 10.252
+  },
+  {
+    "id": "w28",
+    "text": "checks",
+    "start": 10.298,
+    "end": 10.623
+  },
+  {
+    "id": "w29",
+    "text": "pass.",
+    "start": 10.739,
+    "end": 11.273
+  },
+  {
+    "id": "w30",
+    "text": "PlantPulse",
+    "start": 11.366,
+    "end": 12.132
+  },
+  {
+    "id": "w31",
+    "text": "only",
+    "start": 12.225,
+    "end": 12.516
+  },
+  {
+    "id": "w32",
+    "text": "reads",
+    "start": 12.597,
+    "end": 12.852
+  },
+  {
+    "id": "w33",
+    "text": "plant",
+    "start": 12.968,
+    "end": 13.282
+  },
+  {
+    "id": "w34",
+    "text": "data,",
+    "start": 13.328,
+    "end": 13.816
+  },
+  {
+    "id": "w35",
+    "text": "never",
+    "start": 13.886,
+    "end": 14.106
+  },
+  {
+    "id": "w36",
+    "text": "changes",
+    "start": 14.175,
+    "end": 14.547
+  },
+  {
+    "id": "w37",
+    "text": "it,",
+    "start": 14.605,
+    "end": 14.814
+  },
+  {
+    "id": "w38",
+    "text": "keeps",
+    "start": 14.884,
+    "end": 15.139
+  },
+  {
+    "id": "w39",
+    "text": "a",
+    "start": 15.185,
+    "end": 15.22
+  },
+  {
+    "id": "w40",
+    "text": "person",
+    "start": 15.29,
+    "end": 15.719
+  },
+  {
+    "id": "w41",
+    "text": "in",
+    "start": 15.789,
+    "end": 15.917
+  },
+  {
+    "id": "w42",
+    "text": "every",
+    "start": 15.986,
+    "end": 16.207
+  },
+  {
+    "id": "w43",
+    "text": "decision,",
+    "start": 16.242,
+    "end": 16.776
+  },
+  {
+    "id": "w44",
+    "text": "and",
+    "start": 16.846,
+    "end": 16.997
+  },
+  {
+    "id": "w45",
+    "text": "only",
+    "start": 17.066,
+    "end": 17.275
+  },
+  {
+    "id": "w46",
+    "text": "claims",
+    "start": 17.333,
+    "end": 17.728
+  },
+  {
+    "id": "w47",
+    "text": "what",
+    "start": 17.879,
+    "end": 18.076
+  },
+  {
+    "id": "w48",
+    "text": "it",
+    "start": 18.123,
+    "end": 18.204
+  },
+  {
+    "id": "w49",
+    "text": "can",
+    "start": 18.262,
+    "end": 18.413
+  },
+  {
+    "id": "w50",
+    "text": "measure.",
+    "start": 18.483,
+    "end": 18.947
+  }
+]

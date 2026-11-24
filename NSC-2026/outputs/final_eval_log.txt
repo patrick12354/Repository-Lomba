@@ -1,0 +1,44 @@
+
+########## FOLD FAMILY P (9x15d step2): [('2023-07-29', '2023-08-13'), ('2023-07-31', '2023-08-15'), ('2023-08-02', '2023-08-17'), ('2023-08-04', '2023-08-19'), ('2023-08-06', '2023-08-21'), ('2023-08-08', '2023-08-23'), ('2023-08-10', '2023-08-25'), ('2023-08-12', '2023-08-27'), ('2023-08-14', '2023-08-29')]
+  A_baseline_proxy   mean  7.192 pooled  7.278 worst  8.425 | [np.float64(8.12), np.float64(8.43), np.float64(8.34), np.float64(8.19), np.float64(7.4), np.float64(6.8), np.float64(5.58), np.float64(5.44), np.float64(6.43)]
+  B_clean            mean  6.555 pooled  6.635 worst  7.767 | [np.float64(7.64), np.float64(7.77), np.float64(7.52), np.float64(7.38), np.float64(6.54), np.float64(5.88), np.float64(4.95), np.float64(5.14), np.float64(6.18)]
+  C_clean_nosoil     mean  6.423 pooled  6.524 worst  7.677 | [np.float64(7.68), np.float64(7.58), np.float64(7.48), np.float64(7.34), np.float64(6.8), np.float64(4.49), np.float64(5.11), np.float64(5.41), np.float64(5.92)]
+  D_tuned_single     mean  6.088 pooled  6.230 worst  7.612 | [np.float64(7.34), np.float64(7.61), np.float64(7.01), np.float64(6.98), np.float64(7.15), np.float64(4.05), np.float64(4.34), np.float64(4.88), np.float64(5.44)]
+  E_final_blend      mean  6.063 pooled  6.182 worst  7.431 | [np.float64(7.43), np.float64(7.25), np.float64(7.04), np.float64(6.97), np.float64(6.77), np.float64(4.17), np.float64(4.56), np.float64(4.86), np.float64(5.52)]
+
+########## FOLD FAMILY Q (6x15d step3, deeper): [('2023-08-05', '2023-08-20'), ('2023-08-08', '2023-08-23'), ('2023-08-11', '2023-08-26'), ('2023-08-14', '2023-08-29')]
+  A_baseline_proxy   mean  6.887 pooled  6.971 worst  8.040 | [np.float64(8.04), np.float64(7.73), np.float64(5.33), np.float64(6.44)]
+  B_clean            mean  6.448 pooled  6.503 worst  7.587 | [np.float64(7.59), np.float64(6.75), np.float64(5.26), np.float64(6.19)]
+  C_clean_nosoil     mean  5.872 pooled  5.969 worst  7.673 | [np.float64(7.67), np.float64(4.88), np.float64(5.26), np.float64(5.67)]
+  D_tuned_single     mean  5.534 pooled  5.704 worst  7.772 | [np.float64(7.77), np.float64(4.05), np.float64(4.88), np.float64(5.44)]
+  E_final_blend      mean  5.551 pooled  5.680 worst  7.529 | [np.float64(7.53), np.float64(4.35), np.float64(4.89), np.float64(5.43)]
+
+########## FOLD FAMILY R (5x21d step3, stress): [('2023-07-27', '2023-08-17'), ('2023-07-30', '2023-08-20'), ('2023-08-02', '2023-08-23'), ('2023-08-05', '2023-08-26'), ('2023-08-08', '2023-08-29')]
+  A_baseline_proxy   mean  7.824 pooled  7.839 worst  8.662 | [np.float64(8.66), np.float64(7.78), np.float64(7.44), np.float64(7.92), np.float64(7.31)]
+  B_clean            mean  7.242 pooled  7.269 worst  8.213 | [np.float64(8.21), np.float64(7.16), np.float64(6.8), np.float64(7.62), np.float64(6.42)]
+  C_clean_nosoil     mean  6.837 pooled  6.854 worst  7.312 | [np.float64(7.16), np.float64(6.95), np.float64(6.82), np.float64(7.31), np.float64(5.94)]
+  D_tuned_single     mean  6.593 pooled  6.634 worst  7.548 | [np.float64(6.92), np.float64(6.84), np.float64(6.3), np.float64(7.55), np.float64(5.35)]
+  E_final_blend      mean  6.536 pooled  6.561 worst  7.188 | [np.float64(6.95), np.float64(6.64), np.float64(6.37), np.float64(7.19), np.float64(5.53)]
+
+
+################ PAIRED EVIDENCE (family P) ################
+
+  E_final_blend vs A_baseline_proxy
+    pooled RMSE 6.182 vs 7.278  (delta -1.096)
+    folds won  9/9   days won 71.5%
+    bootstrap over days: delta -1.093  95% CI [-1.414, -0.783]  P(better) 100.0%
+
+  D_tuned_single vs A_baseline_proxy
+    pooled RMSE 6.230 vs 7.278  (delta -1.047)
+    folds won  9/9   days won 71.5%
+    bootstrap over days: delta -1.076  95% CI [-1.462, -0.699]  P(better) 100.0%
+
+  C_clean_nosoil vs A_baseline_proxy
+    pooled RMSE 6.524 vs 7.278  (delta -0.754)
+    folds won  9/9   days won 63.2%
+    bootstrap over days: delta -0.735  95% CI [-1.054, -0.426]  P(better) 100.0%
+
+  B_clean vs A_baseline_proxy
+    pooled RMSE 6.635 vs 7.278  (delta -0.643)
+    folds won  9/9   days won 76.4%
+    bootstrap over days: delta -0.633  95% CI [-0.805, -0.469]  P(better) 100.0%

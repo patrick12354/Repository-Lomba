@@ -1,0 +1,30 @@
+robust-core member: 95 of 118 columns
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.5735, 'cat': 0.2371, 'ridge': 0.0, 'enet': 0.1895, 'ridge_e': 0.0, 'l2': 0.0, 'robust_hbt': 0.0}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.648, 'cat': 0.1726, 'ridge': 0.0, 'enet': 0.1794, 'ridge_e': 0.0, 'l2': 0.0, 'robust_hbt': 0.0}
+  band 1: {'hbt': 0.4314, 'cat': 0.1405, 'ridge': 0.1043, 'enet': 0.0947, 'ridge_e': 0.0786, 'l2': 0.1505, 'robust_hbt': 0.0}
+  band 2: {'hbt': 0.2988, 'cat': 0.348, 'ridge': 0.0, 'enet': 0.0947, 'ridge_e': 0.024, 'l2': 0.0, 'robust_hbt': 0.2345}
+harmonic bias correction (shrunk 0.50): sin -0.115  cos -0.823   amplitude 0.831 %RH, peak 12.5 h
+CV: mean 4.6840  worst 6.0262
+  per fold: [np.float64(6.011), np.float64(6.026), np.float64(5.639), np.float64(5.466), np.float64(4.539), np.float64(3.67), np.float64(3.17), np.float64(3.377), np.float64(4.258)]
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+dispersion check: CV fold prediction std 16.23-17.69   test prediction std 19.05
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v17_shrink.csv
+prediction summary: {'count': 734.0, 'mean': 56.94, 'std': 19.067, 'min': 23.715, '25%': 38.082, '50%': 60.994, '75%': 74.247, 'max': 88.9}

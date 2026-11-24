@@ -1,0 +1,131 @@
+{
+ "text": "Dari kunci jawaban itu, kami membangun SINAPS: tutor neuroradiologi tempat mahasiswa berlatih membaca MRI stroke sendiri, dinilai secara objektif, dan dibimbing AI yang tidak mengarang.",
+ "end": 13.12,
+ "words": [
+  {
+   "w": "Dari",
+   "s": 0,
+   "e": 0.24
+  },
+  {
+   "w": "kunci",
+   "s": 0.32,
+   "e": 0.56
+  },
+  {
+   "w": "jawaban",
+   "s": 0.64,
+   "e": 0.96
+  },
+  {
+   "w": "itu,",
+   "s": 1.16,
+   "e": 1.6
+  },
+  {
+   "w": "kami",
+   "s": 1.68,
+   "e": 1.92
+  },
+  {
+   "w": "membangun",
+   "s": 2,
+   "e": 2.48
+  },
+  {
+   "w": "SINAPS:",
+   "s": 2.56,
+   "e": 3.52
+  },
+  {
+   "w": "tutor",
+   "s": 3.56,
+   "e": 3.92
+  },
+  {
+   "w": "neuroradiologi",
+   "s": 4,
+   "e": 4.88
+  },
+  {
+   "w": "tempat",
+   "s": 5.04,
+   "e": 5.36
+  },
+  {
+   "w": "mahasiswa",
+   "s": 5.44,
+   "e": 5.92
+  },
+  {
+   "w": "berlatih",
+   "s": 6.04,
+   "e": 6.48
+  },
+  {
+   "w": "membaca",
+   "s": 6.52,
+   "e": 6.96
+  },
+  {
+   "w": "MRI",
+   "s": 7.04,
+   "e": 7.44
+  },
+  {
+   "w": "stroke",
+   "s": 7.52,
+   "e": 7.76
+  },
+  {
+   "w": "sendiri,",
+   "s": 7.88,
+   "e": 8.64
+  },
+  {
+   "w": "dinilai",
+   "s": 8.72,
+   "e": 9.12
+  },
+  {
+   "w": "secara",
+   "s": 9.2,
+   "e": 9.44
+  },
+  {
+   "w": "objektif,",
+   "s": 9.56,
+   "e": 10.24
+  },
+  {
+   "w": "dan",
+   "s": 10.32,
+   "e": 10.4
+  },
+  {
+   "w": "dibimbing",
+   "s": 10.48,
+   "e": 10.96
+  },
+  {
+   "w": "AI",
+   "s": 11.04,
+   "e": 11.44
+  },
+  {
+   "w": "yang",
+   "s": 11.52,
+   "e": 11.76
+  },
+  {
+   "w": "tidak",
+   "s": 11.88,
+   "e": 12.08
+  },
+  {
+   "w": "mengarang.",
+   "s": 12.133,
+   "e": 13.12
+  }
+ ]
+}

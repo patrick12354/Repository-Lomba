@@ -1,0 +1,314 @@
+[
+  {
+    "id": "w0",
+    "text": "Then",
+    "start": 0,
+    "end": 0.279
+  },
+  {
+    "id": "w1",
+    "text": "it",
+    "start": 0.406,
+    "end": 0.557
+  },
+  {
+    "id": "w2",
+    "text": "turns",
+    "start": 0.604,
+    "end": 0.906
+  },
+  {
+    "id": "w3",
+    "text": "into",
+    "start": 0.975,
+    "end": 1.184
+  },
+  {
+    "id": "w4",
+    "text": "action.",
+    "start": 1.242,
+    "end": 1.649
+  },
+  {
+    "id": "w5",
+    "text": "Every",
+    "start": 1.765,
+    "end": 2.043
+  },
+  {
+    "id": "w6",
+    "text": "fix",
+    "start": 2.101,
+    "end": 2.345
+  },
+  {
+    "id": "w7",
+    "text": "gets",
+    "start": 2.496,
+    "end": 2.74
+  },
+  {
+    "id": "w8",
+    "text": "an",
+    "start": 2.786,
+    "end": 2.879
+  },
+  {
+    "id": "w9",
+    "text": "owner,",
+    "start": 2.949,
+    "end": 3.367
+  },
+  {
+    "id": "w10",
+    "text": "a",
+    "start": 3.39,
+    "end": 3.46
+  },
+  {
+    "id": "w11",
+    "text": "due",
+    "start": 3.529,
+    "end": 3.669
+  },
+  {
+    "id": "w12",
+    "text": "date,",
+    "start": 3.715,
+    "end": 4.075
+  },
+  {
+    "id": "w13",
+    "text": "and",
+    "start": 4.098,
+    "end": 4.249
+  },
+  {
+    "id": "w14",
+    "text": "the",
+    "start": 4.284,
+    "end": 4.354
+  },
+  {
+    "id": "w15",
+    "text": "proof",
+    "start": 4.412,
+    "end": 4.656
+  },
+  {
+    "id": "w16",
+    "text": "needed",
+    "start": 4.725,
+    "end": 4.981
+  },
+  {
+    "id": "w17",
+    "text": "to",
+    "start": 5.039,
+    "end": 5.108
+  },
+  {
+    "id": "w18",
+    "text": "close",
+    "start": 5.178,
+    "end": 5.445
+  },
+  {
+    "id": "w19",
+    "text": "it.",
+    "start": 5.48,
+    "end": 5.654
+  },
+  {
+    "id": "w20",
+    "text": "Try",
+    "start": 5.724,
+    "end": 5.956
+  },
+  {
+    "id": "w21",
+    "text": "to",
+    "start": 6.026,
+    "end": 6.095
+  },
+  {
+    "id": "w22",
+    "text": "close",
+    "start": 6.165,
+    "end": 6.432
+  },
+  {
+    "id": "w23",
+    "text": "it",
+    "start": 6.467,
+    "end": 6.548
+  },
+  {
+    "id": "w24",
+    "text": "without",
+    "start": 6.594,
+    "end": 6.885
+  },
+  {
+    "id": "w25",
+    "text": "proof,",
+    "start": 6.954,
+    "end": 7.291
+  },
+  {
+    "id": "w26",
+    "text": "and",
+    "start": 7.326,
+    "end": 7.5
+  },
+  {
+    "id": "w27",
+    "text": "PlantPulse",
+    "start": 7.57,
+    "end": 8.208
+  },
+  {
+    "id": "w28",
+    "text": "says",
+    "start": 8.324,
+    "end": 8.684
+  },
+  {
+    "id": "w29",
+    "text": "no.",
+    "start": 8.858,
+    "end": 9.183
+  },
+  {
+    "id": "w30",
+    "text": "Someone",
+    "start": 9.218,
+    "end": 9.648
+  },
+  {
+    "id": "w31",
+    "text": "other",
+    "start": 9.706,
+    "end": 9.961
+  },
+  {
+    "id": "w32",
+    "text": "than",
+    "start": 10.019,
+    "end": 10.159
+  },
+  {
+    "id": "w33",
+    "text": "the",
+    "start": 10.205,
+    "end": 10.275
+  },
+  {
+    "id": "w34",
+    "text": "owner",
+    "start": 10.344,
+    "end": 10.693
+  },
+  {
+    "id": "w35",
+    "text": "has",
+    "start": 10.844,
+    "end": 11.029
+  },
+  {
+    "id": "w36",
+    "text": "to",
+    "start": 11.088,
+    "end": 11.146
+  },
+  {
+    "id": "w37",
+    "text": "sign",
+    "start": 11.215,
+    "end": 11.424
+  },
+  {
+    "id": "w38",
+    "text": "off,",
+    "start": 11.471,
+    "end": 11.714
+  },
+  {
+    "id": "w39",
+    "text": "and",
+    "start": 11.738,
+    "end": 11.877
+  },
+  {
+    "id": "w40",
+    "text": "every",
+    "start": 11.958,
+    "end": 12.167
+  },
+  {
+    "id": "w41",
+    "text": "decision",
+    "start": 12.214,
+    "end": 12.678
+  },
+  {
+    "id": "w42",
+    "text": "is",
+    "start": 12.759,
+    "end": 12.875
+  },
+  {
+    "id": "w43",
+    "text": "saved",
+    "start": 12.922,
+    "end": 13.224
+  },
+  {
+    "id": "w44",
+    "text": "in",
+    "start": 13.293,
+    "end": 13.398
+  },
+  {
+    "id": "w45",
+    "text": "a",
+    "start": 13.456,
+    "end": 13.479
+  },
+  {
+    "id": "w46",
+    "text": "log",
+    "start": 13.549,
+    "end": 13.839
+  },
+  {
+    "id": "w47",
+    "text": "that",
+    "start": 13.932,
+    "end": 14.118
+  },
+  {
+    "id": "w48",
+    "text": "can't",
+    "start": 14.187,
+    "end": 14.443
+  },
+  {
+    "id": "w49",
+    "text": "be",
+    "start": 14.501,
+    "end": 14.617
+  },
+  {
+    "id": "w50",
+    "text": "quietly",
+    "start": 14.687,
+    "end": 15.128
+  },
+  {
+    "id": "w51",
+    "text": "changed.",
+    "start": 15.186,
+    "end": 15.743
+  }
+]

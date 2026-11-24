@@ -1,0 +1,16 @@
+features 68  train rows 2933  test rows 734
+building OOF for blend weights...
+weights: {'hbt': 0.6579, 'cat': 0.2113, 'ridge': 0.0625, 'enet': 0.0683}
+CV mean 6.0099  pooled 6.1285  worst 7.3151
+  per fold: [np.float64(7.067), np.float64(7.315), np.float64(7.037), np.float64(6.969), np.float64(6.786), np.float64(4.131), np.float64(4.486), np.float64(4.815), np.float64(5.483)]
+
+refit on all training data, predict test...
+wrote outputs/submissions/v5_final.csv  (validated against sample_submission)
+
+pred: {'count': 734.0, 'mean': 57.19, 'std': 18.17, 'min': 26.96, '25%': 38.55, '50%': 61.72, '75%': 73.07, 'max': 89.24}
+
+agreement with earlier submissions (RMSE between prediction vectors):
+  vs v3_clean_zoo: 3.247
+  vs v4_nosoil: 1.124
+
+logged.

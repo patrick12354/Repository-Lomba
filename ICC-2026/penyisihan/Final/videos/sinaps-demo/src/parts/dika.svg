@@ -1,0 +1,77 @@
+<!-- defaults: p=dika cls= w=320 skin=#d39a76 skin2=#b97c5a hair=#1d2430 coat=#fbfaf6 scrub=#2f7f8a pants=#233a4a smile=1 worried=0 oh=0 brows=1 wbrows=0 glasses=0 sweat=0 steth=1 hijab=0 hj=#6fa77a brow=#1d2430 -->
+<svg class="dika {{cls}}" viewBox="0 0 320 640" width="{{w}}" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="{{pants}}" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="{{pants}}" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="{{coat}}" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="{{scrub}}" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="{{skin}}" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="{{coat}}" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="{{scrub}}" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="{{steth}}" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="{{coat}}" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="{{scrub}}" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="{{skin}}" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="{{hijab}}" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="{{hj}}" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="{{skin2}}" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="{{hair}}" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="{{skin2}}" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="{{skin2}}" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="{{skin}}" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="{{hair}}" />
+      <g class="dika-brows" fill="none" stroke="{{brow}}" stroke-width="5" stroke-linecap="round">
+        <g opacity="{{brows}}"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="{{wbrows}}"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="{{skin}}" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="{{skin}}" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="{{glasses}}" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="{{skin2}}" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="{{smile}}" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="{{worried}}" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="{{oh}}" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="{{sweat}}" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>

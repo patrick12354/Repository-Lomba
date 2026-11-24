@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        /* A card window is a viewport onto the captured 1188-px-wide action card; .in is its camera (x/y/scale, origin 0 0),
+           so callouts placed in card pixels ride every punch-in. */
+        #s10 .win { position: absolute; left: 70px; width: 1040px; border-radius: 22px; overflow: hidden; background: var(--panel);
+          border: 1px solid var(--line-2); box-shadow: var(--shadow-pop); transform-origin: 50% 50%; }
+        #s10 .win .in { position: absolute; left: 0; top: 0; width: 1188px; transform-origin: 0 0; }
+        #s10 .win .in img { position: absolute; left: 0; top: 0; width: 1188px; max-width: none; }
+        #s10 .seed { position: absolute; left: 440px; top: 440px; }
+        #s10 .seed .chip { font-size: 26px; padding: 14px 22px; }
+        #s10 .col { position: absolute; left: 1150px; top: 150px; width: 700px; }
+        #s10 .step { position: absolute; left: 0; width: 700px; display: flex; gap: 22px; align-items: flex-start; }
+        #s10 .step .k { flex: none; width: 58px; height: 58px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+          font: 700 26px/1 var(--mono); background: #ffffff; border: 1px solid rgba(47, 98, 224, 0.4); color: var(--accent-ink); box-shadow: 0 10px 24px -10px rgba(47, 98, 224, 0.5); }
+        #s10 .step b { display: block; font: 600 40px/1.1 var(--sans); color: var(--ink-hi); }
+        #s10 .step span { display: block; margin-top: 10px; font: 500 22px/1.3 var(--mono); color: var(--ink-3); }
+        #s10 .refuse { position: absolute; left: 1150px; top: 300px; width: 700px; }
+        #s10 .refuse .t { font-size: 104px; color: var(--danger-ink); }
+        #s10 .refuse .s { margin-top: 18px; font: 500 28px/1.35 var(--sans); color: var(--ink-2); }
+        #s10 .chain { position: absolute; left: 0; right: 0; top: 330px; display: flex; justify-content: center; align-items: center; gap: 0; }
+        #s10 .blk { width: 300px; padding: 22px 22px 20px; border-radius: 18px; background: #ffffff; border: 1px solid var(--line-2); box-shadow: var(--shadow-pop); }
+        #s10 .blk .h { display: flex; align-items: center; gap: 10px; font: 500 16px/1 var(--mono); color: var(--ink-4); letter-spacing: 0.06em; }
+        #s10 .blk b { display: block; margin-top: 14px; font: 600 24px/1.2 var(--sans); color: var(--ink-hi); }
+        #s10 .blk span { display: block; margin-top: 10px; font: 500 17px/1.2 var(--mono); color: var(--ink-3); }
+        #s10 .lnk { width: 56px; height: 4px; background: linear-gradient(90deg, var(--accent), var(--info)); box-shadow: 0 4px 10px rgba(47, 98, 224, 0.35); }
+        #s10 .chainhead { position: absolute; left: 0; right: 0; top: 200px; text-align: center; font-size: 72px; }
+        #s10 .chainsub { position: absolute; left: 0; right: 0; top: 640px; display: flex; justify-content: center; gap: 14px; }
+      </style>
+      <div data-hf-id="hf-92tn" id="root" data-composition-id="s10-actions" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-8kxq" class="pp" id="s10">
+          <div data-hf-id="hf-m7dd" class="bg"></div>
+          <div data-hf-id="hf-mivv" class="seed" id="s10-seed"><span data-hf-id="hf-4fud" class="chip ai">✦ Draft from the AI brief · Verify &amp; act</span></div>
+
+          <!-- W1: the filled action card. Camera: whole card -> owner & due -> evidence needed to close. -->
+          <div data-hf-id="hf-moqq" class="win" id="s10-w1" style="top: 150px; height: 664px">
+            <div data-hf-id="hf-znq4" class="in" id="s10-in1"><img data-hf-id="hf-e7pv" src="assets/captures/act-02-filled.jpg" alt="">
+              <div data-hf-id="hf-tka7" class="callout" id="s10-c-own" style="left: 30px; top: 144px; width: 98px; height: 38px; border-radius: 20px"></div>
+              <div data-hf-id="hf-2l2z" class="callout" id="s10-c-due" style="left: 404px; top: 118px; width: 380px; height: 62px; border-radius: 10px"></div>
+              <div data-hf-id="hf-58h3" class="callout danger" id="s10-c-ev" style="left: 598px; top: 278px; width: 576px; height: 138px; border-radius: 12px"></div>
+            </div>
+          </div>
+          <!-- W2: the closure gate after "Mark complete now" -->
+          <div data-hf-id="hf-em4y" class="win" id="s10-w2" style="top: 300px; height: 464px; opacity: 0">
+            <div data-hf-id="hf-y2el" class="in" style="transform: translate(-28.1px, -871.1px) scale(1.405)"><img data-hf-id="hf-pt7i" src="assets/captures/act-03-refused.jpg" alt="">
+              <div data-hf-id="hf-0gs3" class="callout danger" id="s10-c-no" style="left: 32px; top: 690px; width: 722px; height: 200px; border-radius: 12px"></div>
+            </div>
+          </div>
+          <!-- W3: evidence attached, closure waits for an independent reviewer -->
+          <div data-hf-id="hf-3ycs" class="win" id="s10-w3" style="top: 250px; height: 560px; opacity: 0">
+            <div data-hf-id="hf-4dhy" class="in" id="s10-in3"><img data-hf-id="hf-5fem" src="assets/captures/act-06-ready.jpg" alt="">
+              <div data-hf-id="hf-bw73" class="callout ok" id="s10-c-att" style="left: 598px; top: 279px; width: 574px; height: 190px; border-radius: 12px"></div>
+              <div data-hf-id="hf-lokd" class="callout caution" id="s10-c-wait" style="left: 18px; top: 950px; width: 1152px; height: 120px; border-radius: 14px"></div>
+            </div>
+          </div>
+          <!-- W4: reviewer = owner is refused -->
+          <div data-hf-id="hf-0zeq" class="win" id="s10-w4" style="top: 280px; height: 520px; opacity: 0">
+            <div data-hf-id="hf-6jiu" class="in" style="transform: translate(-28.1px, -1124px) scale(1.405)"><img data-hf-id="hf-ahzy" src="assets/captures/act-07-reviewer-is-owner.jpg" alt="">
+              <div data-hf-id="hf-bror" class="callout danger" id="s10-c-rev" style="left: 17px; top: 825px; width: 576px; height: 42px; border-radius: 10px"></div>
+              <div data-hf-id="hf-03xm" class="callout danger" id="s10-c-rev2" style="left: 38px; top: 1030px; width: 330px; height: 54px; border-radius: 10px"></div>
+            </div>
+          </div>
+
+          <div data-hf-id="hf-3sa1" class="col" id="s10-col">
+            <div data-hf-id="hf-tql1" class="step" id="s10-s0" style="top: 0"><div data-hf-id="hf-td0g" class="k">↻</div><div data-hf-id="hf-yeow"><b data-hf-id="hf-p7ut">Corrective &amp; preventive</b><span data-hf-id="hf-rllo">every RCA action, one tracked card</span></div></div>
+            <div data-hf-id="hf-r1fm" class="step" id="s10-s1" style="top: 170px"><div data-hf-id="hf-dyzi" class="k">1</div><div data-hf-id="hf-y7yw"><b data-hf-id="hf-61f1">An owner</b><span data-hf-id="hf-98ev">REL-05 · named, not assumed</span></div></div>
+            <div data-hf-id="hf-6rnm" class="step" id="s10-s2" style="top: 320px"><div data-hf-id="hf-edaj" class="k">2</div><div data-hf-id="hf-x11t"><b data-hf-id="hf-rnb2">A due date</b><span data-hf-id="hf-wq0k">16 Oct 2026 · due in 14 days</span></div></div>
+            <div data-hf-id="hf-ecxh" class="step" id="s10-s3" style="top: 470px"><div data-hf-id="hf-erlk" class="k">3</div><div data-hf-id="hf-xfcu"><b data-hf-id="hf-i0rp">Evidence to close</b><span data-hf-id="hf-vvi1">commissioning record · lab-sample validation · DCS alarm config</span></div></div>
+          </div>
+          <div data-hf-id="hf-qc1f" class="refuse" id="s10-refuse"><div data-hf-id="hf-ue14" class="t display">Refused.</div><div data-hf-id="hf-nxmz" class="s">No implementation evidence, no reviewer, no effectiveness observation. A button cannot close it.</div></div>
+          <div data-hf-id="hf-yckk" class="refuse" id="s10-rv1"><div data-hf-id="hf-5tzx" class="t display" style="color: var(--caution-ink); font-size: 80px">Evidence in.</div><div data-hf-id="hf-zbzh" class="s">Closure now waits for an independent reviewer.</div></div>
+          <div data-hf-id="hf-70gf" class="refuse" id="s10-rv2"><div data-hf-id="hf-22en" class="t display" style="font-size: 80px">Reviewer ≠ owner.</div><div data-hf-id="hf-zhsy" class="s">REL-05 tries to verify their own action: not allowed.</div></div>
+
+          <svg data-hf-id="hf-kwzi" class="cursor" id="s10-cur" viewBox="0 0 22 27"><path data-hf-id="hf-rudj" d="M2 2 L2 22 L7.5 17 L11 25 L14.5 23.5 L11 15.8 L18.5 15.8 Z" fill="#0b1426" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" /></svg>
+          <div data-hf-id="hf-iaaw" class="ring" id="s10-ring" style="left: 0; top: 0"></div>
+
+          <div data-hf-id="hf-s9td" class="chainhead display" id="s10-ch">Every decision, on the record</div>
+          <div data-hf-id="hf-vym3" class="chain" id="s10-chain">
+            <div data-hf-id="hf-x42t" class="blk"><div data-hf-id="hf-vrgi" class="h">#1 · DRAFT</div><b data-hf-id="hf-z451">Action drafted</b><span data-hf-id="hf-27kz">owner REL-05 · due 16 Oct</span></div><div data-hf-id="hf-hg7x" class="lnk"></div>
+            <div data-hf-id="hf-2vqx" class="blk"><div data-hf-id="hf-cghw" class="h">#2 · BLOCKED</div><b data-hf-id="hf-27pa">Closure refused</b><span data-hf-id="hf-4vmz">3 evidence items missing</span></div><div data-hf-id="hf-wlm9" class="lnk"></div>
+            <div data-hf-id="hf-42o0" class="blk"><div data-hf-id="hf-h4zo" class="h">#3 · EVIDENCE</div><b data-hf-id="hf-h5as">3 documents attached</b><span data-hf-id="hf-wlm8">dated · rule-checked</span></div><div data-hf-id="hf-xsjc" class="lnk"></div>
+            <div data-hf-id="hf-3ocz" class="blk"><div data-hf-id="hf-g3q2" class="h">#4 · REVIEW</div><b data-hf-id="hf-18mg">Owner cannot verify</b><span data-hf-id="hf-o4u9">independent reviewer required</span></div>
+          </div>
+          <div data-hf-id="hf-bc7h" class="chainsub" id="s10-chsub"><span data-hf-id="hf-ynkw" class="chip">append-only</span><span data-hf-id="hf-dx2l" class="chip">each entry hashes the one before it</span><span data-hf-id="hf-bcma" class="chip">read-only to DCS / SAP</span><span data-hf-id="hf-h418" class="chip caution">demo actions are simulated</span></div>
+          <div data-hf-id="hf-y55m" id="s10-kq" style="position: absolute; left: 60px; top: 22px"><span data-hf-id="hf-w2jq" class="chip kq">KQ3 · Action guidance &amp; tracking</span></div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s10-kq", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 0.2);
+          // "insight becomes action": the brief's next step unfolds into a tracked card.
+          tl.fromTo("#s10-seed", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 0.3);
+          tl.to("#s10-seed", { opacity: 0, scale: 1.2, y: -40, duration: 0.4, ease: "power2.in" }, 1.55);
+          tl.fromTo("#s10-w1", { opacity: 0, scale: 0.4, rotationX: 50, transformPerspective: 1600 }, { opacity: 1, scale: 1, rotationX: 0, duration: 0.9, ease: "expo.out" }, 1.6);
+          // Inner camera: the whole card (fit), then punch in on owner + due, then glide to the evidence it needs to close.
+          tl.set("#s10-in1", { x: 0, y: 0, scale: 0.875 }, 0);
+          tl.to("#s10-in1", { x: 0, y: -117, scale: 1.3, duration: 0.9, ease: "power3.inOut" }, 4.3);
+          tl.to("#s10-in1", { x: -1026.6, y: -174, scale: 1.74, duration: 0.9, ease: "power3.inOut" }, 6.2);
+          tl.fromTo("#s10-s0", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 2.95);
+          tl.fromTo("#s10-s1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 4.6);
+          tl.fromTo("#s10-c-own", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 4.65);
+          tl.fromTo("#s10-s2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 5.6);
+          tl.fromTo("#s10-c-due", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 5.65);
+          tl.fromTo("#s10-s3", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 6.45);
+          tl.fromTo("#s10-c-ev", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 6.5);
+          // "Try to close it without that evidence": cursor to Mark complete now.
+          tl.to("#s10-col, #s10-c-own, #s10-c-due, #s10-c-ev", { opacity: 0, duration: 0.35 }, 8.05);
+          tl.to("#s10-w1", { opacity: 0, y: -60, duration: 0.4, ease: "power2.in" }, 8.1);
+          tl.fromTo("#s10-w2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 8.3);
+          tl.fromTo("#s10-cur", { x: 1300, y: 900, opacity: 0 }, { x: 351, y: 709, opacity: 1, duration: 0.9, ease: "power3.out" }, 8.4);
+          tl.to("#s10-cur", { scale: 0.86, duration: 0.08, yoyo: true, repeat: 1, transformOrigin: "0 0" }, 9.4);
+          tl.fromTo("#s10-ring", { x: 353, y: 711, scale: 0.3, opacity: 1 }, { scale: 1.6, opacity: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, 9.42);
+          tl.to("#s10-w2", { keyframes: { x: [0, -16, 13, -9, 6, 0] }, duration: 0.42, ease: "none" }, 10.15);
+          tl.fromTo("#s10-c-no", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 10.2);
+          tl.fromTo("#s10-refuse", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 10.2);
+          tl.to("#s10-cur", { opacity: 0, duration: 0.3 }, 10.4);
+          // "A reviewer who is not the owner signs off."
+          tl.to("#s10-w2, #s10-refuse", { opacity: 0, duration: 0.35 }, 11.15);
+          tl.fromTo("#s10-w3", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 11.3);
+          // Whip-pan inside the card: the three attached documents, then down to the gate that now waits for a reviewer.
+          tl.set("#s10-in3", { x: -832, y: -400, scale: 1.6 }, 0);
+          tl.to("#s10-in3", { x: -32, y: -1180, duration: 0.5, ease: "power3.inOut" }, 11.85);
+          tl.fromTo("#s10-c-att", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 11.5);
+          tl.fromTo("#s10-c-wait", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 12.2);
+          tl.fromTo("#s10-rv1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 11.5);
+          tl.to("#s10-w3, #s10-rv1", { opacity: 0, duration: 0.3 }, 12.45);
+          tl.fromTo("#s10-w4", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 12.55);
+          tl.fromTo("#s10-c-rev", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 12.7);
+          tl.fromTo("#s10-c-rev2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 12.95);
+          tl.fromTo("#s10-rv2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out" }, 12.6);
+          // "every decision is written to a tamper-evident log."
+          tl.to("#s10-w4, #s10-rv2", { opacity: 0, y: -40, duration: 0.4, ease: "power2.in" }, 13.7);
+          tl.fromTo("#s10-ch", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 13.85);
+          tl.fromTo("#s10-chain .blk", { opacity: 0, x: -60, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "expo.out", stagger: 0.32 }, 14.0);
+          tl.fromTo("#s10-chain .lnk", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.3, ease: "power2.out", stagger: 0.32 }, 14.3);
+          tl.fromTo("#s10-chsub .chip", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.12 }, 15.5);
+          tl.to("#s10 > *:not(.bg)", { x: "-=240", opacity: 0, duration: 0.5, ease: "power2.in" }, 17.95);
+          // time-warp (written by scripts/warp.mjs): [authored s, current s] anchors through every spoken word.
+          const WARP = [[0,0],[0.756,0.5],[2.121,1.742],[2.975,2.265],[4.639,2.996],[4.852,3.286],[4.937,3.449],[5.535,3.89],[5.663,4.029],[5.833,4.215],[6.217,4.598],[6.303,4.784],[7.199,5.539],[7.369,5.678],[7.583,5.98],[8.308,6.224],[8.564,6.526],[8.692,6.665],[8.905,6.967],[8.991,7.094],[10.057,7.826],[10.185,8.07],[12.433,10.705],[12.603,10.844],[13.115,11.971],[13.542,12.238],[13.926,12.458],[14.225,12.714],[14.651,13.259],[15.163,13.956],[15.931,14.049],[16.486,16.243],[18.5,17.54]];
+          window.__timelines["s10-actions"] = ((src, P) => {
+            const end = P[P.length - 1];
+            const back = (t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][1]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return a0 + (a1 - a0) * ((t - b0) / (b1 - b0)); } return end[0]; };
+            const w = gsap.timeline({ paused: true });
+            w.fromTo(src, { time: 0 }, { time: end[0], duration: end[1], ease: (p) => back(p * end[1]) / end[0], immediateRender: true });
+            return w;
+          })(tl, WARP);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

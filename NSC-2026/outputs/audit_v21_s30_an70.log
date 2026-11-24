@@ -1,0 +1,21 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  B1_last15d  calibration windows 6  (50 s)
+  B2_prev15d  calibration windows 1  (64 s)
+  B3_shift7d  calibration windows 5  (105 s)
+  B1_last15d  alpha None   zero won the forward selection correction RMS 0.0000  4.232249 -> 4.232249
+  B2_prev15d  alpha None   insufficient calibration     correction RMS 0.0000  6.586373 -> 6.586373
+  B3_shift7d  alpha None   zero won the forward selection correction RMS 0.0000  4.690131 -> 4.690131
+
+  control reproduces the frozen v21 predictions exactly (2160 rows)
+
+             candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled  d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot3_lo  boot3_hi
+                   v21 5.535894    4.232249    6.586373    4.690131 1440       NaN    NaN           NaN           NaN           NaN        NaN       NaN       NaN
+slow_member_correction 5.535894    4.232249    6.586373    4.690131 1440       0.0    0.0           0.0           0.0           0.0      False       0.0       0.0
+
+residual energy decomposition
+            prediction       mse  daily_bias_mse  within_day_mse
+                   v21 27.763189       11.370917       16.392272
+slow_member_correction 27.763189       11.370917       16.392272
+
+wrote slow_member.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s30

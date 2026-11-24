@@ -1,0 +1,800 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/03-data-indonesia.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f03 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #fff; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f03 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f03 .rail { position: absolute; left: 0; top: 0; width: 5760px; height: 1080px; }
+#f03 .pnl { position: absolute; top: 0; width: 1920px; height: 1080px; }
+/* panel A: peta + 18,5% */
+#f03 .pa .kicker { position: absolute; left: 118px; top: 68px; }
+#f03 .pa .big { position: absolute; left: 110px; top: 110px; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .85; color: var(--brick); letter-spacing: -.01em; }
+#f03 .pa .big small { font-size: 150px; }
+#f03 .pa .say { position: absolute; left: 790px; top: 150px; width: 700px; font-size: 64px; line-height: 1.12; font-weight: 700; }
+#f03 .pa .say b { color: var(--brick); }
+#f03 .pa .intro { position: absolute; left: 0; right: 0; top: 160px; text-align: center; font: 700 76px/1.1 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: .03em; color: var(--ink); }
+#f03 .pa .intro b { color: var(--nt-d); }
+#f03 .pa .map { position: absolute; left: 150px; top: 520px; width: 1620px; }
+#f03 .pa .dk { position: absolute; left: 880px; top: 420px; }
+#f03 .pa .src { position: absolute; left: 118px; bottom: 40px; }
+/* panel B: otak + 1.900.000 */
+#f03 .pb .brain { position: absolute; left: 10px; top: 210px; width: 860px; height: 685px; }
+#f03 .pb .clock { position: absolute; left: 96px; top: 84px; display: flex; align-items: center; gap: 20px; }
+#f03 .pb .clock svg { width: 88px; height: 88px; }
+#f03 .pb .clock span { font: 700 44px 'Geist', sans-serif; color: var(--muted); font-variant-numeric: tabular-nums; }
+#f03 .pb .stat { position: absolute; right: 110px; top: 330px; text-align: right; }
+#f03 .pb .num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 222px; line-height: .9; color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+#f03 .pb .lbl { font-size: 64px; font-weight: 700; margin-top: 30px; color: var(--ink); }
+#f03 .pb .lbl b { color: var(--bad); }
+#f03 .pb .rule { width: 620px; height: 8px; border-radius: 4px; background: var(--line); margin: 34px 0 0 auto; position: relative; }
+#f03 .pb .rule i { position: absolute; right: 0; top: 0; bottom: 0; width: 46%; background: var(--bad); }
+#f03 .pb .src { position: absolute; left: 110px; bottom: 40px; }
+#f03 .pb .win45 { position: absolute; right: 110px; top: 800px; display: flex; align-items: center; gap: 22px; padding: 22px 34px; border-radius: 24px; background: var(--nt-soft); border: 4px solid var(--nt); font: 700 46px 'Geist', sans-serif; color: var(--ink); }
+#f03 .pb .win45 b { color: var(--nt-d); font-family: 'Oswald', sans-serif; font-size: 60px; }
+/* panel C: radiolog */
+#f03 .pc .kick { position: absolute; left: 96px; top: 70px; }
+#f03 .pc .title { position: absolute; left: 96px; top: 116px; width: 900px; font-size: 64px; line-height: 1.12; font-weight: 700; }
+#f03 .pc .title b { color: var(--teal); }
+#f03 .pc .rad { position: absolute; left: 90px; top: 380px; }
+#f03 .pc .tag { position: absolute; left: 130px; top: 330px; padding: 10px 22px; border-radius: 999px; background: var(--teal); color: #fff; font: 700 30px 'Geist', sans-serif; }
+#f03 .pc .q { position: absolute; }
+#f03 .pc .tag2 { position: absolute; left: 300px; top: 330px; padding: 10px 22px; border-radius: 999px; background: var(--nt); color: #fff; font: 700 30px 'Geist', sans-serif; white-space: nowrap; }
+#f03 .pc .card { position: absolute; right: 90px; top: 110px; width: 760px; height: 860px; border-radius: 28px; padding: 56px 60px; background: #fff; border: 2px solid var(--line); box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+#f03 .pc .card .h { font-family: Oswald, sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+#f03 .pc .row { margin-top: 34px; }
+#f03 .pc .row .lb { display: flex; justify-content: space-between; align-items: baseline; font-size: 44px; font-weight: 700; }
+#f03 .pc .row .v { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 140px; line-height: 1; }
+#f03 .pc .row .track { margin-top: 16px; height: 38px; border-radius: 19px; background: #f1f5f9; overflow: hidden; }
+#f03 .pc .row .fill { height: 100%; border-radius: 19px; }
+#f03 .pc .cmpx { margin-top: 40px; display: flex; align-items: center; gap: 26px; padding: 22px 28px; border-radius: 22px; background: var(--bad-soft); }
+#f03 .pc .cmpx .x { font: 700 130px/1 'Oswald', sans-serif; color: var(--bad); }
+#f03 .pc .cmpx .xt { font-size: 36px; line-height: 1.2; font-weight: 700; color: var(--ink); }
+#f03 .pc .foot { position: absolute; left: 60px; right: 60px; bottom: 40px; }
+</style>
+<div data-hf-id="hf-czzb" id="f03" data-composition-id="f03" data-width="1920" data-height="1080">
+<div data-hf-id="hf-wua0" class="scene"><div data-hf-id="hf-1ctk" class="dolly">
+  <div data-hf-id="hf-qzq8" class="rail">
+    <div data-hf-id="hf-2ta0" class="pnl pa" style="left: 1920px">
+      <div data-hf-id="hf-yun1" class="kicker eyebrow">Indonesia · penyebab kematian</div>
+      <div data-hf-id="hf-vf1u" class="big"><span data-hf-id="hf-iov7" class="v">0</span><small data-hf-id="hf-ew4z">%</small></div>
+      <div data-hf-id="hf-0tsy" class="say">kematian di Indonesia akibat <b data-hf-id="hf-vfs1">stroke.</b></div>
+      <svg data-hf-id="hf-c7l9" class="map" viewBox="0 0 1610 560"><g data-hf-id="hf-09fs" class="islands"></g><g data-hf-id="hf-52kt" class="pings"></g></svg>
+      <div data-hf-id="hf-1iw2" class="src">Kemenkes 2024 · SKI 2023</div>
+    </div>
+    <div data-hf-id="hf-wlmv" class="pnl pb" style="left: 0px">
+      <svg data-hf-id="hf-fg6r" class="brain" viewBox="0 0 1080 860"><path data-hf-id="hf-0wdm" class="outline" d="M180,430 C150,300 230,170 380,130 C470,80 600,80 700,120 C820,150 920,240 940,360 C960,470 900,560 800,590 C760,600 720,600 690,610 C660,650 640,700 610,760 C590,800 560,800 560,760 C560,720 570,680 560,650 C500,640 420,640 330,620 C230,600 190,520 180,430 Z M690,610 C740,600 820,610 840,660 C830,720 740,740 680,700" fill="none" stroke="#d1d5db" stroke-width="3" /><g data-hf-id="hf-tsw4" class="edges"></g><g data-hf-id="hf-eb9l" class="nodes"></g></svg>
+      <div data-hf-id="hf-zwhu" class="clock">
+        <svg data-hf-id="hf-ugox" viewBox="-40 -40 80 80"><circle data-hf-id="hf-25cl" r="34" fill="none" stroke="#e5e7eb" stroke-width="6" /><circle data-hf-id="hf-rew4" class="clock-arc" r="34" fill="none" stroke="#dc2626" stroke-width="6" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="0" transform="rotate(-90)" /><line data-hf-id="hf-eju4" class="clock-hand" x1="0" y1="0" x2="0" y2="-22" stroke="#10313a" stroke-width="5" stroke-linecap="round" /></svg>
+        <span data-hf-id="hf-0vmq">setiap menit</span>
+      </div>
+      <div data-hf-id="hf-xa0m" class="stat">
+        <div data-hf-id="hf-1rsw" class="num">0</div>
+        <div data-hf-id="hf-a46i" class="rule"><i data-hf-id="hf-wt6k"></i></div>
+        <div data-hf-id="hf-4v3i" class="lbl">neuron <b data-hf-id="hf-8jx2">hilang</b> setiap menit</div>
+      </div>
+      <div data-hf-id="hf-oqa3" class="win45"><svg data-hf-id="hf-ulz6" width="70" height="70" viewBox="0 0 70 70"><path data-hf-id="hf-hxb4" d="M18,8 h34 M18,62 h34 M22,8 c0,18 26,18 26,27 c0,9 -26,9 -26,27 M48,8 c0,18 -26,18 -26,27 c0,9 26,9 26,27" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round" /><path data-hf-id="hf-0pzl" class="sand" d="M28,52 h14 l-7,-9 z" fill="#e07a1f" /></svg><span data-hf-id="hf-aa29">Obat hanya bisa diberikan dalam <b data-hf-id="hf-wzug">4,5 jam</b></span></div>
+      <div data-hf-id="hf-gqi7" class="src">Saver, Stroke 2006 · PNPK Stroke 2019</div>
+    </div>
+    <div data-hf-id="hf-4ltf" class="pnl pc" style="left: 3840px">
+      <div data-hf-id="hf-ifei" class="kick eyebrow">Siapa yang membaca citranya?</div>
+      <div data-hf-id="hf-l5w5" class="title">Radiolog: <b data-hf-id="hf-bcsz">pembaca yang langka.</b></div>
+      <div data-hf-id="hf-sxfb" class="q" style="left:470px; top:600px"><svg data-hf-id="hf-opxb" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-32qq" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-i0k5" class="mhs-rig">
+    <rect data-hf-id="hf-j82o" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-3i5m" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-xy70" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-vxuw" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-edfg" cx="35" cy="32" r="19" fill="#d39a76" />
+    <path data-hf-id="hf-ku4b" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#1d2430" />
+    <circle data-hf-id="hf-giu7" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-jldz" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-bjrh" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-auqn" class="mhs-q" opacity="1"><path data-hf-id="hf-mm7m" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-r760" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-lcpz" class="q" style="left:575px; top:640px"><svg data-hf-id="hf-xe7z" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-9g1y" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-ccqx" class="mhs-rig">
+    <rect data-hf-id="hf-a2l4" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-xy7i" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-mses" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-6xpc" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-cjmc" cx="35" cy="32" r="19" fill="#e2b08e" />
+    <path data-hf-id="hf-ta2h" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#3b2a20" />
+    <circle data-hf-id="hf-pgpr" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-as6f" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-y96p" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-6wmm" class="mhs-q" opacity="0"><path data-hf-id="hf-665y" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-non4" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-ugxw" class="q" style="left:680px; top:620px"><svg data-hf-id="hf-wzwy" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-9ucz" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-djo0" class="mhs-rig">
+    <rect data-hf-id="hf-8vo1" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-ycij" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-llhp" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-5qs9" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-n5l9" cx="35" cy="32" r="19" fill="#a96f4c" />
+    <path data-hf-id="hf-c8jf" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#1d2430" />
+    <circle data-hf-id="hf-p2eq" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-adve" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-zg3s" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-ycv3" class="mhs-q" opacity="1"><path data-hf-id="hf-6kgz" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-mhq1" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-03xw" class="q" style="left:785px; top:660px"><svg data-hf-id="hf-wllx" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-a8o0" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-d5cz" class="mhs-rig">
+    <rect data-hf-id="hf-99z2" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-yqtk" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-lzsq" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-653a" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-u31w" cx="35" cy="32" r="19" fill="#d39a76" />
+    <path data-hf-id="hf-r5pz" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#5a3a28" />
+    <circle data-hf-id="hf-oo3p" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-9zkd" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-z1sr" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-tkmq" class="mhs-q" opacity="0"><path data-hf-id="hf-6ys0" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-mw12" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-pei8" class="q" style="left:890px; top:630px"><svg data-hf-id="hf-zdr4" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-7git" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-b5tu" class="mhs-rig">
+    <rect data-hf-id="hf-831z" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-vyod" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-nzbv" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-4y67" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-r9m4" cx="35" cy="32" r="19" fill="#e2b08e" />
+    <path data-hf-id="hf-d97m" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#2a2220" />
+    <circle data-hf-id="hf-rg8w" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-crpk" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-x29m" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-xyk2" class="mhs-q" opacity="1"><path data-hf-id="hf-46mt" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-lp3z" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-sa2i" class="q" style="left:530px; top:800px"><svg data-hf-id="hf-yzg3" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-7utu" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-arit" class="mhs-rig">
+    <rect data-hf-id="hf-8hd0" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-wcze" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-odmw" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-5ch8" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-azxr" cx="35" cy="32" r="19" fill="#c48d68" />
+    <path data-hf-id="hf-bu8e" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#1d2430" />
+    <circle data-hf-id="hf-r1xv" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-cdej" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-wnyl" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-tyxr" class="mhs-q" opacity="0"><path data-hf-id="hf-4kxu" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-m3f0" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-k5u1" class="q" style="left:640px; top:830px"><svg data-hf-id="hf-yl52" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-894v" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-byfw" class="mhs-rig">
+    <rect data-hf-id="hf-7afx" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-wraf" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-n6pt" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-45k5" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-sw4t" cx="35" cy="32" r="19" fill="#d39a76" />
+    <path data-hf-id="hf-8h71" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#3b2a20" />
+    <circle data-hf-id="hf-qnmu" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-bz3i" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-xuvo" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-xk91" class="mhs-q" opacity="1"><path data-hf-id="hf-4z8v" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-kwhx" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-aby9" class="q" style="left:750px; top:810px"><svg data-hf-id="hf-y6u1" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-8nfw" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-bk4v" class="mhs-rig">
+    <rect data-hf-id="hf-7oqy" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-x5lg" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-nl0u" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-4jv6" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-5xz5" cx="35" cy="32" r="19" fill="#a96f4c" />
+    <path data-hf-id="hf-bfxd" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#1d2430" />
+    <circle data-hf-id="hf-q9bt" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-bksh" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-xgkn" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-ud8s" class="mhs-q" opacity="0"><path data-hf-id="hf-5djw" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-lasy" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-syj5" class="q" style="left:860px; top:845px"><svg data-hf-id="hf-um2s" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-5vap" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-9klq" class="mhs-rig">
+    <rect data-hf-id="hf-cuqb" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-0qcp" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-pkjz" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-3cy3" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-q2p1" cx="35" cy="32" r="19" fill="#e2b08e" />
+    <path data-hf-id="hf-b1mc" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#1d2430" />
+    <circle data-hf-id="hf-imlg" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-ecxo" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-1txy" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-0ce8" class="mhs-q" opacity="1"><path data-hf-id="hf-2lep" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-k3vv" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-hj7c" class="q" style="left:970px; top:815px"><svg data-hf-id="hf-u7rr" class="mhs " viewBox="0 0 70 130" width="92" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-69lq" cx="35" cy="126" rx="24" ry="4" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-96ap" class="mhs-rig">
+    <rect data-hf-id="hf-d91c" x="21" y="92" width="11" height="32" rx="5" fill="#233a4a" /><rect data-hf-id="hf-14nq" x="38" y="92" width="11" height="32" rx="5" fill="#233a4a" />
+    <path data-hf-id="hf-pyv0" d="M12,58 Q35,48 58,58 L62,100 Q35,106 8,100 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="2" />
+    <path data-hf-id="hf-3r94" d="M28,54 L35,68 L42,54 Z" fill="#2f7f8a" />
+    <circle data-hf-id="hf-tafu" cx="35" cy="32" r="19" fill="#d39a76" />
+    <path data-hf-id="hf-28qf" d="M16,30 C14,14 26,9 36,9 C48,9 56,16 54,30 C50,22 44,19 38,18 C34,24 24,25 18,23 Z" fill="#5a3a28" />
+    <circle data-hf-id="hf-i8af" cx="28" cy="34" r="2.4" fill="#10313a" /><circle data-hf-id="hf-dymn" cx="42" cy="34" r="2.4" fill="#10313a" />
+    <path data-hf-id="hf-1fmx" d="M30,42 Q35,45 40,42" fill="none" stroke="#5a2a20" stroke-width="2" stroke-linecap="round" />
+  </g>
+  <g data-hf-id="hf-urjt" class="mhs-q" opacity="0"><path data-hf-id="hf-2zpq" d="M46,-6 h30 a8,8 0 0 1 8,8 v14 a8,8 0 0 1 -8,8 h-18 l-8,8 v-8 h-4 a8,8 0 0 1 -8,-8 v-14 a8,8 0 0 1 8,-8 z" fill="#ffffff" stroke="#10313a" stroke-width="2.5" /><text data-hf-id="hf-ki6w" x="61" y="15" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="18" fill="#a2462a">?</text></g>
+</svg>
+</div>
+      <div data-hf-id="hf-mdi1" class="rad"><svg data-hf-id="hf-uq7y" class="dika " viewBox="0 0 320 640" width="270" overflow="visible" aria-hidden="true">
+  <ellipse data-hf-id="hf-01r1" class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g data-hf-id="hf-p7ta" class="dika-rig">
+    <!-- kaki -->
+    <g data-hf-id="hf-zlsb" class="dika-legs">
+      <rect data-hf-id="hf-3dir" x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect data-hf-id="hf-vjea" x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse data-hf-id="hf-0fa9" cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse data-hf-id="hf-vfvc" cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g data-hf-id="hf-75v1" class="dika-arm-l">
+      <path data-hf-id="hf-o0dh" d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-u85o" x="70" y="414" width="30" height="14" rx="5" fill="#5c4a7a" />
+      <circle data-hf-id="hf-91fl" class="dika-hand-l" cx="85" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g data-hf-id="hf-096l" class="dika-torso">
+      <path data-hf-id="hf-16o2" d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path data-hf-id="hf-5o0i" d="M134,250 L160,306 L186,250 Z" fill="#5c4a7a" />
+      <path data-hf-id="hf-dj44" d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path data-hf-id="hf-0k1f" d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line data-hf-id="hf-5ni9" x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-efbl" x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect data-hf-id="hf-kuce" x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g data-hf-id="hf-2vx9" class="dika-badge"><rect data-hf-id="hf-0kwm" x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect data-hf-id="hf-0ol0" x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle data-hf-id="hf-wotr" cx="200" cy="322" r="6" fill="#aad39c" /><rect data-hf-id="hf-hbmb" x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g data-hf-id="hf-vnyn" class="dika-steth" opacity="1" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path data-hf-id="hf-rbi2" d="M130,256 C116,300 128,334 150,346" />
+        <path data-hf-id="hf-uro7" d="M190,256 C204,300 192,334 170,346" />
+        <path data-hf-id="hf-49v1" d="M150,346 Q160,352 170,346" />
+        <path data-hf-id="hf-yv77" d="M160,350 C162,372 176,380 186,384" />
+        <circle data-hf-id="hf-uoye" cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g data-hf-id="hf-08hf" class="dika-arm-r">
+      <path data-hf-id="hf-paxy" d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#fbfaf6" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect data-hf-id="hf-e5yd" x="220" y="414" width="30" height="14" rx="5" fill="#5c4a7a" />
+      <circle data-hf-id="hf-5gp8" class="dika-hand-r" cx="235" cy="438" r="14" fill="#e2b08e" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g data-hf-id="hf-io36" class="dika-head">
+      <path data-hf-id="hf-9idq" class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect data-hf-id="hf-cg8r" x="142" y="226" width="36" height="34" rx="10" fill="#c48d68" />
+      <path data-hf-id="hf-vujh" d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#9aa3a8" />
+      <ellipse data-hf-id="hf-f5tn" cx="99" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse data-hf-id="hf-mr14" cx="221" cy="184" rx="11" ry="15" fill="#c48d68" />
+      <ellipse data-hf-id="hf-w1kq" cx="160" cy="178" rx="62" ry="68" fill="#e2b08e" />
+      <path data-hf-id="hf-kmih" d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#9aa3a8" />
+      <g data-hf-id="hf-r4a5" class="dika-brows" fill="none" stroke="#6b7280" stroke-width="5" stroke-linecap="round">
+        <g data-hf-id="hf-x7nd" opacity="0"><path data-hf-id="hf-pbtc" d="M124,158 Q137,151 150,157" /><path data-hf-id="hf-ebv8" d="M170,157 Q183,151 196,158" /></g>
+        <g data-hf-id="hf-wfzk" opacity="1"><path data-hf-id="hf-hsbz" d="M124,158 Q138,156 150,150" /><path data-hf-id="hf-71iz" d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g data-hf-id="hf-17lw" class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse data-hf-id="hf-3jud" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-ytvh" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-shfc" class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-cdq7" class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse data-hf-id="hf-4221" rx="6.5" ry="8.5" fill="#10313a" /><circle data-hf-id="hf-4u6p" cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse data-hf-id="hf-u1ao" class="dika-lid" rx="8" ry="10" fill="#e2b08e" transform="scale(1 0)" />
+      </g>
+      <g data-hf-id="hf-7gyc" class="dika-glasses" opacity="1" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle data-hf-id="hf-2cwe" cx="138" cy="180" r="16" /><circle data-hf-id="hf-dn0p" cx="182" cy="180" r="16" /><path data-hf-id="hf-azij" d="M154,178 Q160,173 166,178" /><path data-hf-id="hf-df2h" d="M122,176 L104,172" /><path data-hf-id="hf-9zwu" d="M198,176 L216,172" />
+      </g>
+      <path data-hf-id="hf-0ju3" d="M159,190 q-5,11 3,13" fill="none" stroke="#c48d68" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse data-hf-id="hf-s6y0" cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse data-hf-id="hf-bjqb" cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g data-hf-id="hf-tvo7" class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path data-hf-id="hf-p3a3" class="dika-m-smile" opacity="0" d="M145,214 Q160,228 175,214" />
+        <path data-hf-id="hf-3v16" class="dika-m-worried" opacity="1" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse data-hf-id="hf-142k" class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path data-hf-id="hf-3o2x" class="dika-sweat" opacity="1" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+      <div data-hf-id="hf-rezv" class="tag">Radiolog</div>
+      <div data-hf-id="hf-3u2k" class="tag2">juga mengajar di kampus</div>
+      <div data-hf-id="hf-vn2y" class="card">
+        <div data-hf-id="hf-5dzh" class="h">Radiolog / 100.000 penduduk</div>
+        <div data-hf-id="hf-thy4" class="row">
+          <div data-hf-id="hf-adri" class="lb"><span data-hf-id="hf-iadx">Indonesia</span><span data-hf-id="hf-7cqh" class="v" style="color: var(--bad)">0,8</span></div>
+          <div data-hf-id="hf-64lp" class="track"><div data-hf-id="hf-c3c3" class="fill" style="width: 6.3%; background: var(--bad)"></div></div>
+        </div>
+        <div data-hf-id="hf-lt04" class="row">
+          <div data-hf-id="hf-8l6a" class="lb"><span data-hf-id="hf-1k5a">Uni Eropa</span><span data-hf-id="hf-dsne" class="v" style="color: var(--teal)">12,7</span></div>
+          <div data-hf-id="hf-gav5" class="track"><div data-hf-id="hf-3lhi" class="fill" style="width: 100%; background: var(--teal)"></div></div>
+        </div>
+        <div data-hf-id="hf-anr0" class="cmpx"><span data-hf-id="hf-y3c9" class="x">16×</span><span data-hf-id="hf-nijo" class="xt">lebih sedikit dari rerata Uni Eropa</span></div>
+        <div data-hf-id="hf-1cdh" class="foot src">2.161 radiolog · Yunus 2024, Brady 2025</div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</div>
+<!-- @sfx woosh_up@0.0:0.5 punch_hit@0.42:0.4 tick@~jam:0.4 tock@~terus:0.4 tick@~berjalan:0.4 whoosh_deep@~Setiap-0.4:0.45 heartbeat_fast@~Setiap:0.4 tock@~otak:0.35 riser@~otak-0.2:0.35 counter_roll@~satu-0.6:0.4 impact_boom@~neuron+0.15:0.6 slide@~obat-0.2:0.4 clock_fast@~empat-0.3:0.4 punch_hit@~jam.2:0.5 swipe_zip@~Indonesia-0.8:0.45 data_chirps@~stroke:0.35 counter_roll@~delapan-0.3:0.4 impact_boom@~persen+0.2:0.55 snap@~kematian-0.3:0.4 swipe_zip@~Tapi-0.1:0.45 tension_hit@~langka:0.4 crowd_murmur@~Radiolog:0.25 counter_roll@~nol-0.2:0.35 punch_hit@~delapan.2:0.5 swish_fast@~enam-0.4:0.4 bass_drop@~kali-0.1:0.5 mar6@~Uni:0.4 pop@~mengajar-0.1:0.45 bubble@~kampus:0.35 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f03", T0 = 0.5, DUR = 29.6, VO_AT = 0.5, VOW = [["Dan",0],["jam",0.4],["terus",0.72],["berjalan",1.24],["Setiap",2.36],["menit",2.76],["otak",3.4],["kehilangan",3.68],["satu",4.24],["koma",4.64],["sembilan",4.88],["juta",5.44],["neuron",5.76],["dan",6.56],["obat",6.72],["itu",6.96],["hanya",7.44],["bisa",7.76],["diberikan",8.04],["dalam",8.52],["empat",8.92],["setengah",9.2],["jam",9.6],["Di",10.52],["Indonesia",10.64],["stroke",11.52],["menyumbang",11.92],["delapan",12.44],["belas",12.8],["koma",13.12],["lima",13.36],["persen",13.6],["kematian",14],["Tapi",15.08],["pembaca",15.52],["citranya",15.88],["langka",16.56],["Radiolog",17.44],["hanya",18.107],["nol",18.48],["koma",18.72],["delapan",18.96],["per",19.44],["seratus",19.68],["ribu",20.16],["penduduk",20.4],["enam",21.28],["belas",21.52],["kali",21.84],["lebih",22.16],["sedikit",22.4],["dari",22.84],["rerata",23.16],["Uni",23.6],["Eropa",23.76],["Radiolog",24.84],["yang",25.28],["langka",25.44],["inilah",25.76],["yang",26.36],["juga",26.56],["mengajar",26.88],["di",27.24],["kampus",27.36]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out", duration: 0.6 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a);
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk: iris (lingkaran dari titik), push (geser dari kanan), fade (blur crossfade), none
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || T0 === 0) return;
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-40px 0 80px rgba(16,24,40,.18)" }, { x: 0, duration: d, ease: "power3.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { scale: 0.965, filter: "blur(3px)", duration: 0.5, ease: "power2.in" }, END - 0.5);
+  };
+  const blink = (sel, times) => times.forEach((t) => {
+    tl.to(R.querySelectorAll(sel), { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(R.querySelectorAll(sel), { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: o.from ?? 0.6, opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(2)", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 40, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.6, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.08 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar ambient: grid titik yang bergeser, cahaya lembut, partikel neurotransmiter melayang
+  const ambient = (o = {}) => {
+    const svg = svgEl("svg", { viewBox: "0 0 1920 1080", class: "amb" });
+    D.insertBefore(svg, D.firstChild);
+    const defs = svgEl("defs", {}, svg);
+    const pid = `amb-d-${ID}`, gid = `amb-g-${ID}`;
+    const pat = svgEl("pattern", { id: pid, width: 48, height: 48, patternUnits: "userSpaceOnUse" }, defs);
+    svgEl("circle", { cx: 24, cy: 24, r: 2.4, fill: o.dot ?? "#d5e1e3" }, pat);
+    const rg = svgEl("radialGradient", { id: gid }, defs);
+    svgEl("stop", { offset: "0", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "1" }, rg);
+    svgEl("stop", { offset: "1", "stop-color": o.glow ?? "#dff0ec", "stop-opacity": "0" }, rg);
+    const blobs = [0, 1, 2].map(() => svgEl("circle", { cx: (200 + frnd() * 1520).toFixed(0), cy: (150 + frnd() * 780).toFixed(0), r: (380 + frnd() * 240).toFixed(0), fill: `url(#${gid})` }, svg));
+    const grid = svgEl("rect", { x: -96, y: -96, width: 2112, height: 1272, fill: `url(#${pid})`, opacity: o.grid ?? 0.6 }, svg);
+    const cols = o.cols ?? ["#195764", "#6fa77a", "#e07a1f"];
+    const parts = [];
+    for (let i = 0; i < (o.n ?? 24); i++) parts.push(svgEl("circle", { cx: (frnd() * 1920).toFixed(0), cy: (frnd() * 1080).toFixed(0), r: (3 + frnd() * 9).toFixed(1), fill: cols[i % cols.length], opacity: (0.1 + frnd() * 0.16).toFixed(2) }, svg));
+    tl.fromTo(grid, { x: 0, y: 0 }, { x: -48, y: -48, duration: END, ease: "none" }, 0);
+    blobs.forEach((b) => tl.fromTo(b, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 420, y: (frnd() - 0.5) * 260, duration: END, ease: "sine.inOut" }, 0));
+    parts.forEach((p) => tl.fromTo(p, { x: 0, y: 0 }, { x: (frnd() - 0.5) * 180, y: -80 - frnd() * 200, duration: END, ease: "none" }, 0));
+    return svg;
+  };
+  // kamera pelan maju sepanjang frame supaya tidak ada gambar yang diam
+  const drift = (amt = 0.04) => tl.fromTo(D, { scale: 1 }, { scale: 1 + amt, duration: END, ease: "none" }, 0);
+  // guncangan kamera (benturan angka/stempel)
+  const shake = (t, amp = 12, d = 0.42) => {
+    const n = 7, st = d / n;
+    for (let i = 0; i < n; i++) {
+      const k = 1 - i / n;
+      tl.to(D, { x: (i % 2 ? -1 : 1) * amp * k, y: (((i * 5) % 3) - 1) * amp * 0.6 * k, duration: st, ease: "sine.inOut" }, t + i * st);
+    }
+    tl.to(D, { x: 0, y: 0, duration: st, ease: "sine.out" }, t + d);
+  };
+  // ledakan garis + gelombang kejut di titik (x, y) — dipakai saat angka mendarat
+  const burst = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const col = o.color ?? "#e07a1f", n = o.n ?? 12, r0 = o.r0 ?? 70, r1 = o.r1 ?? 220;
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    const ring = svgEl("circle", { cx: x, cy: y, r: r0 * 0.5, fill: "none", stroke: o.ring ?? col }, g);
+    tl.fromTo(ring, { attr: { r: r0 * 0.4, "stroke-width": 16 } }, { attr: { r: r1 * 1.2, "stroke-width": 0 }, duration: 0.75, ease: "expo.out" }, t);
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2 + (o.rot ?? 0.2), c = Math.cos(a), s = Math.sin(a);
+      const L = 34 + (i % 3) * 16;
+      const ln = svgEl("line", { x1: x, y1: y, x2: x, y2: y, "stroke-width": 0, stroke: i % 3 === 1 ? (o.c2 ?? "#195764") : col, "stroke-linecap": "round" }, g);
+      tl.fromTo(ln, { attr: { x1: x + c * r0, y1: y + s * r0, x2: x + c * (r0 + L), y2: y + s * (r0 + L), "stroke-width": 9 } },
+        { attr: { x1: x + c * r1, y1: y + s * r1, x2: x + c * r1, y2: y + s * r1, "stroke-width": 0 }, duration: 0.6, ease: "expo.out" }, t);
+    }
+    tl.set(g, { opacity: 0 }, t + 0.8);
+  };
+  // kilatan layar penuh
+  const flash = (t, o = {}) => {
+    const el = div(FX, { background: o.color ?? "#ffffff" }, "flash");
+    tl.fromTo(el, { opacity: 0 }, { opacity: o.a ?? 0.7, duration: 0.05, ease: "none" }, t);
+    tl.to(el, { opacity: 0, duration: o.d ?? 0.45, ease: "power2.out" }, t + 0.05);
+  };
+  // konfeti balistik (deterministik: posisi = fungsi waktu)
+  const confetti = (x, y, t, o = {}) => {
+    const g = svgEl("g", {}, fxSvg());
+    const cols = o.cols ?? ["#e07a1f", "#195764", "#aad39c", "#f09a6c", "#2563eb", "#fbbf24"];
+    const P = [];
+    for (let i = 0; i < (o.n ?? 70); i++) {
+      const a = -Math.PI / 2 + (frnd() - 0.5) * (o.spread ?? 2.4), v = 650 + frnd() * 950;
+      const el = svgEl("rect", { x: -8, y: -5, width: 16, height: 10, rx: 2, fill: cols[i % cols.length] }, g);
+      P.push({ el, vx: Math.cos(a) * v, vy: Math.sin(a) * v, spin: (frnd() - 0.5) * 1500, sx: 0.5 + frnd() * 0.9 });
+    }
+    const dur = o.d ?? 2.6, G = 1500, p = { k: 0 };
+    const put = () => {
+      const tt = p.k * dur, drag = 1 - Math.min(0.55, tt * 0.22);
+      P.forEach((q) => q.el.setAttribute("transform", `translate(${(x + q.vx * tt * drag).toFixed(1)},${(y + q.vy * tt * drag + 0.5 * G * tt * tt).toFixed(1)}) rotate(${(q.spin * tt).toFixed(0)}) scale(${q.sx.toFixed(2)},1)`));
+    };
+    tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+    tl.fromTo(p, { k: 0 }, { k: 1, duration: dur, ease: "none", onUpdate: put, onStart: put }, t);
+    tl.to(g, { opacity: 0, duration: 0.5 }, t + dur - 0.5);
+  };
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: o.y ?? 46, opacity: 0, rotation: o.r ?? 4 }, { y: 0, opacity: 1, rotation: 0, duration: o.d ?? 0.5, ease: o.ease ?? "back.out(1.8)", stagger: o.stagger ?? 0.045 }, t));
+  };
+  // stabilo menyapu di bawah teks penting
+  const mark = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => { el.classList.add("hl-mark"); if (o.color) el.style.setProperty("--hlc", o.color); });
+    tl.fromTo(els, { backgroundSize: "0% 38%" }, { backgroundSize: "100% 38%", duration: o.d ?? 0.55, ease: "power2.inOut" }, t);
+  };
+  // angka mendarat: membal + burst + shake (satu panggilan untuk semua momen "hit")
+  const hit = (sel, x, y, t, o = {}) => {
+    tl.fromTo(sel, { scale: 1 }, { scale: o.s ?? 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false, transformOrigin: o.origin ?? "50% 50%" }, t);
+    burst(x, y, t, o);
+    if (o.shake !== 0) shake(t, o.shake ?? 9);
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ambient();
+  if (R.dataset.drift !== "0") drift(Number(R.dataset.drift || 0.04));
+  // ---- akhir helper ----
+
+  const ns = "http://www.w3.org/2000/svg";
+  const RAIL = $1(".rail");
+  // ---- panel A: kepulauan Indonesia (dari bujur/lintang yang disederhanakan) ----
+  const P = (lon, lat) => [((lon - 95) * 34.8).toFixed(1), ((7 - lat) * 30).toFixed(1)];
+  const I = {
+    sumatra: [[95.3,5.6],[97.5,5.2],[98.7,3.8],[100.4,2.2],[101.5,1.6],[103.6,0.9],[104.5,-1],[106,-3],[105.9,-5.8],[104.6,-5.9],[103,-4.5],[101.6,-3.2],[100.3,-1],[99,1],[97.6,2.4],[96.2,4]],
+    jawa: [[105.2,-6.8],[106,-5.9],[107,-6],[108.3,-6.3],[110.4,-6.9],[111.5,-6.6],[112.6,-6.9],[114.4,-7.7],[114.4,-8.6],[112,-8.3],[110,-8.1],[108,-7.8],[106.4,-7.4]],
+    bali: [[115,-8.1],[115.7,-8.4],[115.2,-8.8]],
+    lombok: [[116,-8.4],[116.7,-8.3],[116.4,-8.9]],
+    sumbawa: [[116.8,-8.4],[119,-8.3],[118.8,-8.8],[117,-9]],
+    flores: [[119.8,-8.4],[122.9,-8.1],[122.8,-8.7],[120,-8.8]],
+    sumba: [[119,-9.4],[120.8,-9.6],[120.2,-10.3],[119,-9.8]],
+    timor: [[123.5,-10.2],[125.1,-9.2],[127.3,-8.4],[124.9,-10],[123.7,-10.5]],
+    kalimantan: [[109,1.5],[109.6,2],[111,1.6],[113,3],[115.4,4.5],[117,6.9],[119.2,5.2],[118,4.3],[118.5,3],[117.8,1],[119,0.9],[117.5,-0.8],[116.5,-2.5],[116,-3.8],[114.6,-4.1],[113,-3.1],[111.7,-3],[110.2,-2.9],[110,-1.2],[109,0]],
+    sulawesi: [[119.4,-5.5],[120.4,-5.6],[120.3,-3],[121,-2.7],[122.5,-4.7],[123.2,-4.5],[121.9,-2.5],[122.9,-0.9],[121,-1.3],[120.6,-0.9],[121.3,0.4],[123,0.5],[124.8,1.5],[125.2,1.4],[123.5,0.9],[120.1,0.7],[119.8,-0.3],[118.8,-2.5],[119.4,-3.5]],
+    halmahera: [[127.6,1.9],[128.2,1.5],[127.9,0.3],[128.7,-0.3],[127.8,-0.8],[127.3,0.7]],
+    seram: [[128.2,-2.9],[130.8,-3.3],[129.5,-3.6],[128.2,-3.5]],
+    buru: [[126,-3.1],[127.2,-3.3],[126.8,-3.8],[126,-3.6]],
+    bangka: [[105.2,-1.6],[106.8,-2.7],[106.6,-3.1],[105.6,-2.2]],
+    papua: [[131,-1.2],[132.3,-0.4],[134,-0.9],[135,-3.3],[137.5,-1.5],[141,-2.6],[141,-9.1],[139,-8.1],[138,-8.4],[137.6,-6.5],[136,-4.6],[134.2,-3.9],[133,-4],[132,-2.9],[133.4,-2.4],[132,-2.2]],
+  };
+  const G = $1(".islands");
+  Object.entries(I).forEach(([name, pts]) => {
+    const path = document.createElementNS(ns, "path");
+    const xy = pts.map(([a, b]) => P(a, b).map(Number));
+    const n = xy.length;
+    let d = `M${xy[0][0]},${xy[0][1]}`;
+    for (let i = 0; i < n; i++) {
+      const p0 = xy[(i - 1 + n) % n], p1 = xy[i], p2 = xy[(i + 1) % n], p3 = xy[(i + 2) % n];
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ` C${c1.map((v) => v.toFixed(1))} ${c2.map((v) => v.toFixed(1))} ${p2.map((v) => v.toFixed(1))}`;
+    }
+    path.setAttribute("d", d + "Z");
+    path.setAttribute("class", "isl");
+    path.setAttribute("fill", "#e8f1f2"); path.setAttribute("stroke", "#195764");
+    path.setAttribute("stroke-width", "3"); path.setAttribute("stroke-linejoin", "round");
+    G.appendChild(path);
+  });
+  const pings = [[106.8,-6.2],[110.4,-7],[98.7,3.6],[104.7,-2.9],[119.4,-5.1],[116.8,-1.2],[124.8,1.5],[115.2,-8.6],[140.7,-2.5],[100.4,-0.9],[107.6,-6.9],[122.5,-4.0],[109.3,-0.1]];
+  const PG = $1(".pings");
+  pings.forEach(([a, b]) => {
+    const [x, y] = P(a, b);
+    PG.append(svgEl("circle", { cx: x, cy: y, r: 22, fill: "none", stroke: "#dc2626", "stroke-width": 3, class: "pr" }), svgEl("circle", { cx: x, cy: y, r: 8, fill: "#dc2626", class: "pd" }));
+  });
+  enter("bars");
+  // ---- panel A: peta + 18,5% (setelah panel otak) ----
+  const tA = w("Indonesia") - 0.75;
+  tl.to(RAIL, { x: -1920, duration: 0.75, ease: "power3.inOut" }, tA);
+  [...$(".isl")].forEach((el, i) => {
+    drawPath(el, tA + 0.3 + i * 0.05, 1.0);
+    tl.fromTo(el, { fillOpacity: 0 }, { fillOpacity: 1, duration: 0.5 }, tA + 0.7 + i * 0.05);
+  });
+  const t1 = w("stroke");
+  pop($(".pings .pd"), t1, { from: 0, stagger: 0.08, ease: "back.out(3)" });
+  tl.fromTo($(".pings .pr"), { scale: 0.3, opacity: 0.9, transformOrigin: "50% 50%" }, { scale: 2.4, opacity: 0, duration: 1.3, ease: "power2.out", stagger: { each: 0.08, repeat: 1, repeatDelay: 0.5 } }, t1 + 0.1);
+  rise(".pa .kicker", tA + 0.5, { y: 16 });
+  tl.fromTo(".pa .big", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45 }, w("delapan") - 0.4);
+  count($1(".pa .big .v"), 0, 18.5, w("delapan") - 0.3, w("persen") - w("delapan") + 0.4, { dec: 1 });
+  hit(".pa .big", 420, 270, w("persen") + 0.2, { color: "#dc2626", r1: 300, n: 14, shake: 12, origin: "0% 50%" });
+  words(".pa .say", w("kematian") - 0.4, { stagger: 0.06 });
+  rise(".pa .src", tA + 0.8, { y: 10 });
+
+  // ---- panel B: otak, neuron padam ----
+  let seed = 20261023;
+  const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const ctx = document.createElement("canvas").getContext("2d");
+  const outline = $1(".pb .outline");
+  const shape = new Path2D(outline.getAttribute("d"));
+  const pts = [];
+  while (pts.length < 480) {
+    const x = 150 + rnd() * 820, y = 80 + rnd() * 740;
+    if (ctx.isPointInPath(shape, x, y)) pts.push({ x, y, r: 3 + rnd() * 5, lost: rnd() < 0.42, o: rnd() });
+  }
+  const E = $1(".pb .edges"), N = $1(".pb .nodes");
+  pts.forEach((p, i) => {
+    pts.map((q, j) => [j, (q.x - p.x) ** 2 + (q.y - p.y) ** 2]).filter(([j]) => j > i).sort((a, b) => a[1] - b[1]).slice(0, 2).forEach(([j, d]) => {
+      if (d > 5200) return;
+      E.appendChild(svgEl("line", { x1: p.x.toFixed(1), y1: p.y.toFixed(1), x2: pts[j].x.toFixed(1), y2: pts[j].y.toFixed(1), class: p.lost || pts[j].lost ? "e lost" : "e", stroke: "#7fa9b1", "stroke-width": 2 }));
+    });
+    const c = svgEl("circle", { cx: p.x.toFixed(1), cy: p.y.toFixed(1), r: p.r.toFixed(1), class: p.lost ? "n lost" : "n live", fill: "#195764" }, N);
+    c.dataset.o = p.o.toFixed(3);
+  });
+  const nodes = [...$(".pb .n")].sort((a, b) => a.dataset.o - b.dataset.o);
+  const lost = [...$(".pb .n.lost")].sort((a, b) => a.dataset.o - b.dataset.o);
+  const tB = 0.35;
+  drawPath(outline, tB + 0.3, 1.4);
+  tl.fromTo(nodes, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(3)", stagger: { each: 1.3 / nodes.length } }, tB + 0.4);
+  tl.fromTo($(".pb .e"), { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: { each: 1.0 / 700 } }, tB + 0.7);
+  pop(".pb .clock", tB + 0.5);
+  tl.fromTo(".pb .clock-arc", { strokeDashoffset: 0 }, { strokeDashoffset: 213.6, duration: 5, ease: "none" }, tB + 0.5);
+  tl.fromTo(".pb .clock-hand", { rotation: 0, svgOrigin: "0 0" }, { rotation: 360, duration: 5, ease: "none" }, tB + 0.5);
+  const tc = w("satu") - 0.4;
+  rise(".pb .stat .num", w("otak") - 0.3, { y: 30 });
+  count($1(".pb .stat .num"), 0, 1900000, tc, w("neuron") - tc + 0.15, { ease: "power1.in" });
+  tl.to(lost, { attr: { fill: "#d1d5db" }, scale: 0.55, y: 22, duration: 0.4, ease: "power2.out", stagger: { each: 2.2 / lost.length } }, w("kehilangan"));
+  tl.to($(".pb .e.lost"), { attr: { stroke: "#eef0f3" }, duration: 0.4, stagger: { each: 2.2 / 400 } }, w("kehilangan") + 0.1);
+  scaleBar(".pb .stat .rule", w("otak"));
+  scaleBar(".pb .stat .rule i", w("neuron"), { d: 0.5 });
+  rise(".pb .stat .lbl", w("kehilangan"));
+  const th = w("neuron") + 0.15;
+  hit(".pb .stat .num", 1360, 440, th, { color: "#dc2626", c2: "#10313a", r1: 300, n: 16, shake: 12, s: 1.08, origin: "100% 50%" });
+  flash(th, { color: "#dc2626", a: 0.16, d: 0.5 });
+  rise(".pb .src", tB + 1.0, { y: 10 });
+  const t45 = w("empat") - 0.3;
+  tl.fromTo(".pb .win45", { x: 120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, w("obat") - 0.2);
+  tl.fromTo(".pb .win45 svg", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, duration: 0.6, ease: "back.inOut(1.5)" }, t45);
+  tl.fromTo(".pb .win45 .sand", { scale: 0.2, transformOrigin: "35px 52px" }, { scale: 1, duration: 1.4, ease: "none" }, t45 + 0.6);
+  hit(".pb .win45 b", 1600, 860, w("jam", 2), { color: "#e07a1f", r0: 50, r1: 170, n: 10, shake: 7 });
+
+  // ---- panel C: radiolog yang langka ----
+  const tC = w("Tapi") - 0.15;
+  tl.to(RAIL, { x: -3840, duration: 0.75, ease: "power3.inOut" }, tC);
+  rise(".pc .kick", tC + 0.5, { y: 14 });
+  words(".pc .title", tC + 0.55);
+  tl.fromTo(".pc .rad", { y: 520 }, { y: 0, duration: 0.6, ease: "back.out(1.5)" }, tC + 0.5);
+  pop(".pc .tag", tC + 0.9);
+  bob(".pc .dika-rig", tC + 1.0, END, 4, 2.2);
+  blink(".pc .rad .dika-lid", [tC + 1.6, tC + 4.6, tC + 7.0]);
+  tl.fromTo(".pc .rad .dika-head", { rotation: 0, svgOrigin: "160 240" }, { rotation: 7, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, w("hanya", 2) + 0.2);
+  const qs = [...$(".pc .q")];
+  qs.forEach((el, i) => tl.fromTo(el, { x: 220, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, tC + 0.6 + i * 0.16));
+  tl.fromTo($(".pc .mhs-q"), { scale: 0, transformOrigin: "30% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(3)", stagger: 0.12 }, tC + 1.4);
+  tl.fromTo(".pc .card", { x: 520, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, w("hanya", 2) - 0.4);
+  rise(".pc .card .h", w("hanya", 2) - 0.2, { y: 16 });
+  const rows = [...$(".pc .row")];
+  rise(rows[0], w("nol") - 0.4, { y: 20 });
+  count(rows[0].querySelector(".v"), 0, 0.8, w("nol") - 0.2, 1.0, { dec: 1 });
+  scaleBar(rows[0].querySelector(".fill"), w("nol"), { d: 0.9 });
+  hit(rows[0].querySelector(".v"), 1745, 290, w("delapan", 2), { color: "#dc2626", r0: 50, r1: 150, n: 10, shake: 6, origin: "100% 50%" });
+  rise(rows[1], w("enam") - 0.4, { y: 20 });
+  count(rows[1].querySelector(".v"), 0, 12.7, w("enam") - 0.3, 0.9, { dec: 1 });
+  scaleBar(rows[1].querySelector(".fill"), w("enam") - 0.3, { d: 0.9 });
+  tl.fromTo(".pc .cmpx", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, w("kali") - 0.2);
+  tl.fromTo(".pc .cmpx .x", { scale: 2.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power4.in", transformOrigin: "50% 60%" }, w("kali") - 0.25);
+  burst(1260, 800, w("kali") + 0.1, { color: "#dc2626", r0: 60, r1: 200, n: 12 });
+  shake(w("kali") + 0.1, 10);
+  mark(".pc .cmpx .xt", w("Uni"), { color: "rgba(220,38,38,.18)" });
+  rise(".pc .foot", w("Eropa"), { y: 10 });
+  pop(".pc .tag2", w("mengajar") - 0.1, { from: 0.4, origin: "0% 50%" });
+  tl.fromTo($(".pc .mhs-q"), { scale: 1 }, { scale: 1.3, duration: 0.15, yoyo: true, repeat: 3, ease: "power2.out", immediateRender: false, transformOrigin: "30% 100%" }, w("kampus"));
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

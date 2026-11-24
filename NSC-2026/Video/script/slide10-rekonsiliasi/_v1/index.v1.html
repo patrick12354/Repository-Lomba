@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Slide 10 — Reconstructing the Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/pred.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Light.ttf"); font-weight: 300; }
+      @font-face { font-family: "Rustic"; src: url("assets/fonts/RusticPrintedStamp.ttf"); }
+      :root {
+        --ink: #2b2521;
+        --red: #a91d1a;
+        --grey: #8b857c;
+        --ivory: #efe5cf;
+        --tape: #d9c9a3;
+        --char: #151413;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--char); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+
+      /* ground */
+      #ground { position: absolute; inset: 0; background: var(--char) url("assets/tex/charcoal.png") center / cover; }
+      #ground::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 45% 40%, rgba(255,240,210,0.06), rgba(0,0,0,0.55) 85%); }
+
+      /* title zone */
+      #tag { position: absolute; left: 96px; top: 54px; width: 270px; height: 74px; display: flex; align-items: center; justify-content: center;
+             background: var(--tape); font-family: "Rustic"; font-size: 40px; color: var(--ink); transform: rotate(-4deg);
+             box-shadow: 0 6px 14px rgba(0,0,0,0.45); }
+      #titleStrip { position: absolute; left: 400px; top: 38px; width: 1150px; height: 120px; display: flex; align-items: center; justify-content: center;
+             background: var(--ivory) url("assets/tex/paper.png") center / cover; }
+      #titleStrip h1 { font-family: "Rustic"; font-weight: 400; font-size: 54px; color: var(--red); letter-spacing: 0.5px; line-height: 1; white-space: nowrap; }
+      #act { position: absolute; right: 96px; top: 66px; width: 240px; height: 50px; display: flex; align-items: center; justify-content: center;
+             font-family: "Rustic"; font-size: 26px; color: var(--ivory); border: 2px solid rgba(239,229,207,0.55); transform: rotate(-3deg); }
+
+      /* evidence board */
+      #board { position: absolute; left: 96px; top: 196px; width: 1728px; height: 700px; }
+      #boardShadow { position: absolute; inset: 0; filter: drop-shadow(0 16px 26px rgba(0,0,0,0.65)); }
+      #boardPaper { position: absolute; inset: 0; background: var(--ivory) url("assets/tex/paper.png") center / cover; }
+      #titleShadow { position: absolute; inset: 0; filter: drop-shadow(0 10px 16px rgba(0,0,0,0.55)); pointer-events: none; }
+      #boardClip { position: absolute; inset: 8px; overflow: hidden; }
+      #boardClip #cam { left: -8px; top: -8px; }
+      #cam { position: absolute; left: 0; top: 0; width: 1728px; height: 700px; transform-origin: 0 0; }
+      #scene { position: absolute; left: 0; top: 0; width: 1728px; height: 700px; overflow: visible; }
+      .tape { position: absolute; width: 150px; height: 42px; background: rgba(217,201,163,0.88); box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+      #wTag { position: absolute; left: 34px; top: 26px; display: flex; flex-direction: column; gap: 2px; opacity: 0; }
+      #wTitle { font-family: "Rustic"; font-size: 40px; color: var(--red); line-height: 1; display: block; }
+      #wSub { font-size: 24px; font-weight: 700; color: var(--ink); display: block; }
+      #illus2 { position: absolute; left: 30px; bottom: 16px; font-size: 22px; color: #6f685f; font-style: italic; opacity: 0; }
+      #illus { position: absolute; left: 30px; bottom: 16px; font-size: 22px; color: #6f685f; font-style: italic; }
+      #legend { position: absolute; left: 30px; top: 118px; padding: 14px 20px; background: rgba(239,229,207,0.92); border: 1.5px solid rgba(43,37,33,0.35);
+                display: flex; flex-direction: column; gap: 8px; font-size: 21px; opacity: 0; }
+      #legend .row { display: flex; align-items: center; gap: 12px; }
+      #legend svg { width: 46px; height: 22px; display: block; }
+
+      /* caption band */
+      #capBand { position: absolute; left: 96px; top: 918px; width: 1728px; height: 130px; overflow: hidden; }
+      .cap { position: absolute; left: 0; top: 0; height: 130px; display: flex; align-items: center; gap: 26px; font-size: 42px; font-weight: 400; color: var(--ivory); white-space: nowrap; opacity: 0; }
+      .cap::before { content: ""; display: block; width: 46px; height: 5px; background: var(--red); flex: none; }
+      .cap b { font-weight: 700; }
+      .cap .num { font-family: "Rustic"; font-size: 124px; color: #c4302a; line-height: 1; display: block; }
+      .cap.final::before { display: none; }
+
+      svg text { font-family: "Poppins", sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="75" data-width="1920" data-height="1080" data-fps="30">
+      <div id="ground"></div>
+
+      <div id="tag">BERKAS 734</div>
+      <div id="titleStrip"><h1>NILAI DAN PERUBAHAN DISELARASKAN BERSAMA</h1></div>
+      <div id="act">THE BREAKTHROUGH</div>
+
+      <div id="board">
+        <div id="boardShadow"><div id="boardPaper"></div></div>
+        <div id="boardClip">
+          <div id="cam">
+            <svg id="scene" viewBox="0 0 1728 700" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arrowInk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#2b2521" />
+                </marker>
+                <filter id="inkRough"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="4" /><feDisplacementMap in="SourceGraphic" scale="1.6" /></filter>
+              </defs>
+
+              <!-- A: sensor -> two lanes -->
+              <g id="gA">
+                <text x="200" y="262" font-size="24" font-weight="700" text-anchor="middle" fill="#2b2521">Data sensor</text>
+                <rect id="slip" x="70" y="282" width="260" height="140" fill="#e6dac0" stroke="#2b2521" stroke-width="2.5" />
+                <g id="slipDots"></g>
+                <path id="brA" d="M330,330 C390,330 380,190 440,190" fill="none" stroke="#2b2521" stroke-width="3.5" marker-end="url(#arrowInk)" />
+                <path id="brB" d="M330,374 C390,374 380,510 440,510" fill="none" stroke="#2b2521" stroke-width="3.5" marker-end="url(#arrowInk)" />
+                <g id="laneA">
+                  <rect x="446" y="146" width="250" height="88" fill="#f6eedb" stroke="#2b2521" stroke-width="2.5" />
+                  <text x="571" y="185" font-size="25" font-weight="700" text-anchor="middle" fill="#2b2521">Level Prediction</text>
+                  <text x="571" y="215" font-size="18" text-anchor="middle" fill="#5d564e">Nilai setiap titik</text>
+                </g>
+                <g id="laneB">
+                  <rect x="446" y="466" width="250" height="88" fill="#f6eedb" stroke="#2b2521" stroke-width="2.5" />
+                  <text x="571" y="505" font-size="25" font-weight="700" text-anchor="middle" fill="#2b2521">Increment Prediction</text>
+                  <text x="571" y="535" font-size="18" text-anchor="middle" fill="#5d564e">Perubahan antartitik</text>
+                </g>
+                <path id="toT1" d="M696,190 L760,190" fill="none" stroke="#2b2521" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" />
+                <path id="toT2" d="M696,510 L760,510" fill="none" stroke="#2b2521" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" />
+              </g>
+
+              <!-- T: timeline -->
+              <g id="gT">
+                <g id="axes">
+                  <path id="axY" d="M776,590 L776,100" fill="none" stroke="#2b2521" stroke-width="3" marker-end="url(#arrowInk)" />
+                  <path id="axX" d="M776,590 L1690,590" fill="none" stroke="#2b2521" stroke-width="3" marker-end="url(#arrowInk)" />
+                  <text x="752" y="350" font-size="19" text-anchor="middle" fill="#2b2521" transform="rotate(-90 752 350)">Kelembapan</text>
+                  <text x="1690" y="575" font-size="19" text-anchor="end" fill="#2b2521">Waktu</text>
+                  <g id="grid"></g>
+                </g>
+                <g id="arcs"></g>
+                <g id="links"></g>
+                <g id="tethers"></g>
+                <g id="ghosts"></g>
+                <path id="smooth" d="" fill="none" stroke="#9c958b" stroke-width="10" stroke-linecap="round" opacity="0" />
+                <polyline id="traj" points="" fill="none" stroke="#a91d1a" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" opacity="0" />
+                <g id="results"></g>
+                <text id="posLbl" x="0" y="0" font-size="17" fill="#5d564e" opacity="0">posisi</text>
+              </g>
+
+              <!-- M: mismatch close-up -->
+              <g id="gM"></g>
+
+              <!-- W: optimisation frame -->
+              <g id="gW" opacity="0">
+                <rect id="wFrame" x="800" y="100" width="896" height="530" fill="none" stroke="#2b2521" stroke-width="3" stroke-dasharray="14 8" />
+                              </g>
+
+              <!-- C: 734-point chain (real submission predictions) -->
+              <g id="gC" opacity="0">
+                <path d="M70,612 L70,80" fill="none" stroke="#2b2521" stroke-width="2.5" marker-end="url(#arrowInk)" />
+                <path d="M70,612 L1690,612" fill="none" stroke="#2b2521" stroke-width="2.5" marker-end="url(#arrowInk)" />
+                <text x="50" y="350" font-size="19" text-anchor="middle" fill="#2b2521" transform="rotate(-90 50 350)">Kelembapan (%)</text>
+                <text id="cFirst" x="80" y="642" font-size="18" fill="#5d564e"></text>
+                <text id="cLast" x="1650" y="642" font-size="18" text-anchor="end" fill="#5d564e"></text>
+                <clipPath id="chainClip"><rect id="chainClipRect" x="60" y="40" width="0" height="600" /></clipPath>
+                <g clip-path="url(#chainClip)">
+                  <polyline id="chainLine" points="" fill="none" stroke="#a91d1a" stroke-width="2.4" stroke-linejoin="round" opacity="0.85" />
+                  <g id="chainDots"></g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="tape" style="left: -40px; top: -14px; transform: rotate(-32deg)"></div>
+        <div class="tape" style="right: -40px; top: -14px; transform: rotate(30deg)"></div>
+        <div class="tape" style="right: -36px; bottom: -12px; transform: rotate(-28deg)"></div>
+        <div id="legend"></div>
+        <div id="wTag"><span id="wTitle">TEMPORAL RECONCILIATION</span><span id="wSub">Weighted Least Squares</span></div>
+        <div id="illus">Ilustrasi mekanisme</div>
+        <div id="illus2" class="illus2">Prediksi submission Heisenberg · 734 titik</div>
+      </div>
+
+      <div id="capBand"></div>
+
+      <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="75" data-track-index="5"></audio>
+    </div>
+
+    <script>
+      const NS = "http://www.w3.org/2000/svg";
+      const $ = (s) => document.querySelector(s);
+      const mk = (tag, attrs, parent) => {
+        const el = document.createElementNS(NS, tag);
+        for (const k in attrs) el.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(el);
+        return el;
+      };
+
+      // ---------- torn paper edges (seeded, deterministic) ----------
+      function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+      function torn(el, amp, step, seed) {
+        const r = rng(seed), w = el.offsetWidth, h = el.offsetHeight, pts = [];
+        for (let x = 0; x <= w; x += step) pts.push([x, r() * amp]);
+        for (let y = 0; y <= h; y += step) pts.push([w - r() * amp, y]);
+        for (let x = w; x >= 0; x -= step) pts.push([x, h - r() * amp]);
+        for (let y = h; y >= 0; y -= step) pts.push([r() * amp, y]);
+        el.style.clipPath = "polygon(" + pts.map(([x, y]) => x.toFixed(1) + "px " + y.toFixed(1) + "px").join(",") + ")";
+      }
+      torn(document.getElementById("boardPaper"), 9, 14, 11);
+      torn(document.getElementById("titleStrip"), 7, 12, 23);
+      torn(document.getElementById("tag"), 4, 10, 5);
+
+      // ---------- frozen WLS example (illustrative values, solved once here) ----------
+      const L = [64, 72, 63, 59, 70];
+      const LINKS = [[0, 1, 3], [1, 2, -4], [2, 3, -1], [3, 4, 6], [0, 4, 2]]; // [a, b, predicted change]
+      const wL = 1, wI = 2, N = 5;
+      function solveWLS() {
+        const A = [...Array(N)].map((_, i) => [...Array(N)].map((_, j) => (i === j ? wL : 0)));
+        const b = L.map((v) => wL * v);
+        for (const [a, c, d] of LINKS) { A[a][a] += wI; A[c][c] += wI; A[a][c] -= wI; A[c][a] -= wI; b[c] += wI * d; b[a] -= wI * d; }
+        for (let i = 0; i < N; i++) for (let k = i + 1; k < N; k++) { const f = A[k][i] / A[i][i]; for (let j = i; j < N; j++) A[k][j] -= f * A[i][j]; b[k] -= f * b[i]; }
+        const x = Array(N);
+        for (let i = N - 1; i >= 0; i--) { let s = b[i]; for (let j = i + 1; j < N; j++) s -= A[i][j] * x[j]; x[i] = s / A[i][i]; }
+        return x;
+      }
+      const R = solveWLS();
+      const XS = [850, 1040, 1230, 1420, 1610];
+      const yv = (v) => 584 - (v - 52) * 20;
+      const LY = L.map(yv), RY = R.map(yv);
+
+      // ---------- build static scene ----------
+      // sensor slip: three rows of records
+      for (let r = 0; r < 3; r++) for (let i = 0; i < 11; i++)
+        mk("circle", { cx: 92 + i * 22, cy: 312 + r * 40, r: 5.5, fill: "#2f3d4f", class: "sdot" }, $("#slipDots"));
+
+      const grid = $("#grid");
+      const TLBL = ["t", "+30 mnt", "+1 jam", "+1,5 jam", "+2 jam"];
+      XS.forEach((x, i) => {
+        mk("line", { x1: x, y1: 120, x2: x, y2: 590, stroke: "#2b2521", "stroke-opacity": 0.14, "stroke-width": 2, "stroke-dasharray": "4 8" }, grid);
+        const t = mk("text", { x, y: 614, "font-size": 18, "text-anchor": "middle", fill: "#5d564e" }, grid);
+        t.textContent = TLBL[i];
+      });
+
+      // increment arcs (dashed) + horizon labels
+      const arcs = $("#arcs");
+      const arcPath = (a, b, lift) => {
+        const x1 = XS[a], y1 = LY[a] - 18, x2 = XS[b], y2 = LY[b] - 18, top = Math.min(y1, y2) - lift;
+        return `M${x1},${y1} C${x1},${top} ${x2},${top} ${x2},${y2}`;
+      };
+      const arcEls = [];
+      [[0, 1, 40], [1, 2, 40], [2, 3, 40], [3, 4, 40], [0, 4, 80]].forEach(([a, b, lift], i) => {
+        const p = mk("path", { d: arcPath(a, b, lift), fill: "none", stroke: "#6c665e", "stroke-width": i === 4 ? 3.5 : 3, "stroke-dasharray": "9 7", class: "arc" }, arcs);
+        arcEls.push(p);
+      });
+      const arcLbl = (txt, x, y) => {
+        const g = mk("g", { opacity: 0 }, arcs);
+        const t = mk("text", { x, y, "font-size": 21, "font-weight": 700, "text-anchor": "middle", fill: "#a91d1a" }, g);
+        t.textContent = txt;
+        return g;
+      };
+      const lbl30 = arcLbl("30 menit", (XS[0] + XS[1]) / 2, Math.min(LY[0], LY[1]) - 18 - 40 * 0.75 - 12);
+      const lbl2j = arcLbl("2 jam", (XS[0] + XS[4]) / 2 + 40, Math.min(LY[0], LY[4]) - 18 - 80 * 0.75 - 12);
+
+      // level ghosts, tethers, results
+      const ghosts = [], tethers = [], results = [];
+      XS.forEach((x, i) => {
+        tethers.push(mk("line", { x1: x, y1: LY[i], x2: x, y2: LY[i], stroke: "#7d776f", "stroke-width": 2.5 }, $("#tethers")));
+        ghosts.push(mk("circle", { cx: x, cy: LY[i], r: 14, fill: "#efe5cf", stroke: "#8b857c", "stroke-width": 4.5, opacity: 0 }, $("#ghosts")));
+        results.push(mk("circle", { cx: x, cy: LY[i], r: 12.5, fill: "#a91d1a", stroke: "#5e0f0d", "stroke-width": 2, opacity: 0 }, $("#results")));
+      });
+      const traj = $("#traj");
+      const setTraj = (ys) => traj.setAttribute("points", XS.map((x, i) => `${x},${ys[i]}`).join(" "));
+      setTraj(LY);
+      const posLbl = $("#posLbl");
+      posLbl.setAttribute("x", XS[3] + 14); posLbl.setAttribute("y", (LY[3] + RY[3]) / 2 + 6);
+
+      // over-smoothed comparison line (flat mean) + red strike
+      const mean = L.reduce((a, b) => a + b) / N;
+      $("#smooth").setAttribute("d", `M${XS[0] - 30},${yv(mean + 1.2)} C${XS[1]},${yv(mean + 0.6)} ${XS[3]},${yv(mean - 0.4)} ${XS[4] + 30},${yv(mean + 0.2)}`);
+
+      // mismatch close-up
+      const gM = $("#gM");
+      const mx1 = XS[1] + 46, mx2 = XS[1] + 92, yBase = LY[0], yInc = yv(L[0] + LINKS[0][2]);
+      const base = mk("line", { x1: XS[0] + 16, y1: yBase, x2: mx2 + 22, y2: yBase, stroke: "#2b2521", "stroke-width": 2, "stroke-dasharray": "3 6", opacity: 0 }, gM);
+      const brLevel = mk("path", { d: `M${mx1 - 9},${yBase} L${mx1 + 9},${yBase} M${mx1},${yBase} L${mx1},${LY[1]} M${mx1 - 9},${LY[1]} L${mx1 + 9},${LY[1]}`, fill: "none", stroke: "#6c665e", "stroke-width": 4 }, gM);
+      const brInc = mk("path", { d: `M${mx2 - 9},${yBase} L${mx2 + 9},${yBase} M${mx2},${yBase} L${mx2},${yInc} M${mx2 - 9},${yInc} L${mx2 + 9},${yInc}`, fill: "none", stroke: "#a91d1a", "stroke-width": 4, "stroke-dasharray": "7 5" }, gM);
+      const tLevel = mk("text", { x: mx1 - 18, y: (yBase + LY[1]) / 2 - 18, "font-size": 15, "font-weight": 700, "text-anchor": "end", fill: "#4c463f", opacity: 0 }, gM);
+      tLevel.textContent = "Selisih level";
+      const tInc = mk("text", { x: mx2 + 18, y: (yBase + yInc) / 2 + 5, "font-size": 15, "font-weight": 700, fill: "#a91d1a", opacity: 0 }, gM);
+      tInc.textContent = "Prediksi perubahan";
+      const neq = mk("g", { opacity: 0 }, gM);
+      mk("circle", { cx: mx2 + 34, cy: yInc - 34, r: 15, fill: "none", stroke: "#a91d1a", "stroke-width": 2.5 }, neq);
+      const neqT = mk("text", { x: mx2 + 34, y: yInc - 27, "font-size": 21, "font-weight": 700, "text-anchor": "middle", fill: "#a91d1a" }, neq);
+      neqT.textContent = "≠";
+
+      // 734 chain from submission predictions
+      const P = window.PRED || [];
+      const pmin = Math.min(...P), pmax = Math.max(...P);
+      const cx = (i) => 90 + (i / (P.length - 1)) * 1570;
+      const cy = (v) => 580 - ((v - pmin) / (pmax - pmin)) * 470;
+      $("#chainLine").setAttribute("points", P.map((v, i) => `${cx(i).toFixed(1)},${cy(v).toFixed(1)}`).join(" "));
+      const cd = $("#chainDots");
+      P.forEach((v, i) => mk("circle", { cx: cx(i).toFixed(1), cy: cy(v).toFixed(1), r: 2.6, fill: "#a91d1a" }, cd));
+      const fmt = (s) => { const [d] = s.split(" "); const [y, m, dd] = d.split("-"); const mon = { "08": "Agu", "09": "Sep" }[m] || m; return `${+dd} ${mon} ${y}`; };
+      $("#cFirst").textContent = fmt(window.PRED_FIRST || "");
+      $("#cLast").textContent = fmt(window.PRED_LAST || "");
+
+      // legend
+      const legend = $("#legend");
+      const legendRows = [
+        [`<svg viewBox="0 0 46 22"><circle cx="23" cy="11" r="8" fill="#efe5cf" stroke="#8b857c" stroke-width="3.5"/></svg>`, "Level awal"],
+        [`<svg viewBox="0 0 46 22"><path d="M2,15 C12,2 34,2 44,15" fill="none" stroke="#6c665e" stroke-width="3" stroke-dasharray="6 4"/></svg>`, "Prediksi perubahan"],
+        [`<svg viewBox="0 0 46 22"><line x1="2" y1="11" x2="44" y2="11" stroke="#a91d1a" stroke-width="3.5"/><circle cx="23" cy="11" r="7" fill="#a91d1a"/></svg>`, "Hasil rekonsiliasi"],
+      ];
+      legend.innerHTML = legendRows.map(([icon, t]) => `<div class="row">${icon}<span>${t}</span></div>`).join("");
+
+      // captions
+      const band = $("#capBand");
+      const CAPS = [
+        [0.0, "Satu data sensor, <b>dua jalur prediksi</b>"],
+        [4.3, "<b>Level Prediction</b>: nilai pada setiap waktu"],
+        [10.3, "<b>Increment Prediction</b>: perubahan 30 menit dan 2 jam"],
+        [18.15, "Dua estimasi <b>belum konsisten</b>"],
+        [31.8, "<b>Weighted Least Squares</b>: satu kompromi berbobot"],
+        [40.0, "Dekat dengan <b>level</b>"],
+        [42.25, "Mengurangi ketidakcocokan <b>perubahan</b>"],
+        [47.3, "Seluruh titik <b>disesuaikan bersama</b>"],
+        [49.75, "<b>Posisi</b> + <b>dinamika perubahan</b>"],
+        [57.25, "Bukan sekadar <b>smoothing</b>"],
+        [61.75, "<b>Dua sumber informasi</b> yang saling melengkapi"],
+      ];
+      const capEls = CAPS.map(([, html]) => { const d = document.createElement("div"); d.className = "cap"; d.innerHTML = html; band.appendChild(d); return d; });
+      const fin = document.createElement("div");
+      fin.className = "cap final";
+      fin.innerHTML = `<span class="num">734</span><span id="finTxt">titik, <b>satu lintasan terhubung</b></span>`;
+      band.appendChild(fin);
+
+      // ---------- camera ----------
+      const BW = 1728, BH = 700;
+      const cam = (fx, fy, s) => {
+        let x = BW / 2 - fx * s, y = BH / 2 - fy * s;
+        x = Math.min(0, Math.max(BW - BW * s, x));
+        y = Math.min(0, Math.max(BH - BH * s, y));
+        return { x, y, scale: s };
+      };
+
+      // ---------- timeline ----------
+      const tl = gsap.timeline({ paused: true });
+      const out = "expo.out", io = "power3.inOut";
+
+      const drawIn = (el, t, d, ease = "power2.out") => {
+        const len = el.getTotalLength();
+        const dash = el.getAttribute("stroke-dasharray");
+        if (dash) {
+          // dashed stroke: reveal through a growing mask-less trick (animate dashoffset on a solid clone used as clip)
+          const clone = el.cloneNode();
+          clone.removeAttribute("stroke-dasharray");
+          clone.setAttribute("stroke", "#fff");
+          clone.setAttribute("stroke-width", (+el.getAttribute("stroke-width") || 3) + 10);
+          clone.removeAttribute("class");
+          const id = "m" + Math.round(t * 1000) + Math.round(len);
+          const m = mk("mask", { id, maskUnits: "userSpaceOnUse", x: 0, y: 0, width: 1728, height: 700 }, el.ownerSVGElement.querySelector("defs"));
+          m.appendChild(clone);
+          el.setAttribute("mask", `url(#${id})`);
+          clone.style.strokeDasharray = len;
+          clone.style.strokeDashoffset = len;
+          tl.to(clone, { strokeDashoffset: 0, duration: d, ease }, t);
+        } else {
+          el.style.strokeDasharray = len;
+          el.style.strokeDashoffset = len;
+          tl.to(el, { strokeDashoffset: 0, duration: d, ease }, t);
+        }
+      };
+      const capAt = (el, t, prev) => {
+        if (prev) tl.to(prev, { y: -46, opacity: 0, duration: 0.24, ease: "power2.in" }, t - 0.24);
+        tl.fromTo(el, { y: 54, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: out }, t);
+      };
+
+      // Act A — 0 to 4.3: sensor splits into two prediction lanes
+      tl.set("#cam", cam(380, 350, 1.32), 0);
+      tl.to("#cam", { ...cam(420, 350, 1.42), duration: 4.2, ease: "none" }, 0);
+      tl.fromTo(".sdot", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: out, stagger: 0.012 }, 0.05);
+      tl.fromTo(["#brA", "#brB"], { opacity: 0 }, { opacity: 1, duration: 0.01 }, 1.9);
+      drawIn($("#brA"), 1.9, 0.75);
+      drawIn($("#brB"), 2.05, 0.75);
+      tl.fromTo("#laneA", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 2.55);
+      tl.fromTo("#laneB", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 2.75);
+      tl.fromTo(["#toT1", "#toT2"], { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.5);
+      capAt(capEls[0], 0.15, null);
+
+      // Act B — 4.35 to 10.1: level nodes appear one by one on the 30-min grid
+      tl.to("#cam", { ...cam(1225, 355, 1.25), duration: 1.4, ease: io }, 4.3);
+      tl.to("#cam", { ...cam(1215, 352, 1.3), duration: 12.4, ease: "none" }, 5.7);
+      tl.to("#gA", { opacity: 0, duration: 0.6 }, 4.6);
+      tl.fromTo("#axes", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 4.6);
+      drawIn($("#axX"), 4.6, 0.8);
+      drawIn($("#axY"), 4.6, 0.8);
+      ghosts.forEach((g, i) => tl.fromTo(g, { opacity: 0, attr: { r: 30 } }, { opacity: 1, attr: { r: 14 }, duration: 0.45, ease: out }, 7.3 + i * 0.5));
+      capAt(capEls[1], 4.3, capEls[0]);
+
+      // Act C — 10.36 to 17.8: increment links, 30 min then 2 h
+      capAt(capEls[2], 10.3, capEls[1]);
+      drawIn(arcEls[0], 14.2, 0.7);
+      [1, 2, 3].forEach((k) => drawIn(arcEls[k], 14.5 + k * 0.22, 0.55));
+      tl.fromTo(lbl30, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: out }, 15.95);
+      drawIn(arcEls[4], 16.75, 0.9);
+      tl.fromTo(lbl2j, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: out }, 17.15);
+
+      // Act D — 18.2 to 29: close-up on one pair, two measures that disagree
+      capAt(capEls[3], 18.15, capEls[2]);
+      tl.to("#cam", { ...cam(1160, 262, 2.35), duration: 1.6, ease: io }, 18.6);
+      tl.to([arcEls[1], arcEls[2], arcEls[3], arcEls[4], lbl2j, lbl30, ghosts[2], ghosts[3], ghosts[4]], { opacity: 0.22, duration: 0.6 }, 18.8);
+      tl.fromTo(base, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 22.1);
+      drawIn(brLevel, 23.4, 0.7);
+      tl.fromTo(tLevel, { opacity: 0, x: 12 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 23.6);
+      drawIn(brInc, 26.8, 0.7);
+      tl.fromTo(tInc, { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 27.0);
+      tl.fromTo(neq, { opacity: 0, scale: 1.8, transformOrigin: `${mx2 + 34}px ${yInc - 34}px` }, { opacity: 1, scale: 1, duration: 0.4, ease: out }, 28.1);
+
+      // Act E — 29.4 to 45: everything enters one optimisation frame
+      tl.to("#cam", { ...cam(864, 350, 1.0), duration: 1.8, ease: io }, 29.4);
+      tl.to([arcEls[1], arcEls[2], arcEls[3], arcEls[4], lbl2j, lbl30, ghosts[2], ghosts[3], ghosts[4]], { opacity: 1, duration: 0.6 }, 29.6);
+      tl.to(gM, { opacity: 0, duration: 0.5 }, 29.6);
+      tl.to("#gA", { opacity: 0.45, duration: 0.8 }, 29.6);
+      tl.to("#gA", { opacity: 0, duration: 0.6 }, 37.0);
+      tl.fromTo("#gW", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 31.75);
+      drawIn($("#wFrame"), 31.75, 1.1, "power2.inOut");
+      tl.fromTo("#wTag", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 32.7);
+      tl.fromTo("#wTitle", { opacity: 0, scale: 1.4, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.38, ease: out }, 32.7);
+      tl.fromTo("#wSub", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 34.85);
+      capAt(capEls[4], 31.8, capEls[3]);
+      tl.to("#cam", { ...cam(1225, 355, 1.25), duration: 2.2, ease: io }, 37.0);
+      tl.to("#cam", { ...cam(1215, 352, 1.29), duration: 25.6, ease: "none" }, 39.2);
+      // criterion 1: stay close to the level nodes
+      capAt(capEls[5], 40.0, capEls[4]);
+      ghosts.forEach((g, i) => {
+        tl.to(g, { attr: { "stroke-width": 7 }, duration: 0.25, ease: "power2.out" }, 40.1 + i * 0.08);
+        tl.to(g, { attr: { "stroke-width": 4.5 }, duration: 0.6, ease: "power2.inOut" }, 41.0 + i * 0.08);
+      });
+      // criterion 2: reduce mismatch with the predicted changes
+      capAt(capEls[6], 42.25, capEls[5]);
+      arcEls.forEach((a, i) => {
+        tl.to(a, { attr: { stroke: "#a91d1a" }, duration: 0.25 }, 42.35 + i * 0.07);
+        tl.to(a, { attr: { stroke: "#6c665e" }, duration: 0.6 }, 44.0 + i * 0.05);
+      });
+
+      // Act F — 45.5 to 49.6: all points move together
+      results.forEach((r, i) => tl.fromTo(r, { opacity: 0, attr: { r: 26 } }, { opacity: 1, attr: { r: 12.5 }, duration: 0.4, ease: out }, 45.9 + i * 0.04));
+      tl.fromTo(traj, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 46.0);
+      capAt(capEls[7], 47.3, capEls[6]);
+      const mv = { p: 0 };
+      tl.to(mv, {
+        p: 1, duration: 1.85, ease: "power2.inOut",
+        onUpdate: () => {
+          const ys = LY.map((y, i) => y + (RY[i] - y) * mv.p);
+          results.forEach((r, i) => r.setAttribute("cy", ys[i]));
+          tethers.forEach((t, i) => t.setAttribute("y2", ys[i]));
+          setTraj(ys);
+        },
+      }, 47.35);
+
+      // Act G — 49.8 to 56: position held by levels, dynamics by increments
+      capAt(capEls[8], 49.75, capEls[7]);
+      tl.to(tethers, { attr: { "stroke-width": 5, stroke: "#4c463f" }, duration: 0.3 }, 50.85);
+      tl.fromTo(posLbl, { opacity: 0 }, { opacity: 1, duration: 0.35 }, 50.9);
+      tl.to(traj, { attr: { "stroke-width": 8 }, duration: 0.3, ease: "power2.out" }, 54.3);
+      tl.to(tethers, { attr: { "stroke-width": 2.5, stroke: "#7d776f" }, duration: 0.5 }, 54.3);
+      tl.to(traj, { attr: { "stroke-width": 4.5 }, duration: 0.6 }, 55.6);
+
+      // Act H — 56.3 to 64.7: not smoothing; two complementary sources
+      tl.to("#smooth", { opacity: 0.55, duration: 0.01 }, 57.2);
+      drawIn($("#smooth"), 57.2, 0.6);
+      tl.to(traj, { attr: { "stroke-width": 8 }, duration: 0.3, ease: "power2.out" }, 58.1);
+      tl.to(traj, { attr: { "stroke-width": 4.5 }, duration: 0.6 }, 59.0);
+      tl.to("#smooth", { opacity: 0, duration: 0.6 }, 59.0);
+      capAt(capEls[9], 57.25, capEls[8]);
+      capAt(capEls[10], 61.75, capEls[9]);
+      tl.fromTo("#legend", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.45, ease: out }, 61.8);
+
+      // Act I — 65 to 75: 734 points, one connected trajectory (real submission predictions)
+      tl.to("#legend", { opacity: 0, duration: 0.3 }, 65.0);
+      tl.to(["#gA", "#gT", "#gW", "#wTag"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 65.0);
+      tl.to("#cam", { ...cam(864, 350, 1.0), duration: 1.1, ease: io }, 65.0);
+      tl.to("#illus", { opacity: 0, duration: 0.25 }, 65.0);
+      tl.fromTo("#gC", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 65.5);
+      tl.fromTo("#chainClipRect", { attr: { width: 0 } }, { attr: { width: 1640 }, duration: 3.0, ease: "power2.inOut" }, 65.8);
+      tl.to(capEls[10], { y: -46, opacity: 0, duration: 0.24, ease: "power2.in" }, 65.6);
+      tl.fromTo(fin.querySelector(".num"), { scale: 1.9, opacity: 0, transformOrigin: "30% 60%" }, { scale: 1, opacity: 1, duration: 0.34, ease: "power4.out" }, 65.88);
+      tl.fromTo(fin, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 65.88);
+      tl.fromTo("#finTxt", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: out }, 67.4);
+      tl.fromTo("#illus2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 66.4);
+      // living hold: the chain's last points settle
+      tl.to("#cam", { ...cam(864, 330, 1.035), duration: 5.9, ease: "none" }, 69.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

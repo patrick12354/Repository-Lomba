@@ -1,0 +1,40 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+SELFTEST increment design target-blind  : True
+SELFTEST target among increment columns : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+member de-bias (out-of-fold mean error, shrunk 0.50): {'cat': -0.9297}
+
+blend weights: {'hbt': 0.4869, 'cat': 0.2161, 'enet': 0.197, 'ridge_e': 0.05, 'l2': 0.05}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.5354, 'cat': 0.1759, 'enet': 0.1887, 'ridge_e': 0.05, 'l2': 0.05}
+  band 1: {'hbt': 0.3926, 'cat': 0.1401, 'enet': 0.1867, 'ridge_e': 0.1344, 'l2': 0.1462}
+  band 2: {'hbt': 0.4571, 'cat': 0.3057, 'enet': 0.1235, 'ridge_e': 0.0637, 'l2': 0.05}
+time-of-day bias correction (band minus global, shrunk 0.50): [-0.464  0.705 -0.242]
+CV: mean 4.7763  worst 6.1632
+  per fold: [np.float64(6.118), np.float64(6.163), np.float64(5.816), np.float64(5.578), np.float64(4.619), np.float64(3.775), np.float64(3.346), np.float64(3.439), np.float64(4.133)]
+CV after increment reconciliation: mean 4.6887  worst 6.0330  (9/9 folds better)
+  per fold: [np.float64(5.985), np.float64(6.033), np.float64(5.746), np.float64(5.467), np.float64(4.492), np.float64(3.683), np.float64(3.282), np.float64(3.423), np.float64(4.087)]
+  per-fold delta: [np.float64(-0.133), np.float64(-0.13), np.float64(-0.07), np.float64(-0.11), np.float64(-0.127), np.float64(-0.093), np.float64(-0.063), np.float64(-0.016), np.float64(-0.046)]
+  pooled 4.8994 -> 4.8081
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+increment reconciliation on the test window: horizons [1, 4], weights [4.0, 1.0], 5 seed(s)
+  moved the test path by RMS 1.0815 %RH, max 3.9965
+
+dispersion check: CV fold prediction std 16.22-17.47   test prediction std 18.77
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v21_increment_v16_noridge_todbias_trees2400_catdb.csv
+prediction summary: {'count': 734.0, 'mean': 57.023, 'std': 18.783, 'min': 24.722, '25%': 38.56, '50%': 60.646, '75%': 74.151, 'max': 90.834}

@@ -1,0 +1,56 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+
+B1_last15d (15d)  origin 2023-08-14  n=720
+  C0 reproduces the frozen v21 recon (max 0)
+  geometry n=2213 m=4419  1.7 s  {'B': 74.6, 'H': 0.0, 'peak_estimate': 91.9}
+  C0 4.232249 | C1 4.227263  (d -0.004986)  max|dd| h1 0.4089 h4 0.6325  [8 s / 57 s]
+    C0 seeds+100  4.234493 (d +0.002245)  max|dd| h1 0.4591 h4 0.8116
+    C0 seeds+200  4.228162 (d -0.004087)  max|dd| h1 0.4624 h4 0.8040
+
+B2_prev15d (15d)  origin 2023-07-30  n=720
+  C0 reproduces the frozen v21 recon (max 0)
+  geometry n=1493 m=2979  0.4 s  {'B': 33.9, 'H': 0.0, 'peak_estimate': 45.6}
+  C0 6.586373 | C1 6.580876  (d -0.005498)  max|dd| h1 0.3240 h4 0.8397  [7 s / 47 s]
+    C0 seeds+100  6.575736 (d -0.010637)  max|dd| h1 0.3423 h4 1.2662
+    C0 seeds+200  6.585986 (d -0.000388)  max|dd| h1 0.3908 h4 0.8460
+
+B3_shift7d (15d)  origin 2023-08-07  n=720
+  C0 reproduces the frozen v21 recon (max 0)
+  geometry n=1877 m=3747  1.0 s  {'B': 53.7, 'H': 0.0, 'peak_estimate': 68.3}
+  C0 4.690131 | C1 4.689640  (d -0.000491)  max|dd| h1 0.3328 h4 0.6738  [7 s / 44 s]
+
+H1_last7d (7d)  origin 2023-08-22  n=336
+  geometry n=2597 m=5187  3.8 s  {'B': 102.8, 'H': 0.0, 'peak_estimate': 123.0}
+  C0 5.179252 | C1 5.185732  (d +0.006480)  max|dd| h1 0.3048 h4 0.5767  [8 s / 61 s]
+
+H2_last14d (7d)  origin 2023-08-15  n=336
+  geometry n=2261 m=4515  2.0 s  {'B': 77.9, 'H': 0.0, 'peak_estimate': 95.5}
+  C0 2.778427 | C1 2.775472  (d -0.002955)  max|dd| h1 0.2799 h4 0.6237  [8 s / 51 s]
+
+H3_last21d (7d)  origin 2023-08-08  n=336
+  geometry n=1925 m=3843  1.1 s  {'B': 56.4, 'H': 0.0, 'peak_estimate': 71.5}
+  C0 5.310499 | C1 5.313877  (d +0.003377)  max|dd| h1 0.2793 h4 0.8262  [7 s / 52 s]
+
+     block family         arm     rmse   d_vs_c0  seconds   n  max_dd_h1  max_dd_h4
+B1_last15d    15d          C0 4.232249  0.000000      8.2 720        NaN        NaN
+B1_last15d    15d          C1 4.227263 -0.004986     57.4 720   0.408939   0.632505
+B1_last15d    15d C0_seed+100 4.234493  0.002245      NaN 720   0.459061   0.811575
+B1_last15d    15d C0_seed+200 4.228162 -0.004087      NaN 720   0.462396   0.804021
+B2_prev15d    15d          C0 6.586373  0.000000      6.8 720        NaN        NaN
+B2_prev15d    15d          C1 6.580876 -0.005498     46.9 720   0.323977   0.839723
+B2_prev15d    15d C0_seed+100 6.575736 -0.010637      NaN 720   0.342348   1.266167
+B2_prev15d    15d C0_seed+200 6.585986 -0.000388      NaN 720   0.390803   0.846023
+B3_shift7d    15d          C0 4.690131  0.000000      7.4 720        NaN        NaN
+B3_shift7d    15d          C1 4.689640 -0.000491     44.0 720   0.332795   0.673828
+ H1_last7d     7d          C0 5.179252  0.000000      7.6 336        NaN        NaN
+ H1_last7d     7d          C1 5.185732  0.006480     61.3 336   0.304758   0.576654
+H2_last14d     7d          C0 2.778427  0.000000      8.3 336        NaN        NaN
+H2_last14d     7d          C1 2.775472 -0.002955     50.7 336   0.279864   0.623680
+H3_last21d     7d          C0 5.310499  0.000000      7.0 336        NaN        NaN
+H3_last21d     7d          C1 5.313877  0.003377     51.9 336   0.279266   0.826167
+
+C1 vs C0 max |dRMSE| 0.006480 ; seed band max |dRMSE| 0.010637384974392816
+C1 inside the seed band: True
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s34\geometry

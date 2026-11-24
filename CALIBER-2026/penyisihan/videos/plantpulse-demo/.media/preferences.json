@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "plantpulse-demo"
+      ],
+      "updated_at": "2026-10-02T18:17:07.233Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "plantpulse-demo"
+      ],
+      "updated_at": "2026-10-02T18:17:07.282Z"
+    },
+    "language": {
+      "value": "en",
+      "confirmed_in": [
+        "plantpulse-demo"
+      ],
+      "updated_at": "2026-10-02T18:17:07.329Z"
+    },
+    "flow": {
+      "value": "companion",
+      "confirmed_in": [
+        "plantpulse-demo"
+      ],
+      "updated_at": "2026-10-02T18:17:07.376Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "plantpulse-demo"
+      ],
+      "updated_at": "2026-10-02T18:17:07.422Z"
+    }
+  },
+  "sightings": {}
+}

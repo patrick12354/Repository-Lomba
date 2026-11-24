@@ -1,0 +1,23 @@
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, manifest verified
+control  : v21 physics + half de-shrink, 5 increment seeds
+  pooled 5.49596  (36 s)
+candidate: same, increments bagged over 3-day calendar blocks, 5 bags
+  pooled 5.51424  (35 s)
+  bootstrap dMSE +0.1934 [-0.2849, +0.7000] over 12 blocks, worse in 77% of draws
+
+        candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot_mean   boot_lo  boot_hi  boot_p_worse
+  incumbent_5seed 5.495961    4.199771    6.540115    4.719273 1440       NaN      NaN           NaN           NaN           NaN        NaN        NaN       NaN      NaN           NaN
+block_bagged_5bag 5.514244    4.156816    6.598081    4.781622 1440  0.018283 0.201303     -0.042956      0.057966      0.062349      False   0.193403 -0.284934 0.700017         0.766
+
+bag provenance (one row per bag per horizon per origin, 30 in all)
+        blocks    rows  nonzero_rows  zero_fraction  max_block_weight
+bag                                                                  
+0    13.666667  1857.5        1147.0       0.380973          2.666667
+1    13.666667  1857.5        1332.0       0.277262          2.666667
+2    13.666667  1857.5        1214.0       0.349878          3.000000
+3    13.666667  1857.5        1262.0       0.324257          2.666667
+4    13.666667  1857.5        1185.5       0.355126          2.666667
+
+distinct weight hashes per origin: 5 expected 5
+
+wrote block_bagging.csv, block_bagging_bags.csv and the predictions to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s27

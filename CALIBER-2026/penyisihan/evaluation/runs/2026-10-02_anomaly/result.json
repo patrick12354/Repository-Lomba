@@ -1,0 +1,119 @@
+{
+ "PU2101B": [
+  {
+   "start_index": 250,
+   "end_index": 266,
+   "start_at": "2026-03-11 10:00:00",
+   "end_at": "2026-03-12 02:00:00",
+   "peak_score": 5.97,
+   "contributors": [
+    {
+     "tag": "PU2101B_VIB",
+     "z": 10.22
+    },
+    {
+     "tag": "PU2101B_DISP",
+     "z": -8.21
+    },
+    {
+     "tag": "PU2101B_FEED",
+     "z": -1.88
+    },
+    {
+     "tag": "PU2101B_TEMP",
+     "z": 1.44
+    }
+   ],
+   "first_off_at": "2026-03-12 03:00:00",
+   "lead_hours": 17.0
+  }
+ ],
+ "KO3201": [
+  {
+   "start_index": 633,
+   "end_index": 678,
+   "start_at": "2026-04-27 09:00:00",
+   "end_at": "2026-04-29 06:00:00",
+   "peak_score": 76.31,
+   "contributors": [
+    {
+     "tag": "KO3201_VIB",
+     "z": 170.62
+    },
+    {
+     "tag": "KO3201_DISP",
+     "z": -2.01
+    },
+    {
+     "tag": "PLANT_RATE",
+     "z": 1.18
+    },
+    {
+     "tag": "KO3201_FEED",
+     "z": -0.75
+    }
+   ],
+   "first_off_at": "2026-04-29 07:00:00",
+   "lead_hours": 46.0
+  }
+ ],
+ "PM4405B": [],
+ "HE3301": [
+  {
+   "start_index": 485,
+   "end_index": 488,
+   "start_at": "2026-05-21 05:00:00",
+   "end_at": "2026-05-21 08:00:00",
+   "peak_score": 4.56,
+   "contributors": [
+    {
+     "tag": "HE3301_FEED",
+     "z": -9.68
+    },
+    {
+     "tag": "HE3301_DISP",
+     "z": 2.82
+    },
+    {
+     "tag": "HE3301_VIB",
+     "z": 1.16
+    },
+    {
+     "tag": "HE3301_TEMP",
+     "z": 0.84
+    }
+   ],
+   "first_off_at": "2026-05-21 09:00:00",
+   "lead_hours": 4.0
+  }
+ ],
+ "BL5702": [
+  {
+   "start_index": 361,
+   "end_index": 388,
+   "start_at": "2026-06-16 01:00:00",
+   "end_at": "2026-06-17 04:00:00",
+   "peak_score": 10.44,
+   "contributors": [
+    {
+     "tag": "BL5702_VIB",
+     "z": 23.25
+    },
+    {
+     "tag": "PLANT_RATE",
+     "z": 2.03
+    },
+    {
+     "tag": "BL5702_TEMP",
+     "z": 0.31
+    },
+    {
+     "tag": "BL5702_DISP",
+     "z": -0.26
+    }
+   ],
+   "first_off_at": "2026-06-17 05:00:00",
+   "lead_hours": 28.0
+  }
+ ]
+}

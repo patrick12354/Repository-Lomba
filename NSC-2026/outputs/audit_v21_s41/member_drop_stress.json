@@ -1,0 +1,42 @@
+{
+  "control": {
+    "pooled": 4.1719029065334,
+    "d_pooled": 0.0,
+    "worst": 6.5017271355504995,
+    "d_worst": 0.0,
+    "blocks_improved": 0,
+    "n_blocks": 5
+  },
+  "drop_ridge": {
+    "pooled": 4.119945036739378,
+    "d_pooled": -0.051957869794021505,
+    "worst": 6.439118057437962,
+    "d_worst": -0.06260907811253791,
+    "blocks_improved": 4,
+    "n_blocks": 5
+  },
+  "drop_ridge_e": {
+    "pooled": 4.184941216193039,
+    "d_pooled": 0.013038309659639147,
+    "worst": 6.58262869259274,
+    "d_worst": 0.08090155704224067,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "drop_l2": {
+    "pooled": 4.166738618699632,
+    "d_pooled": -0.0051642878337681,
+    "worst": 6.432845441651365,
+    "d_worst": -0.06888169389913479,
+    "blocks_improved": 4,
+    "n_blocks": 5
+  },
+  "drop_ridge_and_ridge_e": {
+    "pooled": 4.126420114212379,
+    "d_pooled": -0.04548279232102104,
+    "worst": 6.52396637795204,
+    "d_worst": 0.022239242401540515,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  }
+}

@@ -1,0 +1,79 @@
+folds: [('2023-07-29', '2023-08-13'), ('2023-07-31', '2023-08-15'), ('2023-08-02', '2023-08-17'), ('2023-08-04', '2023-08-19'), ('2023-08-06', '2023-08-21'), ('2023-08-08', '2023-08-23'), ('2023-08-10', '2023-08-25'), ('2023-08-12', '2023-08-27'), ('2023-08-14', '2023-08-29')]
+raw|sm0                      mean  7.079 med  7.175 worst  8.679 | [np.float64(8.48), np.float64(8.68), np.float64(8.47), np.float64(8.19), np.float64(7.18), np.float64(5.82), np.float64(5.05), np.float64(5.19), np.float64(6.66)]
+                             {'lgbm': 7.635, 'lgbm_hub': 7.298, 'ridge': 8.144, 'enet': 8.072}  w={'lgbm_hub': 0.711, 'enet': 0.289}
+raw|sm3                      mean  7.058 med  7.112 worst  8.674 | [np.float64(8.45), np.float64(8.67), np.float64(8.46), np.float64(8.18), np.float64(7.11), np.float64(5.73), np.float64(5.01), np.float64(5.22), np.float64(6.68)]
+                             {'lgbm': 7.56, 'lgbm_hub': 7.24, 'ridge': 8.101, 'enet': 8.043}  w={'lgbm_hub': 0.73, 'enet': 0.27}
+raw|sm5                      mean  7.138 med  7.155 worst  8.740 | [np.float64(8.49), np.float64(8.74), np.float64(8.54), np.float64(8.27), np.float64(7.15), np.float64(5.8), np.float64(5.12), np.float64(5.34), np.float64(6.78)]
+                             {'lgbm': 7.622, 'lgbm_hub': 7.314, 'ridge': 8.125, 'enet': 8.067}  w={'lgbm_hub': 0.72, 'enet': 0.28}
+raw|sm7                      mean  7.312 med  7.297 worst  8.869 | [np.float64(8.6), np.float64(8.87), np.float64(8.7), np.float64(8.45), np.float64(7.3), np.float64(6.0), np.float64(5.36), np.float64(5.56), np.float64(6.98)]
+                             {'lgbm': 7.786, 'lgbm_hub': 7.492, 'ridge': 8.218, 'enet': 8.159}  w={'lgbm_hub': 0.697, 'enet': 0.303}
+raw|sm9                      mean  7.566 med  7.530 worst  9.056 | [np.float64(8.76), np.float64(9.06), np.float64(8.93), np.float64(8.7), np.float64(7.53), np.float64(6.31), np.float64(5.7), np.float64(5.86), np.float64(7.25)]
+                             {'lgbm': 8.037, 'lgbm_hub': 7.757, 'ridge': 8.381, 'enet': 8.317}  w={'lgbm_hub': 0.663, 'enet': 0.337}
+
+clean_k6|sm0                 mean  6.655 med  6.731 worst  8.679 | [np.float64(8.11), np.float64(8.68), np.float64(7.66), np.float64(7.33), np.float64(6.73), np.float64(5.41), np.float64(4.64), np.float64(4.98), np.float64(6.34)]
+                             {'lgbm': 7.189, 'lgbm_hub': 7.092, 'ridge': 7.241, 'enet': 7.154}  w={'lgbm': 0.275, 'lgbm_hub': 0.28, 'ridge': 0.246, 'enet': 0.199}
+clean_k6|sm3                 mean  6.678 med  6.754 worst  8.707 | [np.float64(8.14), np.float64(8.71), np.float64(7.71), np.float64(7.38), np.float64(6.75), np.float64(5.39), np.float64(4.66), np.float64(4.99), np.float64(6.36)]
+                             {'lgbm': 7.171, 'lgbm_hub': 7.092, 'ridge': 7.243, 'enet': 7.156}  w={'lgbm': 0.312, 'lgbm_hub': 0.243, 'ridge': 0.231, 'enet': 0.214}
+clean_k6|sm5                 mean  6.776 med  6.835 worst  8.782 | [np.float64(8.21), np.float64(8.78), np.float64(7.84), np.float64(7.51), np.float64(6.84), np.float64(5.47), np.float64(4.79), np.float64(5.1), np.float64(6.45)]
+                             {'lgbm': 7.254, 'lgbm_hub': 7.187, 'ridge': 7.303, 'enet': 7.217}  w={'lgbm': 0.346, 'lgbm_hub': 0.196, 'ridge': 0.204, 'enet': 0.253}
+clean_k6|sm7                 mean  6.951 med  6.987 worst  8.891 | [np.float64(8.33), np.float64(8.89), np.float64(8.02), np.float64(7.72), np.float64(6.99), np.float64(5.66), np.float64(5.03), np.float64(5.29), np.float64(6.64)]
+                             {'lgbm': 7.433, 'lgbm_hub': 7.373, 'ridge': 7.43, 'enet': 7.339}  w={'lgbm': 0.352, 'lgbm_hub': 0.166, 'ridge': 0.16, 'enet': 0.322}
+clean_k6|sm9                 mean  7.203 med  7.214 worst  9.044 | [np.float64(8.5), np.float64(9.04), np.float64(8.27), np.float64(8.01), np.float64(7.21), np.float64(5.97), np.float64(5.38), np.float64(5.55), np.float64(6.9)]
+                             {'lgbm': 7.702, 'lgbm_hub': 7.643, 'ridge': 7.625, 'enet': 7.53}  w={'lgbm': 0.326, 'lgbm_hub': 0.156, 'ridge': 0.105, 'enet': 0.413}
+
+clean_k4|sm0                 mean  6.646 med  6.635 worst  8.499 | [np.float64(8.07), np.float64(8.5), np.float64(7.57), np.float64(7.3), np.float64(6.64), np.float64(5.72), np.float64(4.66), np.float64(4.95), np.float64(6.41)]
+                             {'lgbm': 7.285, 'lgbm_hub': 7.072, 'ridge': 7.297, 'enet': 7.205}  w={'lgbm_hub': 0.55, 'ridge': 0.263, 'enet': 0.17}
+clean_k4|sm3                 mean  6.667 med  6.652 worst  8.519 | [np.float64(8.1), np.float64(8.52), np.float64(7.61), np.float64(7.35), np.float64(6.65), np.float64(5.72), np.float64(4.66), np.float64(4.95), np.float64(6.44)]
+                             {'lgbm': 7.271, 'lgbm_hub': 7.07, 'ridge': 7.299, 'enet': 7.207}  w={'lgbm_hub': 0.566, 'ridge': 0.252, 'enet': 0.182}
+clean_k4|sm5                 mean  6.766 med  6.731 worst  8.600 | [np.float64(8.18), np.float64(8.6), np.float64(7.73), np.float64(7.48), np.float64(6.73), np.float64(5.79), np.float64(4.79), np.float64(5.05), np.float64(6.54)]
+                             {'lgbm': 7.355, 'lgbm_hub': 7.164, 'ridge': 7.358, 'enet': 7.265}  w={'lgbm_hub': 0.555, 'ridge': 0.229, 'enet': 0.217}
+clean_k4|sm7                 mean  6.943 med  6.884 worst  8.727 | [np.float64(8.32), np.float64(8.73), np.float64(7.93), np.float64(7.69), np.float64(6.88), np.float64(5.96), np.float64(5.03), np.float64(5.23), np.float64(6.71)]
+                             {'lgbm': 7.532, 'lgbm_hub': 7.348, 'ridge': 7.481, 'enet': 7.386}  w={'lgbm_hub': 0.532, 'ridge': 0.189, 'enet': 0.279}
+clean_k4|sm9                 mean  7.198 med  7.119 worst  8.907 | [np.float64(8.5), np.float64(8.91), np.float64(8.19), np.float64(7.99), np.float64(7.12), np.float64(6.23), np.float64(5.37), np.float64(5.5), np.float64(6.96)]
+                             {'lgbm': 7.796, 'lgbm_hub': 7.618, 'ridge': 7.674, 'enet': 7.575}  w={'lgbm_hub': 0.499, 'ridge': 0.137, 'enet': 0.363}
+
+clean_k9|sm0                 mean  6.662 med  6.806 worst  8.540 | [np.float64(8.29), np.float64(8.54), np.float64(7.7), np.float64(7.27), np.float64(6.81), np.float64(5.52), np.float64(4.6), np.float64(4.87), np.float64(6.37)]
+                             {'lgbm': 7.295, 'lgbm_hub': 7.142, 'ridge': 7.283, 'enet': 7.174}  w={'lgbm': 0.096, 'lgbm_hub': 0.441, 'ridge': 0.139, 'enet': 0.324}
+clean_k9|sm3                 mean  6.684 med  6.824 worst  8.558 | [np.float64(8.31), np.float64(8.56), np.float64(7.74), np.float64(7.31), np.float64(6.82), np.float64(5.52), np.float64(4.61), np.float64(4.87), np.float64(6.4)]
+                             {'lgbm': 7.275, 'lgbm_hub': 7.141, 'ridge': 7.287, 'enet': 7.178}  w={'lgbm': 0.084, 'lgbm_hub': 0.451, 'ridge': 0.123, 'enet': 0.342}
+clean_k9|sm5                 mean  6.783 med  6.900 worst  8.631 | [np.float64(8.39), np.float64(8.63), np.float64(7.86), np.float64(7.45), np.float64(6.9), np.float64(5.61), np.float64(4.74), np.float64(4.96), np.float64(6.5)]
+                             {'lgbm': 7.355, 'lgbm_hub': 7.233, 'ridge': 7.35, 'enet': 7.241}  w={'lgbm': 0.075, 'lgbm_hub': 0.447, 'ridge': 0.094, 'enet': 0.383}
+clean_k9|sm7                 mean  6.960 med  7.050 worst  8.739 | [np.float64(8.52), np.float64(8.74), np.float64(8.05), np.float64(7.66), np.float64(7.05), np.float64(5.8), np.float64(4.98), np.float64(5.14), np.float64(6.69)]
+                             {'lgbm': 7.53, 'lgbm_hub': 7.418, 'ridge': 7.483, 'enet': 7.369}  w={'lgbm': 0.044, 'lgbm_hub': 0.454, 'ridge': 0.043, 'enet': 0.459}
+clean_k9|sm9                 mean  7.218 med  7.276 worst  8.908 | [np.float64(8.7), np.float64(8.91), np.float64(8.3), np.float64(7.96), np.float64(7.28), np.float64(6.1), np.float64(5.34), np.float64(5.42), np.float64(6.96)]
+                             {'lgbm': 7.794, 'lgbm_hub': 7.688, 'ridge': 7.688, 'enet': 7.568}  w={'lgbm_hub': 0.464, 'enet': 0.536}
+
+clean_k6_td|sm0              mean  7.288 med  7.545 worst  9.418 | [np.float64(8.31), np.float64(9.42), np.float64(8.05), np.float64(7.54), np.float64(6.98), np.float64(6.69), np.float64(5.46), np.float64(5.57), np.float64(7.57)]
+                             {'lgbm': 8.835, 'lgbm_hub': 8.941, 'ridge': 7.458, 'enet': 7.38}  w={'lgbm': 0.153, 'ridge': 0.61, 'enet': 0.237}
+clean_k6_td|sm5              mean  7.368 med  7.690 worst  9.404 | [np.float64(8.36), np.float64(9.4), np.float64(8.16), np.float64(7.7), np.float64(7.05), np.float64(6.75), np.float64(5.56), np.float64(5.63), np.float64(7.69)]
+                             {'lgbm': 8.874, 'lgbm_hub': 8.986, 'ridge': 7.52, 'enet': 7.447}  w={'lgbm': 0.133, 'ridge': 0.591, 'enet': 0.276}
+clean_k6_rh+td               mean  6.655 med  6.731 worst  8.679 | [np.float64(8.11), np.float64(8.68), np.float64(7.66), np.float64(7.33), np.float64(6.73), np.float64(5.41), np.float64(4.64), np.float64(4.98), np.float64(6.34)]
+                             {'lgbm': 7.189, 'lgbm_hub': 7.092, 'ridge': 7.241, 'enet': 7.154, 'lgbm_td': 8.835, 'lgbm_hub_td': 8.941, 'ridge_td': 7.458, 'enet_td': 7.38}  w={'lgbm': 0.275, 'lgbm_hub': 0.28, 'ridge': 0.246, 'enet': 0.199}
+clean_k6_rh+td|sm5           mean  6.776 med  6.835 worst  8.782 | [np.float64(8.21), np.float64(8.78), np.float64(7.84), np.float64(7.51), np.float64(6.84), np.float64(5.47), np.float64(4.79), np.float64(5.1), np.float64(6.45)]
+                             {'lgbm': 7.254, 'lgbm_hub': 7.187, 'ridge': 7.303, 'enet': 7.217, 'lgbm_td': 8.874, 'lgbm_hub_td': 8.986, 'ridge_td': 7.52, 'enet_td': 7.447}  w={'lgbm': 0.346, 'lgbm_hub': 0.196, 'ridge': 0.204, 'enet': 0.253}
+
+=== RANKING ===
+  clean_k4|sm0               mean  6.646 med  6.635 worst  8.499
+  clean_k6|sm0               mean  6.655 med  6.731 worst  8.679
+  clean_k6_rh+td             mean  6.655 med  6.731 worst  8.679
+  clean_k9|sm0               mean  6.662 med  6.806 worst  8.540
+  clean_k4|sm3               mean  6.667 med  6.652 worst  8.519
+  clean_k6|sm3               mean  6.678 med  6.754 worst  8.707
+  clean_k9|sm3               mean  6.684 med  6.824 worst  8.558
+  clean_k4|sm5               mean  6.766 med  6.731 worst  8.600
+  clean_k6|sm5               mean  6.776 med  6.835 worst  8.782
+  clean_k6_rh+td|sm5         mean  6.776 med  6.835 worst  8.782
+  clean_k9|sm5               mean  6.783 med  6.900 worst  8.631
+  clean_k4|sm7               mean  6.943 med  6.884 worst  8.727
+  clean_k6|sm7               mean  6.951 med  6.987 worst  8.891
+  clean_k9|sm7               mean  6.960 med  7.050 worst  8.739
+  raw|sm3                    mean  7.058 med  7.112 worst  8.674
+  raw|sm0                    mean  7.079 med  7.175 worst  8.679
+  raw|sm5                    mean  7.138 med  7.155 worst  8.740
+  clean_k4|sm9               mean  7.198 med  7.119 worst  8.907
+  clean_k6|sm9               mean  7.203 med  7.214 worst  9.044
+  clean_k9|sm9               mean  7.218 med  7.276 worst  8.908
+  clean_k6_td|sm0            mean  7.288 med  7.545 worst  9.418
+  raw|sm7                    mean  7.312 med  7.297 worst  8.869
+  clean_k6_td|sm5            mean  7.368 med  7.690 worst  9.404
+  raw|sm9                    mean  7.566 med  7.530 worst  9.056

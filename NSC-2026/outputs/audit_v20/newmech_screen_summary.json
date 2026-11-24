@@ -1,0 +1,50 @@
+{
+  "incumbent": {
+    "mean_delta_vs_incumbent": 0.0,
+    "blocks_better": 0,
+    "blocks": 3,
+    "mean_vs_base": -0.10294130247118982,
+    "worst_block": 6.601143882885006,
+    "adopted": false
+  },
+  "add_vp_half": {
+    "mean_delta_vs_incumbent": -0.006474922071021479,
+    "blocks_better": 2,
+    "blocks": 3,
+    "mean_vs_base": -0.1094162245422113,
+    "worst_block": 6.600605186132401,
+    "adopted": true
+  },
+  "add_vp_full": {
+    "mean_delta_vs_incumbent": -0.0007402196329258833,
+    "blocks_better": 1,
+    "blocks": 3,
+    "mean_vs_base": -0.1036815221041157,
+    "worst_block": 6.610635742001306,
+    "adopted": false
+  },
+  "vp_instead_of_rh": {
+    "mean_delta_vs_incumbent": 0.04614216137264974,
+    "blocks_better": 1,
+    "blocks": 3,
+    "mean_vs_base": -0.05679914109854008,
+    "worst_block": 6.738146287402874,
+    "adopted": false
+  },
+  "gls_rows": {
+    "mean_delta_vs_incumbent": 0.0078190637820826,
+    "blocks_better": 1,
+    "blocks": 3,
+    "mean_vs_base": -0.09512223868910723,
+    "worst_block": 6.622823201512192,
+    "adopted": false
+  },
+  "gls_plus_vp": {
+    "mean_delta_vs_incumbent": -0.00015073217789070745,
+    "blocks_better": 1,
+    "blocks": 3,
+    "mean_vs_base": -0.10309203464908052,
+    "worst_block": 6.619091626849424,
+    "adopted": false
+  }
+}

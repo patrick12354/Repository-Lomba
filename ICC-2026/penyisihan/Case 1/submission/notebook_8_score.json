@@ -1,0 +1,39 @@
+{
+  "lb_real": 0.17617,
+  "lb_real_jujur": 0.17737,
+  "lb_predicted": 0.192,
+  "bias_rnd": 0.0314,
+  "mean_test_rnd": 5.259,
+  "sd_test_rnd": 0.3963,
+  "status": "DISUBMIT",
+  "config": {
+    "kandidat": [
+      "swA_sqrt",
+      "resA_dep",
+      "resB_dep",
+      "resB_c30",
+      "resB_p05",
+      "cnnres",
+      "cnn3_avg",
+      "cnn3_dir"
+    ],
+    "bobot": {
+      "swA_sqrt": 0.036,
+      "resA_dep": 0.119,
+      "resB_dep": 0.134,
+      "resB_c30": 0.156,
+      "resB_p05": 0.026,
+      "cnnres": 0.025,
+      "cnn3_avg": 0.312,
+      "cnn3_dir": 0.192
+    },
+    "lam_dec": 0.95,
+    "lam_deep": 0.5,
+    "T_deep": 150,
+    "a_dec": 1.15,
+    "a_rnd": 1.05,
+    "kunci": "CNN v3 multi-task + augmentasi derau pre-P, bobot blend terbesar"
+  },
+  "lb_actual": 0.1849,
+  "rank": 2
+}

@@ -1,0 +1,42 @@
+[
+ {
+  "name": "none",
+  "avg": 4.526624393553937,
+  "folds": "0/13"
+ },
+ {
+  "name": "fixed s=1.05 (current v9)",
+  "avg": 4.378497751189543,
+  "folds": "13/13"
+ },
+ {
+  "name": "fitted slope (OLS, free)",
+  "avg": 4.39726190892963,
+  "folds": "9/13"
+ },
+ {
+  "name": "fitted slope, shrunk 0.5",
+  "avg": 4.385676298445039,
+  "folds": "13/13"
+ },
+ {
+  "name": "fitted slope, shrunk 0.7",
+  "avg": 4.371771776391367,
+  "folds": "13/13"
+ },
+ {
+  "name": "linear calibrator (a*p+b)",
+  "avg": 4.421379967898565,
+  "folds": "9/13"
+ },
+ {
+  "name": "linear calibrator, shrunk 0.5",
+  "avg": 4.412129184200336,
+  "folds": "11/13"
+ },
+ {
+  "name": "stacked linear on 5 models",
+  "avg": 4.376996963040386,
+  "folds": "11/13"
+ }
+]

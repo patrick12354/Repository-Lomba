@@ -1,0 +1,41 @@
+{
+  "model": "claude-opus-5-5",
+  "generated_at": "2026-10-02T14:45:00+07:00",
+  "channel": "authoring-session",
+  "provenance_note": "CONTAMINATED — not a blind test. The generating model had already read the target RCA deck (R2) earlier in the same session. This output shows the masked-mode format, the input allowlist and the citation checks only. It is not evidence of diagnostic ability. A valid test needs a fresh API run (`--live`) with no prior exposure to R2.",
+  "brief": {
+    "shows": [
+      {"text": "Lube-oil water content crossed its 500 ppm alarm limit on 11 Feb 2026 and rose every week to 1,373 ppm on 22 Apr (trip limit 1,500 ppm).", "refs": ["M-02", "M-01"]},
+      {"text": "Over the same weeks DE radial vibration rose from 37.7 to 71.7 micron (trip 75) and bearing metal temperature from 84.9 to 107.1 °C (trip 110).", "refs": ["M-02", "M-01"]},
+      {"text": "Lube-oil supply pressure fell from 1.635 to 1.122 barg, just above the 1.1 barg trip limit.", "refs": ["M-02", "M-01"]},
+      {"text": "The hourly PI vibration tag (unit MM/S) stays between 28 and 30 throughout 1–22 Apr and does not show the rise seen in the weekly record.", "refs": ["M-03"]}
+    ],
+    "documented_findings": [],
+    "hypotheses": [
+      {"text": "Lubrication degradation from water-contaminated lube oil is reducing bearing oil-film capacity, which would explain the rise in bearing temperature and vibration together.", "support": ["M-02"], "against": [], "missing": ["Lab oil analysis (Karl Fischer water, viscosity, free water)", "Bearing inspection or vibration spectrum"], "level": "supported broad hypothesis", "refs": ["M-02"]},
+      {"text": "The water source is not identifiable from these inputs. Candidates include a lube-oil cooler leak, condensation or seal/buffer-gas ingress, and contaminated make-up oil.", "support": ["M-02"], "against": [], "missing": ["Cooler leak test, or oil-side vs cooling-water conductivity", "Make-up oil records", "Seal / buffer gas conditions"], "level": "speculative", "refs": ["M-02"]},
+      {"text": "The falling supply pressure may be a separate lube-system fault (filter fouling, pump wear) rather than a consequence of contamination.", "support": ["M-02"], "against": [], "missing": ["Filter dP and pump discharge pressure history"], "level": "speculative", "refs": ["M-02"]}
+    ],
+    "conflicts_missing": [
+      {"text": "The weekly vibration record (micron) and the hourly PI tag (MM/S) disagree in both trend and unit, so they must not be merged. Which one represents the DE bearing probe is unknown.", "refs": ["M-02", "M-03"]},
+      {"text": "None of the limits has an effective date, so it is unknown whether the current ALARM labels used these exact limits.", "refs": ["M-01"]}
+    ],
+    "verify_next": [
+      {"text": "Take a lube-oil sample for lab water content and viscosity, and check for free water at the reservoir drain.", "why": "Confirms or rejects the contamination hypothesis directly.", "refs": ["M-02"]},
+      {"text": "Leak-test the lube-oil cooler, or compare oil and cooling-water conductivity.", "why": "Discriminates the most common water-ingress path from the others.", "refs": ["M-02"]},
+      {"text": "Check the lube-oil filter dP, pump discharge pressure and header pressure.", "why": "Separates a supply fault from contamination effects.", "refs": ["M-02"]},
+      {"text": "Confirm which vibration measurement is the protection probe, and its unit.", "why": "The two vibration records disagree, and the trip protection depends on the right one.", "refs": ["M-03", "M-02"]},
+      {"text": "Raise the condition to operations under the site's abnormal-condition procedure.", "why": "All four parameters are within 10% of their trip limits. The urgency decision belongs to the site procedure, not to this tool.", "refs": ["M-01", "M-02"]}
+    ],
+    "draft_action": {
+      "title": "Lube-oil contamination check on KO-3201 (lab sample + cooler leak test)",
+      "owner_role": "Reliability engineer, with the rotating equipment team",
+      "required_evidence": ["Lab report with sample date and water content", "Cooler leak test or conductivity result", "Engineer's disposition of the hypothesis"],
+      "not_sufficient": ["Trend charts alone"],
+      "refs": ["M-02"]
+    },
+    "abstentions": [
+      {"text": "These inputs cannot establish a specific root cause or a failure date. Any named water source stays a hypothesis until inspection evidence exists.", "refs": ["M-02"]}
+    ]
+  }
+}

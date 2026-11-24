@@ -1,0 +1,58 @@
+{
+  "control": {
+    "pooled": 4.1719029065334,
+    "d_pooled": 0.0,
+    "worst": 6.5017271355504995,
+    "d_worst": 0.0,
+    "blocks_improved": 0,
+    "n_blocks": 5
+  },
+  "drop_ridge": {
+    "pooled": 4.119945036739378,
+    "d_pooled": -0.051957869794021505,
+    "worst": 6.439118057437962,
+    "d_worst": -0.06260907811253791,
+    "blocks_improved": 4,
+    "n_blocks": 5
+  },
+  "nopress": {
+    "pooled": 4.14839280670377,
+    "d_pooled": -0.023510099829629816,
+    "worst": 6.580397232750916,
+    "d_worst": 0.0786700972004164,
+    "blocks_improved": 1,
+    "n_blocks": 5
+  },
+  "robustcore": {
+    "pooled": 4.177170645749498,
+    "d_pooled": 0.005267739216098022,
+    "worst": 6.622394275735221,
+    "d_worst": 0.12066714018472169,
+    "blocks_improved": 1,
+    "n_blocks": 5
+  },
+  "drop_ridge_nopress": {
+    "pooled": 4.109134489778993,
+    "d_pooled": -0.06276841675440625,
+    "worst": 6.533915521172841,
+    "d_worst": 0.03218838562234172,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "drop_ridge_robustcore": {
+    "pooled": 4.135072940099329,
+    "d_pooled": -0.03682996643407055,
+    "worst": 6.57914568106542,
+    "d_worst": 0.07741854551492011,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "drop_ridge_both": {
+    "pooled": 4.117762598711434,
+    "d_pooled": -0.05414030782196555,
+    "worst": 6.590133385060625,
+    "d_worst": 0.08840624951012543,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  }
+}

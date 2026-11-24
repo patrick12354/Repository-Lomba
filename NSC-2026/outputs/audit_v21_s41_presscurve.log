@@ -1,0 +1,16 @@
+  support 0.345  n=384  ctrl 3.0329  drop_ridge 2.9841  gain -0.0489  [79s]
+  support 0.329  n=576  ctrl 3.6635  drop_ridge 3.5481  gain -0.1153  [152s]
+  support 0.397  n=864  ctrl 3.7659  drop_ridge 3.6507  gain -0.1152  [222s]
+  support 0.344  n=1200  ctrl 4.7850  drop_ridge 4.6593  gain -0.1257  [289s]
+  support 0.717  n=864  ctrl 4.4129  drop_ridge 4.4312  gain +0.0182  [360s]
+  support 0.701  n=1248  ctrl 4.6855  drop_ridge 4.6512  gain -0.0342  [428s]
+  support 0.859  n=1127  ctrl 4.5603  drop_ridge 4.5464  gain -0.0139  [496s]
+  support 0.960  n=1175  ctrl 4.8099  drop_ridge 4.8053  gain -0.0045  [564s]
+  support 0.974  n=1127  ctrl 4.7823  drop_ridge 4.8135  gain +0.0312  [632s]
+
+  corr(pressure support, drop_ridge gain) = +0.870
+  at public 220   (pressure support 0.935): predicted drop_ridge gain +0.0137
+  at private 514  (pressure support 0.802): predicted drop_ridge gain -0.0115
+  at whole test   (pressure support 0.842): predicted drop_ridge gain -0.0039
+
+Negative is better. §138 read the v19 bundle off this curve the same way.

@@ -1,0 +1,10 @@
+feature
+T_std48h
+air_temperature_day_std
+air_temperature_7d_rng
+pressure_day_max
+soil_humidity_line2_day_std
+soil_humidity_line2_day_rng
+soil_ec_line1_day_std
+soil_ec_line1_day_rng
+daily_max_day_std

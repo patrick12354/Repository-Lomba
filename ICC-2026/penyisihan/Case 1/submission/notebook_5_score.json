@@ -1,0 +1,45 @@
+{
+  "eb_twmae_oof": 0.17899,
+  "lb_estimate_mentah": 0.19073,
+  "lb_estimate_jujur": 0.19321,
+  "lb_predicted": 0.1942,
+  "bias_rnd": 0.056,
+  "optimisme_seleksi_bobot": 0.00349,
+  "status": "BELUM DISUBMIT",
+  "config": {
+    "kandidat": [
+      "regA",
+      "regB",
+      "resA",
+      "resB",
+      "resB_iw",
+      "resA_iw"
+    ],
+    "anchor": "ridge alpha=1 pada Cd_2,Cv_2,Ca_4,logdist,loghypo,logE,snr_db",
+    "bobot_desimal": {
+      "regA": 0.231,
+      "regB": 0.006,
+      "resA": 0.58,
+      "resB": 0.161,
+      "resB_iw": 0.015,
+      "resA_iw": 0.007
+    },
+    "bobot_bulat": {
+      "regA": 0.372,
+      "regB": 0.01,
+      "resA": 0.003,
+      "resB": 0.021,
+      "resB_iw": 0.575,
+      "resA_iw": 0.018
+    },
+    "lam_dec": 0.95,
+    "lam_deep": 0.35,
+    "T_deep": 100,
+    "alpha": 1.15,
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  }
+}

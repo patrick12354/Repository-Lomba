@@ -1,0 +1,40 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+SELFTEST increment design target-blind  : True
+SELFTEST target among increment columns : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4718, 'cat': 0.2195, 'ridge': 0.0417, 'enet': 0.1838, 'ridge_e': 0.0417, 'l2': 0.0417}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.5277, 'cat': 0.1711, 'ridge': 0.0417, 'enet': 0.1762, 'ridge_e': 0.0417, 'l2': 0.0417}
+  band 1: {'hbt': 0.3652, 'cat': 0.147, 'ridge': 0.1199, 'enet': 0.1127, 'ridge_e': 0.1006, 'l2': 0.1545}
+  band 2: {'hbt': 0.4437, 'cat': 0.3055, 'ridge': 0.0417, 'enet': 0.1127, 'ridge_e': 0.0547, 'l2': 0.0417}
+harmonic bias correction (shrunk 0.50): sin -0.092  cos -0.828   amplitude 0.833 %RH, peak 12.4 h
+CV: mean 4.7731  worst 6.1304
+  per fold: [np.float64(6.096), np.float64(6.13), np.float64(5.762), np.float64(5.561), np.float64(4.659), np.float64(3.848), np.float64(3.347), np.float64(3.366), np.float64(4.187)]
+CV after increment reconciliation: mean 4.7878  worst 6.2670  (3/9 folds better)
+  per fold: [np.float64(6.177), np.float64(6.267), np.float64(5.955), np.float64(5.63), np.float64(4.673), np.float64(3.671), np.float64(3.208), np.float64(3.375), np.float64(4.135)]
+  per-fold delta: [np.float64(0.081), np.float64(0.137), np.float64(0.192), np.float64(0.068), np.float64(0.014), np.float64(-0.177), np.float64(-0.14), np.float64(0.009), np.float64(-0.052)]
+  pooled 4.8928 -> 4.9292
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+increment reconciliation on the test window: horizons [1, 4], weights [8.0, 2.0], 5 seed(s)
+  smoothed-level terms: windows [49], weights [0.25] -- the one part of the reconciliation that can move the level
+  level shift applied: -0.2343 %RH
+  moved the test path by RMS 1.3466 %RH, max 4.3879
+
+dispersion check: CV fold prediction std 16.21-17.53   test prediction std 18.89
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v21_increment_v16_smooth_lam2.csv
+prediction summary: {'count': 734.0, 'mean': 56.611, 'std': 18.903, 'min': 24.437, '25%': 38.264, '50%': 60.353, '75%': 73.711, 'max': 91.565}

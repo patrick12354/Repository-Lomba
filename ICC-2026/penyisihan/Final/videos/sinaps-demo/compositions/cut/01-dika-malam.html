@@ -1,0 +1,502 @@
+<!-- DIBANGKITKAN oleh tools/build.mjs dari src/frames/01-dika-malam.tpl — jangan edit langsung -->
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head><body><template>
+<style>
+@font-face { font-family: 'Arvo'; font-style: italic; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Arvo-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Arvo'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Arvo-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/GeistMono-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/GeistMono-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/GeistMono-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 400; font-display: block; src: url('../../assets/fonts/Geist-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 500; font-display: block; src: url('../../assets/fonts/Geist-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 600; font-display: block; src: url('../../assets/fonts/Geist-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Geist'; font-style: normal; font-weight: 700; font-display: block; src: url('../../assets/fonts/Geist-700-normal.woff2') format('woff2'); }
+/* tema terang mengikuti halaman aplikasi SINAPS: putih, garis abu tipis, teal + warna status */
+#f01 {
+  --cream: #ffffff; --paper: #ffffff; --surface: #f8fafc; --sand: #e5e7eb; --line: #e5e7eb; --line-2: #d1d5db;
+  --ink: #10313a; --ink-2: #334155; --muted: #64748b;
+  --teal: #195764; --teal-d: #0f3a43; --teal-l: #1f6b7a; --teal-soft: #e8f1f2;
+  --sage: #aad39c; --sage-d: #6fa77a; --mint: #eaf3de;
+  --nt: #e07a1f; --nt-d: #c2620f; --nt-soft: #fdf0e3;
+  --ok: #16a34a; --ok-soft: #dcfce7; --warn: #d97706; --warn-soft: #fef3c7;
+  --bad: #dc2626; --bad-soft: #fee2e2; --brick: #dc2626; --info: #2563eb; --info-soft: #dbeafe;
+  font-family: 'Arvo', Georgia, serif;
+  color: var(--ink);
+}
+.scene { position: absolute; inset: 0; background: #f5f3ec; overflow: hidden; }
+.dolly { position: absolute; inset: 0; transform-origin: 50% 50%; }
+/* permukaan: kertas hangat, cahaya dari tengah-atas, tepi sedikit turun, butir halus (diam) */
+.ground { position: absolute; left: -40px; top: -40px; width: 2000px; height: 1160px; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 62% at 50% 40%, rgba(255,255,255,.85), rgba(255,255,255,0) 70%),
+    radial-gradient(ellipse 120% 100% at 50% 45%, rgba(16,49,58,0) 55%, rgba(16,49,58,.07)),
+    #f5f3ec; }
+.ground::after { content: ""; position: absolute; inset: 0; background: url('../../assets/tex/grain.png'); opacity: .07; mix-blend-mode: multiply; }
+/* lapisan latar bergerak (ambient) dan lapisan efek (burst, flash, confetti, bumper) — dibuat helpers.js */
+.amb { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.fx svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+.fx .flash { position: absolute; inset: 0; opacity: 0; }
+.bump { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.bump .bp { position: absolute; inset: 0; }
+.bump .bw { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); text-align: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 300px; line-height: .9; letter-spacing: .06em; text-transform: uppercase; color: #fff; }
+.bump .bs { position: absolute; left: 0; right: 0; top: 50%; margin-top: 170px; text-align: center; font: 600 44px 'Geist', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.ui { font-family: 'Geist', system-ui, sans-serif; }
+/* tipografi v2: semua teks dibesarkan & ditebalkan untuk layar lebar */
+.eyebrow { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.card { position: absolute; background: #fff; border: 2px solid var(--line); border-radius: 28px;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 14px 36px rgba(16,24,40,.07); }
+.src { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; color: #5b6b7f; }
+.win { position: absolute; border-radius: 22px; background: #fff; overflow: hidden; border: 2px solid var(--line);
+  box-shadow: 0 2px 4px rgba(16,24,40,.04), 0 24px 60px rgba(16,24,40,.12); }
+.win .bar { height: 46px; background: var(--surface); border-bottom: 2px solid var(--line); display: flex; align-items: center; gap: 10px; padding: 0 20px; }
+.win .bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--line-2); display: block; }
+.win .bar i:nth-child(1) { background: #f87171; } .win .bar i:nth-child(2) { background: #fbbf24; } .win .bar i:nth-child(3) { background: #4ade80; }
+.win .bar .url { margin-left: 18px; flex: 0 0 560px; height: 30px; border-radius: 15px; background: #fff; border: 2px solid var(--line); font: 600 18px 'Geist', sans-serif; color: var(--ink-2); display: flex; align-items: center; padding: 0 16px; }
+.win .view { position: relative; overflow: hidden; }
+.win .view img.shot { display: block; width: 100%; }
+.callout { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 30px; border-radius: 999px; background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); font: 600 36px 'Geist', sans-serif; box-shadow: 0 8px 0 rgba(16,49,58,.14), 0 18px 40px rgba(16,24,40,.18); white-space: nowrap; }
+.callout b { color: var(--nt-d); font-weight: 700; }
+.callout::before { content: ""; width: 18px; height: 18px; border-radius: 50%; background: var(--nt); flex: none; }
+.chip { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 3px solid var(--line-2); font: 600 32px 'Geist', sans-serif; background: #fff; color: var(--ink); }
+.pill-soft { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font: 600 30px 'Geist', sans-serif; background: var(--teal-soft); color: var(--teal); }
+.side { position: absolute; left: 80px; top: 120px; width: 350px; }
+.side .n { display: inline-block; padding: 8px 18px; border-radius: 12px; background: var(--teal); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 32px; letter-spacing: .12em; color: #fff; }
+.side h2 { margin: 26px 0 0; font-size: 52px; line-height: 1.1; font-weight: 700; color: var(--ink); }
+.side p { margin: 26px 0 0; font: 600 29px/1.4 'Geist', sans-serif; color: var(--ink-2); }
+.hl-mark { background-image: linear-gradient(var(--hlc, rgba(224,122,31,.28)), var(--hlc, rgba(224,122,31,.28))); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 38%; }
+
+#f01 { position: absolute; inset: 0; background: transparent; overflow: hidden; }
+#f01 .world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#f01 .wall { position: absolute; inset: 0; background: linear-gradient(#1a2b35, #24404c 70%, #2b4a57); }
+#f01 .floor { position: absolute; left: 0; top: 860px; width: 1920px; height: 220px; background: #182630; }
+#f01 .win { position: absolute; left: 110px; top: 90px; width: 380px; height: 300px; border-radius: 12px; border: 12px solid #34525e; background: linear-gradient(#0b1726, #16304a); overflow: hidden; }
+#f01 .win::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 10px; margin-left: -5px; background: #34525e; }
+#f01 .moon { position: absolute; left: 230px; top: 50px; width: 80px; height: 80px; border-radius: 50%; background: #f8f1d8; box-shadow: 0 0 40px 10px rgba(248,241,216,.35); }
+#f01 .star { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #e2e8f0; }
+#f01 .glow { position: absolute; left: 40px; top: 360px; width: 900px; height: 700px; background: radial-gradient(ellipse at 40% 45%, rgba(253,224,150,.55), rgba(253,224,150,0) 65%); }
+#f01 .dk { position: absolute; left: 380px; top: 300px; }
+#f01 .dk .dika-badge, #f01 .dk .dika-torso rect { display: none; }
+#f01 .desk { position: absolute; left: 150px; top: 760px; width: 900px; height: 320px; background: #6b4f3a; border-radius: 10px 10px 0 0; }
+#f01 .desk::before { content: ""; position: absolute; left: -16px; right: -16px; top: -22px; height: 26px; border-radius: 8px; background: #8a6a4d; }
+#f01 .lamp { position: absolute; left: 190px; top: 520px; width: 200px; height: 240px; }
+#f01 .lap { position: absolute; left: 640px; top: 600px; width: 300px; height: 170px; }
+#f01 .books { position: absolute; left: 960px; top: 650px; width: 70px; height: 110px; }
+#f01 .books i { position: absolute; left: 0; width: 70px; height: 22px; border-radius: 4px; }
+#f01 .dark { position: absolute; inset: 0; background: #050b10; opacity: 0; pointer-events: none; }
+#f01 .vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(220,38,38,0) 40%, rgba(220,38,38,.38)); opacity: 0; pointer-events: none; }
+#f01 .cd { position: absolute; left: 1080px; top: 170px; width: 760px; height: 720px; border-radius: 32px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.45); overflow: hidden; opacity: 0; }
+#f01 .c1 .bind { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: var(--bad); }
+#f01 .c1 .ring { position: absolute; top: 18px; width: 30px; height: 64px; border-radius: 15px; background: #2b3640; border: 5px solid #5b6b78; }
+#f01 .c1 .big { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 700 380px/1 'Oswald', sans-serif; color: var(--ink); }
+#f01 .c1 .sub { position: absolute; left: 0; right: 0; top: 540px; text-align: center; font: 700 64px 'Arvo', serif; color: var(--ink-2); }
+#f01 .note { position: absolute; left: 960px; top: 560px; width: 330px; height: 300px; padding: 26px 28px; background: #fde68a; box-shadow: 0 18px 30px rgba(0,0,0,.35); transform: rotate(-5deg); opacity: 0; }
+#f01 .note img { display: block; width: 150px; height: 150px; border-radius: 8px; }
+#f01 .note p { margin: 16px 0 0; font: 700 44px/1.05 'Arvo', serif; color: #3b2f12; }
+#f01 .c2 svg { position: absolute; left: 30px; top: 170px; width: 700px; height: 380px; }
+#f01 .c3 .grid { position: absolute; left: 70px; top: 203px; width: 620px; height: 314px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; filter: blur(7px) grayscale(1); opacity: .8; }
+#f01 .c3 .grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; background: #000; }
+#f01 .c3 .lock { position: absolute; left: 300px; top: 260px; width: 160px; height: 200px; }
+#f01 .c3 .stamp { position: absolute; left: 170px; top: 330px; padding: 12px 34px; border: 8px solid var(--bad); border-radius: 16px; color: var(--bad); background: rgba(255,255,255,.9); font: 700 80px/1 'Oswald', sans-serif; letter-spacing: .1em; transform: rotate(-10deg); opacity: 0; }
+#f01 .c4 .book { position: absolute; left: 60px; top: 180px; width: 640px; height: 360px; }
+#f01 .c4 .pic { position: absolute; left: 140px; top: 250px; width: 170px; height: 170px; border-radius: 8px; filter: grayscale(1); }
+</style>
+<div id="f01" data-composition-id="f01" data-width="1920" data-height="1080" data-amb="0" data-drift="0">
+<div class="scene"><div class="dolly">
+  <div class="world">
+    <div class="wall"></div><div class="floor"></div>
+    <div class="win"><div class="moon"></div><i class="star" style="left: 40px; top: 60px"></i><i class="star" style="left: 120px; top: 150px"></i><i class="star" style="left: 300px; top: 200px"></i><i class="star" style="left: 90px; top: 230px"></i><i class="star" style="left: 330px; top: 30px"></i></div>
+    <div class="glow"></div>
+    <div class="dk"><svg class="dika " viewBox="0 0 320 640" width="360" overflow="visible" aria-hidden="true">
+  <ellipse class="dika-shadow" cx="160" cy="626" rx="96" ry="12" fill="#10313a" opacity=".14" />
+  <g class="dika-rig">
+    <!-- kaki -->
+    <g class="dika-legs">
+      <rect x="118" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <rect x="164" y="462" width="38" height="148" rx="16" fill="#233a4a" />
+      <ellipse cx="134" cy="612" rx="28" ry="13" fill="#10313a" />
+      <ellipse cx="188" cy="612" rx="28" ry="13" fill="#10313a" />
+    </g>
+    <!-- lengan kiri (sisi kiri layar), origin di bahu -->
+    <g class="dika-arm-l">
+      <path d="M100,266 C80,300 70,360 72,424 L98,426 C100,372 106,322 120,292 Z" fill="#4a7c86" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="70" y="414" width="30" height="14" rx="5" fill="#f1efe6" />
+      <circle class="dika-hand-l" cx="85" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- badan: jas putih di atas scrub -->
+    <g class="dika-torso">
+      <path d="M94,262 Q160,238 226,262 L246,474 Q160,492 74,474 Z" fill="#4a7c86" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <path d="M134,250 L160,306 L186,250 Z" fill="#f1efe6" />
+      <path d="M134,250 L152,332 L122,300 Z" fill="#ece7da" />
+      <path d="M186,250 L168,332 L198,300 Z" fill="#ece7da" />
+      <line x1="160" y1="330" x2="160" y2="480" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="104" y="392" width="40" height="34" rx="5" fill="none" stroke="#cfc8b6" stroke-width="3" />
+      <rect x="114" y="384" width="5" height="22" rx="2" fill="#195764" />
+      <g class="dika-badge"><rect x="184" y="300" width="32" height="42" rx="5" fill="#ffffff" stroke="#cfc8b6" stroke-width="2" /><rect x="184" y="300" width="32" height="10" rx="4" fill="#195764" /><circle cx="200" cy="322" r="6" fill="#aad39c" /><rect x="190" y="332" width="20" height="3" rx="1.5" fill="#cfc8b6" /></g>
+      <g class="dika-steth" opacity="0" fill="none" stroke="#10313a" stroke-width="5" stroke-linecap="round">
+        <path d="M130,256 C116,300 128,334 150,346" />
+        <path d="M190,256 C204,300 192,334 170,346" />
+        <path d="M150,346 Q160,352 170,346" />
+        <path d="M160,350 C162,372 176,380 186,384" />
+        <circle cx="194" cy="388" r="10" fill="#c9d3d6" stroke-width="4" />
+      </g>
+    </g>
+    <!-- lengan kanan -->
+    <g class="dika-arm-r">
+      <path d="M220,266 C240,300 250,360 248,424 L222,426 C220,372 214,322 200,292 Z" fill="#4a7c86" stroke="#cfc8b6" stroke-width="3" stroke-linejoin="round" />
+      <rect x="220" y="414" width="30" height="14" rx="5" fill="#f1efe6" />
+      <circle class="dika-hand-r" cx="235" cy="438" r="14" fill="#d39a76" />
+    </g>
+    <!-- kepala, origin di leher -->
+    <g class="dika-head">
+      <path class="dika-hijab" opacity="0" d="M88,176 C82,98 120,74 160,74 C200,74 238,98 232,176 L240,266 C210,288 110,288 80,266 Z" fill="#6fa77a" />
+      <rect x="142" y="226" width="36" height="34" rx="10" fill="#b97c5a" />
+      <path d="M108,150 C102,104 128,82 162,82 C200,82 224,106 216,156 L214,196 C204,186 116,186 106,196 Z" fill="#1d2430" />
+      <ellipse cx="99" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse cx="221" cy="184" rx="11" ry="15" fill="#b97c5a" />
+      <ellipse cx="160" cy="178" rx="62" ry="68" fill="#d39a76" />
+      <path d="M96,168 C90,108 122,90 162,90 C206,90 232,114 224,168 C214,138 194,128 172,124 C164,142 136,148 112,140 C104,150 99,158 96,168 Z" fill="#1d2430" />
+      <g class="dika-brows" fill="none" stroke="#1d2430" stroke-width="5" stroke-linecap="round">
+        <g opacity="1"><path d="M124,158 Q137,151 150,157" /><path d="M170,157 Q183,151 196,158" /></g>
+        <g opacity="0"><path d="M124,158 Q138,156 150,150" /><path d="M170,150 Q182,156 196,158" /></g>
+      </g>
+      <g class="dika-eye dika-eye-l" transform="translate(138 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-eye dika-eye-r" transform="translate(182 180)">
+        <ellipse rx="6.5" ry="8.5" fill="#10313a" /><circle cx="2" cy="-3" r="2.2" fill="#ffffff" />
+        <ellipse class="dika-lid" rx="8" ry="10" fill="#d39a76" transform="scale(1 0)" />
+      </g>
+      <g class="dika-glasses" opacity="0" fill="none" stroke="#10313a" stroke-width="3.5">
+        <circle cx="138" cy="180" r="16" /><circle cx="182" cy="180" r="16" /><path d="M154,178 Q160,173 166,178" /><path d="M122,176 L104,172" /><path d="M198,176 L216,172" />
+      </g>
+      <path d="M159,190 q-5,11 3,13" fill="none" stroke="#b97c5a" stroke-width="3.5" stroke-linecap="round" />
+      <ellipse cx="124" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <ellipse cx="196" cy="204" rx="11" ry="6" fill="#e0715a" opacity=".3" />
+      <g class="dika-mouth" fill="none" stroke="#5a2a20" stroke-width="4.5" stroke-linecap="round">
+        <path class="dika-m-smile" opacity="0" d="M145,214 Q160,228 175,214" />
+        <path class="dika-m-worried" opacity="0" d="M147,222 Q153,214 160,219 Q167,224 173,216" />
+        <ellipse class="dika-m-oh" opacity="0" cx="160" cy="219" rx="6" ry="8" fill="#5a2a20" stroke="none" />
+      </g>
+      <path class="dika-sweat" opacity="0" d="M226,140 C220,152 218,160 226,164 C234,160 232,152 226,140 Z" fill="#7cc4e8" stroke="#3f8fb8" stroke-width="2" />
+    </g>
+  </g>
+</svg>
+</div>
+    <svg class="lamp" viewBox="0 0 200 240"><path d="M40,236 h90" stroke="#2b2b2b" stroke-width="12" stroke-linecap="round" /><path d="M85,236 L60,120 L130,40" fill="none" stroke="#3a3a3a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" /><path class="shade" d="M110,20 L190,60 L150,110 Z" fill="#e07a1f" /><circle class="bulb" cx="160" cy="92" r="16" fill="#fde68a" /></svg>
+    <div class="desk"></div>
+    <svg class="lap" viewBox="0 0 300 170"><path d="M30,10 h240 a8,8 0 0 1 8,8 v130 h-256 v-130 a8,8 0 0 1 8,-8 z" fill="#9aa4ad" stroke="#6b7680" stroke-width="4" /><circle cx="150" cy="80" r="16" fill="#c9d1d8" /><rect x="0" y="148" width="300" height="20" rx="6" fill="#7b8590" /></svg>
+    <div class="books"><i style="top: 88px; background: #195764"></i><i style="top: 64px; background: #a2462a; left: 4px"></i><i style="top: 40px; background: #aad39c; left: -3px"></i></div>
+    <div class="dark"></div>
+  </div>
+  <div class="vig"></div>
+  <div class="cd c1"><div class="bind"></div><i class="ring" style="left: 200px"></i><i class="ring" style="left: 530px"></i><div class="big">7</div><div class="sub">hari lagi</div></div>
+  <div class="note"><img src="../../assets/mri/sub-654/dwi_z15.png" alt="" /><p>MRI stroke</p></div>
+  <div class="cd c2">
+    <svg viewBox="0 0 700 380">
+      <g transform="translate(40 60)"><rect x="0" y="80" width="220" height="190" rx="8" fill="#e8f1f2" stroke="#195764" stroke-width="5" /><path d="M-10,84 L110,10 L230,84 Z" fill="#195764" /><g fill="#195764"><rect x="30" y="120" width="26" height="110" /><rect x="96" y="120" width="26" height="110" /><rect x="162" y="120" width="26" height="110" /></g><text x="110" y="320" text-anchor="middle" font-family="Geist" font-weight="700" font-size="34" fill="#10313a">Kampus</text></g>
+      <g transform="translate(440 60)"><rect x="0" y="40" width="220" height="230" rx="8" fill="#fff" stroke="#94a3b8" stroke-width="5" /><circle cx="110" cy="130" r="46" fill="#fff" stroke="#dc2626" stroke-width="6" /><rect x="98" y="100" width="24" height="60" rx="4" fill="#dc2626" /><rect x="80" y="118" width="60" height="24" rx="4" fill="#dc2626" /><text x="110" y="320" text-anchor="middle" font-family="Geist" font-weight="700" font-size="34" fill="#10313a">Rumah sakit</text></g>
+      <path class="link" d="M270,200 H430" stroke="#94a3b8" stroke-width="8" stroke-dasharray="14 12" />
+      <g class="x"><circle cx="350" cy="200" r="46" fill="#dc2626" /><path d="M330,180 l40,40 M370,180 l-40,40" stroke="#fff" stroke-width="10" stroke-linecap="round" /></g>
+    </svg></div>
+  <div class="cd c3">
+    <div class="grid"><img src="../../assets/mri/sub-1413/dwi_z08.png" alt="" /><img src="../../assets/mri/sub-1413/dwi_z12.png" alt="" /><img src="../../assets/mri/sub-1413/dwi_z16.png" alt="" /><img src="../../assets/mri/sub-654/dwi_z10.png" alt="" /><img src="../../assets/mri/sub-654/dwi_z15.png" alt="" /><img src="../../assets/mri/sub-654/dwi_z20.png" alt="" /></div>
+    <svg class="lock" viewBox="0 0 160 200"><path class="sh" d="M40,96 V62 a40,40 0 0 1 80,0 V96" fill="none" stroke="#10313a" stroke-width="18" stroke-linecap="round" /><rect x="14" y="90" width="132" height="104" rx="18" fill="#10313a" /><circle cx="80" cy="134" r="14" fill="#fbbf24" /><rect x="74" y="140" width="12" height="30" rx="4" fill="#fbbf24" /></svg>
+    <div class="stamp">RAHASIA</div></div>
+  <div class="cd c4">
+    <svg class="book" viewBox="0 0 640 360"><path d="M320,40 C250,10 120,10 30,30 V330 C120,310 250,310 320,340 Z" fill="#fdfaf2" stroke="#cbd5e1" stroke-width="5" /><path d="M320,40 C390,10 520,10 610,30 V330 C520,310 390,310 320,340 Z" fill="#fdfaf2" stroke="#cbd5e1" stroke-width="5" /><g stroke="#cbd5e1" stroke-width="8" stroke-linecap="round"><path d="M370,80 H560" /><path d="M370,120 H570" /><path d="M370,160 H540" /><path d="M370,200 H565" /><path d="M370,240 H520" /><path d="M370,280 H550" /></g><path d="M80,250 H270" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" /><path d="M80,285 H230" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" /></svg>
+    <img class="pic" src="../../assets/mri/sub-654/dwi_z15.png" alt="" /></div>
+</div></div>
+</div>
+<!-- @sfx night_room@0.0:0.4 tick@0.6:0.3 tock@1.6:0.3 pop@~Dika:0.4 notif_pop@~Minggu-0.1:0.45 clock_fast@~ujian:0.35 tension_hit@~Masalahnya-0.05:0.55 heartbeat@~Masalahnya+0.2:0.5 whoosh@~kampusnya+0.1:0.4 error_buzz@~sendiri-0.2:0.35 slide@~Data-0.2:0.4 lock_heavy@~rahasia-0.25:0.55 stamp@~rahasia:0.6 heartbeat_fast@~rahasia+0.3:0.4 book_open@~Yang-0.1:0.45 tense_drone@~beberapa:0.45 -->
+<script>
+(() => {
+  // ---- helper bersama (disisipkan tools/build.mjs) ----
+  // T0 = waktu nominal mulai frame di timeline lokal (0,5 dtk pertama dipakai transisi masuk)
+  const ID = "f01", T0 = 0, DUR = 23.7, VO_AT = 0.6, VOW = [["Ini",0],["Dika",0.07],["mahasiswa",0.26],["kedokteran",0.38],["Minggu",2.41],["depan",2.47],["ujian",2.63],["blok",2.71],["neurologi",2.78],["membaca",5.213],["MRI",5.4],["stroke",5.58],["Masalahnya",7.99],["kampusnya",8.24],["tidak",8.39],["punya",8.45],["rumah",8.53],["sakit",8.58],["sendiri",8.66],["Data",11.86],["MRI",11.94],["pasien",12.04],["tersimpan",12.18],["di",12.31],["rumah",12.34],["sakit",12.39],["dan",12.58],["sifatnya",12.62],["rahasia",12.74],["Yang",16.93],["ia",16.99],["punya",17.03],["hanya",17.21],["beberapa",17.26],["gambar",17.37],["dari",17.47],["buku",17.53],["dan",17.65],["slide",17.71],["kuliah",17.79]];
+  const END = T0 + DUR;
+  const R = document.getElementById(ID);
+  const S = R.querySelector(".scene");
+  const $ = (q) => R.querySelectorAll(q);
+  const $1 = (q) => R.querySelector(q);
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out", duration: 0.55 } });
+  // selector string GSAP dicari di seluruh halaman gabungan; batasi ke frame ini
+  const scope = (t) => (typeof t === "string" ? R.querySelectorAll(t) : t);
+  // tanpa pantulan: back/elastic/bounce diganti kurva yang mendarat lalu diam (masuk = expo.out, keluar = power3.in)
+  const calm = (v) => {
+    if (v && typeof v === "object" && typeof v.ease === "string" && /back|elastic|bounce/.test(v.ease))
+      v.ease = /\.in\b|\.in\(/.test(v.ease) && !/inOut/.test(v.ease) ? "power3.in" : /inOut/.test(v.ease) ? "power3.inOut" : "expo.out";
+    return v;
+  };
+  for (const m of ["to", "from", "fromTo", "set"]) {
+    const orig = tl[m].bind(tl);
+    tl[m] = (t, ...a) => orig(scope(t), ...a.map(calm));
+  }
+  // waktu (lokal) kata ke-n di voiceover frame ini yang cocok dengan pola
+  const w = (pat, n = 1) => {
+    const re = new RegExp(pat, "i");
+    let c = 0;
+    for (const [t, s] of VOW) if (re.test(t) && ++c === n) return T0 + VO_AT + s;
+    throw new Error(`${ID}: kata "${pat}" (#${n}) tidak ada di VO`);
+  };
+  const fmtID = (v, dec = 0) => {
+    const [i, f] = v.toFixed(dec).split(".");
+    return i.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (f ? "," + f : "");
+  };
+  // transisi masuk. Satu tata bahasa untuk seluruh film: "push" (kamera geser, adegan lama mundur ke kiri),
+  // "cut" (potong keras, untuk pergantian babak) dan "zoom" (sekali, masuk ke logo). Jenis lama dipetakan ke push.
+  const enter = (kind, x = 960, y = 540) => {
+    if (kind === "none" || kind === "cut" || T0 === 0) return;
+    if (!["push", "zoom"].includes(kind)) kind = "push";
+    const d = 0.62;
+    if (kind === "iris") {
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("viewBox", "0 0 1920 1080");
+      Object.assign(svg.style, { position: "absolute", inset: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: 50 });
+      const ring = document.createElementNS(ns, "circle");
+      ring.setAttribute("cx", x); ring.setAttribute("cy", y); ring.setAttribute("r", 0);
+      ring.setAttribute("fill", "none"); ring.setAttribute("stroke", "#e07a1f"); ring.setAttribute("stroke-width", "14");
+      svg.appendChild(ring);
+      const dot = document.createElementNS(ns, "circle");
+      dot.setAttribute("cx", x); dot.setAttribute("cy", y); dot.setAttribute("r", 0); dot.setAttribute("fill", "#f09a6c");
+      svg.appendChild(dot);
+      R.appendChild(svg);
+      tl.fromTo(dot, { attr: { r: 0 } }, { attr: { r: 26 }, duration: 0.14, ease: "back.out(3)" }, 0);
+      tl.to(dot, { attr: { r: 0 }, duration: 0.18, ease: "power2.in" }, 0.16);
+      tl.fromTo(S, { clipPath: `circle(0px at ${x}px ${y}px)` }, { clipPath: `circle(2300px at ${x}px ${y}px)`, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.fromTo(ring, { attr: { r: 0 }, opacity: 1 }, { attr: { r: 2300 }, duration: d, ease: "power3.inOut" }, 0.1);
+      tl.set(S, { clipPath: "none" }, 0.1 + d);
+      tl.set(svg, { opacity: 0 }, 0.1 + d);
+    } else if (kind === "push") {
+      tl.fromTo(S, { x: 1920, boxShadow: "-30px 0 60px rgba(16,24,40,.16)" }, { x: 0, duration: d, ease: "power4.inOut" }, 0);
+      tl.set(S, { boxShadow: "none" }, d);
+    } else if (kind === "fade") {
+      tl.fromTo(S, { opacity: 0, scale: 1.04, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: d, ease: "sine.inOut" }, 0);
+      tl.set(S, { filter: "none" }, d);
+    } else if (kind === "bars") {
+      // lima batang warna merek naik menutup layar, lalu terus naik membuka adegan baru
+      const ov = overlay(52);
+      const bs = ["#195764", "#e07a1f", "#aad39c", "#0f3a43", "#f09a6c"].map((c, i) => div(ov, { position: "absolute", top: "0", bottom: "0", left: `${i * 20}%`, width: "20.3%", background: c }));
+      tl.set(S, { opacity: 0 }, 0);
+      tl.fromTo(bs, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.26, ease: "power3.in", stagger: 0.035 }, 0);
+      tl.set(S, { opacity: 1 }, 0.42);
+      tl.to(bs, { scaleY: 0, transformOrigin: "50% 0%", duration: 0.32, ease: "power3.out", stagger: 0.035 }, 0.43);
+      tl.set(ov, { display: "none" }, 0.95);
+    } else if (kind === "zoom") {
+      tl.fromTo(S, { opacity: 0, scale: 1.55, filter: "blur(18px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 0.02);
+      tl.set(S, { filter: "none" }, 0.6);
+    } else if (kind === "whip") {
+      tl.fromTo(S, { x: 1500, skewX: -10, filter: "blur(34px)" }, { x: 0, skewX: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+      tl.set(S, { filter: "none" }, 0.52);
+    } else if (kind === "slideup") {
+      const ov = overlay(52);
+      const p = div(ov, { position: "absolute", left: "0", right: "0", top: "0", height: "1080px", background: "#e07a1f" });
+      tl.fromTo(p, { y: 1080 }, { y: -1080, duration: 0.62, ease: "power3.inOut" }, 0);
+      tl.fromTo(S, { y: 1080 }, { y: 0, duration: 0.55, ease: "power4.inOut" }, 0.07);
+      tl.set(ov, { display: "none" }, 0.7);
+    } else if (kind === "glitch") {
+      const ov = overlay(52);
+      const strips = [0.12, 0.27, 0.41, 0.58, 0.7, 0.86].map((yy, i) => div(ov, { position: "absolute", left: "0", right: "0", top: `${yy * 100}%`, height: `${16 + (i % 3) * 22}px`, background: i % 2 ? "rgba(37,200,230,.75)" : "rgba(220,38,38,.75)", mixBlendMode: "multiply" }));
+      tl.fromTo(S, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "steps(5)" }, 0);
+      tl.fromTo(S, { x: -60, skewX: 16 }, { x: 0, skewX: 0, duration: 0.45, ease: "steps(6)" }, 0);
+      strips.forEach((st, i) => tl.fromTo(st, { opacity: 0, x: (i % 2 ? 1 : -1) * 120 }, { opacity: 1, x: 0, duration: 0.05, yoyo: true, repeat: 7, ease: "steps(1)" }, i * 0.02));
+      tl.set(ov, { display: "none" }, 0.6);
+    }
+  };
+  // keluar: hanya saat frame berikutnya sedang masuk di atasnya (bukan exit sendiri)
+  const leave = () => {
+    tl.to(S, { x: -480, duration: 0.62, ease: "power4.inOut" }, END - 0.5);
+  };
+  const blinkAt = (lids, times) => times.forEach((t) => {
+    tl.to(lids, { scaleY: 1, duration: 0.07, ease: "none", transformOrigin: "50% 50%" }, t);
+    tl.to(lids, { scaleY: 0, duration: 0.09, ease: "none" }, t + 0.1);
+  });
+  // kedip manual tidak dipakai lagi: semua tokoh berkedip otomatis (lihat akhir helper)
+  const blink = () => {};
+  // gerak idle naik-turun yang terbatas (yoyo dengan repeat terhitung)
+  const bob = (sel, from, to, amp = 8, per = 1.6, prop = "y") => {
+    const n = Math.max(1, Math.floor((to - from) / (per / 2)) - 1);
+    tl.fromTo(sel, { [prop]: 0 }, { [prop]: -amp, duration: per / 2, ease: "sine.inOut", yoyo: true, repeat: n }, from);
+  };
+  // masuk: sebagian besar gerak di beberapa frame pertama lalu ekor panjang, tanpa pantulan; tidak tumbuh dari nol
+  const pop = (sel, t, o = {}) => tl.fromTo(sel, { scale: Math.max(0.82, o.from ?? 0.86), opacity: 0, transformOrigin: o.origin ?? "50% 50%" }, { scale: 1, opacity: 1, duration: o.d ?? 0.5, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0 }, t);
+  const rise = (sel, t, o = {}) => tl.fromTo(sel, { y: o.y ?? 32, opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const slideIn = (sel, t, o = {}) => tl.fromTo(sel, { x: o.x ?? -60, opacity: 0 }, { x: 0, opacity: 1, duration: o.d ?? 0.55, ease: o.ease ?? "expo.out", stagger: o.stagger ?? 0.06 }, t);
+  const count = (el, from, to, t, d, o = {}) => {
+    const p = { v: from };
+    const put = () => { el.textContent = (o.pre ?? "") + fmtID(p.v, o.dec ?? 0) + (o.suf ?? ""); };
+    tl.fromTo(p, { v: from }, { v: to, duration: d, ease: o.ease ?? "power2.out", onUpdate: put, onStart: put }, t);
+    tl.set({}, { onComplete: put }, t + d);
+  };
+  const drawPath = (el, t, d, o = {}) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 1000;
+    tl.fromTo(el, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+  };
+  const typeText = (el, text, t, cps = 28) => {
+    const p = { n: 0 };
+    tl.fromTo(p, { n: 0 }, { n: text.length, duration: text.length / cps, ease: "none", onUpdate: () => { el.textContent = text.slice(0, Math.round(p.n)); } }, t);
+  };
+  const scaleBar = (sel, t, o = {}) => tl.fromTo(sel, { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: o.d ?? 0.9, ease: o.ease ?? "power3.out", stagger: o.stagger ?? 0.1 }, t);
+  // ---- motion v2: latar hidup, kamera, efek benturan, teks kinetik ----
+  const NS = "http://www.w3.org/2000/svg";
+  const D = R.querySelector(".dolly") || S; // kamera frame (drift/shake), di dalam .scene
+  let fxSeed = [...ID].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 977);
+  const frnd = () => ((fxSeed = (fxSeed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (parent, style = {}, cls) => {
+    const e = document.createElement("div");
+    if (cls) e.className = cls;
+    Object.assign(e.style, style);
+    parent.appendChild(e);
+    return e;
+  };
+  // lapisan di atas .scene (dipakai transisi)
+  const overlay = (z) => div(R, { position: "absolute", inset: "0", zIndex: z, pointerEvents: "none" });
+  const FX = div(D, {}, "fx");
+  const fxSvg = () => svgEl("svg", { viewBox: "0 0 1920 1080" }, FX);
+
+  // latar: permukaan kertas hangat yang diam (cahaya lembut di tengah, vinyet tipis, butir kertas).
+  // Sengaja tidak bergerak: saat jeda presenter bicara, yang hidup hanya tokohnya.
+  const ground = () => {
+    const g = div(D, {}, "ground");
+    D.insertBefore(g, D.firstChild);
+    return g;
+  };
+  // (lama) kamera merayap sepanjang frame — dimatikan: jeda harus tenang
+  const drift = () => {};
+  // hentakan kecil sekali pakai (stempel mendarat): dua ayunan pendek, bukan gempa
+  const thud = (t, amp = 6) => {
+    tl.to(D, { y: amp, duration: 0.05, ease: "power2.out" }, t);
+    tl.to(D, { y: 0, duration: 0.28, ease: "power3.out" }, t + 0.05);
+  };
+  // guncangan/burst/kilat/konfeti/stabilo: efek "AI default" — sekarang tidak menggambar apa pun
+  const shake = () => {};
+  const burst = () => {};
+  const flash = () => {};
+  const confetti = () => {};
+  const mark = () => {};
+  const hit = () => {};
+  // kartu judul babak: dua panel menyapu, kata raksasa membanting, lalu menyapu keluar
+  const bumper = (word, t, o = {}) => {
+    const b = div(S, {}, "bump");
+    const cols = o.cols ?? ["#e07a1f", "#195764"];
+    const p1 = div(b, { background: cols[0] }, "bp"), p2 = div(b, { background: cols[1] }, "bp");
+    const bw = div(b, {}, "bw"); bw.textContent = word;
+    const bs = o.sub ? div(b, {}, "bs") : null; if (bs) bs.textContent = o.sub;
+    const hold = o.hold ?? 0.8;
+    tl.fromTo(p1, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t);
+    tl.fromTo(p2, { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.28, ease: "power4.inOut" }, t + 0.08);
+    tl.fromTo(bw, { scale: 1.6, scaleX: 2.1, opacity: 0 }, { scale: 1, scaleX: 1, opacity: 1, duration: 0.42, ease: "expo.out" }, t + 0.2);
+    if (bs) tl.fromTo(bs, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35 }, t + 0.32);
+    tl.to(bw, { scale: 1.07, duration: hold, ease: "none" }, t + 0.62);
+    const out = t + 0.32 + hold;
+    tl.to(bs ? [bw, bs] : bw, { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, out);
+    tl.to(p2, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.1);
+    tl.to(p1, { clipPath: "inset(0 0 0 100%)", duration: 0.3, ease: "power4.inOut" }, out + 0.18);
+    tl.set(b, { display: "none" }, out + 0.5);
+    return out + 0.4;
+  };
+  // pecah teks jadi kata (tag <b>/<em> di dalamnya dipertahankan) lalu muncul berjenjang
+  const splitWords = (el) => {
+    const walk = (node) => [...node.childNodes].forEach((c) => {
+      if (c.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) frag.appendChild(document.createTextNode(part));
+          else { const s = document.createElement("span"); s.className = "wd"; s.style.display = "inline-block"; s.textContent = part; frag.appendChild(s); }
+        });
+        c.replaceWith(frag);
+      } else if (c.nodeType === 1 && !c.classList.contains("wd")) walk(c);
+    });
+    walk(el);
+    return [...el.querySelectorAll(".wd")];
+  };
+  const words = (sel, t, o = {}) => {
+    const els = typeof sel === "string" ? [...R.querySelectorAll(sel)] : [sel].flat();
+    els.forEach((el) => tl.fromTo(splitWords(el), { y: Math.min(o.y ?? 26, 30), opacity: 0 }, { y: 0, opacity: 1, duration: o.d ?? 0.5, ease: "expo.out", stagger: Math.min(o.stagger ?? 0.05, 0.06) }, t));
+  };
+  // kamera di dalam jendela rekaman: pusatkan titik (rx, ry) piksel rekaman 1920x1200 pada skala s
+  const camTo = (el, rx, ry, s, t, d = 1.1, o = {}) => {
+    const k = o.k ?? 0.71875, VW = o.vw ?? 1380, VH = o.vh ?? 862;
+    const x = Math.min(0, Math.max(VW - VW * s, VW / 2 - rx * k * s)), y = Math.min(0, Math.max(VH - VH * s, VH / 2 - ry * k * s));
+    tl.set(el, { transformOrigin: "0% 0%" }, 0);
+    tl.to(el, { x, y, scale: s, duration: d, ease: o.ease ?? "power3.inOut" }, t);
+    return { x, y, s };
+  };
+  if (R.dataset.amb !== "0") ground();
+  // semua tokoh hidup saat jeda: kedip dengan jarak acak-tetap (berbiji) sampai akhir frame
+  R.querySelectorAll("svg.dika, svg.sina").forEach((el, k) => {
+    const lids = el.querySelectorAll(".dika-lid, .sina-lid");
+    const ts = [];
+    for (let t = 1.1 + k * 0.7 + frnd() * 0.8; t < END - 0.4; t += 2.8 + frnd() * 2.2) ts.push(+t.toFixed(2));
+    blinkAt(lids, ts);
+  });
+  // ---- akhir helper ----
+
+  const W = $1(".world");
+  tl.set(W, { transformOrigin: "560px 500px" }, 0);
+  // kamera diam; satu dorongan ke Dika saat "Masalahnya", lalu diam lagi
+  const tm = w("Masalahnya") - 0.05;
+  tl.to(W, { scale: 1.16, duration: 0.6, ease: "expo.out" }, tm);
+  // pembuka: kamar gelap, lampu belajar menyala, Dika di mejanya
+  tl.fromTo(".dark", { opacity: 0.78 }, { opacity: 0, duration: 0.5, ease: "power2.out" }, 0.25);
+  tl.fromTo(".glow", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.25);
+  tl.fromTo(".lamp .bulb", { opacity: 0.3 }, { opacity: 1, duration: 0.08, ease: "steps(2)" }, 0.22);
+  bob(".dk .dika-rig", 0.4, tm, 2.5, 2.6);
+  // kartu: satu demi satu di slot yang sama
+  const cards = [...$(".cd")];
+  const cardIn = (i, t) => tl.fromTo(cards[i], { x: 120, opacity: 0, rotation: 2 }, { x: 0, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, t);
+  const cardOut = (i, t) => tl.to(cards[i], { x: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, t);
+  cardIn(0, w("Minggu") - 0.2);
+  tl.fromTo(".c1 .big", { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, w("Minggu") - 0.05);
+  rise(".c1 .sub", w("Minggu") + 0.1, { y: 20 });
+  // "membaca MRI stroke": catatan tempel ditepuk ke sudut kalender
+  tl.fromTo(".note", { opacity: 0, y: -40, rotation: -14, scale: 1.12 }, { opacity: 1, y: 0, rotation: -5, scale: 1, duration: 0.42, ease: "expo.out" }, w("membaca") - 0.1);
+  // hentakan "Masalahnya"
+  cardOut(0, tm - 0.2);
+  tl.to(".note", { x: -60, opacity: 0, duration: 0.3, ease: "power2.in" }, tm - 0.2);
+  tl.to(".dk .dika-m-oh", { opacity: 1, duration: 0.05 }, tm);
+  tl.to(".dk .dika-brows > g:nth-child(1)", { opacity: 0, duration: 0.05 }, tm);
+  tl.to(".dk .dika-brows > g:nth-child(2)", { opacity: 1, duration: 0.05 }, tm);
+  tl.fromTo(".dk .dika-sweat", { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.5 }, tm + 0.2);
+  tl.fromTo(".vig", { opacity: 0 }, { opacity: 0.3, duration: 0.4 }, tm);
+  flash(tm, { color: "#ffffff", a: 0.35, d: 0.3 });
+  shake(tm + 0.05, 14, 0.5);
+  // kampus tanpa rumah sakit
+  cardIn(1, w("kampusnya") + 0.1);
+  drawPath($1(".c2 .link"), w("kampusnya") + 0.4, 0.5);
+  tl.fromTo(".c2 .x", { scale: 0, transformOrigin: "350px 200px" }, { scale: 1, duration: 0.4, ease: "back.out(3)" }, w("tidak"));
+  // data pasien: rahasia
+  cardOut(1, w("Data") - 0.4);
+  cardIn(2, w("Data") - 0.2);
+  tl.fromTo(".c3 .lock", { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "bounce.out" }, w("sifatnya") - 0.3);
+  tl.fromTo(".c3 .lock .sh", { y: -18 }, { y: 0, duration: 0.15, ease: "power4.in" }, w("rahasia") - 0.25);
+  tl.fromTo(".c3 .stamp", { scale: 2.4, opacity: 0, rotation: -26 }, { scale: 1, opacity: 1, rotation: -10, duration: 0.28, ease: "power4.in" }, w("rahasia") - 0.2);
+  burst(1460, 520, w("rahasia") + 0.08, { color: "#dc2626", c2: "#10313a", r0: 120, r1: 300, n: 14 });
+  shake(w("rahasia") + 0.08, 12);
+  tl.to(".dk .dika-head", { rotation: -6, svgOrigin: "160 240", duration: 0.35, ease: "power2.inOut" }, w("rahasia") + 0.2);
+  // yang ia punya: gambar seadanya; lampu meredup
+  cardOut(2, w("Yang") - 0.4);
+  cardIn(3, w("Yang") - 0.2);
+  tl.fromTo(".c4 .pic", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, w("beberapa"));
+  tl.to(".dk .dika-m-oh", { opacity: 0, duration: 0.1 }, w("Yang"));
+  tl.to(".dk .dika-m-worried", { opacity: 1, duration: 0.1 }, w("Yang"));
+  tl.to(".dk .dika-head", { rotation: 7, svgOrigin: "160 240", duration: 0.6, ease: "power2.inOut" }, w("hanya"));
+  tl.to(".glow", { opacity: 0.55, duration: 0.8 }, w("hanya"));
+  tl.to(".dark", { opacity: 0.3, duration: 0.8 }, w("hanya"));
+  leave();
+  window.__timelines[ID] = tl;
+})();
+</script>
+</template></body></html>

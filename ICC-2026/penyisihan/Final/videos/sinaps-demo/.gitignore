@@ -1,0 +1,5 @@
+.scratch/
+.hyperframes/
+renders/
+.hyperframes-frames.json
+boards/.posed.html

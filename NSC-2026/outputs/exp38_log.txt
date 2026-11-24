@@ -1,0 +1,35 @@
+    computed P0 pl_w20 (65s)
+    computed P0 pl_w50 (40s)
+    computed P0 pl_w100 (21s)
+    computed P1 pl_w20 (39s)
+    computed P1 pl_w50 (57s)
+    computed P1 pl_w100 (61s)
+    computed P2 pl_w20 (100s)
+    computed P2 pl_w50 (65s)
+    computed P2 pl_w100 (48s)
+    computed P3 pl_w20 (28s)
+    computed P3 pl_w50 (19s)
+    computed P3 pl_w100 (36s)
+    computed P4 pl_w20 (46s)
+    computed P4 pl_w50 (38s)
+    computed P4 pl_w100 (74s)
+    computed P5 pl_w20 (61s)
+    computed P5 pl_w50 (47s)
+    computed P5 pl_w100 (37s)
+    computed P6 pl_w20 (17s)
+    computed P6 pl_w50 (17s)
+    computed P6 pl_w100 (8s)
+    computed P7 pl_w20 (7s)
+    computed P7 pl_w50 (7s)
+    computed P7 pl_w100 (7s)
+    computed P8 pl_w20 (7s)
+    computed P8 pl_w50 (7s)
+    computed P8 pl_w100 (7s)
+
+family P, solo scores (self-training applied to the hbt member):
+  hbt (shipped)  mean  5.151  worst  6.503
+  pl_w20         mean  5.139  worst  6.521  vs hbt -0.012  7/9
+  pl_w50         mean  5.144  worst  6.518  vs hbt -0.008  7/9
+  pl_w100        mean  5.141  worst  6.510  vs hbt -0.011  6/9
+
+total 967s

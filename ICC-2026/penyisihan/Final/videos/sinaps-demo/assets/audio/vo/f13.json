@@ -1,0 +1,101 @@
+{
+ "text": "Setiap jawaban memperbarui estimasi penguasaanmu per kompetensi. Kasus berikutnya dipilih untuk yang paling lemah, dengan tingkat kesulitan yang pas.",
+ "end": 10.08,
+ "words": [
+  {
+   "w": "Setiap",
+   "s": 0,
+   "e": 0.4
+  },
+  {
+   "w": "jawaban",
+   "s": 0.48,
+   "e": 1.04
+  },
+  {
+   "w": "memperbarui",
+   "s": 1.12,
+   "e": 1.76
+  },
+  {
+   "w": "estimasi",
+   "s": 1.88,
+   "e": 2.32
+  },
+  {
+   "w": "penguasaanmu",
+   "s": 2.36,
+   "e": 3.2
+  },
+  {
+   "w": "per",
+   "s": 3.28,
+   "e": 3.44
+  },
+  {
+   "w": "kompetensi.",
+   "s": 3.52,
+   "e": 4.72
+  },
+  {
+   "w": "Kasus",
+   "s": 4.76,
+   "e": 5.04
+  },
+  {
+   "w": "berikutnya",
+   "s": 5.12,
+   "e": 5.68
+  },
+  {
+   "w": "dipilih",
+   "s": 5.72,
+   "e": 6.16
+  },
+  {
+   "w": "untuk",
+   "s": 6.24,
+   "e": 6.48
+  },
+  {
+   "w": "yang",
+   "s": 6.6,
+   "e": 6.72
+  },
+  {
+   "w": "paling",
+   "s": 6.8,
+   "e": 7.12
+  },
+  {
+   "w": "lemah,",
+   "s": 7.24,
+   "e": 7.707
+  },
+  {
+   "w": "dengan",
+   "s": 7.733,
+   "e": 8
+  },
+  {
+   "w": "tingkat",
+   "s": 8.08,
+   "e": 8.32
+  },
+  {
+   "w": "kesulitan",
+   "s": 8.4,
+   "e": 8.8
+  },
+  {
+   "w": "yang",
+   "s": 8.92,
+   "e": 9.04
+  },
+  {
+   "w": "pas.",
+   "s": 9.52,
+   "e": 10.08
+  }
+ ]
+}

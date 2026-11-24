@@ -1,0 +1,145 @@
+{
+  "cache_rows": 2160,
+  "primary_rows": 1440,
+  "artifacts": {
+    "v21_increment_v16.csv": "5396077ee744458aa8d21b2ea336f61a",
+    "v21_increment_v16_phys.csv": "24ead6b72bf62d9f0492f3d72aff1c31",
+    "v21_increment_v16_phys_dsh.csv": "4272e15f36d73d459a36ea7efeca3b2b"
+  },
+  "date_pairing": {
+    "days": 31,
+    "loo_r2": -0.08162477935833179,
+    "rows": 1440,
+    "mispaired_rows": 1440,
+    "baseline": 5.5369419680395335,
+    "as_reported_section163": 5.494334905879623,
+    "correctly_paired": 5.577695304351839,
+    "claimed_gain": -0.04260706215991039,
+    "actual_effect": 0.0407533363123056
+  },
+  "pooled": [
+    {
+      "source": "cache level v16",
+      "pooled_b1b2": 5.644890810040729,
+      "mean_block_rmse": 5.504720534251133,
+      "with_b3": 5.392637495692912,
+      "n": 1440
+    },
+    {
+      "source": "cache increment, 1 seed",
+      "pooled_b1b2": 5.5369419680395335,
+      "mean_block_rmse": 5.4065368124888415,
+      "with_b3": 5.28360821036176,
+      "n": 1440
+    },
+    {
+      "source": "physics screen, 1 seed",
+      "pooled_b1b2": 5.505092713029202,
+      "mean_block_rmse": 5.158312877176399,
+      "with_b3": NaN,
+      "n": 1440
+    },
+    {
+      "source": "physics + half deshrink screen, 1 seed",
+      "pooled_b1b2": 5.476465862961497,
+      "mean_block_rmse": 5.150650373911258,
+      "with_b3": NaN,
+      "n": 1440
+    },
+    {
+      "source": "physics + full deshrink screen, 1 seed",
+      "pooled_b1b2": 5.4619561586118115,
+      "mean_block_rmse": 5.163015368608105,
+      "with_b3": NaN,
+      "n": 1440
+    },
+    {
+      "source": "oracle script, 5 seeds",
+      "pooled_b1b2": 5.514358862716556,
+      "mean_block_rmse": 5.384108754791919,
+      "with_b3": NaN,
+      "n": 1440
+    },
+    {
+      "source": "oracle script, true increments",
+      "pooled_b1b2": 4.600205847345365,
+      "mean_block_rmse": 4.44470525328178,
+      "with_b3": NaN,
+      "n": 1440
+    }
+  ],
+  "seeds": {
+    "fit_increments_default_seeds": 1,
+    "shipped_inc_seeds": 5,
+    "an36_call": [
+      "inc = fp.fit_increments(F, y, labelled & (gh.index <= hs))"
+    ],
+    "an36_seeds_used": 1,
+    "an41_seeds_used": 5
+  },
+  "breakdown": {
+    "rows": 1440,
+    "days": 31,
+    "sse": 44147.125954710005,
+    "hours": [
+      {
+        "slice": "00-05",
+        "n": 360,
+        "days": 30,
+        "rmse": 6.862428752274796,
+        "sse_share": 0.38402169677386366
+      },
+      {
+        "slice": "06-11",
+        "n": 360,
+        "days": 30,
+        "rmse": 4.745926519307088,
+        "sse_share": 0.18367163194081787
+      },
+      {
+        "slice": "12-17",
+        "n": 360,
+        "days": 31,
+        "rmse": 4.632638602289314,
+        "sse_share": 0.17500759979070177
+      },
+      {
+        "slice": "18-23",
+        "n": 360,
+        "days": 30,
+        "rmse": 5.617189520001869,
+        "sse_share": 0.25729907149461667
+      }
+    ],
+    "worst_days": [
+      {
+        "day": "2023-08-05",
+        "sse": 7032.8069654484525,
+        "share": 0.15930384624954574
+      },
+      {
+        "day": "2023-08-28",
+        "sse": 3875.939746206505,
+        "share": 0.08779597000680824
+      },
+      {
+        "day": "2023-08-07",
+        "sse": 3212.151544611924,
+        "share": 0.0727601508625325
+      }
+    ],
+    "worst3_share": 0.3198599671188865,
+    "day_level_share": 0.39654243273731066,
+    "within_day_share": 0.6034575672626893,
+    "per_block": {
+      "B1_last15d": {
+        "rmse": 4.211929742092676,
+        "n": 720
+      },
+      "B2_prev15d": {
+        "rmse": 6.601143882885006,
+        "n": 720
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+# Rebuildable or large local artefacts
+*/scripts/node_modules/
+*/.hyperframes/
+*/renders/
+# Raw 2x app screenshots (~270 MB): regenerate with scripts/capture-*.mjs; the video uses the staged assets/captures/*.jpg
+*/capture/
+# Studio / preview caches
+*/.thumbnails/
+*/.waveform-cache/
+*/.transcode-cache/
+# Personal voice sample used for the ElevenLabs clone
+*/assets/voice-src/

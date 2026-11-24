@@ -1,0 +1,91 @@
+{
+ "text": "Dosennya juga kewalahan. Satu dosen, satu kelas penuh. Tidak mungkin memeriksa bacaan tiap mahasiswa satu per satu.",
+ "end": 8.56,
+ "words": [
+  {
+   "w": "Dosennya",
+   "s": 0,
+   "e": 0.48
+  },
+  {
+   "w": "juga",
+   "s": 0.56,
+   "e": 0.72
+  },
+  {
+   "w": "kewalahan.",
+   "s": 0.8,
+   "e": 2
+  },
+  {
+   "w": "Satu",
+   "s": 2.08,
+   "e": 2.4
+  },
+  {
+   "w": "dosen,",
+   "s": 2.48,
+   "e": 3.2
+  },
+  {
+   "w": "satu",
+   "s": 3.28,
+   "e": 3.6
+  },
+  {
+   "w": "kelas",
+   "s": 3.68,
+   "e": 3.92
+  },
+  {
+   "w": "penuh.",
+   "s": 4,
+   "e": 4.72
+  },
+  {
+   "w": "Tidak",
+   "s": 4.76,
+   "e": 4.96
+  },
+  {
+   "w": "mungkin",
+   "s": 5.04,
+   "e": 5.36
+  },
+  {
+   "w": "memeriksa",
+   "s": 5.44,
+   "e": 5.84
+  },
+  {
+   "w": "bacaan",
+   "s": 5.92,
+   "e": 6.24
+  },
+  {
+   "w": "tiap",
+   "s": 6.32,
+   "e": 6.56
+  },
+  {
+   "w": "mahasiswa",
+   "s": 6.64,
+   "e": 7.12
+  },
+  {
+   "w": "satu",
+   "s": 7.2,
+   "e": 7.52
+  },
+  {
+   "w": "per",
+   "s": 7.6,
+   "e": 7.68
+  },
+  {
+   "w": "satu.",
+   "s": 7.76,
+   "e": 8.56
+  }
+ ]
+}

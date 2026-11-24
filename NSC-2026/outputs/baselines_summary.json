@@ -1,0 +1,98 @@
+{
+ "naif": {
+  "label": "Rerata latih",
+  "pooled": 18.8169,
+  "mean_fold": 18.81,
+  "per_fold": [
+   18.6435,
+   18.9456,
+   19.4085,
+   19.6812,
+   19.0703,
+   17.9669,
+   18.3465,
+   18.401,
+   18.8265
+  ]
+ },
+ "persist": {
+  "label": "Persistensi profil hari terakhir",
+  "pooled": 13.3831,
+  "mean_fold": 13.0621,
+  "per_fold": [
+   11.4877,
+   11.0664,
+   11.4008,
+   14.3285,
+   19.3882,
+   15.881,
+   12.2148,
+   8.9592,
+   12.8325
+  ]
+ },
+ "fisis": {
+  "label": "Proksi titik embun, tanpa parameter",
+  "pooled": 10.9333,
+  "mean_fold": 10.9098,
+  "per_fold": [
+   11.7684,
+   11.7606,
+   11.4908,
+   9.6175,
+   10.1004,
+   10.8116,
+   10.3102,
+   11.1308,
+   11.1976
+  ]
+ },
+ "klim": {
+  "label": "Klimatologi jam-hari",
+  "pooled": 10.1621,
+  "mean_fold": 10.0633,
+  "per_fold": [
+   10.8728,
+   10.9449,
+   11.0371,
+   10.4931,
+   9.5703,
+   7.7661,
+   7.9361,
+   9.6092,
+   12.3397
+  ]
+ },
+ "ols": {
+  "label": "Regresi linear berganda, 24 kanal",
+  "pooled": 8.084,
+  "mean_fold": 7.841,
+  "per_fold": [
+   9.8627,
+   10.5301,
+   9.971,
+   8.7975,
+   7.8997,
+   5.5269,
+   5.3249,
+   5.3832,
+   7.273
+  ]
+ },
+ "lgbm1": {
+  "label": "LightGBM tunggal, parameter bawaan",
+  "pooled": 5.7087,
+  "mean_fold": 5.6281,
+  "per_fold": [
+   6.7381,
+   6.8274,
+   6.6282,
+   6.2547,
+   5.4973,
+   4.5384,
+   4.2404,
+   4.6897,
+   5.2388
+  ]
+ }
+}

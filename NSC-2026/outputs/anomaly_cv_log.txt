@@ -1,0 +1,22 @@
+ANOMALY-FREE CV: four 15-day blocks, all ending before 26 Aug
+leaderboard truth: baseline_v1 (plain) 4.755  <  final_v2 (day+ridge+hl20) 5.911
+so a trustworthy scheme must rank T0/T1 ABOVE T4
+
+  config                   C1      C2      C3      C4
+  T0_plain              6.919   7.429   6.719   4.086   mean  6.288   last2  5.403   w: lgbm_huber=0.59 enet=0.41
+  T1_day                6.552   7.952   7.379   4.273   mean  6.539   last2  5.826   w: lgbm_huber=0.43 cat=0.10 enet=0.48
+  T2_day_hl20           6.495   8.000   7.503   4.244   mean  6.560   last2  5.874   w: lgbm_huber=0.29 cat=0.25 enet=0.46
+  T3_day_ridge          6.510   7.785   7.316   4.287   mean  6.474   last2  5.801   w: lgbm_huber=0.36 cat=0.11 ridge=0.17 enet=0.36
+  T4_day_ridge_hl       6.395   7.871   7.476   4.228   mean  6.492   last2  5.852   w: lgbm_huber=0.24 cat=0.25 ridge=0.15 enet=0.36
+  T5_capped             6.636   7.935   7.386   3.957   mean  6.478   last2  5.671   w: lgbm_huber=0.53 cat=0.17 ridge=0.10 enet=0.20
+
+======================================================================
+ranking by mean_cv (best first):
+  1. T0_plain             6.2882
+  2. T3_day_ridge         6.4744
+  3. T5_capped            6.4785
+  4. T4_day_ridge_hl      6.4924
+  5. T1_day               6.5390
+  6. T2_day_hl20          6.5605
+
+VERDICT: PASS - anomaly was the confounder

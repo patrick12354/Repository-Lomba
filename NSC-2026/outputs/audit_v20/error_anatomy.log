@@ -1,0 +1,23 @@
+DECOMPOSITION on 1440 rows over 31 days
+  base       RMSE 5.6449  bias -0.7235 | day-level 38.16%  within-day 61.84% | worst 10% carry 53.13% | lag1 0.9356
+  increment  RMSE 5.5369  bias -0.7235 | day-level 39.65%  within-day 60.35% | worst 10% carry 52.35% | lag1 0.9409
+  the increment is mean-preserving, so it can only move the within-day part
+
+ORACLE CEILINGS -- upper bounds, not achievable results
+  remove each per_day            mean error  4.3012  (-1.2357)
+  remove each per_hour_of_day    mean error  5.4259  (-0.1110)
+  remove each per_block          mean error  5.4871  (-0.0498)
+  remove one global              offset      5.4895  (-0.0475)
+  -> essentially all remaining headroom is per-day level
+
+IS THE DAY LEVEL PREDICTABLE FROM THE SENSORS?
+  31 days, 24 daily features, day-error sd 3.4297
+  strongest |corr|: pressure_std +0.454, T_rng48_mean +0.291, co2_tend24h_mean -0.287, p_sd24h_mean +0.270
+  leave-one-day-out R2 -0.0816
+  applying that honest prediction: 5.5369 -> 5.4943 (-0.0426), against -0.0475 for a global offset
+
+DOES THE DAY-LEVEL ERROR PERSIST DAY TO DAY?
+  B1_last15d  n=16 sd 2.531 lag1 +0.560 lag2 -0.237 | oracle day-1 anchor applied to first 1/3/15 days: -1.196 +0.573 +0.644
+  B2_prev15d  n=16 sd 4.249 lag1 +0.120 lag2 -0.152 | oracle day-1 anchor applied to first 1/3/15 days: -2.109 +2.279 +0.684
+  B3_shift7d  n=16 sd 3.337 lag1 +0.671 lag2 +0.277 | oracle day-1 anchor applied to first 1/3/15 days: -5.017 -0.240 +5.333
+  -> an anchor helps day one and hurts from day two; the horizon is fifteen days

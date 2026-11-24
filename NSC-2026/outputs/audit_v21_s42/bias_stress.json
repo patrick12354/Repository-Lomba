@@ -1,0 +1,34 @@
+{
+  "harm": {
+    "pooled": 3.9963796307888413,
+    "d_pooled": 0.0,
+    "worst": 6.319430913570979,
+    "d_worst": 0.0,
+    "blocks_improved": 0,
+    "n_blocks": 5
+  },
+  "todbias": {
+    "pooled": 3.9917870578249564,
+    "d_pooled": -0.004592572963884933,
+    "worst": 6.324341998164724,
+    "d_worst": 0.0049110845937443415,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "both": {
+    "pooled": 3.9905503243787317,
+    "d_pooled": -0.0058293064101095915,
+    "worst": 6.321896551801208,
+    "d_worst": 0.002465638230228606,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  },
+  "none": {
+    "pooled": 4.020179945535707,
+    "d_pooled": 0.023800314746865947,
+    "worst": 6.32054004447357,
+    "d_worst": 0.0011091309025905716,
+    "blocks_improved": 2,
+    "n_blocks": 5
+  }
+}

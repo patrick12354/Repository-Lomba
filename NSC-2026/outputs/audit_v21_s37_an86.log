@@ -1,0 +1,68 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  validated 7-day forward (forward_7d.pkl, md5 bd55dc3b)
+  validated rebuilt 7-day OOF (oof_base_7d.pkl, md5 9241056e)
+
+B1_last15d (15d)  origin 2023-08-14  n=720  train=2213  control reproduced
+  built 5 masked views (2 s)
+    C0  member 4.50849  level 4.29323  z 4.23225 (+0.000000)  [6 s]
+    D0  member 4.87261  level 4.45188  z 4.38348 (+0.151227)  [7 s]
+    M1  member 4.80545  level 4.41326  z 4.34557 (+0.113324)  [7 s]
+    stress: C0 rms_dq 0.4628, D0 rms_dq 0.4319, M1 rms_dq 0.4224
+
+B2_prev15d (15d)  origin 2023-07-30  n=720  train=1493  control reproduced
+  built 5 masked views (1 s)
+    C0  member 6.49273  level 6.77822  z 6.58637 (+0.000000)  [5 s]
+    D0  member 6.72653  level 6.78681  z 6.59754 (+0.011172)  [6 s]
+    M1  member 6.65723  level 6.78890  z 6.59964 (+0.013271)  [6 s]
+    stress: C0 rms_dq 0.2726, D0 rms_dq 0.2701, M1 rms_dq 0.2631
+
+B3_shift7d (15d)  origin 2023-08-07  n=720  train=1877  control reproduced
+  built 5 masked views (1 s)
+    C0  member 5.03075  level 4.81089  z 4.69013 (+0.000000)  [6 s]
+    D0  member 5.15085  level 4.81981  z 4.70190 (+0.011768)  [7 s]
+    M1  member 5.14084  level 4.81961  z 4.70038 (+0.010247)  [6 s]
+    stress: C0 rms_dq 0.3035, D0 rms_dq 0.3038, M1 rms_dq 0.2809
+
+H1_last7d (7d)  origin 2023-08-22  n=336  train=2597  control reproduced
+  built 5 masked views (1 s)
+    C0  member 5.27104  level 5.27264  z 5.17925 (+0.000000)  [7 s]
+    D0  member 5.63746  level 5.41162  z 5.30357 (+0.124313)  [8 s]
+    M1  member 5.70382  level 5.44015  z 5.33816 (+0.158909)  [8 s]
+    stress: C0 rms_dq 0.6134, D0 rms_dq 0.5807, M1 rms_dq 0.5761
+
+H2_last14d (7d)  origin 2023-08-15  n=336  train=2261  control reproduced
+  built 5 masked views (1 s)
+    C0  member 3.14113  level 2.82172  z 2.77843 (+0.000000)  [6 s]
+    D0  member 3.29217  level 2.87530  z 2.81397 (+0.035542)  [7 s]
+    M1  member 3.31017  level 2.88215  z 2.81681 (+0.038384)  [8 s]
+    stress: C0 rms_dq 0.2673, D0 rms_dq 0.2697, M1 rms_dq 0.2756
+
+H3_last21d (7d)  origin 2023-08-08  n=336  train=1925  control reproduced
+  built 5 masked views (1 s)
+    C0  member 4.92162  level 5.49106  z 5.31050 (+0.000000)  [6 s]
+    D0  member 5.05184  level 5.50625  z 5.32101 (+0.010512)  [7 s]
+    M1  member 4.99114  level 5.49921  z 5.31587 (+0.005369)  [7 s]
+    stress: C0 rms_dq 0.1824, D0 rms_dq 0.1901, M1 rms_dq 0.1868
+
+arm      block  rmse_member   rmse_z  d_vs_c0
+ C0 B1_last15d     4.508488 4.232249 0.000000
+ D0 B1_last15d     4.872611 4.383475 0.151227
+ M1 B1_last15d     4.805452 4.345573 0.113324
+ C0 B2_prev15d     6.492735 6.586373 0.000000
+ D0 B2_prev15d     6.726531 6.597545 0.011172
+ M1 B2_prev15d     6.657234 6.599644 0.013271
+ C0 B3_shift7d     5.030748 4.690131 0.000000
+ D0 B3_shift7d     5.150848 4.701899 0.011768
+ M1 B3_shift7d     5.140839 4.700378 0.010247
+ C0  H1_last7d     5.271040 5.179252 0.000000
+ D0  H1_last7d     5.637461 5.303565 0.124313
+ M1  H1_last7d     5.703815 5.338161 0.158909
+ C0 H2_last14d     3.141125 2.778427 0.000000
+ D0 H2_last14d     3.292166 2.813969 0.035542
+ M1 H2_last14d     3.310174 2.816811 0.038384
+ C0 H3_last21d     4.921617 5.310499 0.000000
+ D0 H3_last21d     5.051836 5.321011 0.010512
+ M1 H3_last21d     4.991142 5.315868 0.005369
+
+wrote C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s37

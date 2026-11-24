@@ -1,0 +1,128 @@
+    computed P0 cat_rmse_d4 (10s)
+    computed P0 cat_rmse_d5 (16s)
+    computed P0 cat_rmse_l20 (31s)
+    computed P0 cat_mae (31s)
+    computed P1 cat_rmse (29s)
+    computed P1 cat_rmse_d4 (10s)
+    computed P1 cat_rmse_d5 (16s)
+    computed P1 cat_rmse_l20 (29s)
+    computed P1 cat_mae (29s)
+    computed P2 cat_rmse (29s)
+    computed P2 cat_rmse_d4 (10s)
+    computed P2 cat_rmse_d5 (17s)
+    computed P2 cat_rmse_l20 (28s)
+    computed P2 cat_mae (29s)
+    computed P3 cat_rmse (29s)
+    computed P3 cat_rmse_d4 (11s)
+    computed P3 cat_rmse_d5 (16s)
+    computed P3 cat_rmse_l20 (29s)
+    computed P3 cat_mae (29s)
+    computed P4 cat_rmse (29s)
+    computed P4 cat_rmse_d4 (11s)
+    computed P4 cat_rmse_d5 (17s)
+    computed P4 cat_rmse_l20 (31s)
+    computed P4 cat_mae (30s)
+    computed P5 cat_rmse (29s)
+    computed P5 cat_rmse_d4 (11s)
+    computed P5 cat_rmse_d5 (17s)
+    computed P5 cat_rmse_l20 (29s)
+    computed P5 cat_mae (30s)
+    computed P6 cat_rmse (30s)
+    computed P6 cat_rmse_d4 (11s)
+    computed P6 cat_rmse_d5 (17s)
+    computed P6 cat_rmse_l20 (30s)
+    computed P6 cat_mae (35s)
+    computed P7 cat_rmse (32s)
+    computed P7 cat_rmse_d4 (12s)
+    computed P7 cat_rmse_d5 (20s)
+    computed P7 cat_rmse_l20 (33s)
+    computed P7 cat_mae (38s)
+    computed P8 cat_rmse (35s)
+    computed P8 cat_rmse_d4 (20s)
+    computed P8 cat_rmse_d5 (22s)
+    computed P8 cat_rmse_l20 (36s)
+    computed P8 cat_mae (33s)
+    computed Q0 cat_rmse (34s)
+    computed Q0 cat_rmse_d4 (12s)
+    computed Q0 cat_rmse_d5 (19s)
+    computed Q0 cat_rmse_l20 (30s)
+    computed Q0 cat_mae (35s)
+    computed Q1 cat_rmse (34s)
+    computed Q1 cat_rmse_d4 (11s)
+    computed Q1 cat_rmse_d5 (19s)
+    computed Q1 cat_rmse_l20 (31s)
+    computed Q1 cat_mae (30s)
+    computed Q2 cat_rmse (33s)
+    computed Q2 cat_rmse_d4 (11s)
+    computed Q2 cat_rmse_d5 (18s)
+    computed Q2 cat_rmse_l20 (33s)
+    computed Q2 cat_mae (34s)
+    computed Q3 cat_rmse (35s)
+    computed Q3 cat_rmse_d4 (12s)
+    computed Q3 cat_rmse_d5 (25s)
+    computed Q3 cat_rmse_l20 (38s)
+    computed Q3 cat_mae (33s)
+    computed R0 cat_rmse (34s)
+    computed R0 cat_rmse_d4 (11s)
+    computed R0 cat_rmse_d5 (20s)
+    computed R0 cat_rmse_l20 (32s)
+    computed R0 cat_mae (33s)
+    computed R1 cat_rmse (34s)
+    computed R1 cat_rmse_d4 (12s)
+    computed R1 cat_rmse_d5 (20s)
+    computed R1 cat_rmse_l20 (38s)
+    computed R1 cat_mae (35s)
+    computed R2 cat_rmse (42s)
+    computed R2 cat_rmse_d4 (13s)
+    computed R2 cat_rmse_d5 (19s)
+    computed R2 cat_rmse_l20 (32s)
+    computed R2 cat_mae (33s)
+    computed R3 cat_rmse (36s)
+    computed R3 cat_rmse_d4 (14s)
+    computed R3 cat_rmse_d5 (24s)
+    computed R3 cat_rmse_l20 (36s)
+    computed R3 cat_mae (34s)
+    computed R4 cat_rmse (36s)
+    computed R4 cat_rmse_d4 (13s)
+    computed R4 cat_rmse_d5 (20s)
+    computed R4 cat_rmse_l20 (35s)
+    computed R4 cat_mae (36s)
+
+family P, solo (all folds):
+  cat (shipped)  mean  6.534  worst  9.251
+  cat_rmse       mean  5.936  worst  7.816  vs ref -0.598  7/9
+  cat_rmse_d4    mean  5.758  worst  7.573  vs ref -0.776  7/9
+  cat_rmse_d5    mean  5.845  worst  7.793  vs ref -0.689  6/9
+  cat_rmse_l20   mean  6.085  worst  8.072  vs ref -0.449  6/9
+  cat_mae        mean  5.616  worst  7.209  vs ref -0.918  7/9
+
+family Q, solo (all folds):
+  cat (shipped)  mean  5.282  worst  6.340
+  cat_rmse       mean  5.029  worst  6.854  vs ref -0.253  2/4
+  cat_rmse_d4    mean  4.911  worst  6.797  vs ref -0.371  3/4
+  cat_rmse_d5    mean  4.930  worst  6.752  vs ref -0.352  2/4
+  cat_rmse_l20   mean  5.068  worst  6.848  vs ref -0.214  2/4
+  cat_mae        mean  4.932  worst  6.592  vs ref -0.350  2/4
+
+family R, solo (all folds):
+  cat (shipped)  mean  7.188  worst  8.591
+  cat_rmse       mean  6.363  worst  6.966  vs ref -0.825  4/5
+  cat_rmse_d4    mean  6.177  worst  6.752  vs ref -1.011  4/5
+  cat_rmse_d5    mean  6.232  worst  6.791  vs ref -0.956  4/5
+  cat_rmse_l20   mean  6.482  worst  7.091  vs ref -0.707  4/5
+  cat_mae        mean  6.102  worst  6.611  vs ref -1.086  4/5
+
+blend, nested NNLS weights:
+v8 baseline              P  4.788/ 6.338 Q  4.012/ 4.467 R  5.164/ 5.891  avg  4.655
+  cat -> cat_rmse        P  4.917/ 6.545 Q  4.042/ 4.213 R  5.331/ 5.845  avg  4.764  | d +0.109  5/15
+  cat -> cat_rmse_d4     P  4.910/ 6.537 Q  4.035/ 4.209 R  5.325/ 5.838  avg  4.757  | d +0.102  5/15
+  cat -> cat_rmse_d5     P  4.914/ 6.548 Q  4.037/ 4.207 R  5.328/ 5.839  avg  4.760  | d +0.105  5/15
+  cat -> cat_rmse_l20    P  4.922/ 6.555 Q  4.042/ 4.215 R  5.335/ 5.851  avg  4.766  | d +0.112  4/15
+  cat -> cat_mae         P  4.905/ 6.513 Q  4.042/ 4.219 R  5.336/ 5.862  avg  4.761  | d +0.106  4/15
+  cat + cat_rmse         P  4.801/ 6.366 Q  4.004/ 4.477 R  5.177/ 5.893  avg  4.660  | d +0.006  4/15
+  cat + cat_rmse_d4      P  4.795/ 6.360 Q  3.998/ 4.463 R  5.170/ 5.887  avg  4.654  | d -0.000  6/15
+  cat + cat_rmse_d5      P  4.798/ 6.367 Q  4.000/ 4.468 R  5.174/ 5.891  avg  4.657  | d +0.003  5/15
+  cat + cat_rmse_l20     P  4.805/ 6.372 Q  4.006/ 4.482 R  5.180/ 5.897  avg  4.664  | d +0.009  4/15
+  cat + cat_mae          P  4.792/ 6.341 Q  4.005/ 4.488 R  5.170/ 5.880  avg  4.656  | d +0.001  6/15
+
+total 2281s

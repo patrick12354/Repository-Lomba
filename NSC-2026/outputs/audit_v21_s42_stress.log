@@ -1,0 +1,18 @@
+nopress 108 cols, robust-core 95 cols, full 118
+stress splits: [('2023-08-07', 144), ('2023-08-10', 144), ('2023-08-16', 144), ('2023-08-19', 144), ('2023-08-22', 144)]
+  split 0 2023-08-07 [159 s] control 6.5017  drop_ridge 6.4391  nopress 6.5804  robustcore 6.6224  drop_ridge_nopress 6.5339  drop_ridge_robustcore 6.5791  drop_ridge_both 6.5901
+  split 1 2023-08-10 [165 s] control 4.7126  drop_ridge 4.5983  nopress 4.4434  robustcore 4.5319  drop_ridge_nopress 4.3486  drop_ridge_robustcore 4.4252  drop_ridge_both 4.2731
+  split 2 2023-08-16 [169 s] control 3.5323  drop_ridge 3.4813  nopress 3.5423  robustcore 3.5380  drop_ridge_nopress 3.4960  drop_ridge_robustcore 3.4903  drop_ridge_both 3.5064
+  split 3 2023-08-19 [172 s] control 1.8751  drop_ridge 1.8978  nopress 1.9158  robustcore 1.8827  drop_ridge_nopress 1.9427  drop_ridge_robustcore 1.9065  drop_ridge_both 1.9460
+  split 4 2023-08-22 [174 s] control 2.5591  drop_ridge 2.5577  nopress 2.6043  robustcore 2.6052  drop_ridge_nopress 2.6127  drop_ridge_robustcore 2.6096  drop_ridge_both 2.6474
+
+arm                          pooled   d_pooled      worst    d_worst  improved
+control                     4.17190   +0.00000    6.50173   +0.00000  0/5
+drop_ridge                  4.11995   -0.05196    6.43912   -0.06261  4/5
+nopress                     4.14839   -0.02351    6.58040   +0.07867  1/5
+robustcore                  4.17717   +0.00527    6.62239   +0.12067  1/5
+drop_ridge_nopress          4.10913   -0.06277    6.53392   +0.03219  2/5
+drop_ridge_robustcore       4.13507   -0.03683    6.57915   +0.07742  2/5
+drop_ridge_both             4.11776   -0.05414    6.59013   +0.08841  2/5
+
+positive control drop_ridge: -0.05196 (session 41 measured -0.05196 on the same blocks)

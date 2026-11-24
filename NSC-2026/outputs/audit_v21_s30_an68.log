@@ -1,0 +1,24 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+control  : v21 increment
+  pooled 5.535894  [reproduces the frozen v21 predictions exactly]
+reproduce: session-29 relative dynamics (current-endpoint physical feature)
+  pooled 5.590738  [reproduces preds_relative_dynamics.pkl exactly]
+candidate: same design, physical feature on the previous endpoint
+  pooled 5.589572  (14 s)
+
+             candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  d_pooled_vs_s29_arm  boot3_lo  boot3_hi
+                   v21 5.535894    4.232249    6.586373    4.690131 1440       NaN      NaN           NaN           NaN           NaN        NaN                  NaN       NaN       NaN
+ relative_dynamics_s29 5.590738    4.221079    6.685446    4.603417 1440  0.054844 0.610226     -0.011170      0.099072     -0.086713      False                  NaN       NaN       NaN
+relative_prev_endpoint 5.589572    4.221047    6.683516    4.603017 1440  0.053678 0.597195     -0.011201      0.097143     -0.087114      False            -0.001165 -0.421897  1.709652
+
+direction
+                   arm                    vs      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+relative_prev_endpoint                   v21 B1_last15d  -0.683669      0.588981 -0.094687   17.158458     17.332409
+relative_prev_endpoint                   v21 B2_prev15d   0.586635      0.702443  1.289078   16.201210     15.990596
+relative_prev_endpoint                   v21 B3_shift7d  -1.249837      0.440274 -0.809563   17.376910     17.323079
+relative_prev_endpoint relative_dynamics_s29 B1_last15d  -0.010978      0.010710 -0.000268   17.339185     17.332409
+relative_prev_endpoint relative_dynamics_s29 B2_prev15d  -0.039152      0.013360 -0.025793   16.002931     15.990596
+relative_prev_endpoint relative_dynamics_s29 B3_shift7d  -0.015009      0.011319 -0.003689   17.334858     17.323079
+
+wrote relative_endpoint.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s30

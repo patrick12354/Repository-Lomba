@@ -1,0 +1,40 @@
+features 118   train rows 2933   test rows 734
+SELFTEST target-blind features identical: True
+SELFTEST target among feature names     : False
+SELFTEST increment design target-blind  : True
+SELFTEST target among increment columns : False
+  fold 0: train 1445  val 720
+  fold 1: train 1541  val 720
+  fold 2: train 1637  val 720
+  fold 3: train 1733  val 720
+  fold 4: train 1829  val 720
+  fold 5: train 1925  val 720
+  fold 6: train 2021  val 720
+  fold 7: train 2117  val 720
+  fold 8: train 2213  val 720
+
+blend weights: {'hbt': 0.4718, 'cat': 0.2195, 'ridge': 0.0417, 'enet': 0.1838, 'ridge_e': 0.0417, 'l2': 0.0417}
+time-of-day blend, band edges [ 7.83 15.67] h:
+  band 0: {'hbt': 0.5277, 'cat': 0.1711, 'ridge': 0.0417, 'enet': 0.1762, 'ridge_e': 0.0417, 'l2': 0.0417}
+  band 1: {'hbt': 0.3652, 'cat': 0.147, 'ridge': 0.1199, 'enet': 0.1127, 'ridge_e': 0.1006, 'l2': 0.1545}
+  band 2: {'hbt': 0.4437, 'cat': 0.3055, 'ridge': 0.0417, 'enet': 0.1127, 'ridge_e': 0.0547, 'l2': 0.0417}
+harmonic bias correction (shrunk 0.50): sin -0.092  cos -0.828   amplitude 0.833 %RH, peak 12.4 h
+CV: mean 4.7731  worst 6.1304
+  per fold: [np.float64(6.096), np.float64(6.13), np.float64(5.762), np.float64(5.561), np.float64(4.659), np.float64(3.848), np.float64(3.347), np.float64(3.366), np.float64(4.187)]
+CV after increment reconciliation: mean 4.6520  worst 5.9430  (9/9 folds better)
+  per fold: [np.float64(5.917), np.float64(5.943), np.float64(5.631), np.float64(5.402), np.float64(4.544), np.float64(3.76), np.float64(3.246), np.float64(3.307), np.float64(4.117)]
+  per-fold delta: [np.float64(-0.178), np.float64(-0.187), np.float64(-0.132), np.float64(-0.159), np.float64(-0.115), np.float64(-0.089), np.float64(-0.102), np.float64(-0.059), np.float64(-0.07)]
+  pooled 4.8928 -> 4.7661
+
+tod occupancy: train [0.333 0.333 0.333]  test [0.327 0.33  0.343]  max shift 0.010
+
+increment reconciliation on the test window: horizons [1, 4], weights [4.0, 1.0], 5 seed(s)
+  de-shrink factors (train out-of-fold, applied at 0.50): {1: 1.1919, 4: 1.0857}
+  physics terms on: es_ratio and dRH_const_e, 138 design columns
+  moved the test path by RMS 1.0894 %RH, max 3.9734
+
+dispersion check: CV fold prediction std 16.57-17.96   test prediction std 19.11
+  WARNING: test prediction spread is OUTSIDE the range seen in CV, so a dispersion slope fitted on CV does not transfer.  Calibration is off, as it should be.
+
+wrote outputs/submissions/v21_increment_v16_phys_dsh_lags.csv
+prediction summary: {'count': 734.0, 'mean': 56.845, 'std': 19.123, 'min': 24.055, '25%': 37.922, '50%': 60.719, '75%': 74.274, 'max': 91.098}

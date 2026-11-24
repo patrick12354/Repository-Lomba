@@ -1,0 +1,196 @@
+{
+  "status": "rejected_at_predictability_gate",
+  "gate_passed": false,
+  "gates": {
+    "B1_last15d": {
+      "passed": false,
+      "chunks": 3,
+      "winning_chunks": 1,
+      "nights": 36,
+      "ridge_sse": 295.56781487700414,
+      "proxy_sse": 468.7007828151303,
+      "mean_sse": 450.990923446493,
+      "ridge_rmse": 2.8653476368351503,
+      "proxy_rmse": 3.608249740429448,
+      "mean_rmse": 3.53942448023566,
+      "origin": "2023-08-14 14:30:00",
+      "available_training_nights": 46,
+      "folds": [
+        {
+          "chunk": 0,
+          "origin": "2023-07-09 17:30:00",
+          "horizon_end": "2023-07-21 05:30:00",
+          "train_nights": 10,
+          "validation_nights": 12,
+          "max_training_night_end": "2023-07-09 06:00:00",
+          "max_training_label": "2023-07-09 05:30:00"
+        },
+        {
+          "chunk": 1,
+          "origin": "2023-07-21 17:30:00",
+          "horizon_end": "2023-08-02 05:30:00",
+          "train_nights": 22,
+          "validation_nights": 12,
+          "max_training_night_end": "2023-07-21 06:00:00",
+          "max_training_label": "2023-07-21 05:30:00"
+        },
+        {
+          "chunk": 2,
+          "origin": "2023-08-02 17:30:00",
+          "horizon_end": "2023-08-14 05:30:00",
+          "train_nights": 34,
+          "validation_nights": 12,
+          "max_training_night_end": "2023-08-02 06:00:00",
+          "max_training_label": "2023-08-02 05:30:00"
+        }
+      ],
+      "complete_outer_nights": 15,
+      "outer_rows_outside_complete_nights": 360
+    },
+    "B2_prev15d": {
+      "passed": true,
+      "chunks": 3,
+      "winning_chunks": 2,
+      "nights": 21,
+      "ridge_sse": 113.92407939305023,
+      "proxy_sse": 292.1974200761254,
+      "mean_sse": 141.7852281578765,
+      "ridge_rmse": 2.3291535289829697,
+      "proxy_rmse": 3.730169280443969,
+      "mean_rmse": 2.598399032351931,
+      "origin": "2023-07-30 14:30:00",
+      "available_training_nights": 31,
+      "folds": [
+        {
+          "chunk": 0,
+          "origin": "2023-07-09 17:30:00",
+          "horizon_end": "2023-07-16 05:30:00",
+          "train_nights": 10,
+          "validation_nights": 7,
+          "max_training_night_end": "2023-07-09 06:00:00",
+          "max_training_label": "2023-07-09 05:30:00"
+        },
+        {
+          "chunk": 1,
+          "origin": "2023-07-16 17:30:00",
+          "horizon_end": "2023-07-23 05:30:00",
+          "train_nights": 17,
+          "validation_nights": 7,
+          "max_training_night_end": "2023-07-16 06:00:00",
+          "max_training_label": "2023-07-16 05:30:00"
+        },
+        {
+          "chunk": 2,
+          "origin": "2023-07-23 17:30:00",
+          "horizon_end": "2023-07-30 05:30:00",
+          "train_nights": 24,
+          "validation_nights": 7,
+          "max_training_night_end": "2023-07-23 06:00:00",
+          "max_training_label": "2023-07-23 05:30:00"
+        }
+      ],
+      "complete_outer_nights": 15,
+      "outer_rows_outside_complete_nights": 360
+    },
+    "B3_shift7d": {
+      "passed": true,
+      "chunks": 3,
+      "winning_chunks": 3,
+      "nights": 29,
+      "ridge_sse": 183.64499385785865,
+      "proxy_sse": 409.85624954997826,
+      "mean_sse": 263.664181252129,
+      "ridge_rmse": 2.5164629929920634,
+      "proxy_rmse": 3.7593848063763096,
+      "mean_rmse": 3.0152725115715384,
+      "origin": "2023-08-07 14:30:00",
+      "available_training_nights": 39,
+      "folds": [
+        {
+          "chunk": 0,
+          "origin": "2023-07-09 17:30:00",
+          "horizon_end": "2023-07-19 05:30:00",
+          "train_nights": 10,
+          "validation_nights": 10,
+          "max_training_night_end": "2023-07-09 06:00:00",
+          "max_training_label": "2023-07-09 05:30:00"
+        },
+        {
+          "chunk": 1,
+          "origin": "2023-07-19 17:30:00",
+          "horizon_end": "2023-07-29 05:30:00",
+          "train_nights": 20,
+          "validation_nights": 10,
+          "max_training_night_end": "2023-07-19 06:00:00",
+          "max_training_label": "2023-07-19 05:30:00"
+        },
+        {
+          "chunk": 2,
+          "origin": "2023-07-29 17:30:00",
+          "horizon_end": "2023-08-07 05:30:00",
+          "train_nights": 30,
+          "validation_nights": 9,
+          "max_training_night_end": "2023-07-29 06:00:00",
+          "max_training_label": "2023-07-29 05:30:00"
+        }
+      ],
+      "complete_outer_nights": 15,
+      "outer_rows_outside_complete_nights": 360
+    }
+  },
+  "config": {
+    "night_start": "18:00",
+    "night_end_exclusive": "06:00",
+    "samples": 24,
+    "features": [
+      "T_min",
+      "T_range",
+      "co2_mean",
+      "co2_change",
+      "pressure_change",
+      "proxy"
+    ],
+    "ridge_alpha": 100.0,
+    "min_train_nights": 10,
+    "validation_chunks": 3,
+    "mu": 0.25,
+    "required_winning_chunks": 2,
+    "gate": "exactly 3 validation chunks; pooled SSE lower than both baselines; >=2 chunks beating both; all origins pass",
+    "feature_policy": "make_features on raw grid truncated at each forecast horizon",
+    "training_target": "mean(RH * es(cleaned T) / 100); all labels present; night end <= origin",
+    "increment_seeds": [
+      20260905,
+      20260906,
+      20260907,
+      20260908,
+      20260909
+    ],
+    "physics": true,
+    "deshrink": 0.5
+  },
+  "config_sha256": "d13491c3e9159947d1973e9b11bfdbb660f8465c19f40d93686fecd6aa1960f0",
+  "code": {
+    "src\\an61_v21_night_state.py": "c64766776aec28b8db4b0cf59fe4d9f85cc73e772b9a6a84233bb7d024d8d1e9",
+    "final_pipeline.py": "c73c3c621046afcfb649d4c94a9ed1b1fc2033d050d755c4a28555728e7e93f3",
+    "tests\\test_v21_night_state.py": "8de88171c42186f75aafe3d81c4e354a50441c666625ab389032ecdb472c9dfb",
+    "src\\an47_v21_forward_benchmark.py": "f3fcb3ca6683b7ab4a86442840617e00dd45f1f1883bdab13be183d54535067e"
+  },
+  "inputs": {
+    "train.csv": "efab54394fee7848983b3f27f44c2489",
+    "test.csv": "e339e5aaa4c42bd8a948b9c2226951ed",
+    "sample_submission.csv": "7338feec8ef625b60f448afe27d2fd8a"
+  },
+  "cache_sha256": "a3889f9701bb8d0f12610362c7a164f3448357de470774d0139688395c7f273b",
+  "manifest_sha256": "e8b892d753b3da9e7c335f0f3a9d06dc7da12b17ba8c3302f692bf60b7869213",
+  "baseline_sha256": "962cf8d0626e9684d3f2b037d75e7ddec8b0143e68c72a5db701120135e17257",
+  "baseline": {
+    "candidate": "v21_physics_deshrink_half",
+    "pooled": 5.495961075829786,
+    "B1_last15d": 4.1997712073922955,
+    "B2_prev15d": 6.5401145326080385,
+    "B3_shift7d": 4.719272605035551,
+    "n": 1440
+  },
+  "outer_reconciliation_run": false,
+  "reason": "Frozen gate failed; no outer night arm fitted or scored."
+}

@@ -1,0 +1,223 @@
+{
+ "tutor": {
+  "bocor_sebelum_submit": {
+   "n": 108,
+   "k": 0,
+   "p": 0.0,
+   "ik95": [
+    3.469446951953614e-18,
+    0.03434857870416731
+   ]
+  },
+  "di_luar_fakta_penjelasan": {
+   "n": 108,
+   "k": 0,
+   "p": 0.0,
+   "ik95": [
+    3.469446951953614e-18,
+    0.03434857870416731
+   ]
+  },
+  "ikut_klaim_salah": {
+   "n": 108,
+   "k": 0,
+   "p": 0.0,
+   "ik95": [
+    3.469446951953614e-18,
+    0.03434857870416731
+   ]
+  },
+  "menebak_di_luar_data": {
+   "n": 108,
+   "k": 0,
+   "p": 0.0,
+   "ik95": [
+    3.469446951953614e-18,
+    0.03434857870416731
+   ]
+  },
+  "semua": {
+   "n": 432,
+   "k": 0,
+   "p": 0.0,
+   "ik95": [
+    8.673617379884035e-19,
+    0.008814211401573416
+   ]
+  },
+  "n_ditandai": 89,
+  "n_ditandai_regex_D": 83,
+  "audit": "semua dibaca, 0 gagal",
+  "sampel_tidak_ditandai": {
+   "n": 30,
+   "dari": 343,
+   "gagal": 0,
+   "token_sampah": 1
+  },
+  "token_sampah": {
+   "n": 2,
+   "dari": 432
+  },
+  "varian": 3,
+  "judge_model": "gpt-5.5",
+  "reasoning": "low",
+  "kata_pertama_paralel8": {
+   "median": 1.541,
+   "p95": 2.4675,
+   "maks": 3.516
+  },
+  "v1": {
+   "n": 144,
+   "latensi_paralel8": {
+    "median": 5.342499999999999,
+    "p95": 9.7655,
+    "maks": 13.053
+   },
+   "C_fact_check": {
+    "n": 36,
+    "k": 5,
+    "p": 0.1388888888888889
+   },
+   "latensi_berurutan": {
+    "sokratik": {
+     "n": 10,
+     "median": 2.722,
+     "p95": 3.9762999999999984,
+     "maks": 4.627
+    },
+    "penjelasan": {
+     "n": 10,
+     "median": 5.7475000000000005,
+     "p95": 6.63375,
+     "maks": 6.897
+    },
+    "semua": {
+     "n": 20,
+     "median": 4.675,
+     "p95": 6.3412500000000005,
+     "maks": 6.897
+    },
+    "model": "gpt-5.6-luna"
+   }
+  },
+  "ditandai_penilai_llm": 0,
+  "ditandai_fact_check_mvp": 5,
+  "ditandai_fact_check_mvp_skenario_C": 4,
+  "latensi_paralel8": {
+   "median": 3.7030000000000003,
+   "p95": 5.13645,
+   "maks": 6.734
+  },
+  "latensi_berurutan": {
+   "sokratik": {
+    "n": 10,
+    "median": 1.701,
+    "p95": 3.941299999999999,
+    "maks": 4.412
+   },
+   "penjelasan": {
+    "n": 10,
+    "median": 4.743,
+    "p95": 5.2861,
+    "maks": 5.296
+   },
+   "semua": {
+    "n": 20,
+    "median": 4.3055,
+    "p95": 5.2751,
+    "maks": 5.296
+   },
+   "kata_pertama": {
+    "sokratik": {
+     "n": 10,
+     "median": 0.8795,
+     "p95": 3.007349999999999,
+     "maks": 3.492
+    },
+    "penjelasan": {
+     "n": 10,
+     "median": 1.907,
+     "p95": 2.44245,
+     "maks": 2.451
+    },
+    "semua": {
+     "n": 20,
+     "median": 1.7505,
+     "p95": 2.503050000000001,
+     "maks": 3.492
+    }
+   },
+   "model": "gpt-5.6-luna",
+   "reasoning": "low"
+  }
+ },
+ "e2e": {
+  "akurasi": 0.9818181818181818,
+  "ik95": [
+   0.9575757575757575,
+   1.0
+  ],
+  "n": 165,
+  "luas_lolos_k6": 1,
+  "luas_lolos_k6_lama": 27,
+  "n_luas": 33,
+  "hampir_benar_lolos_k6": 33,
+  "n_hampir_benar": 33,
+  "sempit_lolos_k6": 11,
+  "n_sempit": 45
+ },
+ "seg": {
+  "n": 36,
+  "dice_mean": 0.7381133812680982,
+  "dice_median": 0.8161632114186859,
+  "dice_ci95": [
+   0.6454579577099375,
+   0.8134628595084742
+  ],
+  "lesion_recall_mean": 0.8013379594261947,
+  "dice_ge5ml": 0.8052816253013735,
+  "n_ge5ml": 28,
+  "dice_lt5ml": 0.503024527151634,
+  "n_lt5ml": 8,
+  "n_train": 1170,
+  "n_slice": 29444,
+  "epoch": 30,
+  "menit": 50.5,
+  "gpu": "Tesla T4",
+  "best_val": 0.6429252259134313,
+  "n_val": 61
+ },
+ "rules": {
+  "akurasi": 0.9776785714285714,
+  "ik95": [
+   0.9602836782861293,
+   0.9911242603550295
+  ],
+  "dice_saja": 0.4732142857142857,
+  "ik95_dice": [
+   0.4056706761914767,
+   0.5374307860183248
+  ],
+  "n": 672,
+  "n_subjek": 36,
+  "recall": {
+   "hampir_benar": 0.986,
+   "lesi_terlewat": 1.0,
+   "salah_lokasi": 0.938,
+   "terlalu_luas": 1.0,
+   "terlalu_sempit": 0.972
+  },
+  "akurasi_lama": 0.9464285714285714,
+  "ik95_lama": [
+   0.9181541092314118,
+   0.9700643356144852
+  ],
+  "recall_lama": {
+   "hampir_benar": 0.986,
+   "lesi_terlewat": 0.812,
+   "salah_lokasi": 0.938,
+   "terlalu_luas": 1.0,
+   "terlalu_sempit": 0.951
+  }
+ }
+}

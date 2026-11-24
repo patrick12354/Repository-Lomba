@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #s06 .cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+        #s06 .cam .plate { left: 0; top: 0; width: 1920px; height: 1080px; }
+        #s06 .scan { position: absolute; left: 0; top: 470px; width: 160px; height: 110px; margin-left: -80px;
+          background: linear-gradient(90deg, rgba(47, 98, 224, 0), rgba(47, 98, 224, 0.32), rgba(47, 98, 224, 0)); mix-blend-mode: multiply; filter: blur(4px); opacity: 0; }
+        #s06 .keys { position: absolute; left: 0; right: 0; top: 380px; display: flex; justify-content: center; gap: 22px; }
+        #s06 .keys .chip { font-size: 26px; padding: 13px 22px; }
+        #s06 .big { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-size: 64px; }
+        #s06 .big em { font-style: normal; color: var(--ok-ink); }
+        #s06 .sub { position: absolute; left: 0; right: 0; top: 730px; text-align: center; font: 500 26px/1.3 var(--sans); color: var(--ink-2); }
+        #s06 .why { position: absolute; left: 95px; top: 330px; display: flex; gap: 12px; }
+        #s06 .past { position: absolute; left: 470px; top: 620px; }
+        #s06 .past .chip { font-size: 26px; padding: 13px 20px; }
+      </style>
+      <div data-hf-id="hf-9ork" id="root" data-composition-id="s06-queue" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-rq7z" class="pp" id="s06">
+          <div data-hf-id="hf-m7dd" class="bg"></div>
+          <div data-hf-id="hf-924a" class="cam" id="s06-cam"><div data-hf-id="hf-69d8" class="plate"><img data-hf-id="hf-jt9x" src="assets/captures/queue.jpg" alt="" class="shot"></div></div>
+          <div data-hf-id="hf-5lk6" class="callout" id="s06-k220" style="left: 95px; top: 286px; width: 421px; height: 167px"></div>
+          <div data-hf-id="hf-dg18" class="scan" id="s06-scan"></div>
+          <div data-hf-id="hf-8o1l" class="band-scrim" id="s06-bs" style="top: 590px; height: 230px"></div>
+          <div data-hf-id="hf-18iv" class="band-scrim" id="s06-bs2" style="top: 340px; height: 110px"></div>
+          <div data-hf-id="hf-d0tk" class="keys" id="s06-keys"><span data-hf-id="hf-pf1x" class="chip kq" id="s06-k1">1 · Lifecycle</span><span data-hf-id="hf-aric" class="chip kq" id="s06-k2">2 · Risk class</span><span data-hf-id="hf-jjmp" class="chip kq" id="s06-k3">3 · Due date</span></div>
+          <div data-hf-id="hf-hw2w" class="big display" id="s06-big">Recorded values <em data-hf-id="hf-zpkp">only</em></div>
+          <div data-hf-id="hf-7cnd" class="sub" id="s06-sub">No invented risk score: the order comes from the register's own status, Pre-Risk, class and RCA due date.</div>
+          <div data-hf-id="hf-y9fl" class="callout" id="s06-card" style="left: 93px; top: 415px; width: 340px; height: 186px"></div>
+          <div data-hf-id="hf-8ipg" class="why" id="s06-why"><span data-hf-id="hf-akp4" class="chip kq">#1 of 5 full evidence packages</span><span data-hf-id="hf-vakf" class="chip danger">Class A</span><span data-hf-id="hf-ywu2" class="chip">criticality high</span></div>
+          <div data-hf-id="hf-fcu0" class="callout danger" id="s06-pk" style="left: 106px; top: 533px; width: 216px; height: 32px; border-radius: 10px"></div>
+          <div data-hf-id="hf-51ko" class="past" id="s06-past"><span data-hf-id="hf-fbac" class="chip danger">4 source actions past plan date · R2 slide 9</span></div>
+          <svg data-hf-id="hf-7ekr" class="cursor" id="s06-cur" viewBox="0 0 22 27"><path data-hf-id="hf-rudj" d="M2 2 L2 22 L7.5 17 L11 25 L14.5 23.5 L11 15.8 L18.5 15.8 Z" fill="#0b1426" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" /></svg>
+          <div data-hf-id="hf-ha8b" class="ring" id="s06-ring" style="left: 0; top: 0"></div>
+          <div data-hf-id="hf-xaep" id="s06-kq" style="position: absolute; left: 60px; top: 22px"><span data-hf-id="hf-vqz6" class="chip kq">KQ3 · Alert prioritization · Problem Tank</span></div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          const cam = "#s06-cam";
+          // Arrive travelling left, settle on the whole page.
+          tl.fromTo(cam, { x: 1500, y: 84, scale: 0.9, opacity: 0.4 }, { x: 96, y: 84, scale: 0.9, opacity: 1, duration: 0.9, ease: "expo.out" }, 0);
+          tl.fromTo("#s06-kq", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 0.3);
+          // "ranks all 220 open records"
+          tl.to(cam, { x: -291, y: -28, scale: 1.15, duration: 1.0, ease: "power3.inOut" }, 0.95);
+          tl.fromTo("#s06-k220", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.4, ease: "expo.out" }, 2.15);
+          tl.to("#s06-k220", { opacity: 0, duration: 0.3 }, 3.4);
+          // The priority strip, scanned in rank order while the three keys are named.
+          tl.to(cam, { x: -400.6, y: -417.5, scale: 1.25, duration: 1.0, ease: "power3.inOut" }, 3.0);
+          tl.fromTo("#s06-scan", { x: 46, opacity: 0 }, { x: 1874, opacity: 1, duration: 2.4, ease: "power1.inOut" }, 3.9);
+          tl.to("#s06-scan", { opacity: 0, duration: 0.3 }, 6.32);
+          tl.fromTo("#s06-bs2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.85);
+          tl.fromTo("#s06-k1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(2)" }, 3.95);
+          tl.fromTo("#s06-k2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(2)" }, 4.68);
+          tl.fromTo("#s06-k3", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(2)" }, 5.5);
+          tl.fromTo("#s06-bs", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.35);
+          tl.fromTo("#s06-big", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 6.45);
+          tl.fromTo("#s06-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 6.8);
+          tl.to("#s06-keys, #s06-big, #s06-sub, #s06-bs, #s06-bs2", { opacity: 0, duration: 0.4, ease: "power2.in" }, 8.0);
+          // KO-3201 is first in line: the cursor picks card #1.
+          tl.to(cam, { x: -291, y: -607, scale: 1.15, duration: 1.0, ease: "power3.inOut" }, 8.1);
+          tl.fromTo("#s06-cur", { x: 1300, y: 860, opacity: 0 }, { x: 250, y: 492, opacity: 1, duration: 1.0, ease: "power3.out" }, 8.6);
+          tl.to("#s06-cur", { scale: 0.86, duration: 0.08, yoyo: true, repeat: 1, transformOrigin: "0 0" }, 9.6);
+          tl.fromTo("#s06-ring", { x: 252, y: 494, scale: 0.3, opacity: 1 }, { scale: 1.6, opacity: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, 9.62);
+          tl.fromTo("#s06-card", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.4, ease: "expo.out" }, 9.65);
+          tl.fromTo("#s06-why .chip", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", stagger: 0.1 }, 10.0);
+          tl.to("#s06-cur", { x: 470, y: 760, opacity: 0, duration: 0.6, ease: "power2.in" }, 10.6);
+          tl.fromTo("#s06-pk", { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 11.2);
+          tl.fromTo("#s06-past", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, 11.4);
+          // Exit right-to-left into the evidence.
+          tl.to("#s06 > *:not(.bg)", { x: "-=240", opacity: 0, duration: 0.5, ease: "power2.in" }, 13.25);
+          // time-warp (written by scripts/warp.mjs): [authored s, current s] anchors through every spoken word.
+          const WARP = [[0,0],[0.841,0.5],[0.969,0.686],[1.268,1.104],[1.567,1.487],[1.908,1.916],[2.207,2.16],[2.505,2.358],[2.847,2.729],[3.145,3.135],[3.828,4.099],[4.724,4.366],[5.364,4.819],[5.535,5.051],[5.748,5.26],[9.929,6.526],[10.057,6.769],[10.356,7.094],[10.441,7.257],[10.996,7.629],[11.209,7.872],[12.569,9.231],[13.8,10.23]];
+          window.__timelines["s06-queue"] = ((src, P) => {
+            const end = P[P.length - 1];
+            const back = (t) => { for (let i = 1; i < P.length; i++) if (t <= P[i][1]) { const [a0, b0] = P[i - 1], [a1, b1] = P[i]; return a0 + (a1 - a0) * ((t - b0) / (b1 - b0)); } return end[0]; };
+            const w = gsap.timeline({ paused: true });
+            w.fromTo(src, { time: 0 }, { time: end[0], duration: end[1], ease: (p) => back(p * end[1]) / end[0], immediateRender: true });
+            return w;
+          })(tl, WARP);
+        })();
+      </script>
+    </template>
+  </body>
+</html>

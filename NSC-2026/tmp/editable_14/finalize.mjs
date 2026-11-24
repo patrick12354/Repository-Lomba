@@ -1,0 +1,10 @@
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const ROOT='C:/Users/Raphael Angelo/Code/Competitions/NSC UB';
+const DIR=path.join(ROOT,'tmp/editable_14');
+const SKILL='C:/Users/Raphael Angelo/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations';
+process.env.RUNTIME_NODE_MODULES='C:/Users/Raphael Angelo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+process.env.RUNTIME_NODE='C:/Users/Raphael Angelo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe';
+const {finalizePresentation}=await import(pathToFileURL(path.join(SKILL,'container_tools/artifact_tool_utils.mjs')).href);
+const r=await finalizePresentation({workspaceDir:ROOT,candidatePath:path.join(DIR,'candidate.pptx'),finalPath:path.join(ROOT,'deliverables/presentation/BERKAS_734_14_SLIDE_EDITABLE.pptx'),pythonExecutable:'C:/Users/Raphael Angelo/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe',integrityValidatorPath:path.join(SKILL,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(SKILL,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','15240000,8572500','--validate-heading-fit'],explicitTotalSlideCount:14,requiredNativeChartOwnerSlides:[3,8,11,14],requiredNativeTableOwnerSlides:[],materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'design',families:['Impact','Georgia','Arial']},verifyArtifactToolImport:true,receiptPath:path.join(DIR,'validation-v2.json')});
+console.log(JSON.stringify({path:r.finalPath,bytes:r.byteCount,slides:r.packageIntegrity.slide_count,charts:r.packageIntegrity.chart_count,structural:r.packageIntegrity.status,layoutFindings:r.presentationLayout.finding_count,importPassed:r.firstPartyImport.passed}));

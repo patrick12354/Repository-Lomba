@@ -1,0 +1,14 @@
+{
+  "scope": "read-only arithmetic audit; no fitting, no candidate predictions, no production edits",
+  "sources": {
+    "progress.md": "6e8203dfb58e86e3007d7074d0e7bc2d4cd9385ae1951858d0d66761617f1f86",
+    "src/an77_v21_shape_report.py": "ebb2c0e2a69b02b5b753cce0f10506661753ad4717700a7f95267a2f961e2595",
+    "outputs/audit_v21_s33/preds_level_shape.pkl": "0a0ae0f1879811df0c54e8f53061d9b5ab5784917e946c46adfa2cc909ed81e0",
+    "outputs/audit_v21_s33/spectrum.csv": "45e2e14c30005210de288347db3e1815e3691fd3c2951fe402f3f4ac3cadb468",
+    "final_pipeline.py": "5640ef8cfc5747c9eca794978d1423290b5dd8be07121880062bd12cae6698f7",
+    "outputs/submissions/v21_increment_v16.csv": "fd2674ba7414a1d41a54b20aad0754a43551ccf6b5a274cbda1a45466eb9a343"
+  },
+  "target_public": 2.6,
+  "reported_incumbent": 2.86595,
+  "required_mse_reduction": 0.17698172780822485
+}

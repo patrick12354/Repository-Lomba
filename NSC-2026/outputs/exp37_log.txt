@@ -1,0 +1,26 @@
+feature split: 67 slow, 54 fast, 118 total (14 in both)
+    computed P0 ts_all (65s)
+    computed P0 ts_split (182s)
+    computed P1 ts_all (136s)
+    computed P1 ts_split (176s)
+    computed P2 ts_all (294s)
+    computed P2 ts_split (100s)
+    computed P3 ts_all (276s)
+    computed P3 ts_split (215s)
+    computed P4 ts_all (152s)
+    computed P4 ts_split (207s)
+    computed P5 ts_all (100s)
+    computed P5 ts_split (60s)
+    computed P6 ts_all (85s)
+    computed P6 ts_split (100s)
+    computed P7 ts_all (89s)
+    computed P7 ts_split (61s)
+    computed P8 ts_all (187s)
+    computed P8 ts_split (157s)
+
+family P, solo scores:
+  hbt (shipped)  mean  5.151  worst  6.503
+  ts_all         mean  6.436  worst  8.902  vs hbt +1.285  0/9
+  ts_split       mean  6.675  worst  9.108  vs hbt +1.524  0/9
+
+total 2644s

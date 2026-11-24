@@ -1,0 +1,126 @@
+{
+  "candidates": {
+    "lgb": {
+      "inc_h1_delta": 0.0,
+      "inc_h1_blocks": 0,
+      "inc_h4_delta": 0.0,
+      "inc_h4_blocks": 0,
+      "recon_delta": 0.0,
+      "recon_blocks": 0,
+      "recon_pooled": 5.158312877176399,
+      "adopted": false
+    },
+    "lintree": {
+      "inc_h1_delta": -0.005822669033687704,
+      "inc_h1_blocks": 2,
+      "inc_h4_delta": 0.13235721358947927,
+      "inc_h4_blocks": 0,
+      "recon_delta": 0.04304363761209699,
+      "recon_blocks": 0,
+      "recon_pooled": 5.201356514788495,
+      "adopted": false
+    },
+    "cat": {
+      "inc_h1_delta": -0.033826718323535974,
+      "inc_h1_blocks": 3,
+      "inc_h4_delta": 0.02768629677764863,
+      "inc_h4_blocks": 1,
+      "recon_delta": 0.05443144300854641,
+      "recon_blocks": 0,
+      "recon_pooled": 5.212744320184945,
+      "adopted": false
+    },
+    "ridge": {
+      "inc_h1_delta": 0.012042514018211289,
+      "inc_h1_blocks": 1,
+      "inc_h4_delta": 0.31555278573370354,
+      "inc_h4_blocks": 0,
+      "recon_delta": 0.08596257313981415,
+      "recon_blocks": 0,
+      "recon_pooled": 5.244275450316213,
+      "adopted": false
+    },
+    "avg_lgb_lin": {
+      "inc_h1_delta": -0.025674836207876323,
+      "inc_h1_blocks": 3,
+      "inc_h4_delta": -0.00042543244796977575,
+      "inc_h4_blocks": 1,
+      "recon_delta": 0.016413145848016637,
+      "recon_blocks": 0,
+      "recon_pooled": 5.174726023024415,
+      "adopted": false
+    },
+    "avg_lgb_lin_cat": {
+      "inc_h1_delta": -0.04922639764707001,
+      "inc_h1_blocks": 3,
+      "inc_h4_delta": -0.040304834423932956,
+      "inc_h4_blocks": 2,
+      "recon_delta": 0.024094178660381143,
+      "recon_blocks": 0,
+      "recon_pooled": 5.182407055836779,
+      "adopted": false
+    }
+  },
+  "residual_corr": [
+    {
+      "steps": 1,
+      "pair": "cat~ridge",
+      "resid_corr": 0.8993
+    },
+    {
+      "steps": 1,
+      "pair": "lgb~cat",
+      "resid_corr": 0.9423
+    },
+    {
+      "steps": 1,
+      "pair": "lgb~lintree",
+      "resid_corr": 0.9511
+    },
+    {
+      "steps": 1,
+      "pair": "lgb~ridge",
+      "resid_corr": 0.8648
+    },
+    {
+      "steps": 1,
+      "pair": "lintree~cat",
+      "resid_corr": 0.9302
+    },
+    {
+      "steps": 1,
+      "pair": "lintree~ridge",
+      "resid_corr": 0.8639
+    },
+    {
+      "steps": 4,
+      "pair": "cat~ridge",
+      "resid_corr": 0.8027
+    },
+    {
+      "steps": 4,
+      "pair": "lgb~cat",
+      "resid_corr": 0.9296
+    },
+    {
+      "steps": 4,
+      "pair": "lgb~lintree",
+      "resid_corr": 0.9293
+    },
+    {
+      "steps": 4,
+      "pair": "lgb~ridge",
+      "resid_corr": 0.7859
+    },
+    {
+      "steps": 4,
+      "pair": "lintree~cat",
+      "resid_corr": 0.9096
+    },
+    {
+      "steps": 4,
+      "pair": "lintree~ridge",
+      "resid_corr": 0.7979
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "frac_0.20": {
+    "support": 0.3286458333333333,
+    "n_valid": 576,
+    "v16 stack (floor 0.25, all see pressure)": 3.663484170444847,
+    "v19 stack (no floor, pressure in 41%)": 3.5435804029455436,
+    "v20 stack (no floor, all see pressure)": 3.6637107597366056
+  },
+  "frac_0.30": {
+    "support": 0.4297149122807018,
+    "n_valid": 912,
+    "v16 stack (floor 0.25, all see pressure)": 3.7155094209991306,
+    "v19 stack (no floor, pressure in 41%)": 3.5382335383819217,
+    "v20 stack (no floor, all see pressure)": 3.687671643140976
+  }
+}

@@ -1,0 +1,30 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+h=1  pressure-sensitive 11  co2-sensitive 20  mixed 0
+h=4  pressure-sensitive 11  co2-sensitive 20  mixed 0
+frozen drop lists written to sensor_columns.json before any fitting
+
+  v21                  pooled15 5.535894  [reproduces the frozen v21 predictions exactly]
+  drop_pressure_abs    pooled15 5.535459  (42 s)
+  drop_co2_abs         pooled15 5.548023  (40 s)
+  drop_both_abs        pooled15 5.555811  (36 s)
+
+        candidate  columns   pooled  B1_last15d  B2_prev15d  B3_shift7d  d_pooled  15d_matched_d_rmse  7d_matched_d_rmse  d_H1_last7d  d_H2_last14d  d_H3_last21d promotable
+              v21      NaN 5.535894    4.232249    6.586373    4.690131       NaN                 NaN                NaN          NaN           NaN           NaN        NaN
+drop_pressure_abs    121.0 5.535459    4.221081    6.592806    4.689396 -0.000435           -0.013636           0.008355     0.010861      0.004706      0.008531      False
+     drop_co2_abs    112.0 5.548023    4.221704    6.613496    4.684169  0.012129           -0.023969          -0.019736    -0.007666     -0.040960     -0.022182      False
+    drop_both_abs    101.0 5.555811    4.222527    6.626034    4.685518  0.019917           -0.027629          -0.012622    -0.002848     -0.039060     -0.009502      False
+
+direction vs v21
+              arm      block  alignment  movement_mse     d_mse  control_sd  candidate_sd
+drop_pressure_abs B1_last15d  -0.112480      0.018074 -0.094406   17.158458     17.176243
+drop_pressure_abs B2_prev15d   0.052178      0.032601  0.084779   16.201210     16.190240
+drop_pressure_abs B3_shift7d  -0.029022      0.022132 -0.006891   17.376910     17.448688
+     drop_co2_abs B1_last15d  -0.163801      0.074655 -0.089145   17.158458     17.160999
+     drop_co2_abs B2_prev15d   0.212756      0.145258  0.358014   16.201210     16.276392
+     drop_co2_abs B3_shift7d  -0.127034      0.071149 -0.055885   17.376910     17.363312
+    drop_both_abs B1_last15d  -0.170663      0.088469 -0.082194   17.158458     17.155890
+    drop_both_abs B2_prev15d   0.342221      0.181794  0.524015   16.201210     16.275925
+    drop_both_abs B3_shift7d  -0.130071      0.086824 -0.043246   17.376910     17.422278
+
+wrote sensor_ablation.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s30

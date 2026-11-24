@@ -1,0 +1,24 @@
+{
+  "eb_twmae_oof": 0.18263,
+  "stages": {
+    "konstan 5.2": 0.46704,
+    "A: 196 fitur": 0.21598,
+    "B: + agregat grup": 0.20568,
+    "blend A+B": 0.20308,
+    "+ smoothing event": 0.19037,
+    "+ ekspansi (FINAL)": 0.18263
+  },
+  "config": {
+    "w_grp": 0.35,
+    "lam_dec": 0.95,
+    "lam_rnd": 0.0,
+    "agg": "median",
+    "alpha": 1.15,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "nfold": 5
+  }
+}

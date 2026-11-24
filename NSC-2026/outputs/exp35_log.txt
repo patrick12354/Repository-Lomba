@@ -1,0 +1,135 @@
+v8 baseline (5 models)   P  4.788/ 6.338 Q  4.012/ 4.467 R  5.164/ 5.891  avg  4.655
+
+    computed P0 lin (3s)
+    computed P1 lin (1s)
+    computed P2 lin (1s)
+    computed P3 lin (1s)
+    computed P4 lin (2s)
+    computed P5 lin (2s)
+    computed P6 lin (1s)
+    computed P7 lin (2s)
+    computed P8 lin (2s)
+    computed Q0 lin (1s)
+    computed Q1 lin (1s)
+    computed Q2 lin (2s)
+    computed Q3 lin (2s)
+    computed R0 lin (1s)
+    computed R1 lin (1s)
+    computed R2 lin (2s)
+    computed R3 lin (1s)
+    computed R4 lin (2s)
+  solo lin               P  5.127/ 7.039 Q  4.047/ 4.208 R  5.728/ 6.347  avg  4.968  | d +0.313  2/15
+  +lin in blend          P  4.778/ 6.335 Q  3.979/ 4.435 R  5.167/ 5.921  avg  4.641  | d -0.014  11/15
+                           solo 4.968   residual corr vs blend +0.909
+
+    computed P0 hbt_e (4s)
+    computed P1 hbt_e (4s)
+    computed P2 hbt_e (4s)
+    computed P3 hbt_e (4s)
+    computed P4 hbt_e (4s)
+    computed P5 hbt_e (4s)
+    computed P6 hbt_e (4s)
+    computed P7 hbt_e (4s)
+    computed P8 hbt_e (5s)
+    computed Q0 hbt_e (4s)
+    computed Q1 hbt_e (4s)
+    computed Q2 hbt_e (4s)
+    computed Q3 hbt_e (4s)
+    computed R0 hbt_e (4s)
+    computed R1 hbt_e (4s)
+    computed R2 hbt_e (4s)
+    computed R3 hbt_e (4s)
+    computed R4 hbt_e (4s)
+  solo hbt_e             P  7.218/10.540 Q  4.439/ 5.141 R  8.153/ 9.250  avg  6.603  | d +1.948  0/15
+  +hbt_e in blend        P  4.797/ 6.387 Q  3.976/ 4.488 R  5.177/ 5.883  avg  4.650  | d -0.005  8/15
+                           solo 6.603   residual corr vs blend +0.682
+
+    computed P0 dart (3s)
+    computed P1 dart (3s)
+    computed P2 dart (4s)
+    computed P3 dart (4s)
+    computed P4 dart (4s)
+    computed P5 dart (8s)
+    computed P6 dart (5s)
+    computed P7 dart (4s)
+    computed P8 dart (5s)
+    computed Q0 dart (4s)
+    computed Q1 dart (4s)
+    computed Q2 dart (4s)
+    computed Q3 dart (4s)
+    computed R0 dart (4s)
+    computed R1 dart (4s)
+    computed R2 dart (3s)
+    computed R3 dart (4s)
+    computed R4 dart (4s)
+  solo dart              P 53.971/55.853 Q 54.151/55.853 R 53.785/55.193  avg 53.969  | d +49.314  0/15
+  +dart in blend         P  5.493/ 6.567 Q  4.983/ 5.445 R  5.946/ 6.767  avg  5.474  | d +0.819  0/15
+                           solo 53.969   residual corr vs blend +0.517
+
+    computed P0 xt (4s)
+    computed P1 xt (2s)
+    computed P2 xt (3s)
+    computed P3 xt (3s)
+    computed P4 xt (3s)
+    computed P5 xt (3s)
+    computed P6 xt (3s)
+    computed P7 xt (3s)
+    computed P8 xt (3s)
+    computed Q0 xt (3s)
+    computed Q1 xt (3s)
+    computed Q2 xt (3s)
+    computed Q3 xt (3s)
+    computed R0 xt (2s)
+    computed R1 xt (2s)
+    computed R2 xt (3s)
+    computed R3 xt (3s)
+    computed R4 xt (3s)
+  solo xt                P  5.937/ 8.048 Q  4.718/ 5.515 R  6.588/ 7.157  avg  5.748  | d +1.093  1/15
+  +xt in blend           P  4.798/ 6.363 Q  4.001/ 4.496 R  5.171/ 5.879  avg  4.657  | d +0.002  5/15
+                           solo 5.748   residual corr vs blend +0.899
+
+    computed P0 mlp (9s)
+    computed P1 mlp (10s)
+    computed P2 mlp (9s)
+    computed P3 mlp (11s)
+    computed P4 mlp (12s)
+    computed P5 mlp (9s)
+    computed P6 mlp (11s)
+    computed P7 mlp (14s)
+    computed P8 mlp (13s)
+    computed Q0 mlp (10s)
+    computed Q1 mlp (10s)
+    computed Q2 mlp (14s)
+    computed Q3 mlp (15s)
+    computed R0 mlp (10s)
+    computed R1 mlp (13s)
+    computed R2 mlp (11s)
+    computed R3 mlp (12s)
+    computed R4 mlp (10s)
+  solo mlp               P 12.059/17.124 Q  8.732/ 9.019 R 13.318/15.745  avg 11.370  | d +6.715  0/15
+  +mlp in blend          P  4.873/ 6.468 Q  4.020/ 4.393 R  5.221/ 5.903  avg  4.705  | d +0.050  3/15
+                           solo 11.370   residual corr vs blend +0.573
+
+    computed P0 krr (0s)
+    computed P1 krr (0s)
+    computed P2 krr (0s)
+    computed P3 krr (0s)
+    computed P4 krr (0s)
+    computed P5 krr (0s)
+    computed P6 krr (0s)
+    computed P7 krr (0s)
+    computed P8 krr (0s)
+    computed Q0 krr (0s)
+    computed Q1 krr (0s)
+    computed Q2 krr (0s)
+    computed Q3 krr (0s)
+    computed R0 krr (0s)
+    computed R1 krr (0s)
+    computed R2 krr (0s)
+    computed R3 krr (0s)
+    computed R4 krr (0s)
+  solo krr               P 12.184/18.383 Q  8.827/12.417 R 13.623/15.961  avg 11.545  | d +6.890  0/15
+  +krr in blend          P  4.868/ 6.297 Q  4.191/ 4.895 R  5.223/ 5.868  avg  4.761  | d +0.106  7/15
+                           solo 11.545   residual corr vs blend +0.376
+
+total 441s

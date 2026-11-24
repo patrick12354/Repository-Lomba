@@ -1,0 +1,12 @@
+FOLDS:
+  F0: 2023-07-25 14:30 -> 2023-08-09 14:30
+  F1: 2023-07-30 14:30 -> 2023-08-14 14:30
+  F2: 2023-08-04 14:30 -> 2023-08-19 14:30
+  F3: 2023-08-09 14:30 -> 2023-08-24 14:30
+  F4: 2023-08-14 14:30 -> 2023-08-29 14:30
+R1_rh_clean              [ 9.480  7.074 11.328  6.538  6.301] mean 8.1442 pooled 7.8385 | lgbm_shallow=0.15 xgb=0.38 ridge=0.23 enet=0.24
+   per-model: {'lgbm': 8.433, 'lgbm_huber': 8.655, 'lgbm_shallow': 8.624, 'xgb': 8.498, 'cat': 8.768, 'et': 9.022, 'ridge': 8.75, 'enet': 8.424}
+R2_td_clean              [ 9.381  8.107 11.778  7.856  7.253] mean 8.8748 pooled 8.5521 | cat=0.25 ridge=0.51 enet=0.24
+   per-model: {'lgbm': 11.121, 'lgbm_huber': 11.287, 'lgbm_shallow': 10.862, 'xgb': 11.3, 'cat': 10.738, 'et': 10.974, 'ridge': 9.033, 'enet': 8.612}
+
+=== ORACLE ceilings on the same fold rows ===

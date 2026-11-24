@@ -1,0 +1,158 @@
+[
+  {
+    "id": "w0",
+    "text": "Every",
+    "start": 0,
+    "end": 0.418
+  },
+  {
+    "id": "w1",
+    "text": "fact",
+    "start": 0.476,
+    "end": 0.72
+  },
+  {
+    "id": "w2",
+    "text": "opens",
+    "start": 0.778,
+    "end": 1.08
+  },
+  {
+    "id": "w3",
+    "text": "to",
+    "start": 1.126,
+    "end": 1.184
+  },
+  {
+    "id": "w4",
+    "text": "its",
+    "start": 1.242,
+    "end": 1.358
+  },
+  {
+    "id": "w5",
+    "text": "exact",
+    "start": 1.405,
+    "end": 1.718
+  },
+  {
+    "id": "w6",
+    "text": "source",
+    "start": 1.776,
+    "end": 2.043
+  },
+  {
+    "id": "w7",
+    "text": "row.",
+    "start": 2.101,
+    "end": 2.368
+  },
+  {
+    "id": "w8",
+    "text": "And",
+    "start": 2.45,
+    "end": 2.589
+  },
+  {
+    "id": "w9",
+    "text": "where",
+    "start": 2.647,
+    "end": 2.821
+  },
+  {
+    "id": "w10",
+    "text": "sources",
+    "start": 2.856,
+    "end": 3.193
+  },
+  {
+    "id": "w11",
+    "text": "disagree,",
+    "start": 3.251,
+    "end": 3.796
+  },
+  {
+    "id": "w12",
+    "text": "PlantPulse",
+    "start": 3.901,
+    "end": 4.4
+  },
+  {
+    "id": "w13",
+    "text": "shows",
+    "start": 4.423,
+    "end": 4.679
+  },
+  {
+    "id": "w14",
+    "text": "the",
+    "start": 4.714,
+    "end": 4.783
+  },
+  {
+    "id": "w15",
+    "text": "conflict",
+    "start": 4.83,
+    "end": 5.248
+  },
+  {
+    "id": "w16",
+    "text": "and",
+    "start": 5.306,
+    "end": 5.445
+  },
+  {
+    "id": "w17",
+    "text": "assigns",
+    "start": 5.503,
+    "end": 5.84
+  },
+  {
+    "id": "w18",
+    "text": "an",
+    "start": 5.875,
+    "end": 5.944
+  },
+  {
+    "id": "w19",
+    "text": "owner,",
+    "start": 6.014,
+    "end": 6.351
+  },
+  {
+    "id": "w20",
+    "text": "instead",
+    "start": 6.385,
+    "end": 6.711
+  },
+  {
+    "id": "w21",
+    "text": "of",
+    "start": 6.745,
+    "end": 6.815
+  },
+  {
+    "id": "w22",
+    "text": "quietly",
+    "start": 6.873,
+    "end": 7.245
+  },
+  {
+    "id": "w23",
+    "text": "picking",
+    "start": 7.303,
+    "end": 7.581
+  },
+  {
+    "id": "w24",
+    "text": "a",
+    "start": 7.628,
+    "end": 7.651
+  },
+  {
+    "id": "w25",
+    "text": "side.",
+    "start": 7.709,
+    "end": 8.22
+  }
+]

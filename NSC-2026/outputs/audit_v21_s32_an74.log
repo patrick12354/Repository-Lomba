@@ -1,0 +1,16 @@
+  note: code[final_pipeline.py]: d9ea928d on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+  B1_last15d  calibration windows 6  (514 s)
+  B2_prev15d  calibration windows 1  (633 s)
+  B3_shift7d  calibration windows 5  (1029 s)
+  B1_last15d  w=0.45  fitted                       cal rows 864  4.232249 -> 4.877022
+  B2_prev15d  w=0.00  insufficient calibration     cal rows 384  6.586373 -> 6.586373
+  B3_shift7d  w=0.35  fitted                       cal rows 768  4.690131 -> 4.170683
+
+  control reproduces the frozen v21 predictions exactly (2160 rows)
+
+             candidate   pooled  B1_last15d  B2_prev15d  B3_shift7d    n  d_pooled    d_mse  d_B1_last15d  d_B2_prev15d  d_B3_shift7d promotable  boot3_lo  boot3_hi
+                   v21 5.535894    4.232249    6.586373    4.690131 1440       NaN      NaN           NaN           NaN           NaN        NaN       NaN       NaN
+sequence_honest_weight 5.795069    4.877022    6.586373    4.170683 1440  0.259175 2.936706      0.644773           0.0     -0.519447      False -0.334208  7.211012
+
+wrote sequence_weight.csv to C:\Users\Raphael Angelo\Code\Competitions\NSC UB\outputs\audit_v21_s32

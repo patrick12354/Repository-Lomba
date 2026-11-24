@@ -1,0 +1,30 @@
+S0_ref_hampel_k6     despiked total     0  air_temp   0 co2   0 press   0
+S1_curv_k3           despiked total  2048  air_temp 130 co2 180 press  63
+S2_curv_k4           despiked total  1255  air_temp  70 co2  99 press  46
+S3_curv_k5           despiked total  1026  air_temp  51 co2  66 press  43
+S4_curv_k6           despiked total   896  air_temp  42 co2  52 press  42
+S5_curv_k8           despiked total   723  air_temp  38 co2  39 press  40
+S6_curv_k4_p4        despiked total  1264  air_temp  71 co2  99 press  46
+S7_curv_k4_pchip     despiked total  1255  air_temp  70 co2  99 press  46
+S8_hampelMAD_k6      despiked total  2111  air_temp 269 co2 125 press  86
+
+S0_ref_hampel_k6               mean  6.088 pooled  6.230 worst  7.612
+S1_curv_k3                     mean  6.430 pooled  6.555 worst  7.972 | d +0.301 CI[+0.083,+0.547] folds 0/9 P 0%
+S2_curv_k4                     mean  6.451 pooled  6.584 worst  8.068 | d +0.325 CI[+0.113,+0.564] folds 0/9 P 0%
+S3_curv_k5                     mean  6.480 pooled  6.616 worst  8.081 | d +0.355 CI[+0.149,+0.587] folds 0/9 P 0%
+S4_curv_k6                     mean  6.455 pooled  6.595 worst  8.109 | d +0.333 CI[+0.134,+0.560] folds 0/9 P 0%
+S5_curv_k8                     mean  6.442 pooled  6.582 worst  8.121 | d +0.318 CI[+0.119,+0.547] folds 1/9 P 0%
+S6_curv_k4_p4                  mean  6.457 pooled  6.588 worst  8.080 | d +0.328 CI[+0.115,+0.563] folds 0/9 P 0%
+S7_curv_k4_pchip               mean  6.444 pooled  6.583 worst  8.121 | d +0.321 CI[+0.100,+0.561] folds 0/9 P 0%
+S8_hampelMAD_k6                mean  6.563 pooled  6.724 worst  8.185 | d +0.510 CI[+0.334,+0.706] folds 0/9 P 0%
+
+=== RANKING ===
+  S0_ref_hampel_k6       mean  6.088 worst  7.612
+  S1_curv_k3             mean  6.430 worst  7.972
+  S5_curv_k8             mean  6.442 worst  8.121
+  S7_curv_k4_pchip       mean  6.444 worst  8.121
+  S2_curv_k4             mean  6.451 worst  8.068
+  S4_curv_k6             mean  6.455 worst  8.109
+  S6_curv_k4_p4          mean  6.457 worst  8.080
+  S3_curv_k5             mean  6.480 worst  8.081
+  S8_hampelMAD_k6        mean  6.563 worst  8.185

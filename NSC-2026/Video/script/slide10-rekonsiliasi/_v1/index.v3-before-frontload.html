@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Slide 10 — Reconstructing the Timeline (animasi 2D)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/pred.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Light.ttf"); font-weight: 300; }
+      @font-face { font-family: "Rustic"; src: url("assets/fonts/RusticPrintedStamp.ttf"); }
+      :root { --ink: #2b2521; --red: #a91d1a; --ivory: #efe5cf; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #151413; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      #bg { position: absolute; inset: 0; background: #1b1918 url("assets/tex/charcoal.png") center / cover; }
+
+      /* act A: Pak Anton's greenhouse (same world as slide 1) */
+      #gh { position: absolute; inset: 0; overflow: hidden; }
+      #world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+      #worldSvg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+      #ghPaper { position: absolute; inset: 0; pointer-events: none; opacity: 0.32; mix-blend-mode: multiply; background: url("assets/tex/paper.png") center / cover; }
+      #ghFx { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+
+      /* acts B–I: the investigation board */
+      #bw { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+      #bcam { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; transform-origin: 0 0; }
+      #cork { position: absolute; inset: 0; background: #9c7046 url("assets/tex/cork.jpg") center / cover; }
+      #board { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; overflow: visible; }
+      #lamp { position: absolute; inset: 0; pointer-events: none;
+              background: radial-gradient(ellipse 62% 70% at 52% 46%, rgba(255,236,196,0.10), rgba(255,236,196,0) 55%, rgba(18,10,4,0.42) 100%); }
+      #lensFx { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+
+      #dust { position: absolute; inset: 0; pointer-events: none; }
+      .mote { position: absolute; border-radius: 50%; background: #fff6dc; }
+      #grain { position: absolute; left: -60px; top: -60px; width: 2040px; height: 1200px; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
+               background: url("assets/tex/grain.png") 0 0 / 480px 270px repeat; }
+      svg text { font-family: "Poppins", sans-serif; }
+      .rus { font-family: "Rustic"; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="75" data-width="1920" data-height="1080" data-fps="30">
+      <div id="bg"></div>
+
+      <div id="gh">
+        <div id="world">
+          <svg id="worldSvg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9eee2" /><stop offset="1" stop-color="#f5ecd6" /></linearGradient>
+              <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b6846" /><stop offset="1" stop-color="#553a25" /></linearGradient>
+              <linearGradient id="ray" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffbe9" stop-opacity="0.55" /><stop offset="1" stop-color="#fffbe9" stop-opacity="0" /></linearGradient>
+              <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7e8581" /><stop offset="0.45" stop-color="#b7bdb8" /><stop offset="1" stop-color="#7a807c" /></linearGradient>
+            </defs>
+            <g id="gSky"></g>
+            <g id="gBackPlants"></g>
+            <g id="gSensor"></g>
+            <g id="gMidPlants"></g>
+            <g id="gCrate"></g>
+            <g id="gInspect"></g>
+            <g id="anton"></g>
+            <g id="gFront"></g>
+            <g id="gTags"></g>
+          </svg>
+        </div>
+        <div id="ghPaper"></div>
+        <svg id="ghFx" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><g id="stream"></g></svg>
+      </div>
+
+      <div id="bw">
+        <div id="bcam">
+          <div id="cork"></div>
+          <svg id="board" viewBox="0 0 2880 1620" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="shPaper" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="6" dy="12" stdDeviation="9" flood-color="#1a0d04" flood-opacity="0.55" /></filter>
+              <filter id="shPin" x="-60%" y="-60%" width="240%" height="240%"><feDropShadow dx="5" dy="8" stdDeviation="3.5" flood-color="#1a0d04" flood-opacity="0.55" /></filter>
+              <pattern id="graph" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40,0 L0,0 L0,40" fill="none" stroke="#3c5a78" stroke-opacity="0.13" stroke-width="1.5" /></pattern>
+              <pattern id="chartGrid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34,0 L0,0 L0,34" fill="none" stroke="#b5574f" stroke-opacity="0.16" stroke-width="1.4" /></pattern>
+              <linearGradient id="rollG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b9ad93" /><stop offset="0.45" stop-color="#f6efdd" /><stop offset="1" stop-color="#a39679" /></linearGradient>
+              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2b2521" /></marker>
+              <clipPath id="chartClip"><rect id="chartClipR" x="820" y="200" width="0" height="1320" /></clipPath>
+              <clipPath id="lineClip"><rect id="lineClipR" x="820" y="200" width="0" height="1320" /></clipPath>
+            </defs>
+            <g id="layPapers"></g>
+            <g id="layThreads"></g>
+            <g id="layNotes" data-layout-allow-overlap></g>
+            <g id="layTop"></g>
+            <g id="layChart" clip-path="url(#chartClip)"></g>
+            <g id="layChartTop"></g>
+            <g id="layFrame"></g>
+          </svg>
+        </div>
+        <div id="lamp"></div>
+        <svg id="lensFx" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <mask id="lensHole" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+              <rect x="0" y="0" width="1920" height="1080" fill="#fff" />
+              <circle id="holeC" cx="1500" cy="1500" r="470" fill="#000" />
+            </mask>
+            <radialGradient id="glass" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#fff" stop-opacity="0.16" /><stop offset="0.5" stop-color="#fff" stop-opacity="0.03" /><stop offset="1" stop-color="#cfe2e8" stop-opacity="0.10" /></radialGradient>
+          </defs>
+          <rect id="lensDark" x="0" y="0" width="1920" height="1080" fill="#120a05" opacity="0" mask="url(#lensHole)" />
+          <g id="lens"></g>
+        </svg>
+      </div>
+
+      <div id="dust"></div>
+      <div id="grain"></div>
+
+      <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="75" data-track-index="5"></audio>
+      <!-- sound: a few hand-placed SFX under the VO (assets/sfx, made by tools/sfx.mjs) -->
+      <audio id="sfx00-beep" src="assets/sfx/beep.mp3" data-start="0.25" data-volume="0.22" data-track-index="6"></audio>
+      <audio id="sfx01-whoosh" src="assets/sfx/whoosh.mp3" data-start="1.62" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx02-slap" src="assets/sfx/slap.mp3" data-start="2.86" data-volume="0.45" data-track-index="6"></audio>
+      <audio id="sfx03-slap" src="assets/sfx/slap.mp3" data-start="3.16" data-volume="0.4" data-track-index="7"></audio>
+      <audio id="sfx04-marker" src="assets/sfx/marker.mp3" data-start="5.7" data-volume="0.3" data-track-index="6"></audio>
+      <audio id="sfx05-pin" src="assets/sfx/pin.mp3" data-start="7.6" data-volume="0.38" data-track-index="6"></audio>
+      <audio id="sfx06-pin" src="assets/sfx/pin.mp3" data-start="8.04" data-volume="0.38" data-track-index="7"></audio>
+      <audio id="sfx07-pin" src="assets/sfx/pin.mp3" data-start="8.48" data-volume="0.38" data-track-index="6"></audio>
+      <audio id="sfx08-pin" src="assets/sfx/pin.mp3" data-start="8.92" data-volume="0.38" data-track-index="7"></audio>
+      <audio id="sfx09-pin" src="assets/sfx/pin.mp3" data-start="9.36" data-volume="0.38" data-track-index="6"></audio>
+      <audio id="sfx10-marker" src="assets/sfx/marker.mp3" data-start="11.48" data-volume="0.3" data-track-index="6"></audio>
+      <audio id="sfx11-whoosh" src="assets/sfx/whoosh.mp3" data-start="18.3" data-volume="0.22" data-track-index="6"></audio>
+      <audio id="sfx12-stamp" src="assets/sfx/stamp.mp3" data-start="28.18" data-volume="0.5" data-track-index="6"></audio>
+      <audio id="sfx13-slap" src="assets/sfx/slap.mp3" data-start="31.84" data-volume="0.45" data-track-index="6"></audio>
+      <audio id="sfx14-marker" src="assets/sfx/marker.mp3" data-start="32.6" data-volume="0.25" data-track-index="6"></audio>
+      <audio id="sfx15-marker" src="assets/sfx/marker.mp3" data-start="40.28" data-volume="0.22" data-track-index="6"></audio>
+      <audio id="sfx16-marker" src="assets/sfx/marker.mp3" data-start="42.53" data-volume="0.22" data-track-index="6"></audio>
+      <audio id="sfx17-pin" src="assets/sfx/pin.mp3" data-start="45.88" data-volume="0.4" data-track-index="6"></audio>
+      <audio id="sfx18-slap" src="assets/sfx/slap.mp3" data-start="47.34" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx19-slap" src="assets/sfx/slap.mp3" data-start="49.8" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx20-slap" src="assets/sfx/slap.mp3" data-start="57.26" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx21-marker" src="assets/sfx/marker.mp3" data-start="58.13" data-volume="0.3" data-track-index="6"></audio>
+      <audio id="sfx22-slap" src="assets/sfx/slap.mp3" data-start="62.43" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx23-slap" src="assets/sfx/slap.mp3" data-start="63.68" data-volume="0.3" data-track-index="6"></audio>
+      <audio id="sfx24-unroll" src="assets/sfx/unroll.mp3" data-start="65.05" data-volume="0.35" data-track-index="6"></audio>
+      <audio id="sfx25-stamp" src="assets/sfx/stamp.mp3" data-start="66.03" data-volume="0.55" data-track-index="7"></audio>
+      <audio id="sfx26-marker" src="assets/sfx/marker.mp3" data-start="73.18" data-volume="0.25" data-track-index="6"></audio>
+    </div>
+
+    <script>
+      const NS = "http://www.w3.org/2000/svg";
+      const INK = "#2b2521", RED = "#a91d1a";
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.from(document.querySelectorAll(s));
+      const f1 = (n) => (+n).toFixed(1);
+      const rad = (d) => (d * Math.PI) / 180;
+      function el(tag, attrs, parent) {
+        const e = document.createElementNS(NS, tag);
+        for (const k in attrs) e.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(e);
+        return e;
+      }
+      const txt = (s, attrs, parent) => { const t = el("text", attrs, parent); t.textContent = s; return t; };
+      function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+      // ═════════════════════════ act A world: the greenhouse from slide 1 (copied verbatim) ═════════════════════════
+      const GH = (() => {
+      // ───────────────────────── world: greenhouse ─────────────────────────
+      const gSky = $("#gSky");
+      el("rect", { x: -40, y: -40, width: 2000, height: 720, fill: "url(#sky)" }, gSky);
+      el("path", { d: "M-40,585 C180,540 380,575 560,556 C760,536 920,580 1120,560 C1320,540 1520,578 1720,552 C1820,540 1900,556 1960,550 L1960,660 L-40,660 Z", fill: "#cbd4bd" }, gSky);
+      el("path", { d: "M-40,612 C160,580 330,606 520,592 C720,578 900,612 1100,598 C1300,584 1520,614 1700,590 C1820,578 1900,592 1960,588 L1960,660 L-40,660 Z", fill: "#b3c09f" }, gSky);
+      // back glass wall: mullions, rails, roof lines
+      const glass = el("g", { stroke: "#8e9790", "stroke-linecap": "round" }, gSky);
+      for (let x = 30; x <= 1900; x += 148) {
+        el("line", { x1: x, y1: 96, x2: x, y2: 652, "stroke-width": 7 }, glass);
+        el("line", { x1: x, y1: 96, x2: f1(960 + (x - 960) * 1.6), y2: -60, "stroke-width": 7 }, glass);
+      }
+      [96, 270, 448].forEach((y) => el("line", { x1: -40, y1: y, x2: 1960, y2: y, "stroke-width": y === 96 ? 10 : 6 }, glass));
+      [30, -18].forEach((y) => el("line", { x1: -40, y1: y, x2: 1960, y2: y, "stroke-width": 6 }, glass));
+      const refl = el("g", { stroke: "#ffffff", "stroke-width": 5, opacity: 0.45, "stroke-linecap": "round" }, gSky);
+      for (let i = 0; i < 9; i++) { const x = 70 + i * 222; el("line", { x1: x, y1: 250, x2: x + 60, y2: 120 }, refl); el("line", { x1: x + 26, y1: 252, x2: x + 66, y2: 166 }, refl); }
+      // light rays
+      const rays = el("g", { id: "rays" }, gSky);
+      [[180, 420], [620, 360], [1080, 300]].forEach(([x, w]) => el("polygon", { points: `${x},-40 ${x + w},-40 ${x + w + 520},1080 ${x + 380},1080`, fill: "url(#ray)", opacity: 0.55 }, rays));
+      // soil + mulch rows
+      el("rect", { x: -40, y: 640, width: 2000, height: 480, fill: "url(#soil)" }, gSky);
+      el("line", { x1: -40, y1: 641, x2: 1960, y2: 641, stroke: INK, "stroke-width": 3, opacity: 0.6 }, gSky);
+      const VP = [960, 560];
+      [-520, 120, 760, 1400, 2040].forEach((bx) => {
+        const w = 300, k = (650 - VP[1]) / (1080 - VP[1]);
+        const tx = (x) => f1(VP[0] + (x - VP[0]) * k);
+        el("polygon", { points: `${tx(bx - w / 2)},650 ${tx(bx + w / 2)},650 ${bx + w / 2},1080 ${bx - w / 2},1080`, fill: "#2f2a25", opacity: 0.9 }, gSky);
+        el("line", { x1: tx(bx + w / 2), y1: 650, x2: bx + w / 2, y2: 1080, stroke: "#5d544a", "stroke-width": 4 }, gSky);
+      });
+      // soil clods
+      const rc = rng(77);
+      for (let i = 0; i < 60; i++) el("ellipse", { cx: f1(rc() * 1920), cy: f1(660 + rc() * 410), rx: f1(4 + rc() * 10), ry: f1(2 + rc() * 4), fill: "#3e2a1b", opacity: 0.35 }, gSky);
+
+      // ───────────────────────── plants ─────────────────────────
+      const GREENS = ["#5e8a39", "#6b9844", "#527d31", "#77a24c"];
+      const WILTS = ["#b8a048", "#a99545", "#c4ab5a", "#9d8a3c", "#8e9a46"];
+      const swayers = [];
+
+      function leaflet(parent, bx, by, phi, l, w, fill, s, spot) {
+        const ux = Math.cos(rad(phi)), uy = Math.sin(rad(phi)), px = -uy, py = ux;
+        const tx = bx + ux * l, ty = by + uy * l, mx = bx + ux * l * 0.45, my = by + uy * l * 0.45;
+        el("path", { d: `M${f1(bx)},${f1(by)} Q${f1(mx + px * w)},${f1(my + py * w)} ${f1(tx)},${f1(ty)} Q${f1(mx - px * w)},${f1(my - py * w)} ${f1(bx)},${f1(by)} Z`,
+                     fill, stroke: INK, "stroke-width": f1(Math.max(1.6, 2.6 * s)), "stroke-linejoin": "round" }, parent);
+        el("path", { d: `M${f1(bx)},${f1(by)} L${f1(bx + ux * l * 0.82)},${f1(by + uy * l * 0.82)}`, stroke: "rgba(30,40,15,0.45)", "stroke-width": f1(1.3 * s), fill: "none" }, parent);
+        if (spot) el("circle", { cx: f1(mx + px * w * 0.3), cy: f1(my + py * w * 0.3), r: f1(w * 0.28), fill: "#6f4e22", opacity: 0.55 }, parent);
+      }
+      function leafCluster(parent, nx, ny, ang, L, s, wilt, r) {
+        const ux = Math.cos(rad(ang)), uy = Math.sin(rad(ang));
+        const ex = nx + ux * L, ey = ny + uy * L + wilt * L * 0.16;
+        const cx = nx + ux * L * 0.5, cy = ny + uy * L * 0.5 - (1 - wilt) * L * 0.1;
+        el("path", { d: `M${f1(nx)},${f1(ny)} Q${f1(cx)},${f1(cy)} ${f1(ex)},${f1(ey)}`, fill: "none", stroke: INK, "stroke-width": f1(4.2 * s + 1.5), "stroke-linecap": "round" }, parent);
+        el("path", { d: `M${f1(nx)},${f1(ny)} Q${f1(cx)},${f1(cy)} ${f1(ex)},${f1(ey)}`, fill: "none", stroke: wilt > 0.5 ? "#7f7c3a" : "#4f6e2c", "stroke-width": f1(3.2 * s), "stroke-linecap": "round" }, parent);
+        const pick = () => (r() < wilt ? WILTS[Math.floor(r() * WILTS.length)] : GREENS[Math.floor(r() * GREENS.length)]);
+        const at = (t) => [(1 - t) * (1 - t) * nx + 2 * (1 - t) * t * cx + t * t * ex, (1 - t) * (1 - t) * ny + 2 * (1 - t) * t * cy + t * t * ey];
+        const droop = (phi) => phi + (90 - phi) * wilt * 0.5;
+        [[0.38, 55, 0.4], [0.38, -55, 0.4], [0.7, 48, 0.46], [0.7, -48, 0.46], [1.0, 0, 0.52]].forEach(([t, d, k]) => {
+          const [bx, by] = at(t);
+          leaflet(parent, bx, by, droop(ang + d + (r() - 0.5) * 16), L * k, L * k * 0.36, pick(), s, wilt > 0.3 && r() < wilt * 0.6);
+        });
+        return { ex, ey };
+      }
+      function tomatoes(parent, nx, ny, side, s, r) {
+        const n = 2 + Math.floor(r() * 2);
+        for (let k = 0; k < n; k++) {
+          const cx = nx + side * (10 + k * 15) * s, cy = ny + (22 + (k % 2) * 12) * s, rr = (12 + r() * 3) * s;
+          const ripe = r() < 0.65;
+          el("line", { x1: f1(nx), y1: f1(ny), x2: f1(cx), y2: f1(cy - rr), stroke: "#4f6e2c", "stroke-width": f1(2.4 * s) }, parent);
+          el("circle", { cx: f1(cx), cy: f1(cy), r: f1(rr), fill: ripe ? "#c8372d" : "#9db34f", stroke: INK, "stroke-width": f1(2.4 * s) }, parent);
+          el("ellipse", { cx: f1(cx - rr * 0.35), cy: f1(cy - rr * 0.35), rx: f1(rr * 0.28), ry: f1(rr * 0.18), fill: "#fff", opacity: 0.55 }, parent);
+          el("path", { d: `M${f1(cx - rr * 0.5)},${f1(cy - rr * 0.85)} L${f1(cx)},${f1(cy - rr * 0.6)} L${f1(cx + rr * 0.5)},${f1(cy - rr * 0.85)}`, stroke: "#3f6a25", "stroke-width": f1(3 * s), fill: "none", "stroke-linecap": "round" }, parent);
+        }
+      }
+      function plant(parent, x, baseY, s, o) {
+        const r = rng(o.seed), wilt = o.wilt || 0, h = 560 * s * (o.hMul || 1), dir = o.dir || 1;
+        const g = el("g", {}, parent);
+        const P0 = [x, baseY], P1 = [x + (r() - 0.5) * 30 * s, baseY - h * 0.6], P2 = [x + dir * h * 0.3 * wilt + (r() - 0.5) * 16 * s, baseY - h + h * 0.2 * wilt];
+        const q = (t) => [(1 - t) ** 2 * P0[0] + 2 * (1 - t) * t * P1[0] + t * t * P2[0], (1 - t) ** 2 * P0[1] + 2 * (1 - t) * t * P1[1] + t * t * P2[1]];
+        if (o.string) el("line", { x1: f1(P2[0]), y1: 96, x2: f1(P2[0]), y2: f1(P2[1]), stroke: "#f1ead8", "stroke-width": 1.8, opacity: 0.75 }, g);
+        const d = `M${f1(P0[0])},${f1(P0[1])} Q${f1(P1[0])},${f1(P1[1])} ${f1(P2[0])},${f1(P2[1])}`;
+        el("path", { d, fill: "none", stroke: INK, "stroke-width": f1(7 * s + 2.5), "stroke-linecap": "round" }, g);
+        el("path", { d, fill: "none", stroke: wilt > 0.5 ? "#7f7c3a" : "#4f6e2c", "stroke-width": f1(7 * s), "stroke-linecap": "round" }, g);
+        const fruitG = el("g", {}, g);
+        [0.2, 0.33, 0.46, 0.58, 0.7, 0.82, 0.93].forEach((t, i) => {
+          const [nx, ny] = q(t), side = i % 2 ? 1 : -1;
+          const L = 150 * s * (0.78 + r() * 0.32) * (t > 0.9 ? 0.75 : 1);
+          const a = wilt > 0 ? -12 + wilt * 66 + r() * 14 : -32 + r() * 30;
+          const cg = el("g", { transform: `rotate(0 ${f1(nx)} ${f1(ny)})` }, g);
+          leafCluster(cg, nx, ny, side > 0 ? a : 180 - a, L, s, wilt, r);
+          if (o.sway) swayers.push({ g: cg, nx, ny, amp: (wilt > 0.5 ? 1.2 : 2.6) * (0.7 + r() * 0.6), per: 1.5 + r() * 1.3 });
+          if (o.fruit && i >= 1 && i <= 4 && r() < o.fruit) tomatoes(fruitG, nx, ny, -side, s, r);
+        });
+        g.appendChild(fruitG);
+        return { g, q };
+      }
+
+      for (let i = 0, x = 20; x < 1940; x += 74, i++) plant($("#gBackPlants"), x + (i % 2) * 12, 664, 0.42, { seed: 100 + i, fruit: 0.5, string: true });
+      [110, 250, 395, 1190, 1470, 1615, 1760, 1900].forEach((x, i) => plant($("#gMidPlants"), x, 772, 0.62, { seed: 300 + i, fruit: 0.7, string: true, sway: true }));
+
+      // the plant Pak Anton inspects + the leaf he lifts
+      const insp = plant($("#gInspect"), 1090, 1018, 0.95, { seed: 501, wilt: 0.9, dir: 1, sway: true });
+      const HP = insp.q(0.5); // leaf pivot on the stem
+      const heldG = el("g", { id: "held", transform: `rotate(0 ${f1(HP[0])} ${f1(HP[1])})` }, $("#gInspect"));
+      const heldTip = leafCluster(heldG, HP[0], HP[1], 166, 150, 1.05, 0.85, rng(9));
+      el("circle", { cx: f1(HP[0]), cy: f1(HP[1]), r: 6, fill: "#7f7c3a", stroke: INK, "stroke-width": 2.5 }, heldG);
+      // grab point: ~85% along the petiole, rotated with the leaf
+      const GRAB = [HP[0] + (heldTip.ex - HP[0]) * 0.86, HP[1] + (heldTip.ey - HP[1]) * 0.86];
+      const grabAt = (deg) => { const vx = GRAB[0] - HP[0], vy = GRAB[1] - HP[1], c = Math.cos(rad(deg)), s = Math.sin(rad(deg)); return [HP[0] + vx * c - vy * s, HP[1] + vx * s + vy * c]; };
+      // the leaflet that falls
+      const fallG = el("g", { id: "fallLeaf", transform: "translate(0 0) rotate(0)" }, $("#gInspect"));
+      leaflet(fallG, -26, 0, 0, 56, 19, "#c2a851", 1.0, true);
+
+      plant($("#gFront"), 300, 1090, 1.15, { seed: 611, wilt: 0.75, dir: -1, sway: true });
+      plant($("#gFront"), 150, 1075, 1.0, { seed: 612, wilt: 0.35, sway: true, fruit: 0.5 });
+      plant($("#gFront"), 1610, 1095, 1.2, { seed: 613, fruit: 0.8, sway: true });
+      plant($("#gFront"), 1800, 1080, 1.0, { seed: 614, wilt: 0.5, sway: true });
+
+      // ───────────────────────── sensor on its pole ─────────────────────────
+      const gS = $("#gSensor");
+      el("rect", { x: 1332, y: 210, width: 18, height: 700, fill: "url(#metal)", stroke: INK, "stroke-width": 4 }, gS);
+      el("ellipse", { cx: 1341, cy: 910, rx: 30, ry: 8, fill: "#2a1d12", opacity: 0.45 }, gS);
+      el("rect", { x: 1322, y: 292, width: 38, height: 22, rx: 4, fill: "#8d938f", stroke: INK, "stroke-width": 3.5 }, gS);
+      // radiation shield (stacked discs)
+      for (let i = 0; i < 6; i++) el("path", { d: `M1262,${282 + i * 15} Q1293,${270 + i * 15} 1324,${282 + i * 15} L1318,${290 + i * 15} Q1293,${280 + i * 15} 1268,${290 + i * 15} Z`, fill: "#f2f1ea", stroke: INK, "stroke-width": 3 }, gS);
+      el("rect", { x: 1286, y: 270, width: 14, height: 100, fill: "#d9dbd6", stroke: INK, "stroke-width": 3, opacity: 0.0 }, gS);
+      // logger box
+      el("rect", { x: 1358, y: 270, width: 70, height: 92, rx: 6, fill: "#dfe1dc", stroke: INK, "stroke-width": 4 }, gS);
+      el("rect", { x: 1368, y: 282, width: 50, height: 30, rx: 3, fill: "#c4c8c2", stroke: INK, "stroke-width": 2.5 }, gS);
+      el("line", { x1: 1410, y1: 270, x2: 1414, y2: 196, stroke: INK, "stroke-width": 5, "stroke-linecap": "round" }, gS);
+      el("circle", { cx: 1414, cy: 194, r: 6, fill: INK }, gS);
+      el("line", { x1: 1378, y1: 270, x2: 1376, y2: 226, stroke: INK, "stroke-width": 4, "stroke-linecap": "round" }, gS);
+      el("circle", { id: "led", cx: 1376, cy: 340, r: 6.5, fill: "#5fbf5a", stroke: INK, "stroke-width": 2 }, gS);
+      const wifi = el("g", { fill: "none", stroke: "#3f8fd0", "stroke-width": 6, "stroke-linecap": "round" }, gS);
+      const wifiInk = el("g", { fill: "none", stroke: INK, "stroke-width": 11, "stroke-linecap": "round", opacity: 0.0 }, gS);
+      [18, 34, 50].forEach((rr, i) => {
+        const d = `M${1426},${f1(194 - rr * 0.8)} A${rr},${rr} 0 0 1 ${1426},${f1(194 + rr * 0.8)}`;
+        el("path", { class: "wfInk", d, opacity: 0 }, wifiInk);
+        el("path", { class: "wf", d, opacity: 0 }, wifi);
+      });
+      wifiInk.setAttribute("opacity", 1);
+      wifi.parentNode.appendChild(wifi);
+
+      // ───────────────────────── crate + notebook ─────────────────────────
+      const gC = $("#gCrate");
+      el("polygon", { points: "462,862 728,862 746,914 444,914", fill: "#a77a4b", stroke: INK, "stroke-width": 4, "stroke-linejoin": "round" }, gC);
+      el("rect", { x: 444, y: 914, width: 302, height: 128, fill: "#8a6139", stroke: INK, "stroke-width": 4 }, gC);
+      [944, 976, 1008].forEach((y) => el("line", { x1: 444, y1: y, x2: 746, y2: y, stroke: INK, "stroke-width": 2.5, opacity: 0.55 }, gC));
+      [470, 720].forEach((x) => el("rect", { x: x - 10, y: 914, width: 20, height: 128, fill: "#74502f", stroke: INK, "stroke-width": 3 }, gC));
+      const nbW = el("g", { id: "nbWorld", transform: "rotate(-6 595 885)" }, gC);
+      el("rect", { x: 510, y: 838, width: 170, height: 95, rx: 4, fill: "#2f3d4f", stroke: INK, "stroke-width": 3.5 }, nbW);
+      el("rect", { x: 560, y: 870, width: 70, height: 22, fill: "#efe5cf" }, nbW);
+      for (let i = 0; i < 11; i++) el("rect", { x: 518 + i * 15, y: 832, width: 4, height: 12, rx: 2, fill: "#8a8e93" }, nbW);
+      el("line", { x1: 640, y1: 930, x2: 712, y2: 902, stroke: "#e8b23c", "stroke-width": 7, "stroke-linecap": "round" }, gC);
+
+      // ───────────────────────── Pak Anton (jointed puppet) ─────────────────────────
+      const HIP = [800, 860];
+      const A = $("#anton");
+      A.setAttribute("transform", `translate(${HIP[0]} ${HIP[1]})`);
+      const tube = (parent, d, w, col) => { el("path", { d, fill: "none", stroke: INK, "stroke-width": w + 8, "stroke-linecap": "round", "stroke-linejoin": "round" }, parent); el("path", { d, fill: "none", stroke: col, "stroke-width": w, "stroke-linecap": "round", "stroke-linejoin": "round" }, parent); };
+      // legs
+      tube(A, "M-12,6 L74,-40 L70,104", 46, "#77684a");
+      el("path", { d: "M44,64 L96,64 L98,126 Q128,128 134,148 L44,148 Z", fill: "#2f2b28", stroke: INK, "stroke-width": 4, "stroke-linejoin": "round" }, A);
+      const torso = el("g", { id: "torso", transform: "translate(0 0) scale(1 1)" }, A);
+      // far arm (behind torso)
+      const mkArm = (parent, sleeve, skin) => {
+        const g = el("g", {}, parent);
+        const o = {
+          ink: el("path", { fill: "none", stroke: INK, "stroke-width": 31, "stroke-linecap": "round", "stroke-linejoin": "round" }, g),
+          up: el("path", { fill: "none", stroke: sleeve, "stroke-width": 23, "stroke-linecap": "round", "stroke-linejoin": "round" }, g),
+          fo: el("path", { fill: "none", stroke: "#000", "stroke-opacity": 0, "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round" }, g),
+          cuffInk: el("path", { fill: "none", stroke: INK, "stroke-width": 33, "stroke-linecap": "butt" }, g),
+          cuff: el("path", { fill: "none", stroke: sleeve === "#6b7541" ? "#5b6437" : "#484f2b", "stroke-width": 25, "stroke-linecap": "butt" }, g),
+          hand: el("g", { transform: "translate(0 0) rotate(0)" }, g),
+        };
+        el("ellipse", { cx: 7, cy: 0, rx: 17, ry: 13.5, fill: skin, stroke: INK, "stroke-width": 3.5 }, o.hand);
+        el("path", { d: "M10,-10 Q20,-16 24,-8", fill: "none", stroke: INK, "stroke-width": 3, "stroke-linecap": "round" }, o.hand);
+        el("ellipse", { cx: 4, cy: -12, rx: 8, ry: 5.5, fill: skin, stroke: INK, "stroke-width": 3, transform: "rotate(-30 4 -12)" }, o.hand);
+        el("path", { d: "M12,2 L22,2 M11,8 L20,8", stroke: INK, "stroke-width": 2, opacity: 0.6 }, o.hand);
+        return o;
+      };
+      const farArmEls = mkArm(torso, "#555e33", "#b37a50");
+      // torso
+      el("path", { d: "M-42,22 C-50,-58 -42,-140 -8,-184 L62,-190 C92,-160 106,-98 102,-38 C100,-2 82,24 52,30 Z", fill: "#66703e", stroke: INK, "stroke-width": 4.5, "stroke-linejoin": "round" }, torso);
+      el("path", { d: "M-42,22 C-50,-58 -42,-140 -8,-184 L4,-184 C-18,-130 -22,-60 -10,24 Z", fill: "#525b31", opacity: 0.8 }, torso);
+      el("path", { d: "M64,-172 C72,-120 76,-60 72,12", fill: "none", stroke: INK, "stroke-width": 2.5, opacity: 0.55 }, torso);
+      el("path", { d: "M26,-136 L52,-138 L54,-112 L28,-110 Z", fill: "#5b6536", stroke: INK, "stroke-width": 2.5, opacity: 0.9 }, torso);
+      // neck
+      el("path", { d: "M38,-206 L74,-206 L72,-180 L40,-180 Z", fill: "#b97c51", stroke: INK, "stroke-width": 3.5 }, torso);
+      el("path", { d: "M26,-190 L50,-166 L70,-194 L60,-184 L50,-176 L36,-192 Z", fill: "#5c6537", stroke: INK, "stroke-width": 3.5, "stroke-linejoin": "round" }, torso);
+      // head
+      const headT = el("g", { transform: "translate(70 -238)" }, torso);
+      const head = el("g", { id: "headR", transform: "rotate(4 -5 40)" }, headT);
+      el("path", { d: "M-52,-6 C-58,-40 -30,-60 2,-58 L-8,12 C-30,24 -48,20 -52,-6 Z", fill: INK }, head);
+      el("path", { d: "M-46,-8 C-48,-44 -14,-58 16,-54 C40,-51 52,-36 52,-18 C52,-10 55,-5 60,-1 C68,4 72,12 67,18 C63,22 57,21 53,21 C53,29 51,37 45,46 C37,56 23,60 8,58 C-22,58 -44,32 -46,-8 Z", fill: "#c98a5e", stroke: INK, "stroke-width": 4.5, "stroke-linejoin": "round" }, head);
+      el("path", { d: "M-44,4 C-40,34 -20,54 6,57 C-14,44 -30,28 -36,4 Z", fill: "#a96d47", opacity: 0.55 }, head);
+      el("path", { d: "M-46,-16 L-28,-18 L-32,14 L-46,8 Z", fill: INK }, head);
+      el("ellipse", { cx: -30, cy: 4, rx: 9, ry: 13, fill: "#c98a5e", stroke: INK, "stroke-width": 3.5 }, head);
+      el("path", { d: "M-31,-2 Q-26,4 -31,10", fill: "none", stroke: INK, "stroke-width": 2.2 }, head);
+      // eyes
+      const eyes = el("g", {}, head);
+      [[8, -6, 9.5, 10.5], [35, -7, 8, 9.5]].forEach(([x, y, rx, ry]) => el("ellipse", { class: "eyeW", cx: x, cy: y, rx, ry, fill: "#fbf6ea", stroke: INK, "stroke-width": 2.8 }, eyes));
+      const pupils = el("g", { id: "pupils", transform: "translate(3 3)" }, eyes);
+      [[9, -6], [36, -7]].forEach(([x, y]) => el("ellipse", { class: "eyeP", cx: x, cy: y, rx: 4.6, ry: 5.2, fill: INK }, pupils));
+      el("path", { id: "browN", d: "M-6,-24 Q6,-32 20,-26", fill: "none", stroke: INK, "stroke-width": 6.5, "stroke-linecap": "round", transform: "translate(0 0) rotate(0 7 -27)" }, head);
+      el("path", { id: "browF", d: "M26,-28 Q37,-34 47,-26", fill: "none", stroke: INK, "stroke-width": 6, "stroke-linecap": "round", transform: "translate(0 0) rotate(0 36 -30)" }, head);
+      el("path", { d: "M54,6 C51,10 51,16 55,19", fill: "none", stroke: INK, "stroke-width": 2.6, "stroke-linecap": "round", opacity: 0.7 }, head);
+      el("ellipse", { cx: 63, cy: 6, rx: 3.6, ry: 2.4, fill: "#fff", opacity: 0.35, transform: "rotate(30 63 6)" }, head);
+      
+      el("path", { d: "M22,31 Q28,23 38,24 Q45,21 51,23 Q55,26 52,31 Q49,35 43,33 Q38,32 33,35 Q25,37 22,31 Z", fill: INK }, head);
+      el("path", { d: "M34,43 Q40,41 46,43", fill: "none", stroke: INK, "stroke-width": 3, "stroke-linecap": "round" }, head);
+      // caping (conical straw hat)
+      el("path", { d: "M-50,-26 Q4,-6 58,-26 L58,-14 Q4,6 -50,-14 Z", fill: "#000", opacity: 0.16 }, head);
+      el("path", { d: "M-104,-30 Q2,-2 110,-36 L8,-118 Z", fill: "#d8b56a", stroke: INK, "stroke-width": 4.5, "stroke-linejoin": "round" }, head);
+      const weave = el("g", { stroke: "#a8843f", "stroke-width": 2.2, fill: "none", opacity: 0.8 }, head);
+      [-80, -52, -24, 6, 36, 66, 92].forEach((bx) => el("line", { x1: 8, y1: -116, x2: bx, y2: f1(-24 + Math.abs(bx - 3) * -0.05), "stroke-linecap": "round" }, weave));
+      [0.35, 0.62, 0.85].forEach((k) => el("path", { d: `M${f1(8 - 112 * k)},${f1(-118 + 88 * k)} Q${f1(5)},${f1(-118 + 112 * k)} ${f1(8 + 102 * k)},${f1(-118 + 82 * k)}` }, weave));
+      el("path", { d: "M-104,-30 Q2,-2 110,-36", fill: "none", stroke: "#8f6d32", "stroke-width": 3 }, head);
+      // near leg (in front of torso) and near arm (in front of everything)
+      tube(A, "M10,16 L110,-18 L104,108", 52, "#8c7a55");
+      el("path", { d: "M76,68 L130,68 L132,130 Q166,132 172,154 L76,154 Z", fill: "#363130", stroke: INK, "stroke-width": 4, "stroke-linejoin": "round" }, A);
+      el("path", { d: "M84,80 L124,80", stroke: "#57504b", "stroke-width": 4 }, A);
+      const nearArmEls = mkArm(A, "#6b7541", "#c98a5e");
+
+      // ───────────────────────── arm IK (baked into keyframes) ─────────────────────────
+      const L1 = 92, L2 = 88;
+      const toLocal = (p) => [p[0] - HIP[0], p[1] - HIP[1]];
+      const arms = {
+        far: { S: [50, -166], els: farArmEls, ang: 0 },
+        near: { S: [16, -150], els: nearArmEls, ang: 0 },
+      };
+      function pose(arm, T) {
+        const [sx, sy] = arm.S;
+        const dx = T[0] - sx, dy = T[1] - sy;
+        const d = Math.min(L1 + L2 - 1, Math.max(Math.abs(L1 - L2) + 1, Math.hypot(dx, dy)));
+        const a = Math.atan2(dy, dx);
+        const b = Math.acos((L1 * L1 + d * d - L2 * L2) / (2 * L1 * d));
+        const E = [sx + L1 * Math.cos(a + b), sy + L1 * Math.sin(a + b)];
+        const H = [sx + d * Math.cos(a), sy + d * Math.sin(a)];
+        let ang = (Math.atan2(H[1] - E[1], H[0] - E[0]) * 180) / Math.PI;
+        while (ang - arm.ang > 180) ang -= 360;
+        while (ang - arm.ang < -180) ang += 360;
+        arm.ang = ang;
+        const ux = Math.cos(rad(ang)), uy = Math.sin(rad(ang));
+        const P = (p) => `${f1(p[0])},${f1(p[1])}`;
+        const at = (k) => [H[0] - ux * k, H[1] - uy * k];
+        const W = at(12); // wrist: the cuff ends where the hand begins
+        // crease: a short fold on the inside of the elbow, follows the bend
+        const ex = (S0, E0, k) => [E0[0] + (S0[0] - E0[0]) * k, E0[1] + (S0[1] - E0[1]) * k];
+        const c0 = ex(arm.S, E, 0.22), c1 = [E[0] + ux * 16, E[1] + uy * 16];
+        return {
+          ink: `M${P(arm.S)} L${P(E)} L${P(W)}`, up: `M${P(arm.S)} L${P(E)} L${P(W)}`, fo: `M${P(c0)} L${P(E)} L${P(c1)}`,
+          cuffInk: `M${P(at(26))} L${P(at(9))}`, cuff: `M${P(at(24))} L${P(at(11))}`, hand: `translate(${f1(H[0])} ${f1(H[1])}) rotate(${f1(ang)})`,
+        };
+      }
+      function armSet(arm, T) { const p = pose(arm, T); for (const k of ["ink", "up", "fo", "cuffInk", "cuff"]) arm.els[k].setAttribute("d", p[k]); arm.els.hand.setAttribute("transform", p.hand); }
+      function armMove(tl, arm, targetAt, t, dur, ease, n = 10) {
+        const E = gsap.parseEase(ease);
+        for (let i = 1; i <= n; i++) {
+          const p = pose(arm, targetAt(E(i / n)));
+          const at = t + ((i - 1) * dur) / n, d = dur / n;
+          for (const k of ["ink", "up", "fo", "cuffInk", "cuff"]) tl.to(arm.els[k], { attr: { d: p[k] }, duration: d, ease: "none" }, at);
+          tl.to(arm.els.hand, { attr: { transform: p.hand }, duration: d, ease: "none" }, at);
+        }
+      }
+      const lerp2 = (a, b) => (p) => [a[0] + (b[0] - a[0]) * p, a[1] + (b[1] - a[1]) * p];
+      const REST_F = [104, -36], REST_N = [130, -30], CHIN = [108, -190];
+      armSet(arms.far, REST_F);
+      armSet(arms.near, REST_N);
+        return { arms, armSet, swayers, CHIN, REST_F };
+      })();
+      GH.armSet(GH.arms.near, GH.CHIN);
+
+      // ═════════════════════════ board world (2880 × 1620) ═════════════════════════
+      const BW = 2880, BH = 1620;
+      const P = { papers: $("#layPapers"), threads: $("#layThreads"), notes: $("#layNotes"), top: $("#layTop"), chart: $("#layChart"), chartTop: $("#layChartTop"), frame: $("#layFrame") };
+      // torn-edge polygon for a w×h sheet (seeded)
+      function tornPts(w, h, amp, step, seed) {
+        const r = rng(seed), pts = [];
+        for (let x = 0; x <= w; x += step) pts.push([x, r() * amp]);
+        for (let y = 0; y <= h; y += step) pts.push([w - r() * amp, y]);
+        for (let x = w; x >= 0; x -= step) pts.push([x, h - r() * amp]);
+        for (let y = h; y >= 0; y -= step) pts.push([r() * amp, y]);
+        return pts.map(([x, y]) => f1(x) + "," + f1(y)).join(" ");
+      }
+      let clipN = 0;
+      // a sheet of paper: <g transform> > shadowed body (texture clipped to torn edge) + content group
+      function sheet(parent, x, y, w, h, o = {}) {
+        const g = el("g", { transform: `translate(${x} ${y}) rotate(${o.rot || 0} ${w / 2} ${h / 2})` }, parent);
+        const inner = el("g", {}, g);
+        const id = "tp" + clipN++;
+        const pts = o.torn === false ? `0,0 ${w},0 ${w},${h} 0,${h}` : tornPts(w, h, o.amp || 7, o.step || 14, o.seed || clipN * 7);
+        const cp = el("clipPath", { id }, $("#board defs"));
+        el("polygon", { points: pts }, cp);
+        const body = el("g", { filter: "url(#shPaper)" }, inner);
+        el("polygon", { points: pts, fill: o.fill || "#efe5cf" }, body);
+        if (o.tex !== false) el("image", { href: "assets/tex/paper.png", x: -20, y: -20, width: w + 40, height: h + 40, preserveAspectRatio: "none", "clip-path": `url(#${id})`, opacity: o.texOp ?? 1, style: o.blend ? "mix-blend-mode:multiply" : "" }, inner);
+        if (o.grid) el("rect", { x: 0, y: 0, width: w, height: h, fill: `url(#${o.grid})`, "clip-path": `url(#${id})` }, inner);
+        const c = el("g", {}, inner);
+        return { g, inner, c, w, h, x, y };
+      }
+      // a pushpin head seen from the front (ring = level awal, solid = hasil, deco = paper pins)
+      function pin(parent, x, y, kind = "deco", col = "#2f3d4f") {
+        const o = el("g", { transform: `translate(${x} ${y})` }, parent);
+        const s = el("g", { filter: "url(#shPin)" }, o);
+        if (kind === "ring") {
+          el("circle", { cx: 0, cy: 0, r: 22, fill: "#efe5cf", stroke: "#8b857c", "stroke-width": 7 }, s);
+          el("ellipse", { cx: -7, cy: -8, rx: 6, ry: 4, fill: "#fff", opacity: 0.7 }, s);
+        } else if (kind === "res") {
+          el("circle", { cx: 0, cy: 0, r: 19, fill: RED, stroke: "#5e0f0d", "stroke-width": 3 }, s);
+          el("ellipse", { cx: -6, cy: -7, rx: 6, ry: 4, fill: "#fff", opacity: 0.45 }, s);
+        } else {
+          el("circle", { cx: 0, cy: 0, r: 13, fill: col, stroke: "#1a1410", "stroke-width": 2.5 }, s);
+          el("ellipse", { cx: -4, cy: -5, rx: 4, ry: 2.6, fill: "#fff", opacity: 0.5 }, s);
+        }
+        return { o, s };
+      }
+      // a yarn thread: base stroke + twist highlight
+      function thread(parent, d, col = "#3a2f28", w = 4.5) {
+        const g = el("g", {}, parent);
+        const base = el("path", { d, fill: "none", stroke: col, "stroke-width": w, "stroke-linecap": "round" }, g);
+        const tw = el("path", { d, fill: "none", stroke: "#fff", "stroke-opacity": 0.22, "stroke-width": w * 0.45, "stroke-dasharray": "3 7", "stroke-linecap": "round" }, g);
+        return { g, base, tw };
+      }
+
+      // ── wooden frame + title strip + case tags (in-world, like the deck) ──
+      const fr = P.frame;
+      [[0, 0, BW, 34], [0, BH - 34, BW, 34], [0, 0, 34, BH], [BW - 34, 0, 34, BH]].forEach(([x, y, w, h]) => {
+        el("rect", { x, y, width: w, height: h, fill: "#4a2f1b" }, fr);
+      });
+      el("rect", { x: 17, y: 17, width: BW - 34, height: BH - 34, fill: "none", stroke: "#76502f", "stroke-width": 6 }, fr);
+      el("rect", { x: 34, y: 34, width: BW - 68, height: BH - 68, fill: "none", stroke: "#22150b", "stroke-width": 5, opacity: 0.8 }, fr);
+
+      const titleS = sheet(P.papers, 720, 62, 1440, 112, { seed: 23, amp: 7, step: 12 });
+      txt("NILAI DAN PERUBAHAN DISELARASKAN BERSAMA", { x: 720, y: 80, "font-size": 60, fill: RED, "text-anchor": "middle", class: "rus" }, titleS.c);
+      pin(P.papers, 760, 92, "deco", RED); pin(P.papers, 2120, 92, "deco", RED);
+      const tagCase = el("g", { transform: "translate(110 70) rotate(-4)" }, P.papers);
+      el("rect", { x: 0, y: 0, width: 300, height: 84, fill: "#d9c9a3", filter: "url(#shPaper)" }, tagCase);
+      txt("BERKAS 734", { x: 150, y: 58, "font-size": 46, fill: INK, "text-anchor": "middle", class: "rus" }, tagCase);
+      const tagAct = el("g", { transform: "translate(2410 78) rotate(-3)" }, P.papers);
+      el("rect", { x: 0, y: 0, width: 400, height: 78, fill: "#2b2521", filter: "url(#shPaper)" }, tagAct);
+      el("rect", { x: 7, y: 7, width: 386, height: 64, fill: "none", stroke: "#efe5cf", "stroke-opacity": 0.55, "stroke-width": 2 }, tagAct);
+      txt("THE BREAKTHROUGH", { x: 200, y: 53, "font-size": 38, fill: "#efe5cf", "text-anchor": "middle", class: "rus" }, tagAct);
+
+      // ── exhibit sheet: the timeline (illustration of the mechanism) ──
+      const EX = sheet(P.papers, 800, 236, 1960, 1264, { seed: 11, amp: 9, step: 16, grid: "graph" });
+      const exG = el("g", { transform: "translate(-800 -236)" }, EX.c); // draw exhibit content in board coordinates
+      pin(P.papers, 850, 280, "deco", "#c9a13b"); pin(P.papers, 2712, 280, "deco", "#c9a13b");
+
+      const L = [64, 72, 63, 59, 70];
+      const LINKS = [[0, 1, 3], [1, 2, -4], [2, 3, -1], [3, 4, 6], [0, 4, 2]]; // [a, b, predicted change]
+      const wL = 1, wI = 2, N = 5;
+      function solveWLS() { // frozen illustrative WLS: min Σ wL(x_i − L_i)² + Σ wI(x_b − x_a − d)²
+        const A = [...Array(N)].map((_, i) => [...Array(N)].map((_, j) => (i === j ? wL : 0)));
+        const b = L.map((v) => wL * v);
+        for (const [a, c, d] of LINKS) { A[a][a] += wI; A[c][c] += wI; A[a][c] -= wI; A[c][a] -= wI; b[c] += wI * d; b[a] -= wI * d; }
+        for (let i = 0; i < N; i++) for (let k = i + 1; k < N; k++) { const f = A[k][i] / A[i][i]; for (let j = i; j < N; j++) A[k][j] -= f * A[i][j]; b[k] -= f * b[i]; }
+        const x = Array(N);
+        for (let i = N - 1; i >= 0; i--) { let s = b[i]; for (let j = i + 1; j < N; j++) s -= A[i][j] * x[j]; x[i] = s / A[i][i]; }
+        return x;
+      }
+      const R = solveWLS();
+      const XS = [1080, 1420, 1760, 2100, 2440];
+      const yv = (v) => 1360 - (v - 52) * 36;
+      const LY = L.map(yv), RY = R.map(yv);
+
+      const axes = el("g", {}, exG);
+      const grid = el("g", { opacity: 0 }, axes);
+      XS.forEach((x) => el("line", { x1: x, y1: 330, x2: x, y2: 1370, stroke: INK, "stroke-opacity": 0.16, "stroke-width": 2.5, "stroke-dasharray": "5 10" }, grid));
+      const axY = el("path", { d: "M900,1370 L900,320", fill: "none", stroke: INK, "stroke-width": 4, "marker-end": "url(#arr)" }, axes);
+      const axX = el("path", { d: "M900,1370 L2710,1370", fill: "none", stroke: INK, "stroke-width": 4, "marker-end": "url(#arr)" }, axes);
+      const axLbl = el("g", { opacity: 0 }, axes);
+      txt("Kelembapan", { x: 868, y: 850, "font-size": 40, "text-anchor": "middle", fill: INK, transform: "rotate(-90 866 850)" }, axLbl);
+      txt("Waktu", { x: 2700, y: 1348, "font-size": 40, "text-anchor": "end", fill: INK }, axLbl);
+      const TLBL = ["t", "+30 mnt", "+1 jam", "+1,5 jam", "+2 jam"];
+      const tLbls = XS.map((x, i) => txt(TLBL[i], { x, y: 1424, "font-size": 40, "text-anchor": "middle", fill: "#4c463f", opacity: 0 }, axes));
+      const illus = txt("Ilustrasi mekanisme", { x: 836, y: 1468, "font-size": 34, fill: "#6f685f", "font-style": "italic", opacity: 0 }, exG);
+
+      // increment links: four 30-minute arcs above, one 2-hour thread hanging below
+      const gArcs = el("g", {}, exG);
+      const arcD = (a, b) => { const x1 = XS[a], y1 = LY[a] - 30, x2 = XS[b], y2 = LY[b] - 30, top = Math.min(y1, y2) - 90; return `M${x1},${y1} C${x1 + 50},${f1(top - (y1 - Math.min(y1, y2)) * 0.25)} ${x2 - 50},${f1(top - (y2 - Math.min(y1, y2)) * 0.25)} ${x2},${y2}`; };
+      const arcs = [[0, 1], [1, 2], [2, 3], [3, 4]].map(([a, b]) => el("path", { d: arcD(a, b), fill: "none", stroke: "#6c665e", "stroke-width": 4.5, "stroke-dasharray": "12 9", "stroke-linecap": "round" }, gArcs));
+      const sag = el("path", { d: `M${XS[0]},${LY[0] + 25} C1180,1380 2300,1400 ${XS[4]},${LY[4] + 25}`, fill: "none", stroke: "#6c665e", "stroke-width": 5, "stroke-dasharray": "14 10", "stroke-linecap": "round" }, gArcs);
+      arcs.push(sag);
+      const lbl30 = el("g", { opacity: 0 }, gArcs);
+      txt("30 menit", { x: 1330, y: 488, "font-size": 44, "font-weight": 700, "text-anchor": "middle", fill: RED }, lbl30);
+      const lbl2j = el("g", { opacity: 0 }, gArcs);
+      txt("2 jam", { x: 1680, y: 1316, "font-size": 44, "font-weight": 700, "text-anchor": "middle", fill: RED }, lbl2j);
+
+      // level pins (ghosts), tethers, result trajectory, result pins
+      const gTeth = el("g", {}, exG);
+      const tethers = XS.map((x, i) => el("line", { x1: x, y1: LY[i], x2: x, y2: LY[i], stroke: "#7d776f", "stroke-width": 3.5 }, gTeth));
+      const ghosts = XS.map((x, i) => pin(exG, x, LY[i], "ring"));
+      const ripples = XS.map((x, i) => el("circle", { cx: x, cy: LY[i], r: 22, fill: "none", stroke: INK, "stroke-width": 3, opacity: 0 }, exG));
+      // over-smoothed comparison (Act H)
+      const meanY = yv(L.reduce((a, b) => a + b) / N);
+      const smooth = el("path", { d: `M1000,${f1(meanY - 10)} C1500,${f1(meanY + 6)} 2000,${f1(meanY - 8)} 2540,${f1(meanY + 4)}`, fill: "none", stroke: "#8f887d", "stroke-width": 16, "stroke-linecap": "round", opacity: 0 }, exG);
+      const strike = el("g", { opacity: 0 }, exG);
+      const st1 = el("path", { d: `M1640,${f1(meanY - 110)} L1890,${f1(meanY + 100)}`, fill: "none", stroke: RED, "stroke-width": 12, "stroke-linecap": "round" }, strike);
+      const st2 = el("path", { d: `M1890,${f1(meanY - 105)} L1630,${f1(meanY + 110)}`, fill: "none", stroke: RED, "stroke-width": 12, "stroke-linecap": "round" }, strike);
+      const traj = thread(exG, "", RED, 7);
+      const setTraj = (ys) => { const d = "M" + XS.map((x, i) => `${x},${f1(ys[i])}`).join(" L"); traj.base.setAttribute("d", d); traj.tw.setAttribute("d", d); };
+      setTraj(LY);
+      traj.g.setAttribute("opacity", 0);
+      const results = XS.map((x, i) => pin(exG, x, LY[i], "res"));
+      // which tether moves most (for the "posisi" label)
+      let kMax = 0; R.forEach((r, i) => { if (Math.abs(r - L[i]) > Math.abs(R[kMax] - L[kMax])) kMax = i; });
+      const lblPos = txt("posisi", { x: XS[kMax] + 30, y: f1((LY[kMax] + RY[kMax]) / 2 + 14), "font-size": 40, "font-weight": 700, fill: "#4c463f", opacity: 0 }, exG);
+      const lblDyn = txt("dinamika", { x: f1((XS[3] + XS[4]) / 2 + 40), y: f1((RY[3] + RY[4]) / 2 + 12), "font-size": 40, "font-weight": 700, fill: RED, opacity: 0 }, exG);
+
+      // mismatch close-up (Act D)
+      const gM = el("g", {}, exG);
+      const mx1 = 1452, mx2 = 1504, yBase = LY[0], yInc = yv(L[0] + LINKS[0][2]);
+      const mBase = el("line", { x1: XS[0] + 26, y1: yBase, x2: mx2 + 30, y2: yBase, stroke: INK, "stroke-width": 3, "stroke-dasharray": "4 8", opacity: 0 }, gM);
+      const brLevel = el("path", { d: `M${mx1 - 12},${yBase} L${mx1 + 12},${yBase} M${mx1},${yBase} L${mx1},${LY[1]} M${mx1 - 12},${LY[1]} L${mx1 + 12},${LY[1]}`, fill: "none", stroke: "#5d574f", "stroke-width": 6 }, gM);
+      const brInc = el("path", { d: `M${mx2 - 12},${yBase} L${mx2 + 12},${yBase} M${mx2},${yBase} L${mx2},${yInc} M${mx2 - 12},${yInc} L${mx2 + 12},${yInc}`, fill: "none", stroke: RED, "stroke-width": 6, "stroke-dasharray": "10 6" }, gM);
+      const tLevel = el("g", { opacity: 0 }, gM);
+      txt("Selisih", { x: mx1 - 22, y: (yBase + LY[1]) / 2 - 10, "font-size": 34, "font-weight": 700, "text-anchor": "end", fill: "#4c463f" }, tLevel);
+      txt("level", { x: mx1 - 22, y: (yBase + LY[1]) / 2 + 30, "font-size": 34, "font-weight": 700, "text-anchor": "end", fill: "#4c463f" }, tLevel);
+      const tInc = el("g", { opacity: 0 }, gM);
+      txt("Prediksi", { x: mx2 + 22, y: (yBase + yInc) / 2 - 8, "font-size": 34, "font-weight": 700, fill: RED }, tInc);
+      txt("perubahan", { x: mx2 + 22, y: (yBase + yInc) / 2 + 32, "font-size": 34, "font-weight": 700, fill: RED }, tInc);
+      const stampD = el("g", { transform: "translate(1380 1058) rotate(-7)", opacity: 0 }, gM);
+      const stampDi = el("g", {}, stampD);
+      el("rect", { x: -200, y: -42, width: 400, height: 78, fill: "none", stroke: RED, "stroke-width": 6 }, stampDi);
+      txt("BELUM KONSISTEN", { x: 0, y: 16, "font-size": 46, fill: RED, "text-anchor": "middle", class: "rus" }, stampDi);
+
+      // optimisation loop (Act E): a marker line drawn around all five points
+      const loopD = (() => { const cx = 1790, cy = 880, rx = 860, ry = 320, pts = []; const r = rng(91);
+        for (let i = 0; i <= 64; i++) { const a = rad(-160 + i * 5.9); const k = 1 + (r() - 0.5) * 0.03 + (i > 58 ? (i - 58) * 0.012 : 0); pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]); }
+        return "M" + pts.map(([x, y]) => f1(x) + "," + f1(y)).join(" L"); })();
+      const loop = el("path", { d: loopD, fill: "none", stroke: INK, "stroke-width": 6, "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0.85 }, exG);
+
+      // ── the sensor log (the torn page filed at the end of slide 1) ──
+      const SL = sheet(P.papers, 100, 258, 700, 330, { seed: 21, amp: 5, step: 12, rot: -1.2, fill: "#f4ecd9" });
+      el("rect", { x: 0, y: 0, width: 700, height: 330, fill: "none" }, SL.c);
+      for (let y = 80; y < 320; y += 40) el("line", { x1: 4, y1: y, x2: 696, y2: y, stroke: "#4a76a8", "stroke-opacity": 0.22, "stroke-width": 2 }, SL.c);
+      el("rect", { x: 14, y: 10, width: 286, height: 54, fill: "#ddcca5" }, SL.c);
+      txt("Catatan sensor", { x: 30, y: 48, "font-size": 31, "font-weight": 700, fill: INK }, SL.c);
+      txt("Kelembapan", { x: 10, y: 140, "font-size": 27, "font-weight": 700, fill: INK }, SL.c);
+      txt("Sensor lain", { x: 10, y: 220, "font-size": 28, "font-weight": 700, fill: INK }, SL.c);
+      el("path", { d: "M168,262 L690,262", stroke: INK, "stroke-width": 2.5, "marker-end": "url(#arr)" }, SL.c);
+      txt("Waktu", { x: 430, y: 304, "font-size": 29, "text-anchor": "middle", fill: INK }, SL.c);
+      const xsAll = []; for (let x = 214; x <= 672.1; x += 22.9) xsAll.push(+x.toFixed(1));
+      el("line", { x1: 202, y1: 130, x2: 412, y2: 130, stroke: "#2f3d4f", "stroke-width": 3 }, SL.c);
+      el("line", { x1: 622, y1: 130, x2: 680, y2: 130, stroke: "#2f3d4f", "stroke-width": 3 }, SL.c);
+      const rowS = el("line", { x1: 202, y1: 210, x2: 680, y2: 210, stroke: "#2f3d4f", "stroke-width": 3 }, SL.c);
+      xsAll.filter((x) => x < 412 || x > 622).forEach((x) => el("circle", { cx: x, cy: 130, r: 8, fill: "#2f3d4f" }, SL.c));
+      const sDots = xsAll.map((x) => el("circle", { cx: x, cy: 210, r: 8, fill: "#2f3d4f" }, SL.c));
+      const qs = el("g", {}, SL.c);
+      [470, 516, 562].forEach((x) => txt("?", { x, y: 143, "font-size": 38, "font-weight": 700, fill: RED, "text-anchor": "middle" }, qs));
+      const gapBr = el("rect", { x: 412, y: 102, width: 208, height: 56, fill: "none", stroke: RED, "stroke-width": 3.5, "stroke-dasharray": "10 6" }, SL.c);
+      const gapFill = el("path", { d: "M412,130 C432,112 446,108 462,122 S494,150 512,136 S544,104 566,118 S604,148 622,130", fill: "none", stroke: RED, "stroke-width": 5, "stroke-linecap": "round" }, SL.c);
+      pin(P.papers, 450, 272, "deco", "#2f3d4f");
+
+      // ── the two prediction lanes: index cards ──
+      function indexCard(x, y, rot, title, sub, seed) {
+        const c = sheet(P.papers, x, y, 660, 190, { torn: false, rot, fill: "#f7f1e1", tex: true, texOp: 0.7, blend: true, seed });
+        el("line", { x1: 0, y1: 40, x2: 660, y2: 40, stroke: "#c45a55", "stroke-opacity": 0.6, "stroke-width": 2.5 }, c.c);
+        for (let ly = 80; ly < 190; ly += 38) el("line", { x1: 0, y1: ly, x2: 660, y2: ly, stroke: "#4a76a8", "stroke-opacity": 0.2, "stroke-width": 2 }, c.c);
+        txt(title, { x: 30, y: 102, "font-size": 48, "font-weight": 700, fill: INK }, c.c);
+        txt(sub, { x: 30, y: 160, "font-size": 35, fill: "#5d564e" }, c.c);
+        return c;
+      }
+      const cardL = indexCard(110, 680, 1.2, "Level Prediction", "Nilai pada setiap waktu", 41);
+      const cardI = indexCard(110, 950, -1.0, "Increment Prediction", "Perubahan 30 menit & 2 jam", 42);
+      const ulL = el("path", { d: "M28,118 C160,112 330,120 480,113", fill: "none", stroke: RED, "stroke-width": 6, "stroke-linecap": "round" }, cardL.c);
+      const ulI = el("path", { d: "M28,118 C200,112 410,121 600,113", fill: "none", stroke: RED, "stroke-width": 6, "stroke-linecap": "round" }, cardI.c);
+      const pinL = pin(P.top, 420, 700, "deco", "#2f3d4f"), pinI = pin(P.top, 150, 966, "deco", "#2f3d4f");
+      const pinL2 = pin(P.top, 748, 776, "deco", "#c9a13b"), pinI2 = pin(P.top, 748, 1046, "deco", "#c9a13b");
+      const pinEL = pin(P.top, 850, 700, "deco", "#c9a13b"), pinEI = pin(P.top, 850, 1120, "deco", "#c9a13b");
+      const pinSlip = pin(P.top, 450, 574, "deco", "#2f3d4f");
+
+      // threads: log → two lanes, lanes → the exhibit
+      const thL = thread(P.threads, "M450,574 Q446,640 420,700");
+      const thI = thread(P.threads, "M450,574 C60,610 40,900 150,966");
+      const feedL = thread(P.threads, "M748,776 Q810,752 850,700");
+      const feedI = thread(P.threads, "M748,1046 Q810,1104 850,1120");
+      const beadL = el("circle", { r: 11, fill: RED, stroke: "#5e0f0d", "stroke-width": 2.5, opacity: 0 }, P.threads);
+      const beadI = el("circle", { r: 11, fill: RED, stroke: "#5e0f0d", "stroke-width": 2.5, opacity: 0 }, P.threads);
+
+      // ── WLS case card (Act E) with the two criteria ──
+      const wls = sheet(P.top, 1890, 254, 850, 318, { seed: 57, amp: 6, step: 12, rot: 1.0, fill: "#efe5cf" });
+      txt("TEMPORAL RECONCILIATION", { x: 30, y: 70, "font-size": 54, fill: RED, class: "rus" }, wls.c);
+      const wSub = txt("Weighted Least Squares", { x: 32, y: 124, "font-size": 40, "font-weight": 700, fill: INK, opacity: 0 }, wls.c);
+      el("line", { x1: 30, y1: 154, x2: 820, y2: 154, stroke: INK, "stroke-opacity": 0.35, "stroke-width": 2 }, wls.c);
+      const crit1 = el("g", { opacity: 0 }, wls.c);
+      el("circle", { cx: 52, cy: 207, r: 16, fill: "#efe5cf", stroke: "#8b857c", "stroke-width": 6 }, crit1);
+      txt("Dekat dengan prediksi level", { x: 90, y: 220, "font-size": 37, fill: INK }, crit1);
+      const crit2 = el("g", { opacity: 0 }, wls.c);
+      el("path", { d: "M28,286 C40,252 68,252 80,286", fill: "none", stroke: "#6c665e", "stroke-width": 4.5, "stroke-dasharray": "7 5" }, crit2);
+      txt("Kurangi ketidakcocokan perubahan", { x: 90, y: 288, "font-size": 37, fill: INK }, crit2);
+      const critUl1 = el("path", { d: "M90,232 C260,227 470,234 600,228", fill: "none", stroke: RED, "stroke-width": 5, "stroke-linecap": "round" }, wls.c);
+      const critUl2 = el("path", { d: "M90,300 C320,295 560,302 724,296", fill: "none", stroke: RED, "stroke-width": 5, "stroke-linecap": "round" }, wls.c);
+      const wlsPin = pin(P.top, 2315, 276, "deco", RED);
+
+      // ── notes that pile up on the board (Acts F–H) ──
+      function note(x, y, rot, l1, l2, fill, seed, torn = false) {
+        const n = sheet(P.notes, x, y, 660, 168, { torn: torn ? undefined : false, seed, rot, fill, texOp: 0.6, blend: true, amp: 5, step: 12 });
+        txt(l1, { x: 30, y: 72, "font-size": 44, fill: INK }, n.c);
+        txt(l2, { x: 30, y: 130, "font-size": 48, "font-weight": 700, fill: INK }, n.c);
+        pin(n.inner, 330, 18, "deco", RED);
+        return n;
+      }
+      const nF = note(960, 258, -2.0, "Seluruh titik", "disesuaikan bersama", "#e3cf86", 61);
+      const nG = note(986, 268, 1.6, "Posisi + dinamika", "perubahan", "#efe5cf", 62, true);
+      const nH = note(966, 274, -1.0, "Bukan sekadar", "smoothing", "#f7f1e1", 63);
+      const nH2 = note(994, 262, 2.0, "Dua sumber informasi", "saling melengkapi", "#d4b483", 64, true);
+
+      // ── legend card (from Act H to the end) ──
+      const leg = sheet(P.top, 110, 1220, 660, 300, { seed: 71, amp: 5, step: 12, rot: -0.8, fill: "#efe5cf" });
+      txt("Keterangan", { x: 30, y: 56, "font-size": 38, "font-weight": 700, fill: INK }, leg.c);
+      el("circle", { cx: 56, cy: 112, r: 17, fill: "#efe5cf", stroke: "#8b857c", "stroke-width": 6 }, leg.c);
+      txt("Level awal", { x: 104, y: 125, "font-size": 37, fill: INK }, leg.c);
+      el("path", { d: "M28,196 C40,162 70,162 84,196", fill: "none", stroke: "#6c665e", "stroke-width": 4.5, "stroke-dasharray": "7 5" }, leg.c);
+      txt("Prediksi perubahan", { x: 104, y: 193, "font-size": 37, fill: INK }, leg.c);
+      el("line", { x1: 26, y1: 250, x2: 86, y2: 250, stroke: RED, "stroke-width": 6 }, leg.c);
+      el("circle", { cx: 56, cy: 250, r: 13, fill: RED, stroke: "#5e0f0d", "stroke-width": 2.5 }, leg.c);
+      txt("Hasil rekonsiliasi", { x: 104, y: 263, "font-size": 37, fill: INK }, leg.c);
+      const legPin = pin(P.top, 440, 1236, "deco", "#2f3d4f");
+
+      // ── Act I: chart-recorder roll with the 734 submission predictions ──
+      const CH = { x: 830, y: 250, w: 1910, h: 1222 };
+      const chBody = el("g", { filter: "url(#shPaper)" }, P.chart);
+      el("rect", { x: CH.x, y: CH.y, width: CH.w, height: CH.h, fill: "#f3ecdb" }, chBody);
+      el("image", { href: "assets/tex/chartpaper.jpg", x: CH.x, y: CH.y, width: CH.w, height: CH.h, preserveAspectRatio: "none" }, P.chart);
+      el("rect", { x: CH.x, y: CH.y, width: CH.w, height: CH.h, fill: "url(#chartGrid)" }, P.chart);
+      const PR = window.PRED || [];
+      const pmin = Math.min(...PR), pmax = Math.max(...PR);
+      const cxp = (i) => 1050 + (i / (PR.length - 1)) * 1610;
+      const vlo = Math.floor(pmin / 10) * 10, vhi = Math.ceil(pmax / 10) * 10;
+      const cyp = (v) => 1290 - ((v - vlo) / (vhi - vlo)) * 720;
+      el("path", { d: `M1010,1300 L1010,540`, fill: "none", stroke: INK, "stroke-width": 3.5, "marker-end": "url(#arr)" }, P.chart);
+      el("path", { d: `M1010,1300 L2700,1300`, fill: "none", stroke: INK, "stroke-width": 3.5, "marker-end": "url(#arr)" }, P.chart);
+      for (let v = vlo; v <= vhi; v += 20) { el("line", { x1: 1000, y1: f1(cyp(v)), x2: 1020, y2: f1(cyp(v)), stroke: INK, "stroke-width": 3 }, P.chart); txt(String(v), { x: 990, y: f1(cyp(v) + 14), "font-size": 40, "text-anchor": "end", fill: INK }, P.chart); }
+      txt("Kelembapan (%)", { x: 900, y: 930, "font-size": 40, "text-anchor": "middle", fill: INK, transform: "rotate(-90 900 930)" }, P.chart);
+      const fmt = (s) => { const [d] = (s || "").split(" "); const [y, m, dd] = d.split("-"); const mon = { "08": "Agu", "09": "Sep" }[m] || m; return `${+dd} ${mon} ${y}`; };
+      txt(fmt(window.PRED_FIRST), { x: 1040, y: 1356, "font-size": 40, fill: "#4c463f" }, P.chart);
+      txt(fmt(window.PRED_LAST), { x: 2670, y: 1356, "font-size": 40, "text-anchor": "end", fill: "#4c463f" }, P.chart);
+      txt("Prediksi submission Heisenberg · 734 titik, setiap 30 menit", { x: 1040, y: 1440, "font-size": 40, "font-style": "italic", fill: "#4c463f" }, P.chart);
+      const chDots = el("g", {}, P.chart);
+      PR.forEach((v, i) => el("circle", { cx: f1(cxp(i)), cy: f1(cyp(v)), r: 4.6, fill: RED }, chDots));
+      const chLine = el("polyline", { points: PR.map((v, i) => `${f1(cxp(i))},${f1(cyp(v))}`).join(" "), fill: "none", stroke: RED, "stroke-width": 3.6, "stroke-linejoin": "round", "clip-path": "url(#lineClip)" }, P.chart);
+      const roll = el("g", { opacity: 0 }, P.chartTop);
+      el("rect", { x: -26, y: CH.y - 18, width: 52, height: CH.h + 36, rx: 14, fill: "url(#rollG)", stroke: "#6d634f", "stroke-width": 2.5, filter: "url(#shPin)" }, roll);
+      const stamp734 = el("g", { transform: "translate(1080 420) rotate(-5)", opacity: 0 }, P.chartTop);
+      const stamp734i = el("g", {}, stamp734);
+      txt("734", { x: 0, y: 60, "font-size": 220, fill: RED, "text-anchor": "middle", class: "rus" }, stamp734i);
+      const finTxt = el("g", { opacity: 0 }, P.chartTop);
+      txt("titik, satu lintasan terhubung", { x: 1290, y: 452, "font-size": 66, "font-weight": 700, fill: INK }, finTxt);
+
+      // ═════════════════════════ act A overlay: wireless pulse + data leaving the sensor ═════════════════════════
+      const stream = $("#stream");
+      const ghCam = (fx, fy, z) => { let x = 960 - fx * z, y = 540 - fy * z; x = Math.min(0, Math.max(1920 - 1920 * z, x)); y = Math.min(0, Math.max(1080 - 1080 * z, y)); return { x, y, scale: z }; };
+      const GH0 = ghCam(1130, 470, 1.5), GH1 = ghCam(1150, 452, 1.62);
+      const w2s = (c, wx, wy) => [c.x + wx * c.scale, c.y + wy * c.scale];
+      const GHm = { x: GH0.x + (GH1.x - GH0.x) * 0.4, y: GH0.y + (GH1.y - GH0.y) * 0.4, scale: GH0.scale + (GH1.scale - GH0.scale) * 0.4 };
+      const ANT = w2s(GHm, 1430, 194);
+      const flyers = [];
+      const rf = rng(17);
+      for (let i = 0; i < 14; i++) {
+        const c = el("circle", { cx: 0, cy: 0, r: 9, fill: "#2f3d4f", stroke: "#efe5cf", "stroke-width": 2.5, opacity: 0 }, stream);
+        flyers.push({ c, ex: 1980 + rf() * 260, ey: 120 + rf() * 560, s: 1.6 + rf() * 1.8 });
+      }
+
+      // ═════════════════════════ magnifying glass (screen space) ═════════════════════════
+      const lens = $("#lens");
+      const LC = [960, 540], LR = 470;
+      const hA = rad(42), hx = LC[0] + Math.cos(hA) * (LR + 10), hy = LC[1] + Math.sin(hA) * (LR + 10);
+      el("path", { d: `M${f1(hx)},${f1(hy)} L${f1(hx + Math.cos(hA) * 420)},${f1(hy + Math.sin(hA) * 420)}`, stroke: INK, "stroke-width": 64, "stroke-linecap": "round" }, lens);
+      el("path", { d: `M${f1(hx)},${f1(hy)} L${f1(hx + Math.cos(hA) * 420)},${f1(hy + Math.sin(hA) * 420)}`, stroke: "#6b4a2c", "stroke-width": 54, "stroke-linecap": "round" }, lens);
+      el("path", { d: `M${f1(hx + 10)},${f1(hy - 12)} L${f1(hx + Math.cos(hA) * 410 + 10)},${f1(hy + Math.sin(hA) * 410 - 12)}`, stroke: "#9a7048", "stroke-width": 10, "stroke-linecap": "round" }, lens);
+      el("circle", { cx: LC[0], cy: LC[1], r: LR, fill: "url(#glass)" }, lens);
+      el("circle", { cx: LC[0], cy: LC[1], r: LR + 14, fill: "none", stroke: INK, "stroke-width": 40 }, lens);
+      el("circle", { cx: LC[0], cy: LC[1], r: LR + 14, fill: "none", stroke: "#a98a4f", "stroke-width": 30 }, lens);
+      el("circle", { cx: LC[0], cy: LC[1], r: LR + 22, fill: "none", stroke: "#d8bd7c", "stroke-width": 5, opacity: 0.8 }, lens);
+      el("path", { d: `M${LC[0] - 330},${LC[1] - 200} A${LR - 40},${LR - 40} 0 0 1 ${LC[0] - 120},${LC[1] - 400}`, fill: "none", stroke: "#fff", "stroke-width": 14, "stroke-linecap": "round", opacity: 0.28 }, lens);
+      const rimR = 494, ra = rad(162), rb = rad(108);
+      el("path", { id: "rimArc", d: `M${f1(LC[0] + rimR * Math.cos(ra))},${f1(LC[1] + rimR * Math.sin(ra))} A${rimR},${rimR} 0 0 0 ${f1(LC[0] + rimR * Math.cos(rb))},${f1(LC[1] + rimR * Math.sin(rb))}`, fill: "none" }, lens);
+      const rimT = el("text", { "font-size": 29, "font-weight": 700, "font-style": "italic", fill: "#2b2521" }, lens);
+      const rimTp = el("textPath", { href: "#rimArc", startOffset: "50%", "text-anchor": "middle" }, rimT); rimTp.textContent = "Ilustrasi mekanisme";
+      // Pak Anton's hand on the handle (same sleeve and skin as slide 1)
+      const gx = hx + Math.cos(hA) * 250, gy = hy + Math.sin(hA) * 250;
+      el("path", { d: `M${f1(gx + 30)},${f1(gy + 50)} L${f1(gx + 420)},${f1(gy + 260)}`, stroke: INK, "stroke-width": 128, "stroke-linecap": "round" }, lens);
+      el("path", { d: `M${f1(gx + 30)},${f1(gy + 50)} L${f1(gx + 420)},${f1(gy + 260)}`, stroke: "#6b7541", "stroke-width": 120, "stroke-linecap": "round" }, lens);
+      el("path", { d: `M${f1(gx + 40)},${f1(gy + 6)} L${f1(gx + 60)},${f1(gy + 104)}`, stroke: "#525b31", "stroke-width": 16, "stroke-linecap": "round" }, lens);
+      el("ellipse", { cx: f1(gx), cy: f1(gy), rx: 74, ry: 56, fill: "#c98a5e", stroke: INK, "stroke-width": 5, transform: `rotate(42 ${f1(gx)} ${f1(gy)})` }, lens);
+      [-30, -6, 18].forEach((o) => el("path", { d: `M${f1(gx - 40 + o * 0.6)},${f1(gy - 26 + o)} q26,-10 48,8`, fill: "none", stroke: INK, "stroke-width": 4, "stroke-linecap": "round", opacity: 0.7 }, lens));
+      el("ellipse", { cx: f1(gx - 52), cy: f1(gy - 30), rx: 26, ry: 18, fill: "#c98a5e", stroke: INK, "stroke-width": 4.5, transform: `rotate(-20 ${f1(gx - 52)} ${f1(gy - 30)})` }, lens);
+
+      // ═════════════════════════ dust ═════════════════════════
+      const rd = rng(42), dust = $("#dust"), motes = [];
+      for (let i = 0; i < 26; i++) {
+        const m = document.createElement("div"); m.className = "mote";
+        const sz = 2 + rd() * 4; m.style.width = m.style.height = sz.toFixed(1) + "px";
+        m.style.left = (rd() * 1920).toFixed(0) + "px"; m.style.top = (120 + rd() * 900).toFixed(0) + "px"; m.style.opacity = (0.18 + rd() * 0.35).toFixed(2);
+        dust.appendChild(m); motes.push({ m, dx: (rd() - 0.5) * 220, dy: -(140 + rd() * 260) });
+      }
+
+      // ═════════════════════════ timeline ═════════════════════════
+      const tl = gsap.timeline({ paused: true });
+      const io = "power3.inOut", out = "expo.out";
+      const bCam = (fx, fy, s) => { let x = 960 - fx * s, y = 540 - fy * s; x = Math.min(0, Math.max(1920 - BW * s, x)); y = Math.min(0, Math.max(1080 - BH * s, y)); return { x, y, scale: s }; };
+      const WIDE = bCam(1440, 810, 0.6667), EXH = bCam(1770, 870, 0.88);
+
+      let maskN = 0;
+      function drawIn(path, t, d, ease = "power2.out") {
+        const len = path.getTotalLength();
+        if (path.getAttribute("stroke-dasharray")) {
+          const clone = path.cloneNode(); clone.removeAttribute("stroke-dasharray"); clone.removeAttribute("opacity");
+          clone.setAttribute("stroke", "#fff"); clone.setAttribute("stroke-width", (+path.getAttribute("stroke-width") || 3) + 12);
+          const m = el("mask", { id: "dm" + maskN++, maskUnits: "userSpaceOnUse", x: 0, y: 0, width: BW, height: BH }, path.ownerSVGElement.querySelector("defs"));
+          m.appendChild(clone); // userSpaceOnUse: the mask lives in the path's own user space
+          path.setAttribute("mask", `url(#${m.id})`);
+          clone.style.strokeDasharray = len; clone.style.strokeDashoffset = len;
+          tl.to(clone, { strokeDashoffset: 0, duration: d, ease }, t);
+        } else {
+          path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+          tl.to(path, { strokeDashoffset: 0, duration: d, ease }, t);
+        }
+      }
+      const drawThread = (th, t, d, ease) => { drawIn(th.base, t, d, ease); tl.fromTo(th.tw, { opacity: 0 }, { opacity: 1, duration: 0.2 }, t + d); };
+      const slap = (g, t, from = 1.55, rot = 6, d = 0.34) => tl.fromTo(g, { opacity: 0, scale: from, rotation: rot, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: d, ease: "expo.out" }, t);
+      const pinIn = (p, ripple, t) => {
+        tl.fromTo(p.s, { opacity: 0, scale: 2.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.26, ease: "power4.out" }, t);
+        tl.to(p.s, { scaleX: 1.12, scaleY: 0.9, duration: 0.05, ease: "power1.out" }, t + 0.26);
+        tl.to(p.s, { scaleX: 1, scaleY: 1, duration: 0.12, ease: "power2.out" }, t + 0.31);
+        if (ripple) { tl.fromTo(ripple, { attr: { r: 22 }, opacity: 0 }, { opacity: 0.55, duration: 0.01 }, t + 0.24); tl.to(ripple, { attr: { r: 64 }, opacity: 0, duration: 0.5, ease: "power2.out" }, t + 0.25); }
+      };
+
+      // ambient life across the whole film
+      GH.swayers.forEach((s) => {
+        tl.fromTo(s.g, { attr: { transform: `rotate(${f1(-s.amp)} ${f1(s.nx)} ${f1(s.ny)})` } }, { attr: { transform: `rotate(${f1(s.amp)} ${f1(s.nx)} ${f1(s.ny)})` }, duration: s.per, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+      });
+      tl.to("#torso", { attr: { transform: "translate(0 -2) scale(1 1.012)" }, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+      motes.forEach((o) => tl.fromTo(o.m, { x: 0, y: 0 }, { x: o.dx, y: o.dy, duration: 75, ease: "none" }, 0));
+      tl.fromTo("#grain", { x: 0, y: 0 }, { x: -60, y: -60, duration: 75, ease: "steps(1125)" }, 0);
+
+      // ── A0 · 0–2.0  the sensor in Pak Anton's greenhouse sends its record ──
+      tl.fromTo("#world", GH0, { ...GH1, duration: 2.0, ease: "power1.in" }, 0);
+      tl.set("#headR", { attr: { transform: "rotate(-11 -5 40)" } }, 0);
+      tl.set("#pupils", { attr: { transform: "translate(5 -5)" } }, 0);
+      tl.set("#browN", { attr: { transform: "translate(0 -3) rotate(-6 7 -27)" } }, 0);
+      tl.to(".eyeW, .eyeP", { attr: { ry: 1 }, duration: 0.06, ease: "power1.in" }, 0.95);
+      tl.to(".eyeW", { attr: { ry: (i) => [10.5, 9.5][i] }, duration: 0.09, ease: "power1.out" }, 1.02);
+      tl.to(".eyeP", { attr: { ry: 5.2 }, duration: 0.09, ease: "power1.out" }, 1.02);
+      tl.to("#led", { attr: { fill: "#c9f5c0" }, duration: 0.08, yoyo: true, repeat: 5 }, 0.2);
+      tl.fromTo(".wf, .wfInk", { attr: { opacity: 0 } }, { attr: { opacity: 1 }, duration: 0.12, stagger: 0.07, ease: "none" }, 0.3);
+      tl.to(".wf, .wfInk", { attr: { opacity: 0 }, duration: 0.2, stagger: 0.04 }, 0.75);
+      tl.to(".wf, .wfInk", { attr: { opacity: 1 }, duration: 0.12, stagger: 0.07, ease: "none" }, 1.0);
+      tl.to(".wf, .wfInk", { attr: { opacity: 0 }, duration: 0.2, stagger: 0.04 }, 1.45);
+      flyers.forEach((f, i) => {
+        const t = 0.85 + i * 0.065;
+        tl.fromTo(f.c, { attr: { cx: ANT[0], cy: ANT[1], r: 7 }, opacity: 0 }, { opacity: 1, duration: 0.08 }, t);
+        tl.to(f.c, { attr: { cx: f.ex, cy: f.ey, r: 9 * f.s }, duration: 0.95, ease: "power2.in" }, t);
+      });
+      // whip pan to the board: the record lands as the log page
+      tl.to("#gh", { x: -760, filter: "blur(16px)", duration: 0.38, ease: "power3.in" }, 1.72);
+      tl.set("#gh", { autoAlpha: 0 }, 2.12);
+      tl.set("#bw", { visibility: "visible" }, 1.86);
+      tl.fromTo("#bw", { x: 980, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 1.86);
+      tl.set("#bw", { filter: "none" }, 2.4);
+
+      // ── A1 · 1.9–4.3  one log, two lanes ──
+      tl.fromTo("#bcam", bCam(450, 410, 1.45), { ...bCam(440, 450, 1.38), duration: 0.8, ease: "power1.out" }, 1.86);
+      sDots.forEach((c, i) => tl.fromTo(c, { attr: { r: 0 } }, { attr: { r: 8 }, duration: 0.16, ease: "back.out(3)" }, 2.0 + i * 0.022));
+      tl.fromTo(rowS, { attr: { x2: 202 } }, { attr: { x2: 680 }, duration: 0.5, ease: "none" }, 2.0);
+      tl.to("#bcam", { ...bCam(420, 760, 0.98), duration: 1.7, ease: io }, 2.55);
+      drawThread(thL, 2.62, 0.4); drawThread(thI, 2.7, 0.65);
+      slap(cardL.inner, 2.86, 1.6, 7); pinIn(pinL, null, 2.86);
+      slap(cardI.inner, 3.16, 1.6, -7); pinIn(pinI, null, 3.16);
+      tl.fromTo([pinL2.s, pinI2.s], { opacity: 0 }, { opacity: 1, duration: 0.01 }, 3.3);
+
+      // ── B · 4.35–10.1  level prediction: one value for each point in time ──
+      tl.to("#bcam", { ...bCam(445, 775, 1.42), duration: 0.9, ease: io }, 4.35);
+      drawIn(ulL, 5.72, 0.4, "power2.inOut");
+      tl.to("#bcam", { ...EXH, duration: 1.15, ease: io }, 6.5);
+      drawThread(feedL, 6.45, 0.45); pinIn(pinEL, null, 6.8);
+      tl.fromTo([axes, axLbl], { opacity: 0 }, { opacity: 1, duration: 0.25 }, 6.95);
+      drawIn(axX, 7.0, 0.7, "power2.inOut"); drawIn(axY, 7.0, 0.7, "power2.inOut");
+      tl.fromTo(grid, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 7.3);
+      tl.fromTo(illus, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 7.4);
+      ghosts.forEach((g, i) => { pinIn(g, ripples[i], 7.62 + i * 0.44); tl.fromTo(tLbls[i], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: out }, 7.7 + i * 0.44); });
+      tl.to("#bcam", { ...bCam(1765, 868, 0.9), duration: 2.6, ease: "none" }, 7.65);
+
+      // ── C · 10.36–17.8  increment prediction: change over 30 minutes and 2 hours ──
+      tl.to("#bcam", { ...bCam(445, 1045, 1.42), duration: 1.0, ease: io }, 10.36);
+      drawIn(ulI, 11.5, 0.45, "power2.inOut");
+      tl.to("#bcam", { ...EXH, duration: 1.2, ease: io }, 13.45);
+      drawThread(feedI, 13.4, 0.5); pinIn(pinEI, null, 13.8);
+      drawIn(arcs[0], 15.0, 0.6);
+      [1, 2, 3].forEach((k) => drawIn(arcs[k], 15.2 + k * 0.18, 0.5));
+      tl.fromTo(lbl30, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: out }, 16.0);
+      drawIn(sag, 16.85, 0.85, "power2.inOut");
+      tl.fromTo(lbl2j, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: out }, 17.3);
+      tl.to("#bcam", { ...bCam(1775, 872, 0.9), duration: 3.3, ease: "none" }, 14.65);
+
+      // ── D · 18.2–29.4  the magnifier: two estimates of the same change disagree ──
+      const DIM = [arcs[1], arcs[2], arcs[3], sag, lbl2j, ghosts[2].o, ghosts[3].o, ghosts[4].o, tLbls[2], tLbls[3], tLbls[4]];
+      tl.to(DIM, { opacity: 0.22, duration: 0.5 }, 18.5);
+      tl.to("#bcam", { ...bCam(1397, 788, 1.18), duration: 1.0, ease: io }, 18.35);
+      tl.to("#bcam", { ...bCam(1395, 785, 1.22), duration: 10.0, ease: "none" }, 19.35);
+      tl.fromTo(lens, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 18.35);
+      tl.fromTo(lens, { x: 760, y: 720, rotation: 8, svgOrigin: "960 540" }, { x: 0, y: 0, rotation: 0, duration: 0.85, ease: out }, 18.35);
+      tl.fromTo("#holeC", { attr: { cx: 1720, cy: 1260 } }, { attr: { cx: 960, cy: 540 }, duration: 0.85, ease: out }, 18.35);
+      tl.fromTo("#lensDark", { opacity: 0 }, { opacity: 0.66, duration: 0.6 }, 18.4);
+      tl.to(lens, { x: -6, y: 5, rotation: -0.6, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: 3, svgOrigin: "960 540" }, 19.2);
+      tl.to("#holeC", { attr: { cx: 954, cy: 545 }, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 19.2);
+      
+      tl.fromTo(mBase, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 22.4);
+      drawIn(brLevel, 23.45, 0.6);
+      tl.fromTo(tLevel, { opacity: 0, x: 14 }, { opacity: 1, x: 0, duration: 0.35, ease: out }, 23.65);
+      drawIn(brInc, 26.85, 0.6);
+      tl.fromTo(tInc, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.35, ease: out }, 27.05);
+      tl.set(stampD, { opacity: 1 }, 28.2);
+      tl.fromTo(stampDi, { scale: 1.9, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.28, ease: "power4.out" }, 28.2);
+
+      // ── E · 29.4–45  one weighted compromise for all points ──
+      tl.to(lens, { x: 900, y: 760, rotation: 10, duration: 0.55, ease: "power2.in", svgOrigin: "960 540" }, 29.4);
+      tl.to("#holeC", { attr: { cx: 1860, cy: 1300 }, duration: 0.55, ease: "power2.in" }, 29.4);
+      tl.to("#lensDark", { opacity: 0, duration: 0.5 }, 29.45);
+      tl.set(lens, { opacity: 0 }, 29.96);
+      tl.to("#bcam", { ...EXH, duration: 1.5, ease: io }, 29.5);
+      tl.to(DIM, { opacity: 1, duration: 0.6 }, 29.8);
+      tl.to(gM, { opacity: 0, duration: 0.45 }, 29.7);
+      slap(wls.inner, 31.86, 1.6, -6); pinIn(wlsPin, null, 31.86);
+      drawIn(loop, 32.6, 1.15, "power2.inOut");
+      tl.fromTo(wSub, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.35, ease: out }, 34.9);
+      tl.to("#bcam", { ...bCam(1790, 840, 0.9), duration: 9.5, ease: "none" }, 31.0);
+      // criterion 1 · stay close to the level predictions
+      tl.fromTo(crit1, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.35, ease: out }, 40.05);
+      drawIn(critUl1, 40.3, 0.45, "power2.inOut");
+      ghosts.forEach((g, i) => { tl.to(g.s, { scale: 1.3, transformOrigin: "50% 50%", duration: 0.22, ease: "power2.out" }, 40.2 + i * 0.07); tl.to(g.s, { scale: 1, duration: 0.5, ease: "power2.inOut" }, 40.5 + i * 0.07); });
+      // criterion 2 · reduce mismatch with the predicted changes
+      tl.fromTo(crit2, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.35, ease: out }, 42.3);
+      drawIn(critUl2, 42.55, 0.5, "power2.inOut");
+      arcs.forEach((a, i) => { tl.to(a, { attr: { stroke: RED }, duration: 0.22 }, 42.45 + i * 0.07); tl.to(a, { attr: { stroke: "#6c665e" }, duration: 0.6 }, 44.2 + i * 0.05); });
+      tl.to(loop, { opacity: 0, duration: 0.5 }, 44.9);
+
+      // ── F · 45.5–49.6  every point moves at once ──
+      results.forEach((r, i) => tl.fromTo(r.s, { opacity: 0, scale: 2.2, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power4.out" }, 45.9 + i * 0.05));
+      tl.fromTo(traj.g, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 46.15);
+      tl.to(arcs, { opacity: 0.55, duration: 0.4 }, 46.2);
+      slap(nF.inner, 47.36, 1.5, 6);
+      tl.to("#bcam", { ...bCam(1760, 830, 0.95), duration: 2.3, ease: io }, 47.0);
+      const mv = { p: 0 };
+      tl.to(mv, {
+        p: 1, duration: 1.8, ease: "power2.inOut",
+        onUpdate: () => {
+          const ys = LY.map((y, i) => y + (RY[i] - y) * mv.p);
+          results.forEach((r, i) => r.o.setAttribute("transform", `translate(${XS[i]} ${f1(ys[i])})`));
+          tethers.forEach((t, i) => t.setAttribute("y2", f1(ys[i])));
+          setTraj(ys);
+        },
+      }, 47.4);
+
+      // ── G · 49.8–56  position from the levels, dynamics from the increments ──
+      slap(nG.inner, 49.82, 1.5, -6);
+      tl.to(tethers, { attr: { "stroke-width": 7, stroke: "#4c463f" }, duration: 0.3 }, 50.9);
+      tl.fromTo(lblPos, { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, ease: out }, 50.95);
+      tl.to(tethers, { attr: { "stroke-width": 3.5, stroke: "#7d776f" }, duration: 0.5 }, 52.8);
+      tl.to(traj.base, { attr: { "stroke-width": 12 }, duration: 0.3, ease: "power2.out" }, 53.7);
+      tl.to(arcs, { opacity: 1, duration: 0.3 }, 53.7);
+      tl.fromTo(lblDyn, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: out }, 54.35);
+      tl.to(traj.base, { attr: { "stroke-width": 7 }, duration: 0.6 }, 55.3);
+      tl.to(arcs, { opacity: 0.55, duration: 0.5 }, 55.4);
+      tl.to("#bcam", { ...bCam(1770, 836, 0.97), duration: 6.0, ease: "none" }, 49.4);
+
+      // ── H · 56.3–64.7  not smoothing; two sources that complete each other ──
+      slap(nH.inner, 57.28, 1.5, 5);
+      tl.fromTo(smooth, { opacity: 0 }, { opacity: 0.75, duration: 0.01 }, 57.3);
+      drawIn(smooth, 57.3, 0.55, "power2.out");
+      tl.fromTo(strike, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 58.15);
+      drawIn(st1, 58.15, 0.18, "power2.in"); drawIn(st2, 58.36, 0.18, "power2.in");
+      tl.to([smooth, strike], { opacity: 0, duration: 0.45 }, 59.2);
+      tl.to("#bcam", { ...WIDE, duration: 1.6, ease: io }, 59.4);
+      [[beadL, feedL.base, 61.8], [beadI, feedI.base, 62.0]].forEach(([b, path, t]) => {
+        const len = path.getTotalLength(), o = { p: 0 };
+        tl.fromTo(b, { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+        tl.to(o, { p: 1, duration: 0.7, ease: "power2.inOut", onUpdate: () => { const q = path.getPointAtLength(o.p * len); b.setAttribute("cx", f1(q.x)); b.setAttribute("cy", f1(q.y)); } }, t);
+        tl.to(b, { opacity: 0, duration: 0.2 }, t + 0.7);
+      });
+      tl.to([feedL.base, feedI.base], { attr: { stroke: RED }, duration: 0.3 }, 61.85);
+      tl.to([cardL.inner, cardI.inner], { scale: 1.035, transformOrigin: "50% 50%", duration: 0.3, ease: "power2.out" }, 61.85);
+      tl.to([cardL.inner, cardI.inner], { scale: 1, duration: 0.6, ease: "power2.inOut" }, 63.0);
+      tl.to([feedL.base, feedI.base], { attr: { stroke: "#3a2f28" }, duration: 0.6 }, 63.6);
+      slap(nH2.inner, 62.45, 1.5, -5);
+      slap(leg.inner, 63.7, 1.4, 4); pinIn(legPin, null, 63.7);
+
+      // ── I · 65–75  734 predictions, one connected trajectory (real submission values) ──
+      tl.set([P.chart, P.chartTop], { visibility: "hidden" }, 0);
+      tl.set([P.chart, P.chartTop], { visibility: "visible" }, 65.04);
+      tl.fromTo(roll, { opacity: 0 }, { opacity: 1, duration: 0.1 }, 65.05);
+      tl.fromTo("#chartClipR", { attr: { width: 0 } }, { attr: { width: CH.w + 20 }, duration: 3.1, ease: "power1.inOut" }, 65.1);
+      tl.fromTo(roll, { x: CH.x }, { x: CH.x + CH.w, duration: 3.1, ease: "power1.inOut" }, 65.1);
+      tl.to(roll, { opacity: 0, duration: 0.25 }, 68.2);
+      // everything under the unrolled chart is no longer drawn
+      tl.set([exG, P.notes, wls.g, wlsPin.o, pinEL.o, pinEI.o], { visibility: "hidden" }, 68.3);
+      tl.to("#bcam", { ...bCam(1440, 810, 0.68), duration: 6.6, ease: "none" }, 65.4);
+      tl.to("#bcam", { ...bCam(1445, 806, 0.703), duration: 2.1, ease: "power2.inOut" }, 72.0); // settle, then a 1 s resolved hold
+      tl.set(stamp734, { opacity: 1 }, 66.05);
+      tl.fromTo(stamp734i, { scale: 1.9, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "power4.out" }, 66.05);
+      tl.fromTo("#lineClipR", { attr: { width: 0 } }, { attr: { width: CH.w + 20 }, duration: 1.7, ease: "power1.inOut" }, 71.0);
+      tl.fromTo(finTxt, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: out }, 72.1);
+      // the gap in the sensor log is no longer a question
+      tl.to(qs, { opacity: 0, duration: 0.25 }, 73.15);
+      tl.to(gapBr, { opacity: 0.3, duration: 0.3 }, 73.15);
+      drawIn(gapFill, 73.2, 0.6, "power2.inOut");
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

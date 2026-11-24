@@ -1,0 +1,48 @@
+...............................................................................................................................................................................................    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 12.03872 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+.    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 18.68741 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+.    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 9.71964 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+.    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+.    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+..    inner fold 0  2023-07-18 -> 2023-07-26  n=384
+    inner fold 1  2023-07-20 -> 2023-07-28  n=384
+    inner fold 2  2023-07-22 -> 2023-07-30  n=384
+  outer n=720 level RMSE 7.73618 | inner folds 3 (2 fell back), calibration rows 96 over 3 days
+..........................................................................................................................................................................................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 543 tests in 344.841s
+
+OK
+  note: build_code: manifest predates the session-28 fingerprint; only the file hashes below were checked
+loaded forward_predictions.pkl: 1 rows, md5 25de9134b5912d51ebe75f65ffe3629f, build path verified
+  note: code[final_pipeline.py]: 6159d2cc on disk, 34a21c45 in manifest
+loaded forward_predictions.pkl: 9072 rows, md5 ca01f4de0014566ee9c327cd4c8f78f9, build path verified
+loaded forward_predictions.pkl: 1 rows, md5 25de9134b5912d51ebe75f65ffe3629f, build path verified
+  note: code[final_pipeline.py]: 6159d2cc on disk, 00000000 in manifest
+loaded forward_predictions.pkl: 1 rows, md5 25de9134b5912d51ebe75f65ffe3629f, build path verified

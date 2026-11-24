@@ -1,0 +1,192 @@
+{
+ "text": "Isinya U-Net 2.5D, masuk enam slice DWI dan ADC, keluar peta lesi per piksel. Encoder mengenali lesinya, decoder mengembalikan ke ukuran asli supaya batasnya presisi. Hasilnya jadi pembanding setelah mahasiswa submit, dengan Dice 0,738 pada data uji.",
+ "end": 18.84,
+ "sintetis": true,
+ "words": [
+  {
+   "w": "Isinya",
+   "s": 0,
+   "e": 0.39
+  },
+  {
+   "w": "U-Net",
+   "s": 0.44,
+   "e": 0.73
+  },
+  {
+   "w": "2.5D,",
+   "s": 0.78,
+   "e": 1.61
+  },
+  {
+   "w": "masuk",
+   "s": 1.86,
+   "e": 2.2
+  },
+  {
+   "w": "enam",
+   "s": 2.25,
+   "e": 2.54
+  },
+  {
+   "w": "slice",
+   "s": 2.59,
+   "e": 2.93
+  },
+  {
+   "w": "DWI",
+   "s": 2.98,
+   "e": 3.22
+  },
+  {
+   "w": "dan",
+   "s": 3.27,
+   "e": 3.52
+  },
+  {
+   "w": "ADC,",
+   "s": 3.57,
+   "e": 3.81
+  },
+  {
+   "w": "keluar",
+   "s": 4.06,
+   "e": 4.45
+  },
+  {
+   "w": "peta",
+   "s": 4.5,
+   "e": 4.79
+  },
+  {
+   "w": "lesi",
+   "s": 4.84,
+   "e": 5.13
+  },
+  {
+   "w": "per",
+   "s": 5.18,
+   "e": 5.43
+  },
+  {
+   "w": "piksel.",
+   "s": 5.48,
+   "e": 5.87
+  },
+  {
+   "w": "Encoder",
+   "s": 6.42,
+   "e": 6.85
+  },
+  {
+   "w": "mengenali",
+   "s": 6.9,
+   "e": 7.43
+  },
+  {
+   "w": "lesinya,",
+   "s": 7.48,
+   "e": 7.92
+  },
+  {
+   "w": "decoder",
+   "s": 8.17,
+   "e": 8.61
+  },
+  {
+   "w": "mengembalikan",
+   "s": 8.66,
+   "e": 9.38
+  },
+  {
+   "w": "ke",
+   "s": 9.43,
+   "e": 9.63
+  },
+  {
+   "w": "ukuran",
+   "s": 9.68,
+   "e": 10.06
+  },
+  {
+   "w": "asli",
+   "s": 10.11,
+   "e": 10.41
+  },
+  {
+   "w": "supaya",
+   "s": 10.46,
+   "e": 10.84
+  },
+  {
+   "w": "batasnya",
+   "s": 10.89,
+   "e": 11.38
+  },
+  {
+   "w": "presisi.",
+   "s": 11.43,
+   "e": 11.86
+  },
+  {
+   "w": "Hasilnya",
+   "s": 12.41,
+   "e": 12.9
+  },
+  {
+   "w": "jadi",
+   "s": 12.95,
+   "e": 13.24
+  },
+  {
+   "w": "pembanding",
+   "s": 13.29,
+   "e": 13.87
+  },
+  {
+   "w": "setelah",
+   "s": 13.92,
+   "e": 14.36
+  },
+  {
+   "w": "mahasiswa",
+   "s": 14.41,
+   "e": 14.94
+  },
+  {
+   "w": "submit,",
+   "s": 14.99,
+   "e": 15.38
+  },
+  {
+   "w": "dengan",
+   "s": 15.63,
+   "e": 16.01
+  },
+  {
+   "w": "Dice",
+   "s": 16.06,
+   "e": 16.36
+  },
+  {
+   "w": "0,738",
+   "s": 16.41,
+   "e": 17.87
+  },
+  {
+   "w": "pada",
+   "s": 17.92,
+   "e": 18.21
+  },
+  {
+   "w": "data",
+   "s": 18.26,
+   "e": 18.55
+  },
+  {
+   "w": "uji.",
+   "s": 18.6,
+   "e": 18.84
+  }
+ ]
+}

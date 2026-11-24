@@ -1,0 +1,15 @@
+features 118
+  no pruning                 P  5.000/ 6.433 Q  4.518/ 5.883 R  5.583/ 6.528  avg  5.034
+  keep top 98 (nested)       P  5.028/ 6.474 Q  4.559/ 5.944 R  5.616/ 6.587  avg  5.068  folds 3/18  sel-stability 0.76
+  keep top 78 (nested)       P  5.002/ 6.449 Q  4.540/ 5.912 R  5.580/ 6.568  avg  5.041  folds 9/18  sel-stability 0.67
+  keep top 58 (nested)       P  4.996/ 6.409 Q  4.516/ 5.878 R  5.572/ 6.525  avg  5.028  folds 12/18  sel-stability 0.53
+  keep top 44 (nested)       P  5.017/ 6.579 Q  4.460/ 5.910 R  5.601/ 6.701  avg  5.026  folds 10/18  sel-stability 0.49
+  keep top 32 (nested)       P  5.200/ 6.775 Q  4.562/ 6.260 R  5.893/ 7.055  avg  5.218  folds 7/18  sel-stability 0.49
+
+=== RANKING ===
+  keep top 44 (nested)         avg  5.026
+  keep top 58 (nested)         avg  5.028
+  no pruning                   avg  5.034
+  keep top 78 (nested)         avg  5.041
+  keep top 98 (nested)         avg  5.068
+  keep top 32 (nested)         avg  5.218

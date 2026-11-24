@@ -1,0 +1,404 @@
+[
+  {
+    "id": "w0",
+    "text": "The",
+    "start": 0,
+    "end": 0.232
+  },
+  {
+    "id": "w1",
+    "text": "AI",
+    "start": 0.29,
+    "end": 0.534
+  },
+  {
+    "id": "w2",
+    "text": "investigator",
+    "start": 0.592,
+    "end": 1.219
+  },
+  {
+    "id": "w3",
+    "text": "ranks",
+    "start": 1.277,
+    "end": 1.509
+  },
+  {
+    "id": "w4",
+    "text": "probable",
+    "start": 1.567,
+    "end": 1.974
+  },
+  {
+    "id": "w5",
+    "text": "causes",
+    "start": 2.02,
+    "end": 2.368
+  },
+  {
+    "id": "w6",
+    "text": "with",
+    "start": 2.415,
+    "end": 2.566
+  },
+  {
+    "id": "w7",
+    "text": "repeatable",
+    "start": 2.624,
+    "end": 3.111
+  },
+  {
+    "id": "w8",
+    "text": "rules,",
+    "start": 3.17,
+    "end": 3.576
+  },
+  {
+    "id": "w9",
+    "text": "finds",
+    "start": 3.715,
+    "end": 3.994
+  },
+  {
+    "id": "w10",
+    "text": "similar",
+    "start": 4.029,
+    "end": 4.365
+  },
+  {
+    "id": "w11",
+    "text": "past",
+    "start": 4.423,
+    "end": 4.632
+  },
+  {
+    "id": "w12",
+    "text": "incidents,",
+    "start": 4.69,
+    "end": 5.166
+  },
+  {
+    "id": "w13",
+    "text": "and",
+    "start": 5.213,
+    "end": 5.352
+  },
+  {
+    "id": "w14",
+    "text": "drafts",
+    "start": 5.41,
+    "end": 5.735
+  },
+  {
+    "id": "w15",
+    "text": "the",
+    "start": 5.782,
+    "end": 5.851
+  },
+  {
+    "id": "w16",
+    "text": "brief.",
+    "start": 5.898,
+    "end": 6.281
+  },
+  {
+    "id": "w17",
+    "text": "Then",
+    "start": 6.629,
+    "end": 6.838
+  },
+  {
+    "id": "w18",
+    "text": "an",
+    "start": 6.896,
+    "end": 6.966
+  },
+  {
+    "id": "w19",
+    "text": "Evidence",
+    "start": 7.024,
+    "end": 7.384
+  },
+  {
+    "id": "w20",
+    "text": "Guard",
+    "start": 7.419,
+    "end": 7.628
+  },
+  {
+    "id": "w21",
+    "text": "checks",
+    "start": 7.674,
+    "end": 7.976
+  },
+  {
+    "id": "w22",
+    "text": "every",
+    "start": 8.034,
+    "end": 8.278
+  },
+  {
+    "id": "w23",
+    "text": "sentence.",
+    "start": 8.324,
+    "end": 8.882
+  },
+  {
+    "id": "w24",
+    "text": "Each",
+    "start": 9.172,
+    "end": 9.358
+  },
+  {
+    "id": "w25",
+    "text": "number",
+    "start": 9.416,
+    "end": 9.706
+  },
+  {
+    "id": "w26",
+    "text": "has",
+    "start": 9.764,
+    "end": 9.903
+  },
+  {
+    "id": "w27",
+    "text": "to",
+    "start": 9.961,
+    "end": 10.043
+  },
+  {
+    "id": "w28",
+    "text": "appear",
+    "start": 10.112,
+    "end": 10.437
+  },
+  {
+    "id": "w29",
+    "text": "in",
+    "start": 10.519,
+    "end": 10.612
+  },
+  {
+    "id": "w30",
+    "text": "the",
+    "start": 10.646,
+    "end": 10.728
+  },
+  {
+    "id": "w31",
+    "text": "source",
+    "start": 10.786,
+    "end": 11.053
+  },
+  {
+    "id": "w32",
+    "text": "it",
+    "start": 11.099,
+    "end": 11.192
+  },
+  {
+    "id": "w33",
+    "text": "cites,",
+    "start": 11.25,
+    "end": 11.738
+  },
+  {
+    "id": "w34",
+    "text": "or",
+    "start": 11.9,
+    "end": 12.016
+  },
+  {
+    "id": "w35",
+    "text": "the",
+    "start": 12.074,
+    "end": 12.144
+  },
+  {
+    "id": "w36",
+    "text": "sentence",
+    "start": 12.19,
+    "end": 12.596
+  },
+  {
+    "id": "w37",
+    "text": "is",
+    "start": 12.643,
+    "end": 12.759
+  },
+  {
+    "id": "w38",
+    "text": "flagged.",
+    "start": 12.817,
+    "end": 13.351
+  },
+  {
+    "id": "w39",
+    "text": "In",
+    "start": 13.757,
+    "end": 13.897
+  },
+  {
+    "id": "w40",
+    "text": "our",
+    "start": 13.955,
+    "end": 14.117
+  },
+  {
+    "id": "w41",
+    "text": "internal",
+    "start": 14.199,
+    "end": 14.64
+  },
+  {
+    "id": "w42",
+    "text": "blind",
+    "start": 14.698,
+    "end": 14.965
+  },
+  {
+    "id": "w43",
+    "text": "test,",
+    "start": 15.011,
+    "end": 15.418
+  },
+  {
+    "id": "w44",
+    "text": "with",
+    "start": 15.522,
+    "end": 15.696
+  },
+  {
+    "id": "w45",
+    "text": "the",
+    "start": 15.72,
+    "end": 15.789
+  },
+  {
+    "id": "w46",
+    "text": "R",
+    "start": 15.847,
+    "end": 15.952
+  },
+  {
+    "id": "w47",
+    "text": "C",
+    "start": 16.01,
+    "end": 16.056
+  },
+  {
+    "id": "w48",
+    "text": "A",
+    "start": 16.196,
+    "end": 16.254
+  },
+  {
+    "id": "w49",
+    "text": "hidden,",
+    "start": 16.323,
+    "end": 16.788
+  },
+  {
+    "id": "w50",
+    "text": "the",
+    "start": 17.078,
+    "end": 17.182
+  },
+  {
+    "id": "w51",
+    "text": "recorded",
+    "start": 17.24,
+    "end": 17.635
+  },
+  {
+    "id": "w52",
+    "text": "cause",
+    "start": 17.693,
+    "end": 17.937
+  },
+  {
+    "id": "w53",
+    "text": "ranked",
+    "start": 17.995,
+    "end": 18.227
+  },
+  {
+    "id": "w54",
+    "text": "first",
+    "start": 18.285,
+    "end": 18.552
+  },
+  {
+    "id": "w55",
+    "text": "in",
+    "start": 18.61,
+    "end": 18.703
+  },
+  {
+    "id": "w56",
+    "text": "seven",
+    "start": 18.761,
+    "end": 19.075
+  },
+  {
+    "id": "w57",
+    "text": "of",
+    "start": 19.133,
+    "end": 19.226
+  },
+  {
+    "id": "w58",
+    "text": "nine",
+    "start": 19.295,
+    "end": 19.493
+  },
+  {
+    "id": "w59",
+    "text": "runs,",
+    "start": 19.528,
+    "end": 19.934
+  },
+  {
+    "id": "w60",
+    "text": "and",
+    "start": 20.12,
+    "end": 20.271
+  },
+  {
+    "id": "w61",
+    "text": "in",
+    "start": 20.329,
+    "end": 20.387
+  },
+  {
+    "id": "w62",
+    "text": "the",
+    "start": 20.433,
+    "end": 20.503
+  },
+  {
+    "id": "w63",
+    "text": "top",
+    "start": 20.561,
+    "end": 20.735
+  },
+  {
+    "id": "w64",
+    "text": "three,",
+    "start": 20.793,
+    "end": 21.176
+  },
+  {
+    "id": "w65",
+    "text": "every",
+    "start": 21.339,
+    "end": 21.617
+  },
+  {
+    "id": "w66",
+    "text": "time.",
+    "start": 21.675,
+    "end": 22.198
+  }
+]

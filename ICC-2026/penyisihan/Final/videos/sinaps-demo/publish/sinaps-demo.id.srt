@@ -1,0 +1,391 @@
+1
+00:00:00,600 --> 00:00:03,110
+Ini Dika, mahasiswa kedokteran.
+
+2
+00:00:03,160 --> 00:00:05,563
+Minggu depan, ujian blok neurologi:
+
+3
+00:00:05,613 --> 00:00:07,810
+membaca MRI stroke.
+
+4
+00:00:08,040 --> 00:00:11,510
+Masalahnya, kampusnya tidak
+punya rumah sakit sendiri.
+
+5
+00:00:11,560 --> 00:00:14,390
+Data MRI pasien tersimpan di rumah sakit,
+
+6
+00:00:14,440 --> 00:00:16,230
+dan sifatnya rahasia.
+
+7
+00:00:16,280 --> 00:00:20,610
+Yang ia punya, hanya beberapa
+gambar dari buku dan slide kuliah.
+
+8
+00:00:22,100 --> 00:00:25,250
+Padahal, materi ini menyangkut nyawa.
+
+9
+00:00:25,300 --> 00:00:28,210
+Stroke bisa terjadi karena
+pembuluh darah tersumbat,
+
+10
+00:00:28,260 --> 00:00:29,570
+atau pecah.
+
+11
+00:00:29,620 --> 00:00:31,703
+Dari luar, gejalanya sama.
+
+12
+00:00:31,753 --> 00:00:36,170
+Tapi obatnya berlawanan: obat penghancur
+bekuan bisa menyelamatkan yang
+
+13
+00:00:36,220 --> 00:00:39,090
+tersumbat, dan memperparah yang berdarah.
+
+14
+00:00:39,140 --> 00:00:41,837
+Karena itu, otaknya harus dipindai,
+
+15
+00:00:41,887 --> 00:00:44,990
+dan seseorang harus
+membacanya dengan benar.
+
+16
+00:00:46,000 --> 00:00:48,310
+Dan jam terus berjalan.
+
+17
+00:00:48,360 --> 00:00:52,510
+Setiap menit, otak
+kehilangan 1,9 juta neuron,
+
+18
+00:00:52,560 --> 00:00:56,470
+dan obat itu hanya bisa
+diberikan dalam 4,5 jam.
+
+19
+00:00:56,520 --> 00:01:01,030
+Di Indonesia, stroke
+menyumbang 18,5% kematian.
+
+20
+00:01:01,080 --> 00:01:03,390
+Tapi pembaca citranya langka.
+
+21
+00:01:03,440 --> 00:01:07,230
+Radiolog hanya 0,8 per 100.000 penduduk,
+
+22
+00:01:07,280 --> 00:01:10,790
+16 kali lebih sedikit
+dari rerata Uni Eropa.
+
+23
+00:01:10,840 --> 00:01:14,490
+Radiolog yang langka inilah
+yang juga mengajar di kampus.
+
+24
+00:01:15,600 --> 00:01:19,150
+Dika dan teman-temannya
+masuk kelas neuroradiologi:
+
+25
+00:01:19,200 --> 00:01:22,250
+belajar membaca MRI stroke.
+
+26
+00:01:24,000 --> 00:01:27,950
+Di layar, dosen menunjukkan
+satu potongan MRI.
+
+27
+00:01:28,000 --> 00:01:33,123
+Padahal di klinik, satu pasien punya
+puluhan slice dan beberapa sekuens.
+
+28
+00:01:33,173 --> 00:01:35,850
+Dika bingung harus mulai dari mana.
+
+29
+00:01:37,000 --> 00:01:39,030
+Dosennya juga kewalahan.
+
+30
+00:01:39,080 --> 00:01:41,710
+Satu dosen, satu kelas penuh.
+
+31
+00:01:41,760 --> 00:01:45,810
+Tidak mungkin memeriksa bacaan
+tiap mahasiswa satu per satu.
+
+32
+00:01:47,500 --> 00:01:50,610
+Jadi mahasiswa lari ke chatbot AI.
+
+33
+00:01:50,660 --> 00:01:56,530
+Masalahnya, untuk citra medis, chatbot
+umum sering salah dengan sangat yakin.
+
+34
+00:01:56,580 --> 00:02:01,330
+Satu evaluasi mencatat
+tingkat halusinasi sampai 74%.
+
+35
+00:02:01,380 --> 00:02:05,530
+Dika butuh tempat berlatih yang
+benar-benar menilai bacaannya.
+
+36
+00:02:05,580 --> 00:02:08,150
+Lalu, apa jalan keluarnya?
+
+37
+00:02:09,800 --> 00:02:11,510
+Tapi ada peluang.
+
+38
+00:02:11,560 --> 00:02:17,390
+Dataset terbuka SOOP berisi
+MRI dari 1.505 pasien stroke,
+
+39
+00:02:17,440 --> 00:02:19,990
+lengkap dengan lesion mask buatan ahli.
+
+40
+00:02:20,040 --> 00:02:24,230
+Untuk setiap kasus, kita tahu
+persis jaringan mana yang infark.
+
+41
+00:02:24,280 --> 00:02:26,130
+Itu kunci jawaban.
+
+42
+00:02:27,900 --> 00:02:31,410
+Dari kunci jawaban itu,
+kami membangun SINAPS:
+
+43
+00:02:31,460 --> 00:02:36,570
+tutor neuroradiologi tempat mahasiswa
+berlatih membaca MRI stroke sendiri,
+
+44
+00:02:36,620 --> 00:02:41,270
+dinilai secara objektif, dan
+dibimbing AI yang tidak mengarang.
+
+45
+00:02:41,600 --> 00:02:43,390
+Kenalan dulu dengan Sina.
+
+46
+00:02:43,440 --> 00:02:47,030
+Di SINAPS, latihan
+berjalan dalam satu siklus.
+
+47
+00:02:47,080 --> 00:02:50,190
+Sistem memilih kasus untuk
+kompetensi terlemahmu.
+
+48
+00:02:50,240 --> 00:02:53,310
+Kamu membaca MRI dan menandai lesi.
+
+49
+00:02:53,360 --> 00:02:56,670
+Jawabanmu dinilai otomatis,
+tutor menjelaskan,
+
+50
+00:02:56,720 --> 00:02:59,290
+lalu penguasaanmu diperbarui.
+
+51
+00:03:00,200 --> 00:03:02,630
+Di balik layar ada enam modul.
+
+52
+00:03:02,680 --> 00:03:06,590
+Viewer berbasis Cornerstone3D
+berjalan langsung di peramban.
+
+53
+00:03:06,640 --> 00:03:09,990
+Semua permintaan lewat
+orkestrator FastAPI.
+
+54
+00:03:10,040 --> 00:03:14,870
+Di belakangnya ada bank kasus,
+modul visi dengan U-Net 2,5D,
+
+55
+00:03:14,920 --> 00:03:19,483
+modul penilaian, dan modul adaptasi
+berbasis Bayesian Knowledge Tracing.
+
+56
+00:03:19,533 --> 00:03:22,530
+Dosen memantau semuanya lewat dasbor.
+
+57
+00:03:23,400 --> 00:03:24,950
+Kuncinya di sini.
+
+58
+00:03:25,000 --> 00:03:27,910
+Tutor LLM ada di ujung rantai.
+
+59
+00:03:27,960 --> 00:03:31,270
+Ia hanya menerima fakta
+terstruktur dari modul lain,
+
+60
+00:03:31,320 --> 00:03:35,810
+dan kunci jawaban tidak pernah dikirim
+ke peramban sebelum kamu submit.
+
+61
+00:03:36,800 --> 00:03:41,510
+Setiap jawaban memperbarui estimasi
+penguasaanmu per kompetensi.
+
+62
+00:03:41,560 --> 00:03:44,483
+Kasus berikutnya dipilih
+untuk yang paling lemah,
+
+63
+00:03:44,533 --> 00:03:47,130
+dengan tingkat kesulitan yang pas.
+
+64
+00:03:48,100 --> 00:03:49,863
+Sekarang lihat langsung.
+
+65
+00:03:49,913 --> 00:03:54,030
+Begitu masuk, SINAPS sudah
+menyarankan langkah berikutnya.
+
+66
+00:03:55,300 --> 00:03:57,930
+Di viewer, Dika menggulir slice,
+
+67
+00:03:57,980 --> 00:04:03,370
+mengatur window level, dan
+membandingkan DWI dengan peta ADC.
+
+68
+00:04:03,420 --> 00:04:05,890
+Infark akut tampak terang di DWI,
+
+69
+00:04:05,940 --> 00:04:08,110
+dan gelap di ADC.
+
+70
+00:04:09,100 --> 00:04:11,610
+Lalu ia menandai lesi dengan kuas,
+
+71
+00:04:11,660 --> 00:04:15,030
+langsung di atas citra,
+dan menekan submit.
+
+72
+00:04:16,700 --> 00:04:19,450
+Dalam hitungan detik, skornya keluar:
+
+73
+00:04:19,500 --> 00:04:22,570
+Dice, recall per lesi, galat volume,
+
+74
+00:04:22,620 --> 00:04:24,230
+dan jenis kesalahannya.
+
+75
+00:04:25,300 --> 00:04:27,330
+Dika bertanya ke tutor.
+
+76
+00:04:27,380 --> 00:04:31,170
+Dalam mode Sokratik, tutor
+tidak langsung memberi jawaban.
+
+77
+00:04:31,220 --> 00:04:33,330
+Ia membimbing dengan pertanyaan,
+
+78
+00:04:33,380 --> 00:04:35,950
+berpijak pada temuan kasus ini.
+
+79
+00:04:37,100 --> 00:04:40,890
+Di sisi dosen, ada peta
+penguasaan tiap mahasiswa,
+
+80
+00:04:40,940 --> 00:04:43,130
+kesalahan yang paling sering muncul,
+
+81
+00:04:43,180 --> 00:04:45,590
+dan audit setiap jawaban tutor.
+
+82
+00:04:46,700 --> 00:04:47,770
+Hasilnya?
+
+83
+00:04:47,820 --> 00:04:53,650
+Modul penilaian mengenali jenis
+kesalahan dengan akurasi 97,8%,
+
+84
+00:04:53,700 --> 00:04:57,530
+dibanding 47% kalau hanya memakai Dice.
+
+85
+00:04:57,580 --> 00:05:03,110
+Dan dari 432 jawaban tutor,
+tidak satu pun keluar dari fakta.
+
+86
+00:05:04,200 --> 00:05:05,310
+SINAPS.
+
+87
+00:05:05,360 --> 00:05:08,790
+Latihan membaca MRI stroke, kapan saja,
+
+88
+00:05:08,840 --> 00:05:11,330
+dengan umpan balik yang bisa dipercaya.

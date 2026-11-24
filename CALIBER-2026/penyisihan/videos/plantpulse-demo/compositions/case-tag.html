@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/pp.css">
+      <style>
+        #ct { position: absolute; right: 56px; top: 44px; width: 286px; height: 112px; border-radius: 16px; overflow: hidden;
+          background: linear-gradient(165deg, #ffffff, #f4f3ec 70%); border: 1px solid rgba(24, 38, 72, 0.22); box-shadow: inset 0 1px 0 #fff, 0 22px 44px -16px rgba(38, 48, 78, 0.45); }
+        #ct .h { position: absolute; left: 18px; top: 18px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 2px 3px rgba(38, 48, 78, 0.45), 0 0 0 2px #fff, 0 0 0 3px rgba(24, 38, 72, 0.22); }
+        #ct .u { position: absolute; left: 42px; top: 16px; font: 500 13px/18px var(--mono); letter-spacing: 0.14em; color: var(--ink-3); }
+        #ct .n { position: absolute; left: 18px; top: 40px; font: 600 38px/1 var(--mono); color: var(--ink-hi); }
+        #ct .b { position: absolute; left: 0; right: 0; bottom: 0; height: 26px; display: flex; align-items: center; padding-left: 18px; font: 600 13px/1 var(--mono); letter-spacing: 0.16em; }
+      </style>
+      <div data-hf-id="hf-9026" id="root" data-composition-id="case-tag" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-4uyo" id="ct">
+          <div data-hf-id="hf-kj5c" class="h"></div><div data-hf-id="hf-mfxe" class="u">ACTIVE CASE · ZCU</div><div data-hf-id="hf-zg19" class="n">KO-3201</div>
+          <div data-hf-id="hf-3xzz" class="b band follow" id="ct-follow" data-layout-allow-overlap="" data-layout-allow-occlusion="">● FOLLOW-UP REVIEW</div>
+          <div data-hf-id="hf-vpth" class="b band evidence" id="ct-evidence" style="opacity: 0" data-layout-allow-overlap="" data-layout-allow-occlusion="">● EVIDENCE REQUIRED</div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          // Local time 0 = start of s05. "evidence" = when the s10 narrator says "PlantPulse (refuses)"; "out" = just before s11 ends.
+          const C = {"evidence":80.89,"out":110.23}; // cues (written by build.mjs)
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#ct", { opacity: 0, y: -20, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 0.5);
+          tl.fromTo("#ct-evidence", { opacity: 0 }, { opacity: 1, duration: 0.2 }, C.evidence);
+          tl.to("#ct", { keyframes: { scale: [1, 1.08, 1] }, duration: 0.5, ease: "power2.out" }, C.evidence);
+          tl.to("#ct", { opacity: 0, y: -20, duration: 0.5, ease: "power2.in" }, C.out);
+          window.__timelines["case-tag"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

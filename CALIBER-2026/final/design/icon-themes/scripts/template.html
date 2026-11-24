@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icon Theme Picker</title>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+  :root{--ground:#f5f4f1;--panel:#fff;--panel-2:#f8f7f4;--rail:#e9e5de;--line:rgb(30 26 20/.08);--ink:#16171a;--mute:#6b6c70;--accent:#d9480f;--accent-soft:#fde8da;
+    --act:#d8402a;--act-soft:#fcebe7;--act-ink:#a52c1b;--plan:#e39a12;--plan-soft:#fdf3da;--plan-ink:#855a00;--twin:#0e9384;--twin-soft:#dff3ef;--twin-ink:#0b6f64;--ready:#2a9a5a;--ready-soft:#e4f4ea;--ready-ink:#177340}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  img.i.f{mix-blend-mode:normal}
+  img.i{mix-blend-mode:multiply;display:block;flex:none;object-fit:contain}
+  i.l{display:inline-grid;place-items:center;flex:none}
+  i.l svg{width:100%;height:100%;stroke-width:1.75}
+  header.top{position:sticky;top:0;z-index:5;background:rgb(245 244 241/.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{max-width:1280px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  h1{font-size:17px;margin:0 auto 0 0;letter-spacing:-.01em}
+  h1 small{font-weight:400;color:var(--mute);margin-left:8px;font-size:13px}
+  .seg{display:flex;flex-wrap:wrap;background:var(--rail);border-radius:10px;padding:3px;gap:2px}
+  .seg button{border:0;background:none;padding:6px 11px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer;color:var(--mute)}
+  .seg button[aria-pressed=true]{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0/.08);font-weight:600}
+  main{max-width:1280px;margin:0 auto;padding:18px 16px 60px}
+  .note{color:var(--mute);margin:0 0 16px;max-width:820px}
+  .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .row .lab{font-size:12px;font-weight:600;color:var(--mute)}
+  .pick{border:1px solid var(--line);background:var(--panel);padding:6px 12px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+  .pick.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* ---------- app mock ---------- */
+  .app{display:flex;background:var(--ground);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px -18px rgb(0 0 0/.25);min-height:640px}
+  .sb{width:220px;background:var(--panel);border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:4px;flex:none}
+  .brand{display:flex;align-items:center;gap:9px;padding:4px 8px 12px;font-weight:700;font-size:15px}
+  .brand .logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px}
+  .srch{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:6px 9px;color:var(--mute);font-size:13px;margin-bottom:8px;background:var(--panel-2)}
+  .nv{display:flex;align-items:center;gap:10px;padding:7px 9px;border-radius:10px;font-size:13.5px;color:#3a3b3f}
+  .nv.on{background:var(--accent-soft);color:var(--act-ink);font-weight:600}
+  .asof{margin-top:auto;background:var(--panel-2);border-radius:12px;padding:10px;font-size:12px;color:var(--mute);display:flex;gap:8px;align-items:center}
+  .main{flex:1;min-width:0;padding:22px 24px}
+  .ph{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+  .ph h2{margin:0;font-size:22px;letter-spacing:-.02em}
+  .ph p{margin:2px 0 0;color:var(--mute);font-size:13px}
+  .ph .btn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+  .ph .btn img.i{mix-blend-mode:normal;filter:none;background:#fff;border-radius:5px}
+  .cnt{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+  .cc{border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;border:1px solid var(--line);background:var(--panel)}
+  .cc .n{font-size:26px;font-weight:700;line-height:1}
+  .cc .t{font-size:13px;font-weight:600;margin-top:3px}
+  .cc .h{font-size:11.5px;color:var(--mute)}
+  .cc .ib{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;flex:none}
+  .act .ib{background:var(--act-soft)} .act .t{color:var(--act-ink)}
+  .twin .ib{background:var(--twin-soft)} .twin .t{color:var(--twin-ink)}
+  .plan .ib{background:var(--plan-soft)} .plan .t{color:var(--plan-ink)}
+  .cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px}
+  .pn{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+  .pn h3{margin:0 0 10px;font-size:14.5px;display:flex;align-items:center;gap:8px}
+  .pn h3 .more{margin-left:auto;font-size:12px;color:var(--accent);font-weight:600}
+  .li{display:flex;align-items:center;gap:12px;padding:10px 4px;border-top:1px solid var(--line)}
+  .li:first-of-type{border-top:0}
+  .li .nm{font-weight:600;font-size:13.5px}
+  .li .sub{font-size:12px;color:var(--mute)}
+  .chip{margin-left:auto;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap;display:flex;align-items:center;gap:5px}
+  .chip.act{background:var(--act-soft);color:var(--act-ink)} .chip.plan{background:var(--plan-soft);color:var(--plan-ink)} .chip.twin{background:var(--twin-soft);color:var(--twin-ink)}
+  .kp{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+  .kp:first-of-type{border-top:0}
+  .kp b{display:block;font-size:17px}
+  .kp small{color:var(--mute);font-size:12px}
+  .empty{text-align:center;padding:12px 6px 4px}
+  .empty img.i,.empty i.l{margin:0 auto 6px}
+  .empty b{display:block;font-size:13.5px}
+  .empty small{color:var(--mute);font-size:12px}
+  .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+  .qa{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:600}
+
+  .mini .app{min-height:0;transform-origin:top left}
+  .allgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .allgrid>div{min-width:0}
+  .allgrid .cap{font-weight:700;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+  .allgrid .scale{overflow:hidden;border-radius:18px}
+  .allgrid .scale>.app{width:1180px;transform:scale(var(--k));transform-origin:top left}
+
+  /* ---------- theme sheets ---------- */
+  .theme{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+  .theme h2{margin:0 0 4px;font-size:17px;display:flex;align-items:center;gap:10px}
+  .theme .pick{margin-left:auto}
+  .tag{font-size:11px;font-weight:600;color:var(--mute);background:var(--rail);padding:2px 8px;border-radius:99px}
+  .desc{color:var(--mute);margin:0 0 12px;font-size:13px}
+  .grid16{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+  .grid16 .cell{aspect-ratio:1;background:var(--ground);border-radius:10px;display:grid;place-items:center}
+  .grid16 img.i{width:90%;height:90%}
+  .sizes{display:flex;align-items:end;gap:16px;margin-top:12px;color:var(--mute);font-size:11px}
+  .sizes div{display:flex;flex-direction:column;align-items:center;gap:4px}
+
+  .matrix{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+  table{border-collapse:collapse;width:100%;min-width:920px}
+  th,td{padding:8px;text-align:center;border-bottom:1px solid var(--line)}
+  th{font-size:12px;font-weight:600;color:var(--mute)}
+  td:first-child,th:first-child{text-align:left;font-size:12px;color:var(--mute);white-space:nowrap}
+  td img.i,td i.l{margin:0 auto}
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+  .fc{border:1px solid var(--line);border-radius:12px;padding:12px 6px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center}
+  .fc span{font-size:11px;color:var(--mute);text-align:center;word-break:break-word}
+  [hidden]{display:none!important}
+
+  @media (max-width:980px){.cols{grid-template-columns:1fr}.allgrid{grid-template-columns:1fr}}
+  @media (max-width:760px){.sb{display:none}.cnt{grid-template-columns:1fr}.grid16{grid-template-columns:repeat(4,1fr)}.main{padding:16px}.quick{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="bar">
+  <h1>Sparekit icon themes <small>gpt-image-2.5-sunburst</small></h1>
+  <div class="seg" id="views">
+    <button data-view="final" aria-pressed="true">Duotone · 97 ikon</button>
+    <button data-view="site" aria-pressed="false">Contoh website</button>
+    <button data-view="all" aria-pressed="false">Semua website</button>
+    <button data-view="themes" aria-pressed="false">Icon set</button>
+    <button data-view="matrix" aria-pressed="false">Side by side</button>
+  </div>
+</div></header>
+<main>
+  <p class="note"><b>Duotone Solid dipilih</b> — semua 97 ikon sudah jadi (tab <b>Duotone · 97 ikon</b>, PNG transparan di <code>duotone/png/</code>). Tab lain tetap menampilkan perbandingan 6 theme. Ganti theme di bawah untuk lihat ikon itu dipakai di halaman <b>Today</b>, atau buka <b>Semua website</b> untuk bandingkan semua sekaligus. Klik <b>Pilih theme ini</b>, lalu kabari aku pilihannya.</p>
+
+  <section id="v-site" hidden>
+    <div class="row"><span class="lab">Theme</span><div class="seg" id="themeSeg"></div><button class="pick" id="pickBtn"></button></div>
+    <div id="siteMock"></div>
+  </section>
+  <section id="v-final">
+    <div class="row"><span class="lab">Ukuran</span><div class="seg" id="sizeSeg"><button data-size="20">20</button><button data-size="32">32</button><button data-size="56" aria-pressed="true">56</button></div><span class="lab">Background</span><div class="seg" id="bgSeg"><button data-bg="var(--panel)" aria-pressed="true">Panel</button><button data-bg="var(--ground)">Ground</button><button data-bg="var(--accent-soft)">Accent soft</button></div><input id="q" placeholder="Cari nama ikon…" style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:inherit;font-size:13px"></div>
+    <div id="finalGrid" class="fgrid"></div>
+  </section>
+  <section id="v-all" hidden><div class="allgrid" id="allGrid"></div></section>
+  <section id="v-themes" hidden></section>
+  <section id="v-matrix" hidden><div class="matrix" id="matrix"></div></section>
+</main>
+<script>
+/*IMG*/
+const LUCIDE={factory:"factory",wrench:"wrench",package:"package",truck:"truck",gauge:"gauge",calendar:"calendar-days","shield-check":"shield-check","octagon-alert":"octagon-alert",coins:"coins","trending-up":"trending-up",search:"search",cog:"cog",flame:"flame",droplet:"droplet",zap:"zap",cart:"shopping-cart"};
+const NAMES=Object.keys(LUCIDE);
+const THEMES=[
+ ["duotone-final","Duotone ★ final","Dipilih","Versi final: 97 ikon transparan, warna dikunci ke ink #16171a + accent #d9480f."],
+ ["lucide","Lucide (sekarang)","Baseline","Ikon library yang dipakai sekarang."],
+ ["precision-line","Precision Line","Monoline","Garis tunggal rapi, satu aksen oranye per ikon. Paling dekat dengan UI sekarang tapi lebih khas."],
+ ["duotone-solid","Duotone Solid","Glyph","Glyph tebal charcoal + oranye. Paling terbaca di ukuran kecil (16–20px)."],
+ ["blueprint","Blueprint","Technical","Gaya gambar teknik/CAD dengan garis ukur. Cocok dengan narasi engineering & maintenance."],
+ ["isometric-plant","Isometric Plant","Illustrative","Isometrik seperti potongan 3D plant map. Kuat untuk kartu besar & empty state."],
+ ["soft-clay-3d","Soft Clay 3D","3D","Clay 3D lembut, ramah dan premium. Bagus untuk hero, kurang tajam di ukuran kecil."],
+ ["enamel-badge","Enamel Badge","Tile","Pictogram putih di tile warna ala safety signage."],
+];
+const tName=id=>THEMES.find(t=>t[0]===id)[1];
+const FMAP={calendar:"calendar-days",cart:"shopping-cart"};
+function ico(t,n,s,color){
+  if(t==="duotone-final"){const k=FMAP[n]||n;return `<img class="i f" alt="${k}" src="${DUO[k][1]}" style="width:${s}px;height:${s}px">`;}
+  if(t==="lucide")return `<i class="l" data-lucide="${LUCIDE[n]}" style="width:${Math.round(s*.72)}px;height:${Math.round(s*.72)}px;margin:${Math.round(s*.14)}px;color:${color||'currentColor'}"></i>`;
+  return `<img class="i" alt="${n}" src="${IMG[t][n]}" style="width:${s}px;height:${s}px">`;
+}
+function mock(t){
+  const I=(n,s,c)=>ico(t,n,s,c);
+  const nav=[["factory","Plant"],["calendar","Today",1],["wrench","To do"],["package","Stock"],["trending-up","Forecast"],["cog","What if"],["shield-check","Data check"]];
+  const rows=[["flame","Burner nozzle 3\" SS316","Furnace F-101 · Crit A · 0 on hand","act","Act now","octagon-alert"],
+              ["droplet","Mechanical seal 50mm","Pump P-204B · Crit A · twin in WH-2","twin","Use twin","package"],
+              ["zap","Contactor 3P 95A","MCC-3 · Crit B · 2 left, min 4","plan","Plan","calendar"],
+              ["gauge","Pressure transmitter 0–40 bar","Line 2 · Crit B · lead 14 wk","plan","Plan","truck"]];
+  return `<div class="app">
+    <aside class="sb">
+      <div class="brand"><span class="logo">S</span>Sparekit</div>
+      <div class="srch">${I("search",20,"var(--mute)")}Search parts…</div>
+      ${nav.map(([n,l,on])=>`<div class="nv ${on?'on':''}">${I(n,24)}${l}</div>`).join("")}
+      <div class="asof">${I("calendar",22)}<span>Data as of<br><b style="color:var(--ink)">28 Oct 2026</b></span></div>
+    </aside>
+    <div class="main">
+      <div class="ph"><div><h2>Today</h2><p>Are we ready for the next turnaround? 211 days to go.</p></div>
+        <div class="btn">${I("cart",22)}Create PR</div></div>
+      <div class="cnt">
+        <div class="cc act"><div class="ib">${I("octagon-alert",40)}</div><div><div class="n">12</div><div class="t">Act now</div><div class="h">TA gaps & empty A/B parts</div></div></div>
+        <div class="cc twin"><div class="ib">${I("package",40)}</div><div><div class="n">7</div><div class="t">Use twin</div><div class="h">Same part, other number</div></div></div>
+        <div class="cc plan"><div class="ib">${I("calendar",40)}</div><div><div class="n">31</div><div class="t">Plan</div><div class="h">Below new minimum</div></div></div>
+      </div>
+      <div class="cols">
+        <div class="pn"><h3>${I("wrench",22)}Top of the list<span class="more">See all →</span></h3>
+          ${rows.map(([n,nm,sub,cl,lab,ci])=>`<div class="li">${I(n,40)}<div><div class="nm">${nm}</div><div class="sub">${sub}</div></div><span class="chip ${cl}">${lab}</span></div>`).join("")}
+        </div>
+        <div>
+          <div class="pn"><h3>${I("gauge",22)}Turnaround readiness</h3>
+            <div class="kp">${I("shield-check",40)}<div><b>94%</b><small>Critical parts covered</small></div></div>
+            <div class="kp">${I("coins",40)}<div><b>Rp 4,2 M</b><small>Money stuck in slow stock</small></div></div>
+            <div class="kp">${I("truck",40)}<div><b>8 PO</b><small>In transit, 2 late</small></div></div>
+            <div class="kp">${I("trending-up",40)}<div><b>+18%</b><small>Demand next 6 months</small></div></div>
+          </div>
+          <div class="pn" style="margin-top:14px"><div class="empty">${I("factory",88)}<b>No unplanned shutdowns this week</b><small>All furnaces running on plan.</small></div></div>
+        </div>
+      </div>
+      <div class="quick">
+        ${[["search","Find part"],["cart","Order"],["cog","What if"],["shield-check","Check data"]].map(([n,l])=>`<div class="qa">${I(n,36)}${l}</div>`).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+let cur="duotone-final",picked="duotone-solid";
+try{picked=localStorage.getItem("iconTheme")}catch(e){}
+const refresh=()=>window.lucide&&lucide.createIcons();
+function renderSite(){
+  document.getElementById("themeSeg").innerHTML=THEMES.map(t=>`<button data-theme="${t[0]}" aria-pressed="${t[0]===cur}">${t[1]}${picked===t[0]?" ★":""}</button>`).join("");
+  document.getElementById("siteMock").innerHTML=mock(cur);
+  const b=document.getElementById("pickBtn");b.hidden=cur==="lucide";
+  b.textContent=picked===cur?"★ Dipilih":"Pilih theme ini";b.classList.toggle("on",picked===cur);refresh();
+}
+function renderAll(){
+  document.getElementById("allGrid").innerHTML=THEMES.map(t=>`<div><p class="cap">${t[1]}<span class="tag">${t[2]}</span>${picked===t[0]?'<span class="tag" style="background:var(--accent);color:#fff">Dipilih</span>':''}</p><div class="scale">${mock(t[0])}</div></div>`).join("");
+  fitAll();refresh();
+}
+function fitAll(){document.querySelectorAll(".allgrid .scale").forEach(s=>{const k=s.clientWidth/1180;s.style.setProperty("--k",k);const a=s.firstElementChild;s.style.height=a.offsetHeight*k+"px";});}
+function renderThemes(){
+  document.getElementById("v-themes").innerHTML=THEMES.filter(t=>t[0]!=="lucide").map(([id,name,tag,desc])=>`
+   <div class="theme"><h2>${name}<span class="tag">${tag}</span><button class="pick ${picked===id?'on':''}" data-pick="${id}">${picked===id?'★ Dipilih':'Pilih'}</button></h2><p class="desc">${desc}</p>
+   <div class="grid16">${NAMES.map(n=>`<div class="cell" title="${n}">${ico(id,n,120)}</div>`).join("")}</div>
+   <div class="sizes">${[16,20,24,32,48,72].map(s=>`<div>${ico(id,"wrench",s)}${s}px</div>`).join("")}${[16,24,48].map(s=>`<div>${ico(id,"octagon-alert",s)}${s}px</div>`).join("")}</div></div>`).join("");
+}
+function renderMatrix(){
+  document.getElementById("matrix").innerHTML=`<table><thead><tr><th>Icon</th>${THEMES.map(t=>`<th>${t[1]}</th>`).join("")}</tr></thead><tbody>${NAMES.map(n=>`<tr><td>${n}</td>${THEMES.map(t=>`<td>${ico(t[0],n,56)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;refresh();
+}
+function setPick(id){picked=id;try{localStorage.setItem("iconTheme",id)}catch(e){}renderSite();renderThemes();}
+document.addEventListener("click",e=>{
+  const th=e.target.closest("[data-theme]");if(th){cur=th.dataset.theme;renderSite();}
+  if(e.target.id==="pickBtn")setPick(cur);
+  const p=e.target.closest("[data-pick]");if(p)setPick(p.dataset.pick);
+  const v=e.target.closest("[data-view]");
+  if(v){document.querySelectorAll("[data-view]").forEach(b=>b.setAttribute("aria-pressed",b===v));
+    ["final","site","all","themes","matrix"].forEach(k=>document.getElementById("v-"+k).hidden=k!==v.dataset.view);
+    if(v.dataset.view==="all")renderAll();}
+});
+addEventListener("resize",()=>{if(!document.getElementById("v-all").hidden)fitAll();});
+let fsize=56,fbg="var(--panel)",fq="";
+function renderFinal(){
+  document.getElementById("finalGrid").innerHTML=Object.entries(DUO).filter(([k,[P]])=>!fq||k.includes(fq)||P.toLowerCase().includes(fq)).map(([k,[P,src]])=>`<div class="fc" style="background:${fbg}" title="${k}.png"><img class="i f" src="${src}" style="width:${fsize}px;height:${fsize}px" alt="${k}"><span>${P}</span></div>`).join("");
+}
+document.addEventListener("click",e=>{
+  const z=e.target.closest("[data-size]");if(z){fsize=+z.dataset.size;document.querySelectorAll("[data-size]").forEach(b=>b.setAttribute("aria-pressed",b===z));renderFinal();}
+  const g=e.target.closest("[data-bg]");if(g){fbg=g.dataset.bg;document.querySelectorAll("[data-bg]").forEach(b=>b.setAttribute("aria-pressed",b===g));renderFinal();}
+});
+document.addEventListener("input",e=>{if(e.target.id==="q"){fq=e.target.value.trim().toLowerCase();renderFinal();}});
+renderFinal();renderSite();renderThemes();renderMatrix();
+</script>
+</body>
+</html>

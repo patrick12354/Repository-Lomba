@@ -1,0 +1,98 @@
+
+##############################################################################
+### A_noday   {'with_day': False, 'only': ['lgbm', 'cat', 'ridge', 'enet']}
+##############################################################################
+features=148  train=2933  test=734  folds=9 x 7d
+  F1: train=1061  val=336  [07-21 -> 07-28]
+  F2: train=1253  val=336  [07-25 -> 08-01]
+  F3: train=1445  val=336  [07-29 -> 08-05]
+  F4: train=1637  val=336  [08-02 -> 08-09]
+  F5: train=1829  val=336  [08-06 -> 08-13]
+  F6: train=2021  val=336  [08-10 -> 08-17]
+  F7: train=2213  val=336  [08-14 -> 08-21]
+  F8: train=2405  val=336  [08-18 -> 08-25]
+  F9: train=2597  val=336  [08-22 -> 08-29]
+
+model            F1      F2      F3      F4      F5      F6      F7      F8      F9    MEAN  RECENT
+---------------------------------------------------------------------------------------------------
+lgbm          9.048   9.738   8.201  10.439   8.725   4.301   3.889   3.609   6.721   7.186   4.740
+cat           7.918   8.965   7.670  10.502   8.060   4.409   4.213   4.433   6.884   7.006   5.177
+ridge         7.437   7.507   8.981   9.985   7.581   6.087   5.490   4.450   6.490   7.112   5.477
+enet          7.649   7.867   8.385   9.663   7.260   6.263   5.941   3.559   6.099   6.965   5.200
+---------------------------------------------------------------------------------------------------
+BLEND         7.582   6.973   7.495   9.568   7.276   4.551   4.147   3.691   5.618   6.322   4.485
+
+weights: cat=0.387  ridge=0.419  enet=0.195
+pooled OOF RMSE 6.4086   mean_cv 6.3223   RECENT 4.4851   last 5.6178
+
+##############################################################################
+### B_day   {'with_day': True, 'only': ['lgbm', 'cat', 'ridge', 'enet']}
+##############################################################################
+features=225  train=2933  test=734  folds=9 x 7d
+  F1: train=1061  val=336  [07-21 -> 07-28]
+  F2: train=1253  val=336  [07-25 -> 08-01]
+  F3: train=1445  val=336  [07-29 -> 08-05]
+  F4: train=1637  val=336  [08-02 -> 08-09]
+  F5: train=1829  val=336  [08-06 -> 08-13]
+  F6: train=2021  val=336  [08-10 -> 08-17]
+  F7: train=2213  val=336  [08-14 -> 08-21]
+  F8: train=2405  val=336  [08-18 -> 08-25]
+  F9: train=2597  val=336  [08-22 -> 08-29]
+
+model            F1      F2      F3      F4      F5      F6      F7      F8      F9    MEAN  RECENT
+---------------------------------------------------------------------------------------------------
+lgbm          9.270   9.410   8.080  11.826   9.086   4.058   3.477   3.595   6.940   7.305   4.671
+cat           8.318   8.985   7.439  11.501   9.001   4.268   3.830   4.546   7.978   7.318   5.451
+ridge         9.480   5.953   7.721   9.628  10.219   6.802   5.530   5.721   5.932   7.443   5.727
+enet          6.588   7.062   8.941  10.790   7.983   6.644   5.556   3.388   5.771   6.969   4.905
+---------------------------------------------------------------------------------------------------
+BLEND         7.213   6.109   7.132  10.191   8.331   4.710   4.034   3.240   4.750   6.190   4.008
+
+weights: lgbm=0.077  cat=0.156  ridge=0.415  enet=0.351
+pooled OOF RMSE 6.3718   mean_cv 6.1899   RECENT 4.0077   last 4.7498
+
+##############################################################################
+### C_day_hl20   {'with_day': True, 'only': ['lgbm', 'cat', 'ridge', 'enet'], 'recent_halflife': 20}
+##############################################################################
+features=225  train=2933  test=734  folds=9 x 7d
+  F1: train=1061  val=336  [07-21 -> 07-28]
+  F2: train=1253  val=336  [07-25 -> 08-01]
+  F3: train=1445  val=336  [07-29 -> 08-05]
+  F4: train=1637  val=336  [08-02 -> 08-09]
+  F5: train=1829  val=336  [08-06 -> 08-13]
+  F6: train=2021  val=336  [08-10 -> 08-17]
+  F7: train=2213  val=336  [08-14 -> 08-21]
+  F8: train=2405  val=336  [08-18 -> 08-25]
+  F9: train=2597  val=336  [08-22 -> 08-29]
+
+model            F1      F2      F3      F4      F5      F6      F7      F8      F9    MEAN  RECENT
+---------------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\src\ablate.py", line 23, in <module>
+    s = run(tag, submit=False, **kw)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\src\experiment.py", line 155, in run
+    
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\src\experiment.py", line 95, in fit_predict
+    m.fit(Xa, ya, sample_weight=wa, eval_set=[(Xb, yb)],
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\sklearn.py", line 1536, in fit
+    super().fit(
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\sklearn.py", line 1171, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\engine.py", line 296, in train
+    booster = Booster(params=params, train_set=train_set)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\basic.py", line 3758, in __init__
+    train_set.construct()
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\basic.py", line 2574, in construct
+    self._lazy_init(
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\basic.py", line 2193, in _lazy_init
+    self.set_weight(weight)
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\basic.py", line 3135, in set_weight
+    weight = _list_to_1d_numpy(data=weight, dtype=np.float32, name="weight")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Raphael Angelo\Code\Competitions\NSC UB\.venv\Lib\site-packages\lightgbm\basic.py", line 368, in _list_to_1d_numpy
+    raise TypeError(
+TypeError: Wrong type(Index) for weight.
+It should be list, numpy 1-D array or pandas Series

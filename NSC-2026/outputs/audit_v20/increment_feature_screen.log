@@ -1,0 +1,32 @@
+B1_last15d  base 4.25458
+   physics             inc h1 1.8155  h4 3.4295  -> reconciled 4.18134  (138 feats)
+   better_level_proxy  inc h1 1.8141  h4 3.4411  -> reconciled 4.17795  (138 feats)
+   multiscale_context  inc h1 1.8179  h4 3.4974  -> reconciled 4.18999  (146 feats)
+   saturation          inc h1 1.8059  h4 3.4253  -> reconciled 4.17147  (140 feats)
+   multilag_ratio      inc h1 1.8015  h4 3.5094  -> reconciled 4.18439  (140 feats)
+   all_four            inc h1 1.8100  h4 3.4839  -> reconciled 4.19446  (150 feats)
+B2_prev15d  base 6.75486
+   physics             inc h1 2.0540  h4 4.3804  -> reconciled 6.56723  (138 feats)
+   better_level_proxy  inc h1 2.0437  h4 4.3876  -> reconciled 6.57108  (138 feats)
+   multiscale_context  inc h1 2.0559  h4 4.3746  -> reconciled 6.57189  (146 feats)
+   saturation          inc h1 2.0610  h4 4.3599  -> reconciled 6.56828  (140 feats)
+   multilag_ratio      inc h1 2.0504  h4 4.3246  -> reconciled 6.55455  (140 feats)
+   all_four            inc h1 2.0679  h4 4.3532  -> reconciled 6.56532  (150 feats)
+B3_shift7d  base 4.84892
+   physics             inc h1 1.5996  h4 2.9469  -> reconciled 4.72637  (138 feats)
+   better_level_proxy  inc h1 1.5967  h4 3.0042  -> reconciled 4.74471  (138 feats)
+   multiscale_context  inc h1 1.5874  h4 2.9170  -> reconciled 4.72356  (146 feats)
+   saturation          inc h1 1.6025  h4 2.9539  -> reconciled 4.72768  (140 feats)
+   multilag_ratio      inc h1 1.5946  h4 2.9557  -> reconciled 4.72671  (140 feats)
+   all_four            inc h1 1.5986  h4 2.9483  -> reconciled 4.73895  (150 feats)
+
+AGAINST `physics` (negative = better)
+                   inc_h1_delta inc_h1_blocks inc_h4_delta inc_h4_blocks recon_delta recon_blocks recon_pooled adopted
+physics                     0.0             0          0.0             0         0.0            0     5.158313   False
+better_level_proxy    -0.004883             3     0.025339             0    0.006268            1     5.164581   False
+multiscale_context    -0.002664             1     0.010732             2    0.003499            1     5.161811   False
+saturation             0.000088             1    -0.005947             2   -0.002502            1     5.155811   False
+multilag_ratio        -0.007542             3     0.010971             1   -0.003096            1     5.155217   False
+all_four               0.002462             2     0.009528             1    0.007932            1     5.166245   False
+
+PASSES THE PRE-REGISTERED BAR: none

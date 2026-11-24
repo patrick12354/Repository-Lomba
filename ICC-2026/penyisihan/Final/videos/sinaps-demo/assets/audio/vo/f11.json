@@ -1,0 +1,231 @@
+{
+ "text": "Di balik layar ada enam modul. Viewer berbasis Cornerstone3D berjalan langsung di peramban. Semua permintaan lewat orkestrator FastAPI. Di belakangnya ada bank kasus, modul visi dengan U-Net dua koma lima D, modul penilaian, dan modul adaptasi berbasis Bayesian Knowledge Tracing. Dosen memantau semuanya lewat dasbor.",
+ "end": 22.08,
+ "words": [
+  {
+   "w": "Di",
+   "s": 0,
+   "e": 0.08
+  },
+  {
+   "w": "balik",
+   "s": 0.16,
+   "e": 0.4
+  },
+  {
+   "w": "layar",
+   "s": 0.52,
+   "e": 0.88
+  },
+  {
+   "w": "ada",
+   "s": 1.04,
+   "e": 1.2
+  },
+  {
+   "w": "enam",
+   "s": 1.32,
+   "e": 1.48
+  },
+  {
+   "w": "modul.",
+   "s": 1.52,
+   "e": 2.4
+  },
+  {
+   "w": "Viewer",
+   "s": 2.48,
+   "e": 2.8
+  },
+  {
+   "w": "berbasis",
+   "s": 2.88,
+   "e": 3.28
+  },
+  {
+   "w": "Cornerstone3D",
+   "s": 3.44,
+   "e": 4.32
+  },
+  {
+   "w": "berjalan",
+   "s": 4.4,
+   "e": 4.8
+  },
+  {
+   "w": "langsung",
+   "s": 4.88,
+   "e": 5.28
+  },
+  {
+   "w": "di",
+   "s": 5.32,
+   "e": 5.36
+  },
+  {
+   "w": "peramban.",
+   "s": 5.44,
+   "e": 6.32
+  },
+  {
+   "w": "Semua",
+   "s": 6.44,
+   "e": 6.64
+  },
+  {
+   "w": "permintaan",
+   "s": 6.76,
+   "e": 7.28
+  },
+  {
+   "w": "lewat",
+   "s": 7.36,
+   "e": 7.6
+  },
+  {
+   "w": "orkestrator",
+   "s": 7.68,
+   "e": 8.4
+  },
+  {
+   "w": "FastAPI.",
+   "s": 8.48,
+   "e": 9.8
+  },
+  {
+   "w": "Di",
+   "s": 9.84,
+   "e": 9.88
+  },
+  {
+   "w": "belakangnya",
+   "s": 9.92,
+   "e": 10.48
+  },
+  {
+   "w": "ada",
+   "s": 10.6,
+   "e": 10.72
+  },
+  {
+   "w": "bank",
+   "s": 10.8,
+   "e": 10.96
+  },
+  {
+   "w": "kasus,",
+   "s": 11.04,
+   "e": 11.8
+  },
+  {
+   "w": "modul",
+   "s": 11.84,
+   "e": 12.16
+  },
+  {
+   "w": "visi",
+   "s": 12.28,
+   "e": 12.48
+  },
+  {
+   "w": "dengan",
+   "s": 12.56,
+   "e": 12.88
+  },
+  {
+   "w": "U-Net",
+   "s": 12.96,
+   "e": 13.28
+  },
+  {
+   "w": "dua",
+   "s": 13.36,
+   "e": 13.52
+  },
+  {
+   "w": "koma",
+   "s": 13.6,
+   "e": 13.76
+  },
+  {
+   "w": "lima",
+   "s": 13.84,
+   "e": 14
+  },
+  {
+   "w": "D,",
+   "s": 14.08,
+   "e": 14.68
+  },
+  {
+   "w": "modul",
+   "s": 14.72,
+   "e": 14.96
+  },
+  {
+   "w": "penilaian,",
+   "s": 15.04,
+   "e": 15.92
+  },
+  {
+   "w": "dan",
+   "s": 16,
+   "e": 16.08
+  },
+  {
+   "w": "modul",
+   "s": 16.16,
+   "e": 16.32
+  },
+  {
+   "w": "adaptasi",
+   "s": 16.4,
+   "e": 16.96
+  },
+  {
+   "w": "berbasis",
+   "s": 17.04,
+   "e": 17.44
+  },
+  {
+   "w": "Bayesian",
+   "s": 17.52,
+   "e": 17.92
+  },
+  {
+   "w": "Knowledge",
+   "s": 18.08,
+   "e": 18.24
+  },
+  {
+   "w": "Tracing.",
+   "s": 18.32,
+   "e": 19.307
+  },
+  {
+   "w": "Dosen",
+   "s": 19.333,
+   "e": 19.68
+  },
+  {
+   "w": "memantau",
+   "s": 19.8,
+   "e": 20.24
+  },
+  {
+   "w": "semuanya",
+   "s": 20.32,
+   "e": 20.72
+  },
+  {
+   "w": "lewat",
+   "s": 20.76,
+   "e": 20.96
+  },
+  {
+   "w": "dasbor.",
+   "s": 21.04,
+   "e": 22.08
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+db as_of 2026-09-30 | next_ta_default 2027-06-01 (244d after as_of) | PR PO duplicates still in pipeline: 0
+
+== E1 Shutdown Readiness (db)
+kit 360 | short 154 (A/B 137) | exceeds_max 164: Max=0 85, Stock Item with Max>0 79
+  TA scale 0.5: A/B short 105
+  TA scale 0.75: A/B short 124
+  TA scale 1.0: A/B short 137
+  lead time source of short kit parts: {'material': 129, 'category': 25}
+  lt_p90 of short kit parts: db median 66d vs dedup 66d
+  readiness A/B now 58.7%; after ordering today, by days to next TA (lt_p90 + 14d buffer):
+     32d: 59.3% (dedup LT 59.3%) | A/B parts already too late 135
+     60d: 69.6% (dedup LT 69.6%) | A/B parts already too late 101
+     90d: 82.2% (dedup LT 82.2%) | A/B parts already too late 59
+    120d: 88.3% (dedup LT 88.3%) | A/B parts already too late 39
+    180d: 94.0% (dedup LT 94.0%) | A/B parts already too late 20
+    240d: 97.0% (dedup LT 97.0%) | A/B parts already too late 10
+    270d: 98.2% (dedup LT 98.2%) | A/B parts already too late 6
+  order_by_date of short A/B kit parts: = as_of (clamped, already late) 117 of 137 | action REORDER 117
+
+== E2 Order-by date / planning lag (BI-5)
+  pipeline (raw) lines 5196 | rush 17.8% | late rush 92.5% vs normal 52.9% | "preventable" 92.9% (same test on NON-rush lines 92.1%)
+  dedup          lines 5196 | rush 17.8% | late rush 92.5% vs normal 52.9% | "preventable" 92.9% (same test on NON-rush lines 92.1%)
+  REORDER parts 1698 | order_by_date missing 0 | already = as_of 1698 | within 30d 0
+
+== E4 Twin materials (db)
+groups 155 | SHORT+DONOR groups 57 | with mixed units 0 | touching A/B 55
+  groups where donor spare >= short need 55 | value of shortage covered by twins Rp0.18bn (incl. estimated prices)
+
+== E3 Production engine, rolling validation (4 origins, 90d routine demand; coverage sim skipped)
+  as shipped                       AUC 0.916 (naive 0.835) | cold 0.848 | per-origin cold [0.841, 0.844, 0.847, 0.86] | MAE 22.24 (naive 22.47) | |bias| 0.549
+  no Min/Max/MRP snapshot          AUC 0.892 (naive 0.835) | cold 0.773 | per-origin cold [0.761, 0.77, 0.771, 0.789] | MAE 22.06 (naive 22.47) | |bias| 0.524
+  no snapshot + dedup PR PO        AUC 0.892 (naive 0.835) | cold 0.773 | per-origin cold [0.761, 0.77, 0.771, 0.789] | MAE 22.06 (naive 22.47) | |bias| 0.524
+  no snapshot + dedup + no lt_med  AUC 0.893 (naive 0.835) | cold 0.772 | per-origin cold [0.763, 0.761, 0.77, 0.793] | MAE 21.64 (naive 22.47) | |bias| 0.565

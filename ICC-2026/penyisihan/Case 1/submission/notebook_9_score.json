@@ -1,0 +1,15 @@
+{
+  "lam": 0.5,
+  "lb_real": 0.17175867110998705,
+  "dec": 0.14425626416406445,
+  "rnd": 0.1981825522933245,
+  "gain": -0.004175189744729656,
+  "menang": 12,
+  "bias_rnd": 0.0294347976146625,
+  "mean_rnd_te": 5.252980743947473,
+  "sd_rnd_te": 0.4035616732172362,
+  "est_lb": 0.17995867110998706,
+  "basis": "notebook_8 blend + koreksi set-transformer di-demean per subset saat apply",
+  "lb_actual": 0.1856,
+  "status": "DISUBMIT -- GAGAL"
+}

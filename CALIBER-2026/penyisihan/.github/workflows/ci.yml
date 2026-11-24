@@ -1,0 +1,22 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: prototype } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: prototype/package-lock.json }
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+  analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r analytics/requirements.txt openpyxl python-pptx
+      - run: python -m pytest analytics/tests -q
+      - run: python pipeline/extract_case2.py && python pipeline/validate_case2.py

@@ -1,0 +1,17 @@
+P 3 finished
+P 4 finished
+P 5 finished
+P 6 finished
+P 7 finished
+P 8 finished
+Q 0 finished
+Q 1 finished
+Q 2 finished
+Q 3 finished
+R 3 finished
+R 4 finished
+           base  increment     delta  wins
+model                                     
+v12    4.587493   4.561141 -0.026352     8
+v16    4.601644   4.563716 -0.037928     8
+v20    4.715230   4.584100 -0.131131    10

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "w0",
+    "text": "This",
+    "start": 0,
+    "end": 0.209
+  },
+  {
+    "id": "w1",
+    "text": "is",
+    "start": 0.255,
+    "end": 0.395
+  },
+  {
+    "id": "w2",
+    "text": "a",
+    "start": 0.511,
+    "end": 0.58
+  },
+  {
+    "id": "w3",
+    "text": "compressor,",
+    "start": 0.662,
+    "end": 1.324
+  },
+  {
+    "id": "w4",
+    "text": "one",
+    "start": 1.416,
+    "end": 1.579
+  },
+  {
+    "id": "w5",
+    "text": "of",
+    "start": 1.614,
+    "end": 1.695
+  },
+  {
+    "id": "w6",
+    "text": "hundreds",
+    "start": 1.811,
+    "end": 2.241
+  },
+  {
+    "id": "w7",
+    "text": "of",
+    "start": 2.334,
+    "end": 2.461
+  },
+  {
+    "id": "w8",
+    "text": "machines",
+    "start": 2.554,
+    "end": 2.972
+  },
+  {
+    "id": "w9",
+    "text": "that",
+    "start": 3.053,
+    "end": 3.216
+  },
+  {
+    "id": "w10",
+    "text": "keep",
+    "start": 3.274,
+    "end": 3.471
+  },
+  {
+    "id": "w11",
+    "text": "a",
+    "start": 3.541,
+    "end": 3.576
+  },
+  {
+    "id": "w12",
+    "text": "chemical",
+    "start": 3.634,
+    "end": 4.017
+  },
+  {
+    "id": "w13",
+    "text": "plant",
+    "start": 4.098,
+    "end": 4.389
+  },
+  {
+    "id": "w14",
+    "text": "running.",
+    "start": 4.47,
+    "end": 4.853
+  },
+  {
+    "id": "w15",
+    "text": "When",
+    "start": 4.911,
+    "end": 5.085
+  },
+  {
+    "id": "w16",
+    "text": "it",
+    "start": 5.12,
+    "end": 5.19
+  },
+  {
+    "id": "w17",
+    "text": "stops,",
+    "start": 5.236,
+    "end": 5.793
+  },
+  {
+    "id": "w18",
+    "text": "production",
+    "start": 5.886,
+    "end": 6.362
+  },
+  {
+    "id": "w19",
+    "text": "stops",
+    "start": 6.409,
+    "end": 6.722
+  },
+  {
+    "id": "w20",
+    "text": "too.",
+    "start": 6.78,
+    "end": 7.105
+  }
+]

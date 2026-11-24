@@ -1,0 +1,322 @@
+{
+  "model": "gpt-6.1-sol",
+  "label": "internal",
+  "passed": 6,
+  "of": 6,
+  "rows": [
+    {
+      "id": "G01",
+      "q": "Is the US$67.19M in the register all actual loss?",
+      "pass": true,
+      "sentences": 2,
+      "supported": 1,
+      "partial": 1,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.00617,
+      "answer": {
+        "sentences": [
+          {
+            "text": "No—the register records actual and potential loss separately.",
+            "refs": [
+              "L3:kpi:all:all"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "Recorded actual loss is US$61,886,460; recorded potential loss is US$5,307,970.",
+            "refs": [
+              "L3:kpi:all:all"
+            ],
+            "kind": "fact"
+          }
+        ],
+        "abstentions": [
+          "The KPI result does not establish whether recorded actual loss has been financially audited."
+        ],
+        "follow_ups": []
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "supported",
+          "reason": "The computed register totals report actual and potential loss as separate fields."
+        },
+        {
+          "index": 1,
+          "status": "partial",
+          "reason": "The excerpt confirms both numerical totals but does not identify their currency as US dollars."
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "q": "Is everything on KO-3201 finished because the cooler repair is closed?",
+      "pass": true,
+      "sentences": 6,
+      "supported": 6,
+      "partial": 0,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.016098,
+      "answer": {
+        "sentences": [
+          {
+            "text": "No—the cooler repair is recorded as closed, but KO-3201 remains in CA/PA EXECUTION.",
+            "refs": [
+              "R2:slide9",
+              "L3:row5"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "On the review date, 2026-10-02, the KO-3201 water-in-oil sensor installation was In Progress with its planned date passed.",
+            "refs": [
+              "R2:slide9"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "Cooler retubing remained Open and not yet due; monitoring for KO-3202/3203 remained Open with its planned date passed.",
+            "refs": [
+              "R2:slide9"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "The vibration-alert and trend-review changes, and the dashboard additions, had no recorded completion status despite their planned dates having passed.",
+            "refs": [
+              "R2:slide10"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "The RCA identified water ingress through the leaking cooler tube and the absence of online water-in-oil monitoring as contributors to the bearing distress.",
+            "refs": [
+              "R2:slide7"
+            ],
+            "kind": "documented_finding"
+          },
+          {
+            "text": "Keep the overall case open pending verification of the outstanding actions and completion evidence for the preventive changes.",
+            "refs": [
+              "L3:row5",
+              "R2:slide9",
+              "R2:slide10"
+            ],
+            "kind": "recommendation"
+          }
+        ],
+        "abstentions": [
+          "The snapshot cannot establish live completion status or whether the preventive actions with missing status were actually implemented."
+        ],
+        "follow_ups": []
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "supported",
+          "reason": "The repair is recorded as Closed, while the register lists KO-3201 as CA/PA EXECUTION on the review date."
+        },
+        {
+          "index": 1,
+          "status": "supported",
+          "reason": "The computed evidence explicitly records the KO-3201 sensor installation as In Progress with its planned date passed on 2026-10-02."
+        },
+        {
+          "index": 2,
+          "status": "supported",
+          "reason": "The computed evidence lists retubing as Open and not yet due, and KO-3202/3203 monitoring as Open with its planned date passed."
+        },
+        {
+          "index": 3,
+          "status": "supported",
+          "reason": "The computed evidence states that both the vibration-alert/trend-review changes and dashboard additions have no recorded status and have passed their planned dates."
+        },
+        {
+          "index": 4,
+          "status": "supported",
+          "reason": "The RCA explicitly attributes bearing distress to water ingress through a leaking cooler tube that went undetected because online water-in-oil monitoring was absent."
+        },
+        {
+          "index": 5,
+          "status": "supported",
+          "reason": "The recommendation rests on the documented CA/PA EXECUTION status, outstanding corrective and proactive actions, and missing completion statuses for preventive changes."
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "q": "Is the KO-3201 cooler retube overdue?",
+      "pass": true,
+      "sentences": 2,
+      "supported": 2,
+      "partial": 0,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.0062747,
+      "answer": {
+        "sentences": [
+          {
+            "text": "No—on the review date of 2026-10-02, the KO-3201 lube-oil cooler retube was recorded as Open but not due.",
+            "refs": [
+              "R2:slide9"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "It is planned for the next turnaround, with a plan date of 2026-10-31.",
+            "refs": [
+              "R2:slide9"
+            ],
+            "kind": "fact"
+          }
+        ],
+        "abstentions": [
+          "Live status after the review date is not available in this snapshot."
+        ],
+        "follow_ups": []
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "supported",
+          "reason": "The computed evidence explicitly records the KO-3201 cooler retube as Open and not yet due on 2026-10-02."
+        },
+        {
+          "index": 1,
+          "status": "supported",
+          "reason": "The action table schedules the lube-oil cooler retube at the next TA with a plan date of 31-Oct-2026."
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "q": "Can I overlay the weekly and hourly KO-3201 vibration?",
+      "pass": true,
+      "sentences": 3,
+      "supported": 1,
+      "partial": 2,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.014336,
+      "answer": {
+        "sentences": [
+          {
+            "text": "Not as a directly comparable vibration overlay: weekly DE radial vibration is recorded in micron, while hourly KO3201_VIB is recorded in MM/S from a different instrument.",
+            "refs": [
+              "E2:hist:2026-04-01",
+              "P2:KO3201_VIB:2026-04-01"
+            ],
+            "kind": "fact"
+          },
+          {
+            "text": "Use separate, time-aligned panels with clearly labelled units rather than a shared vibration scale.",
+            "refs": [
+              "P2:KO3201_VIB:2026-04-01"
+            ],
+            "kind": "recommendation"
+          },
+          {
+            "text": "The hourly snapshot covers 2026-04-01 through 2026-04-30 and provides running-hour summaries, not individual hourly readings.",
+            "refs": [
+              "P2:KO3201_VIB:2026-04-01"
+            ],
+            "kind": "fact"
+          }
+        ],
+        "abstentions": [
+          "The supplied data cannot establish a valid conversion between these vibration signals or produce a point-by-point hourly plot."
+        ],
+        "follow_ups": [
+          "Obtain timestamped hourly readings and instrument metadata, including measurement location, displacement/velocity definition, amplitude convention and frequency information, before attempting quantitative comparison."
+        ]
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "partial",
+          "reason": "The excerpts establish micron versus MM/S units, but do not establish a weekly sampling cadence or that the measurements come from different instruments."
+        },
+        {
+          "index": 1,
+          "status": "partial",
+          "reason": "The excerpt supports labelling the hourly series in MM/S, but provides no second series or differing units to substantiate avoiding a shared vibration scale."
+        },
+        {
+          "index": 2,
+          "status": "supported",
+          "reason": "The excerpt specifies April 1–30, 2026 and reports running-hour minimum, mean, and maximum values rather than listing individual hourly readings."
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "q": "How many incidents are recorded for plant ZCU and what is their recorded actual loss?",
+      "pass": true,
+      "sentences": 1,
+      "supported": 1,
+      "partial": 0,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.005222,
+      "answer": {
+        "sentences": [
+          {
+            "text": "Plant ZCU has 62 recorded incidents, with a recorded actual loss of 9,937,910.",
+            "refs": [
+              "L3:kpi:ZCU:all"
+            ],
+            "kind": "fact"
+          }
+        ],
+        "abstentions": [
+          "The KPI result does not specify the loss currency."
+        ],
+        "follow_ups": []
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "supported",
+          "reason": "The computed excerpt reports 62 incidents and an actual loss of 9,937,910 for plant ZCU across all years."
+        }
+      ]
+    },
+    {
+      "id": "SAV",
+      "q": "How much money did PlantPulse save?",
+      "pass": true,
+      "sentences": 1,
+      "supported": 1,
+      "partial": 0,
+      "unsupported": 0,
+      "turns": 2,
+      "cost_usd": 0.005908,
+      "answer": {
+        "sentences": [
+          {
+            "text": "The register records actual losses of 61,886,460 and potential losses of 5,307,970; neither figure is evidence of money saved by PlantPulse.",
+            "refs": [
+              "L3:kpi:all:all"
+            ],
+            "kind": "fact"
+          }
+        ],
+        "abstentions": [
+          "The available data does not establish how much money PlantPulse saved or specify the currency of these loss figures."
+        ],
+        "follow_ups": [
+          "To quantify savings, provide a validated baseline, intervention costs, and evidence of avoided losses attributable to PlantPulse."
+        ]
+      },
+      "guard": [
+        {
+          "index": 0,
+          "status": "supported",
+          "reason": "The computed register totals show actual losses of 61,886,460 and potential losses of 5,307,970, with neither identified as money saved by PlantPulse."
+        }
+      ]
+    }
+  ]
+}

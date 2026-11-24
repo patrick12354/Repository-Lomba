@@ -1,0 +1,15 @@
+stress splits: [('2023-08-07', 144), ('2023-08-10', 144), ('2023-08-16', 144), ('2023-08-19', 144), ('2023-08-22', 144)]
+  split 0 2023-08-07 [175 s] plain 6.3194  phys 6.3127  phys_lags 6.3457  lags 6.3582  phys_dsh_lags 6.3681
+  split 1 2023-08-10 [184 s] plain 4.3150  phys 4.3230  phys_lags 4.3328  lags 4.3480  phys_dsh_lags 4.3711
+  split 2 2023-08-16 [190 s] plain 3.4923  phys 3.4549  phys_lags 3.4252  lags 3.4311  phys_dsh_lags 3.3792
+  split 3 2023-08-19 [192 s] plain 1.7825  phys 1.7759  phys_lags 1.7167  lags 1.7114  phys_dsh_lags 1.7229
+  split 4 2023-08-22 [194 s] plain 2.4347  phys 2.4326  phys_lags 2.4150  lags 2.4247  phys_dsh_lags 2.3207
+
+arm                  pooled   d_pooled      worst    d_worst  improved
+plain               3.99638   +0.00000    6.31943   +0.00000  0/5
+phys                3.98862   -0.00776    6.31270   -0.00673  4/5
+phys_lags           3.98878   -0.00760    6.34570   +0.02627  3/5
+lags                3.99779   +0.00141    6.35817   +0.03874  3/5
+phys_dsh_lags       3.98578   -0.01060    6.36809   +0.04866  3/5
+
+`phys_dsh_lags` scored public 2.93028 against 2.86595. If it is not clearly the worst arm here, this gate does not discriminate on this family and nothing may be promoted from it.

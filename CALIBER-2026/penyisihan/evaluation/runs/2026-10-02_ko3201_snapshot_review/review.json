@@ -1,0 +1,15 @@
+{
+  "reviewer": "internal — prototype author (claude-opus-5-5) checking each claim against the cited excerpt; not a domain-expert or independent review",
+  "reviewed_at": "2026-10-02",
+  "rubric": ["factual correctness", "citation correctness", "citation completeness", "unsupported assertions", "next-check relevance", "states unknowns"],
+  "factual_statements_checked": 15,
+  "supported_by_cited_evidence": 15,
+  "unsupported_assertions": 0,
+  "citation_issues": [],
+  "notes": [
+    "All numbers were checked against the excerpts: 501→1,373 ppm, 37.7→71.7 micron, US$1,584,000 / US$475,200, and the action plan dates and statuses.",
+    "The hypothesis on supply pressure is labelled speculative and cites the contradicting RCA assessment (EV-09).",
+    "The retube is correctly described as not yet due on 2 Oct 2026 (G04)."
+  ],
+  "decision": "approved for display as a pre-generated, internally reviewed brief"
+}

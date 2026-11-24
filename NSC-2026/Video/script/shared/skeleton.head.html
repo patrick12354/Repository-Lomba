@@ -1,0 +1,27 @@
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins-Light.ttf"); font-weight: 300; }
+      @font-face { font-family: "Rustic"; src: url("assets/fonts/RusticPrintedStamp.ttf"); }
+      :root { --ink: #2b2521; --red: #a91d1a; --ivory: #efe5cf; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #151413; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      #bg { position: absolute; inset: 0; background: #1b1918 url("assets/tex/charcoal.png") center / cover; }
+      #bw { position: absolute; inset: 0; overflow: hidden; }
+      #bcam { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; transform-origin: 0 0; }
+      #cork { position: absolute; inset: 0; background: #9c7046 url("assets/tex/cork.jpg") center / cover; }
+      #board { position: absolute; left: 0; top: 0; width: 2880px; height: 1620px; overflow: visible; }
+      #lamp { position: absolute; inset: 0; pointer-events: none;
+              background: radial-gradient(ellipse 62% 70% at 52% 46%, rgba(255,236,196,0.10), rgba(255,236,196,0) 55%, rgba(18,10,4,0.42) 100%); }
+      #lensFx { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+      #dust { position: absolute; inset: 0; pointer-events: none; }
+      .mote { position: absolute; border-radius: 50%; background: #fff6dc; }
+      #grain { position: absolute; left: -60px; top: -60px; width: 2040px; height: 1200px; pointer-events: none; opacity: 0.06; mix-blend-mode: overlay;
+               background: url("assets/tex/grain.png") 0 0 / 480px 270px repeat; }
+      svg text { font-family: "Poppins", sans-serif; }
+      .rus { font-family: "Rustic"; }
+    </style>
