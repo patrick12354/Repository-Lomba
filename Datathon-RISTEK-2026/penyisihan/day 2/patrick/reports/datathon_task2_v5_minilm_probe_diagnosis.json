@@ -1,0 +1,11 @@
+{
+  "model_source": "downloaded sentence-transformers/all-MiniLM-L6-v2",
+  "article_documents": 4604,
+  "context_documents": 3209,
+  "embedding_dimension": 384,
+  "error_pairs": 1748,
+  "article_semantic_prefers_truth": 0.40560640732265446,
+  "context_semantic_prefers_truth": 0.5097254004576659,
+  "mean_article_margin": -0.020237798921900294,
+  "mean_context_margin": 0.002249804138124961
+}

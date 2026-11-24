@@ -1,0 +1,30 @@
+{
+  "best_direct_rank": 48,
+  "direct_alpha": 30.0,
+  "residual_scales": [
+    0.30000001192092896,
+    0.15000000596046448,
+    0.05000000074505806
+  ],
+  "best_architecture": {
+    "name": "directed_graph",
+    "embedding": true,
+    "graph": true
+  },
+  "normalized_residual": false,
+  "epochs": 5,
+  "seed": 42,
+  "development_anchor_mse": 31.677677824507953,
+  "development_hybrid_mse": 31.122276268363336,
+  "locked_anchor_mse": 32.55910611403878,
+  "locked_hybrid_mse": 32.041428720998965,
+  "beta": [
+    0.8797655067368964,
+    0.7945258203571742,
+    0.648372036642947
+  ],
+  "day_win_rate": 1.0,
+  "accepted": true,
+  "runtime_minutes": 6.851521034816667,
+  "recommended": "submission_v7.csv"
+}

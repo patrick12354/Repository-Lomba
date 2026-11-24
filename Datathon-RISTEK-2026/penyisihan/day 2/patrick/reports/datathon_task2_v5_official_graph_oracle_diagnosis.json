@@ -1,0 +1,39 @@
+{
+  "official_unique_edges": 119882,
+  "ocr_full_unique_edges": 95418,
+  "missing_edge_gap": 24464,
+  "best_config": {
+    "min_weight": 20.0,
+    "alpha": 0.15,
+    "mean_accuracy": 0.6908888888888889,
+    "std_accuracy": 0.008234975094972336,
+    "top3": 0.9167777777777778,
+    "top5": 0.9615555555555555,
+    "candidate_recall": 0.9938888888888888
+  },
+  "nested_folds": [
+    {
+      "held_fold": 0,
+      "min_weight": 150.0,
+      "alpha": 0.15,
+      "selection_accuracy": 0.6865,
+      "held_accuracy": 0.6996666666666667
+    },
+    {
+      "held_fold": 1,
+      "min_weight": 150.0,
+      "alpha": 0.2,
+      "selection_accuracy": 0.6950000000000001,
+      "held_accuracy": 0.6823333333333333
+    },
+    {
+      "held_fold": 2,
+      "min_weight": 50.0,
+      "alpha": 0.25,
+      "selection_accuracy": 0.6916666666666667,
+      "held_accuracy": 0.6886666666666666
+    }
+  ],
+  "nested_mean": 0.6902222222222223,
+  "interpretation": "Uses official graph only, never external navigation-path labels."
+}

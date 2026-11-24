@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+tmp/
+
+# Bahan pihak lain — repo ini wajib dipublikkan setelah deadline semifinal,
+# dan folder ini memuat concept paper tim lain (atas nama orang yang bisa
+# diidentifikasi), deck panitia, serta template NeurIPS. Berkasnya tetap ada di
+# disk untuk dipakai sendiri, hanya tidak ikut dipublikasikan.
+referensi/
+
+# Dataset wajah — alasan yang sama seperti referensi/, dan lebih berat.
+# 3.487 foto wajah anak berlabel Autistic/Non_Autistic, dengan enam dari enam
+# metadata tata kelola tidak tersedia (research/hasil/audit_wajah.json):
+# tanpa provenance, tanpa lisensi, tanpa consent, tanpa ID partisipan. Proyek
+# ini mengarantina modelnya justru karena itu; menerbitkan gambarnya di repo
+# publik akan membatalkan seluruh alasannya. Notebook audit membaca path lokal.
+# Cara mengeluarkannya dari riwayat: docs/pembersihan_dataset_wajah.md
+data/
+
+# Artefak kompilasi LaTeX (dihasilkan ulang oleh pdflatex)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+.vercel
+.env*
+
+# Berkas kunci Office — muncul saat .pptx/.docx sedang dibuka
+~$*
+
+# Konfigurasi Claude Code per-mesin. settings.local.json memuat path lokal, dan
+# launch.json hanya memberi tahu tooling preview cara menjalankan npm run dev di
+# app/ — keduanya kenyamanan pengembang, bukan bagian produk. Cara menjalankan
+# aplikasi ada di README dan start.bat.
+.claude/
+
+# Dependensi build deck — dipasang sementara untuk pptxgenjs, bukan bagian proyek
+deck/node_modules/

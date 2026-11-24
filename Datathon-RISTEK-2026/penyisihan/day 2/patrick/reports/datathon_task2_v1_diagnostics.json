@@ -1,0 +1,129 @@
+{
+  "version": "v1_ocr_graph_ranker",
+  "seed": 42,
+  "fast_mode": false,
+  "dataset_path": "/kaggle/input/competitions/datathon-task-2/dataset-task2",
+  "integrity": {
+    "articles": 4604,
+    "screenshots": 4604,
+    "train_states": 9000,
+    "test_states": 6000,
+    "state_union": 15000,
+    "category_rows": 5204,
+    "unique_categories": 129,
+    "uncategorized_articles": 6
+  },
+  "state_eda": {
+    "unique_train_targets": 360,
+    "unique_test_targets": 240,
+    "target_overlap": 0,
+    "states_per_train_target": [
+      25
+    ],
+    "states_per_test_target": [
+      25
+    ],
+    "unique_train_currents": 3866,
+    "unique_test_currents": 3312,
+    "test_rows_with_unseen_current": 755,
+    "unique_next_labels": 1023,
+    "direct_target_rate": 0.0074444444444444445,
+    "next_equals_current_rate": 0.0
+  },
+  "graph_eda": {
+    "directed_edges": 93256.0,
+    "pages_with_extracted_links": 4545.0,
+    "median_out_degree": 16.0,
+    "p95_out_degree": 54.0,
+    "raw_ocr_candidate_recall": 0.9783333333333334,
+    "ocr_plus_foldsafe_transition_recall": 0.9836666666666667
+  },
+  "cv_summary": [
+    {
+      "model": "heuristic",
+      "mean_accuracy": 0.650888888888889,
+      "std_accuracy": 0.014607202688070364,
+      "mean_top3": 0.8991111111111111,
+      "mean_top5": 0.948,
+      "mean_candidate_recall": 0.9817777777777777
+    },
+    {
+      "model": "logistic",
+      "mean_accuracy": 0.4383333333333333,
+      "std_accuracy": 0.0016666666666666705,
+      "mean_top3": 0.8344444444444444,
+      "mean_top5": 0.9375555555555556,
+      "mean_candidate_recall": 0.9817777777777777
+    },
+    {
+      "model": "rank_ensemble",
+      "mean_accuracy": 0.4285555555555556,
+      "std_accuracy": 0.0022194427061597763,
+      "mean_top3": 0.8353333333333334,
+      "mean_top5": 0.9393333333333334,
+      "mean_candidate_recall": 0.9817777777777777
+    },
+    {
+      "model": "current_ranker_fallback",
+      "mean_accuracy": 0.3866666666666667,
+      "std_accuracy": 0.003711842908553312,
+      "mean_top3": 0.8353333333333334,
+      "mean_top5": 0.9393333333333334,
+      "mean_candidate_recall": 0.9817777777777777
+    },
+    {
+      "model": "hist_gbdt",
+      "mean_accuracy": 0.28655555555555556,
+      "std_accuracy": 0.008852704127574289,
+      "mean_top3": 0.4443333333333333,
+      "mean_top5": 0.5525555555555556,
+      "mean_candidate_recall": 0.9817777777777777
+    },
+    {
+      "model": "current_mode",
+      "mean_accuracy": 0.23811111111111113,
+      "std_accuracy": 0.009130737668467434,
+      "mean_top3": NaN,
+      "mean_top5": NaN,
+      "mean_candidate_recall": NaN
+    },
+    {
+      "model": "global_mode",
+      "mean_accuracy": 0.11644444444444445,
+      "std_accuracy": 0.009760085002665665,
+      "mean_top3": NaN,
+      "mean_top5": NaN,
+      "mean_candidate_recall": NaN
+    }
+  ],
+  "selected_model": "heuristic",
+  "feature_names": [
+    "direct_target",
+    "word_cosine",
+    "char_cosine",
+    "category_jaccard",
+    "graph_distance",
+    "graph_improvement",
+    "ocr_confidence",
+    "title_match",
+    "link_position",
+    "log_global_clicks",
+    "log_current_clicks",
+    "observed_edge",
+    "log_out_degree",
+    "log_in_degree"
+  ],
+  "submission_audit": {
+    "rows": 6000,
+    "unique_states": 6000,
+    "unique_predictions": 891,
+    "nan": 0,
+    "candidate_valid_rate": 1.0,
+    "prediction_equals_current_rate": 0.0,
+    "prediction_equals_target_rate": 0.007333333333333333
+  },
+  "runtime_minutes": 47.53424088871667,
+  "ocr_available": true,
+  "processed_ocr_pages": 4604,
+  "extracted_edges": 93256
+}

@@ -1,0 +1,39 @@
+{
+  "pca_dimensions": 48,
+  "best": {
+    "config_id": 3,
+    "signal": "probability",
+    "beta": 0.2,
+    "mean_accuracy": 0.7751111111111112,
+    "std_accuracy": 0.0187092767641359,
+    "top3": 0.9436666666666667,
+    "top5": 0.9740000000000001
+  },
+  "nested_folds": [
+    {
+      "held_fold": 0,
+      "config_id": 2,
+      "signal": "probability",
+      "beta": 0.3,
+      "selection_accuracy": 0.7646666666666666,
+      "held_accuracy": 0.7933333333333333
+    },
+    {
+      "held_fold": 1,
+      "config_id": 3,
+      "signal": "rank",
+      "beta": 0.05,
+      "selection_accuracy": 0.7828333333333333,
+      "held_accuracy": 0.758
+    },
+    {
+      "held_fold": 2,
+      "config_id": 0,
+      "signal": "rank",
+      "beta": 0.2,
+      "selection_accuracy": 0.7795000000000001,
+      "held_accuracy": 0.7646666666666667
+    }
+  ],
+  "nested_mean": 0.7720000000000001
+}

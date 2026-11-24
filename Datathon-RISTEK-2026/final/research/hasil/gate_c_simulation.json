@@ -1,0 +1,173 @@
+{
+  "status": "simulation_only_not_clinical_validation",
+  "purpose": "Membandingkan biaya operasional tiap titik kerja pada antrean Posyandu 1.000 anak.",
+  "assumptions": {
+    "cohort_size": 1000,
+    "target_prevalence": 0.01,
+    "technical_coverage": 0.9,
+    "coverage_source": "Steffan et al. 2024, Infancy: attrition webcam balita 42%; 0,90 adalah asumsi perencanaan yang lebih longgar dan harus diuji di lapangan."
+  },
+  "arms": [
+    {
+      "id": "lr_target_sensitivity",
+      "label": "Regresi logistik, titik sensitivitas 0,9",
+      "status": "shipped_not_recommended",
+      "assumptions": {
+        "sensitivity": 0.9231,
+        "specificity": 0.1786,
+        "threshold": 0.22425,
+        "source": "research/hasil/model.json, titik sensitivitas 0,9 pada OOF tingkat partisipan Carette (n=54, usia sekolah, 250 Hz)"
+      },
+      "note": "Spesifisitas 0,179 merujuk sebagian besar antrean; dilaporkan agar biayanya terlihat.",
+      "expected_counts": {
+        "assessable": 900.0,
+        "withheld": 100.0,
+        "true_positive": 8.3079,
+        "false_negative": 0.6921,
+        "true_negative": 159.1326,
+        "false_positive": 731.8674
+      },
+      "operational_projection": {
+        "referral_rate": 0.822417,
+        "positive_predictive_value": 0.011224,
+        "negative_predictive_value": 0.99567,
+        "referrals_per_true_positive": 89.0929
+      }
+    },
+    {
+      "id": "lr_youden",
+      "label": "Regresi logistik, titik Youden",
+      "status": "shipped_research_only",
+      "assumptions": {
+        "sensitivity": 0.7308,
+        "specificity": 0.8214,
+        "threshold": 0.498495,
+        "source": "research/hasil/model.json, titik Youden pada OOF tingkat partisipan Carette (n=54, usia sekolah, 250 Hz)"
+      },
+      "note": "Titik default ekspor model. Tetap di luar jalur keputusan produk karena penjaga OOD menolaknya pada balita.",
+      "expected_counts": {
+        "assessable": 900.0,
+        "withheld": 100.0,
+        "true_positive": 6.5772,
+        "false_negative": 2.4228,
+        "true_negative": 731.8674,
+        "false_positive": 159.1326
+      },
+      "operational_projection": {
+        "referral_rate": 0.184122,
+        "positive_predictive_value": 0.039691,
+        "negative_predictive_value": 0.9967,
+        "referrals_per_true_positive": 25.1946
+      }
+    },
+    {
+      "id": "geopref_published",
+      "label": "GeoPref, ambang 69% terbit",
+      "status": "active_rule_in",
+      "assumptions": {
+        "sensitivity": 0.17,
+        "specificity": 0.98,
+        "threshold": 0.69,
+        "source": "Wen et al. 2022, Scientific Reports, n=1.863, usia 12-48 bulan"
+      },
+      "note": "Satu-satunya pemicu rujukan otomatis di produk. Sensitivitas rendah adalah sifat alat rule-in, bukan cacat implementasi.",
+      "expected_counts": {
+        "assessable": 900.0,
+        "withheld": 100.0,
+        "true_positive": 1.53,
+        "false_negative": 7.47,
+        "true_negative": 873.18,
+        "false_positive": 17.82
+      },
+      "operational_projection": {
+        "referral_rate": 0.0215,
+        "positive_predictive_value": 0.07907,
+        "negative_predictive_value": 0.991518,
+        "referrals_per_true_positive": 12.6471
+      }
+    },
+    {
+      "id": "gate_c_target",
+      "label": "Target Gate C (preseden tablet)",
+      "status": "target_not_achieved",
+      "assumptions": {
+        "sensitivity": 0.878,
+        "specificity": 0.808,
+        "threshold": null,
+        "source": "Perochon et al. 2023, Nature Medicine (SenseToKnow), kamera depan tablet, usia 17-36 bulan"
+      },
+      "note": "Bukan performa NeuroGaze. Ini angka yang harus dikejar Gate C, diambil dari literatur alih-alih dikarang.",
+      "expected_counts": {
+        "assessable": 900.0,
+        "withheld": 100.0,
+        "true_positive": 7.902,
+        "false_negative": 1.098,
+        "true_negative": 719.928,
+        "false_positive": 171.072
+      },
+      "operational_projection": {
+        "referral_rate": 0.19886,
+        "positive_predictive_value": 0.044152,
+        "negative_predictive_value": 0.998477,
+        "referrals_per_true_positive": 22.6492
+      }
+    }
+  ],
+  "composite_rule": {
+    "id": "composite_rule_break_even",
+    "label": "Aturan komposit, spesifisitas minimum yang dibutuhkan",
+    "status": "requirement_not_measurement",
+    "question": "Berapa spesifisitas minimum aturan komposit supaya laju rujukannya muat di kapasitas rujukan?",
+    "assumptions": {
+      "referral_capacity": 0.2,
+      "prevalence": 0.01,
+      "sensitivity_assumed": 1.0,
+      "source": "Aritmetika atas kapasitas rujukan yang dinyatakan; bukan performa terukur."
+    },
+    "required_specificity": 0.8081,
+    "sensitivity_to_capacity": {
+      "0.05": 0.9596,
+      "0.10": 0.9091,
+      "0.20": 0.8081,
+      "0.30": 0.7071
+    },
+    "circularity_warning": "Kapasitas 0,20 dipilih menyamai laju rujukan lengan target Gate C (0,199), jadi kemiripan syarat ini dengan spesifisitas Perochon 0,808 adalah akibat konstruksi, bukan temuan. Jangan sajikan sebagai kebetulan yang mengesankan.",
+    "what_this_actually_shows": "Pada prevalensi 1%, suku sensitivitas tidak pernah melebihi 0,01 sehingga laju rujukan hampir seluruhnya ditentukan spesifisitas. Konsekuensinya: menaikkan sensitivitas aturan komposit nyaris tidak membebani antrean, sedangkan kehilangan beberapa poin spesifisitas membebaninya secara langsung. Itu yang menentukan ke mana Gate C harus diarahkan.",
+    "note": "Blok ini sengaja tidak mengasumsikan sensitivitas dan spesifisitas aturan komposit. Keduanya belum diukur pada balita, dan mengarangnya akan mengulang persis kesalahan yang dihindari lengan-lengan lain. Yang dihitung adalah syarat yang harus dipenuhi.",
+    "unlocks": "README.md, bagian \"Kenapa belum ada rujukan yang keluar\", kunci 1"
+  },
+  "referral_load": {
+    "id": "referral_load_multiples",
+    "status": "arithmetic_over_stated_assumptions",
+    "baseline_arm": "geopref_published",
+    "baseline_referral_rate": 0.0215,
+    "multiples": {
+      "lr_target_sensitivity": 38.3,
+      "lr_youden": 8.6,
+      "geopref_published": 1.0,
+      "gate_c_target": 9.2
+    },
+    "field_anchor": {
+      "source": "README.md, bagian \"Batas yang berlaku hari ini\"",
+      "n": 1,
+      "asked": "Kalau anak yang disarankan diperiksa lanjut menjadi tiga kali lebih banyak, sanggup?",
+      "answered": "Sepertinya akan sulit; tenaga dan jadwal yang tersedia mungkin kewalahan.",
+      "current_wait": "beberapa minggu sampai beberapa bulan, tergantung tempat dan tenaga"
+    },
+    "what_this_shows": "Titik kerja yang dikirim menghasilkan beban rujukan paling rendah di antara seluruh lengan. Lengan yang paling menggoda dipamerkan — sensitivitas 0,92 — menghasilkan beban puluhan kali lipat dari itu, jauh di atas kelipatan tiga yang sudah dinilai sulit oleh satu praktisi.",
+    "not_claimed": [
+      "Satu wawancara bukan pengukuran kapasitas, dan angkanya tidak dipakai sebagai kapasitas.",
+      "Praktisi tersebut tidak melihat tabel ini dan tidak menilai titik kerja mana pun.",
+      "Kelipatan di sini adalah rasio laju rujukan yang diproyeksikan, bukan jumlah anak yang teramati."
+    ]
+  },
+  "limitations": [
+    "Tidak ada balita prospektif yang direkrut; setiap angka adalah ekspektasi, bukan observasi.",
+    "Lengan regresi logistik berasal dari 54 partisipan Carette usia sekolah pada 250 Hz dan tidak berlaku untuk balita.",
+    "Lengan GeoPref memakai performa terbit pada stimulus UCSD penuh; klip CC BY 16,75 detik belum tentu mereproduksinya.",
+    "Lengan target Gate C adalah performa instrumen lain, bukan milik NeuroGaze.",
+    "Prevalensi dan coverage teknis adalah asumsi perencanaan yang dinyatakan, bukan hasil pengukuran lokal.",
+    "Blok composite_rule adalah syarat, bukan lengan: sensitivitas dan spesifisitas aturan komposit pada balita belum pernah diukur.",
+    "Simulasi ini tidak bisa meluluskan Gate C atau memilih ambang klinis."
+  ]
+}

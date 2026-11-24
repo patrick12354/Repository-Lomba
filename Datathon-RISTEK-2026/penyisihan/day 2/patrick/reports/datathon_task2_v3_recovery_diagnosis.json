@@ -1,0 +1,239 @@
+{
+  "suspect_regions": 1690,
+  "recovered_edges": 2162,
+  "methods": {
+    "exact_segment": 1482,
+    "fuzzy": 680
+  },
+  "fixed_v2_weight_cv": {
+    "fold": 1.0,
+    "accuracy": 0.769,
+    "top3": 0.9392222222222223,
+    "top5": 0.9716666666666667,
+    "candidate_recall": 0.9938888888888888
+  },
+  "best_recovered_hardmin_id": 269,
+  "best_recovered_hardmin": {
+    "search_id": 269,
+    "is_min_neighbor_distance": 100.0,
+    "category_exact_jaccard": 1.51797340143258,
+    "category_overlap_count": 0.48994969864263294,
+    "category_prefix_jaccard": 0.02857276307887291,
+    "log_global_clicks": 0.02119646682476861,
+    "log_in_degree": 0.4340986164482358,
+    "out_neighbor_jaccard": 0.9794117699297289,
+    "in_neighbor_jaccard": 0.2994440985929203,
+    "char_cosine": 0.35850562724901813,
+    "word_cosine": 0.1653051475375229,
+    "position_rank": 0.04515262127215465
+  },
+  "retuned_top_configs": [
+    {
+      "family": "hardmin",
+      "config_id": 269,
+      "mean_accuracy": 0.769,
+      "std_accuracy": 0.015930404193797987,
+      "mean_top3": 0.9392222222222223,
+      "mean_top5": 0.9716666666666667
+    },
+    {
+      "family": "hardmin",
+      "config_id": 128,
+      "mean_accuracy": 0.7657777777777778,
+      "std_accuracy": 0.019531550923607782,
+      "mean_top3": 0.9371111111111111,
+      "mean_top5": 0.9713333333333334
+    },
+    {
+      "family": "hardmin",
+      "config_id": 104,
+      "mean_accuracy": 0.7652222222222221,
+      "std_accuracy": 0.01783359293684359,
+      "mean_top3": 0.9381111111111111,
+      "mean_top5": 0.9716666666666667
+    },
+    {
+      "family": "hardmin",
+      "config_id": 317,
+      "mean_accuracy": 0.7641111111111112,
+      "std_accuracy": 0.016600981675569372,
+      "mean_top3": 0.9392222222222223,
+      "mean_top5": 0.9725555555555556
+    },
+    {
+      "family": "hardmin",
+      "config_id": 3,
+      "mean_accuracy": 0.7641111111111112,
+      "std_accuracy": 0.01852725719741755,
+      "mean_top3": 0.9380000000000001,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 182,
+      "mean_accuracy": 0.7639999999999999,
+      "std_accuracy": 0.01934195210187202,
+      "mean_top3": 0.9385555555555555,
+      "mean_top5": 0.9714444444444444
+    },
+    {
+      "family": "hardmin",
+      "config_id": 346,
+      "mean_accuracy": 0.762,
+      "std_accuracy": 0.018248287590894644,
+      "mean_top3": 0.9377777777777778,
+      "mean_top5": 0.9710000000000001
+    },
+    {
+      "family": "hardmin",
+      "config_id": 172,
+      "mean_accuracy": 0.7613333333333333,
+      "std_accuracy": 0.016576422345541825,
+      "mean_top3": 0.9390000000000001,
+      "mean_top5": 0.9715555555555556
+    },
+    {
+      "family": "hardmin",
+      "config_id": 365,
+      "mean_accuracy": 0.7611111111111111,
+      "std_accuracy": 0.018240167315671876,
+      "mean_top3": 0.9397777777777777,
+      "mean_top5": 0.9715555555555556
+    },
+    {
+      "family": "hardmin",
+      "config_id": 25,
+      "mean_accuracy": 0.761,
+      "std_accuracy": 0.018929694486000865,
+      "mean_top3": 0.9378888888888888,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 2,
+      "mean_accuracy": 0.7598888888888888,
+      "std_accuracy": 0.01889836363678476,
+      "mean_top3": 0.940111111111111,
+      "mean_top5": 0.971111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 141,
+      "mean_accuracy": 0.7596666666666666,
+      "std_accuracy": 0.01800925687898686,
+      "mean_top3": 0.940111111111111,
+      "mean_top5": 0.9716666666666667
+    },
+    {
+      "family": "hardmin",
+      "config_id": 173,
+      "mean_accuracy": 0.7596666666666666,
+      "std_accuracy": 0.020251200238778737,
+      "mean_top3": 0.9378888888888888,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 179,
+      "mean_accuracy": 0.7593333333333333,
+      "std_accuracy": 0.019376388839111476,
+      "mean_top3": 0.9390000000000001,
+      "mean_top5": 0.972
+    },
+    {
+      "family": "hardmin",
+      "config_id": 193,
+      "mean_accuracy": 0.7591111111111112,
+      "std_accuracy": 0.018124058085359447,
+      "mean_top3": 0.9384444444444444,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 16,
+      "mean_accuracy": 0.759,
+      "std_accuracy": 0.020610137742814304,
+      "mean_top3": 0.9381111111111111,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 61,
+      "mean_accuracy": 0.7587777777777779,
+      "std_accuracy": 0.017626789375938635,
+      "mean_top3": 0.9361111111111112,
+      "mean_top5": 0.9718888888888889
+    },
+    {
+      "family": "hardmin",
+      "config_id": 80,
+      "mean_accuracy": 0.7585555555555555,
+      "std_accuracy": 0.020934642563446352,
+      "mean_top3": 0.9386666666666666,
+      "mean_top5": 0.9723333333333333
+    },
+    {
+      "family": "hardmin",
+      "config_id": 64,
+      "mean_accuracy": 0.7584444444444444,
+      "std_accuracy": 0.01959119227650058,
+      "mean_top3": 0.9385555555555555,
+      "mean_top5": 0.972111111111111
+    },
+    {
+      "family": "hardmin",
+      "config_id": 100,
+      "mean_accuracy": 0.7583333333333333,
+      "std_accuracy": 0.021105554824368992,
+      "mean_top3": 0.9386666666666666,
+      "mean_top5": 0.9723333333333334
+    }
+  ],
+  "nested_regime_gate": [
+    {
+      "held_fold": 0,
+      "accuracy": 0.787,
+      "selected": {
+        "1": 0,
+        "2": 104,
+        "3": 269,
+        "4-5": 269,
+        "6-10": 269,
+        "11+": 269
+      }
+    },
+    {
+      "held_fold": 1,
+      "accuracy": 0.7546666666666667,
+      "selected": {
+        "1": 0,
+        "2": 104,
+        "3": 269,
+        "4-5": 128,
+        "6-10": 269,
+        "11+": 269
+      }
+    },
+    {
+      "held_fold": 2,
+      "accuracy": 0.759,
+      "selected": {
+        "1": 0,
+        "2": 104,
+        "3": 104,
+        "4-5": 172,
+        "6-10": 128,
+        "11+": 269
+      }
+    }
+  ],
+  "nested_regime_mean_accuracy": 0.766888888888889,
+  "full_oof_regime_configs": {
+    "1": 0,
+    "2": 104,
+    "3": 269,
+    "4-5": 269,
+    "6-10": 269,
+    "11+": 269
+  }
+}

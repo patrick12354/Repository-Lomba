@@ -1,0 +1,4 @@
+held_fold,config_id,signal,beta,selection_accuracy,held_accuracy
+0,0,probability,0.2,0.7636666666666667,0.7953333333333333
+1,0,probability,0.0,0.782,0.7566666666666667
+2,3,rank,0.1,0.7785,0.766

@@ -1,0 +1,51 @@
+{
+  "version": "v5_pretrained_semantic_pair_ranker",
+  "seed": 42,
+  "embedding_path": "/Users/timotiuspatrick/Documents/Patrick/Kuliah & Coding/Dataton/day 2/patrick/output/v5/datathon_task2_v5_minilm_article_embeddings.npz",
+  "locked_config": 3,
+  "locked_beta": 0.2,
+  "runtime_minutes": 1.0953157345453899,
+  "selected_cv": {
+    "V4 anchor": {
+      "fold": 1.0,
+      "accuracy": 0.7735555555555557,
+      "top3": 0.9443333333333334,
+      "top5": 0.9741111111111111,
+      "candidate_recall": 0.9938888888888888
+    },
+    "V5 semantic pair blend": {
+      "fold": 1.0,
+      "accuracy": 0.774888888888889,
+      "top3": 0.9435555555555556,
+      "top5": 0.9741111111111111,
+      "candidate_recall": 0.9938888888888888
+    }
+  },
+  "nested_accuracy": 0.773888888888889,
+  "changes": {
+    "changed": 130,
+    "fixed": 58,
+    "regressed": 46,
+    "both_wrong": 26,
+    "net_correct": 12
+  },
+  "primary_audit": {
+    "rows": 6000,
+    "unique_states": 6000,
+    "nan": 0,
+    "invalid_article_ids": 0,
+    "same_as_current": 0.0,
+    "same_as_target": 0.007333333333333333,
+    "unique_predictions": 782
+  },
+  "fallback_audit": {
+    "rows": 6000,
+    "unique_states": 6000,
+    "nan": 0,
+    "invalid_article_ids": 0,
+    "same_as_current": 0.0,
+    "same_as_target": 0.007333333333333333,
+    "unique_predictions": 780
+  },
+  "test_disagreement": 0.017333333333333333
+}

@@ -1,0 +1,4 @@
+held_fold,selected_alpha,selection_accuracy,held_accuracy
+0,0.0,0.7623333333333333,0.796
+1,0.0,0.782,0.7566666666666667
+2,0.01,0.7765,0.7666666666666667

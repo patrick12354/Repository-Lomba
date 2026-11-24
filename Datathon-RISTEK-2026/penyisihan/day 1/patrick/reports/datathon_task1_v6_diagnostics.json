@@ -1,0 +1,77 @@
+{
+  "selected_config": {
+    "name": "global_film_ema_soft_moe",
+    "use_global": true,
+    "use_ema": true,
+    "use_moe": true,
+    "zero_aux_weight": 0.1
+  },
+  "refit_epochs": 7,
+  "test_block_weights": [
+    0.688895834329994,
+    0.311104165670006
+  ],
+  "crossfit_balanced_validation_mse": 29.161325454711914,
+  "crossfit_test_weighted_validation_mse": 31.258721462613796,
+  "robust_weight_diagnostic_mse": 31.16884560983946,
+  "ensemble_weights": [
+    [
+      0.0,
+      0.020388443022966385,
+      0.08169618993997574,
+      0.3646351993083954,
+      0.5332801938056946
+    ],
+    [
+      0.02294311113655567,
+      0.020197739824652672,
+      0.24262861907482147,
+      0.37942859530448914,
+      0.33480194211006165
+    ],
+    [
+      0.05104953423142433,
+      0.03173075243830681,
+      0.2848334014415741,
+      0.37729331851005554,
+      0.2550930082798004
+    ]
+  ],
+  "model_names": [
+    "AR",
+    "PCA",
+    "DLR_r48_a30_resid_soft",
+    "DLR_r64_a30_resid_soft",
+    "GNN"
+  ],
+  "weight_stability_L1": [
+    0.10652539283717005,
+    0.12476999366313236,
+    0.2041981421729501
+  ],
+  "selected_direct_variants": {
+    "DLR_r48_a30_resid_soft": {
+      "spec": [
+        48,
+        30.0
+      ],
+      "scales": [
+        0.3,
+        0.15,
+        0.05
+      ]
+    },
+    "DLR_r64_a30_resid_soft": {
+      "spec": [
+        64,
+        30.0
+      ],
+      "scales": [
+        0.3,
+        0.15,
+        0.05
+      ]
+    }
+  },
+  "submission_rows": 2041200
+}

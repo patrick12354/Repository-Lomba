@@ -1,0 +1,94 @@
+# Asal-usul aset konten
+
+Folder `assets/` berisi **konten**, bukan kode: data kosakata, gambar simbol, dan lisensinya.
+Semuanya disiapkan tim sebelum Hack Day dan dibawa masuk pada jam ke-0. Tidak ada berkas kode di folder ini.
+
+Setiap berkas di bawah tercatat hash SHA-256-nya di `assets/PROVENANCE.sha256`. Untuk memeriksa bahwa isinya
+tidak berubah sejak disiapkan:
+
+```
+sha256sum -c assets/PROVENANCE.sha256        # Git Bash / Linux
+shasum -a 256 -c assets/PROVENANCE.sha256    # macOS
+```
+
+Hasil yang benar: 245 baris `OK`, nol `FAILED` (175 berkas kit sebelum acara, ditambah simbol yang dibuat dan dirasterkan ulang 18 Sep 2026).
+
+---
+
+## Data kosakata
+
+| Berkas | Isi | Cara dibuat | Sumber dan lisensi |
+|---|---|---|---|
+| `vocab/core_vocab_id.csv` | 120 kata inti Bahasa Indonesia, 13 kolom | Ditulis dari tabel `docs/hackday/05-kosakata-dan-simbol.md` §3. Lulus lima pemeriksaan §2: 120 baris, halaman 0 sesuai `00-rencana.md` §3, tanpa slot ganda, tanpa slot cermin terpakai, jumlah per halaman cocok. | Riset tim. Dasar pemilihan kata: `docs/hackday/03-basis-ilmiah.md`. |
+| `vocab/pages.csv` | 13 halaman papan | Ditulis dari tabel §4 dokumen yang sama | Riset tim |
+| `vocab/_source/id_50k_2018.txt` | 50.000 kata teratas OpenSubtitles 2018 Bahasa Indonesia, beserta jumlah kemunculan | Diunduh apa adanya, tidak diubah | hermitdave/FrequencyWords (kode MIT); data turunan korpus OpenSubtitles2018 dari OPUS. Rincian: `vocab/_source/SOURCE.md` |
+| `vocab/_source/SOURCE.md` | Tanggal unduh, commit sumber, hash, keterbatasan korpus | Ditulis tim | — |
+
+Kolom `freq_rank` di CSV bisa diperiksa langsung terhadap `id_50k_2018.txt`: peringkat = nomor baris kata itu.
+Kolom `therapist_ok` bernilai `belum` di semua baris karena daftar ini **belum ditinjau terapis wicara**.
+
+## Simbol
+
+| Berkas | Jumlah | Cara dibuat | Sumber dan lisensi |
+|---|---|---|---|
+| `symbols/mulberry/{word_id}.svg` | 99 | SVG asli Mulberry, isi tidak diubah, hanya diganti nama menjadi `word_id`. 85 berkas sebelum acara; 14 ditambahkan 18 Sep 2026 (lihat di bawah) | Mulberry Symbols v3.6.1 © Steve Lee, **CC BY-SA 4.0**. Diunduh 13 Sep 2026 dan diunduh ulang 18 Sep 2026 dari rilis resmi GitHub, `mulberry-symbols.zip`, SHA-256 keduanya `9da3f23a17bd71aec3c94eae9a3367e977e7b65d3d7feeaadb3f4690182aa05b` |
+| `symbols/png/{word_id}.png` | 99 | SVG di atas dirasterkan ke PNG 256 × 256, latar transparan. **Dirasterkan ulang 18 Sep 2026** lewat canvas peramban (Chromium): perasteran sebelum acara mengabaikan `<style>` di dalam SVG sehingga semua warna hilang menjadi siluet hitam | Sama dengan di atas. Rasterisasi bukan perubahan isi gambar. |
+| `symbols/LICENSE-mulberry.txt` | 1 | Teks lisensi dari rilis Mulberry | — |
+| `symbols/ATTRIBUTION.md` | 1 | Ditulis tim | — |
+| `symbols/custom/{word_id}.svg` + `.png` | 21 | **Dibuat di dalam acara** (18 Sep 2026) sebagai SVG tangan mengikuti gaya `05` §6.1 (garis #1A1A1A 7 px, warna datar, tanpa teks), dirasterkan seperti PNG Mulberry | Karya tim, **CC BY-SA 4.0** (share-alike dengan Mulberry) |
+
+Pemetaan `word_id` ke nama berkas asli Mulberry ada di kolom `simbol` tabel `05-kosakata-dan-simbol.md` §3.
+
+Dari 35 kata yang semula direncanakan sebagai gambar tim, 14 ternyata punya padanan Mulberry yang jelas dan dipakai
+(18 Sep 2026): sakit=`headache`, ya=`correct`, tidak=`mistake_no_wrong`, dingin=`snow`, sayang=`heart_shape`,
+suka=`thumb`, sama=`same`, bisa=`strong`, teman=`hold_hands_,_to`, kita=`group_work`, angkot=`van`, warung=`shop`,
+buku=`notebook`, itu=`point_,_to`. 21 sisanya (aku, kamu, dia, ini, jangan, sudah, belum, boleh, ada, punya, banyak,
+sedikit, sini, dadah, makasih, maaf, tolong, pulang, pup, capek, berhenti) digambar tim. Simbol tim belum diuji pada anak.
+Kecocokan 85 nama itu dengan berkas di sini sudah diperiksa otomatis pada 17 Sep 2026: semua cocok, dan tidak ada
+PNG Mulberry untuk 35 kata yang ditandai gambar tim.
+
+## Audio
+
+`audio/core/` **kosong**. Tidak ada rekaman suara yang dibawa sebelum acara.
+
+Klip suara papan **dibuat di dalam acara** (18 Sep 2026, ± 10:00–10:40 WIB) dengan skrip `tools/gen_audio.py`,
+lalu disimpan langsung di `app/assets/audio/core/`, bukan di folder ini. Karena itu klip tidak tercantum di
+`PROVENANCE.sha256`.
+
+| Berkas | Jumlah | Cara dibuat | Sumber dan lisensi |
+|---|---|---|---|
+| `app/assets/audio/core/cowo/{word_id}.ogg` | 120 | OpenAI Audio API `/v1/audio/speech`, model `gpt-4o-mini-tts-2025-12-15`, suara `fable`, satu permintaan per kata | Suara **sintetis buatan AI**, bukan rekaman manusia. Keluaran milik pembuat permintaan menurut ketentuan OpenAI; kebijakan pemakaian mewajibkan pendengar diberi tahu bahwa suaranya buatan AI. |
+| `app/assets/audio/core/cewe/{word_id}.ogg` | 120 | Sama, suara `marin` | Sama |
+
+- **Teks yang diucapkan:** kolom `label_speech` di `vocab/core_vocab_id.csv`, satu kata per permintaan.
+- **Instruksi gaya bicara:** remaja Indonesia sekitar 14 tahun (cowok untuk `cowo`, cewek untuk `cewe`), lafal baku Bahasa
+  Indonesia, intonasi datar dan netral, tempo sedang, tanpa jeda di awal dan akhir. Teks lengkap ada di `INSTRUCTIONS`
+  dalam `tools/gen_audio.py`.
+- **Pascaproses (ffmpeg):** potong hening depan dan belakang (ambang −45 dB), samakan kekerasan rata-rata ke −20 dB,
+  limiter 0,9, ekor hening 40 ms, Opus mono 48 kHz 32 kbps. Total ± 1 MB untuk dua set.
+- **Pemeriksaan:** tes `app/test/audio_assets_test.dart` memastikan setiap kata punya klip di kedua set. Klip hening
+  diulang otomatis oleh skrip (`tangan` cowo dan `susu` cewe sempat hening lalu dibuat ulang). Lafal **belum didengar
+  satu per satu** oleh terapis maupun tim; kata dengan ejaan mirip bahasa Inggris (mis. `air`, `main`) perlu dicek.
+- **Membuat ulang satu kata:** `python3 tools/gen_audio.py --all --style cowo --words air,main --force`, lalu salin
+  hasil dari `tools/audio_out/final/` ke `app/assets/audio/core/`. Model dipatok ke snapshot bertanggal supaya klip
+  baru tetap satu suara dengan klip lama.
+
+---
+
+## Font dan aset merek aplikasi
+
+| Berkas | Sumber | Lisensi |
+|---|---|---|
+| `app/assets/fonts/Fredoka.ttf` | `github.com/google/fonts`, `ofl/fredoka/Fredoka[wdth,wght].ttf` (variable font), SHA-256 `2ba02e68…73fc8` | SIL Open Font License 1.1, teks di `app/assets/fonts/OFL-Fredoka.txt` |
+| `app/assets/fonts/Nunito.ttf` | `github.com/google/fonts`, `ofl/nunito/Nunito[wght].ttf` (variable font), SHA-256 `bb55a5ca…85207` | SIL Open Font License 1.1, teks di `app/assets/fonts/OFL-Nunito.txt` |
+| `app/assets/brand/logo_mark.png`, ikon peluncur `app/android/app/src/main/res/mipmap-*/ic_launcher*.png` | Logo Nyambung buatan tim (`aset.zip`, `nyambung-logo.png`). Tanda dua gelembung dipotong, bayangan dan kotak putih dibuang, warna dilepas dari latar putih lalu diperkecil (skrip Python murni, tanpa pustaka) | Milik tim |
+| `app/assets/brand/cloud.png`, `app/assets/brand/sun.png` | Ilustrasi awan dan matahari buatan tim dari berkas desain ulang (`aset.zip`, `8.png` dan `9.png`), dipotong dan diperkecil | Milik tim |
+
+Font dibundel di APK supaya tetap tampil tanpa internet (invarian 1).
+
+---
+
+## Yang tidak ada di folder ini
+
+Tidak ada kode aplikasi, server, papan pantau, skrip pembuat data, APK, keystore, maupun data peristiwa.
+Semuanya dibangun di dalam jendela Hack Day 18–19 September 2026 dan terlihat di riwayat commit.

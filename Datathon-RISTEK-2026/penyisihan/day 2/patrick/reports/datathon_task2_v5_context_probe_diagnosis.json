@@ -1,0 +1,10 @@
+{
+  "tie_errors": 1762,
+  "unique_pairs_requested": 3209,
+  "paired_states_with_context": 1748,
+  "coverage": 0.9920544835414302,
+  "nonempty_context_rate": 1.0,
+  "word_similarity_prefers_truth": 0.18192219679633867,
+  "char_similarity_prefers_truth": 0.4954233409610984,
+  "combined_similarity_prefers_truth": 0.5
+}

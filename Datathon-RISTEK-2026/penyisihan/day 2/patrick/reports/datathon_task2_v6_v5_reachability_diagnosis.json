@@ -1,0 +1,34 @@
+{
+  "best_same_fold": {
+    "beta": 0.2,
+    "alpha": -0.06,
+    "mean_accuracy": 0.7762222222222223,
+    "std_accuracy": 0.017512958165418663,
+    "top3": 0.9423333333333334,
+    "top5": 0.9724444444444446
+  },
+  "nested_mean": 0.775111111111111,
+  "nested": [
+    {
+      "held_fold": 0,
+      "beta": 0.2,
+      "alpha": -0.06,
+      "selection_accuracy": 0.7661666666666667,
+      "held_accuracy": 0.7963333333333333
+    },
+    {
+      "held_fold": 1,
+      "beta": 0.1,
+      "alpha": -0.02,
+      "selection_accuracy": 0.7831666666666667,
+      "held_accuracy": 0.761
+    },
+    {
+      "held_fold": 2,
+      "beta": 0.2,
+      "alpha": -0.06,
+      "selection_accuracy": 0.7803333333333333,
+      "held_accuracy": 0.768
+    }
+  ]
+}

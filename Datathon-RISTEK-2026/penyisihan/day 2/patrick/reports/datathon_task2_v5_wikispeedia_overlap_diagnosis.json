@@ -1,0 +1,29 @@
+{
+  "competition_articles": 4604,
+  "external_articles": 4604,
+  "exact_title_matches": 4604,
+  "finished_paths": 51318,
+  "blacklisted_test_target_paths": 3327,
+  "fully_mapped_paths": 47981,
+  "forward_transition_rows": 258045,
+  "policies": [
+    {
+      "corpus_policy": "effective_path",
+      "unique_state_target_keys": 121799,
+      "train_coverage": 0.008777777777777778,
+      "train_accuracy_covered": 0.27848101265822783,
+      "train_accuracy_all_if_uncovered_wrong": 0.0024444444444444444,
+      "train_truth_seen_rate": 0.003111111111111111
+    },
+    {
+      "corpus_policy": "all_forward_clicks",
+      "unique_state_target_keys": 124079,
+      "train_coverage": 0.009,
+      "train_accuracy_covered": 0.2716049382716049,
+      "train_accuracy_all_if_uncovered_wrong": 0.0024444444444444444,
+      "train_truth_seen_rate": 0.003111111111111111
+    }
+  ],
+  "best_policy": "all_forward_clicks",
+  "warning": "All paths whose target occurs in competition test are excluded. Fold-level training must additionally exclude each validation fold target."
+}

@@ -1,0 +1,57 @@
+{
+  "states": 9000,
+  "graph_edges": 95418,
+  "best_method": "reverse__title_asc__source_asc",
+  "best_accuracy": 0.5086666666666667,
+  "top_methods": [
+    {
+      "method": "reverse__title_asc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__xy_asc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__raw_order__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__yx_asc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__candidate_id_desc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__raw_order_reverse__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__candidate_id_asc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__yx_desc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "reverse__title_desc__source_asc",
+      "accuracy": 0.5086666666666667
+    },
+    {
+      "method": "bidirectional__candidate_id_asc",
+      "accuracy": 0.5023333333333333
+    },
+    {
+      "method": "forward__candidate_id_asc",
+      "accuracy": 0.5022222222222222
+    },
+    {
+      "method": "reverse__raw_order_reverse__source_desc",
+      "accuracy": 0.48788888888888887
+    }
+  ],
+  "interpretation": "Direct generator-replication probe; no train labels are used to construct an individual prediction."
+}

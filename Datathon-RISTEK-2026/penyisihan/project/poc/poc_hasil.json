@@ -1,0 +1,98 @@
+{
+  "evidence_scope": "gaze_only",
+  "product_modalities": [
+    "gaze",
+    "head_face",
+    "vocalization"
+  ],
+  "fusion_method": "quality_aware_weighted_late_fusion",
+  "fusion_status": "prospective_paired_validation_required",
+  "decision_unit": "child",
+  "n_citra": 547,
+  "n_partisipan": 54,
+  "n_fitur": 19,
+  "n_anak_asd": 26,
+  "n_anak_td": 28,
+  "model_pra_tetap": "Logistic Regression",
+  "model_auc_rekaman_tertinggi": "Naive Bayes",
+  "model_auc_anak_tertinggi": "Random Forest",
+  "auc_record_level": {
+    "Logistic Regression": 0.7531,
+    "SVM (RBF)": 0.7333,
+    "Naive Bayes": 0.7753,
+    "Random Forest": 0.7627,
+    "Gradient Boosting": 0.7655
+  },
+  "auc_child_level": {
+    "Logistic Regression": 0.8448,
+    "SVM (RBF)": 0.8489,
+    "Naive Bayes": 0.8338,
+    "Random Forest": 0.864,
+    "Gradient Boosting": 0.8626
+  },
+  "auc_child_primary": 0.8448,
+  "ci95_child_primary": [
+    0.7296,
+    0.9439
+  ],
+  "auc_record_primary": 0.7531,
+  "auc_child_best_record_model": 0.8338,
+  "auc_record_best": 0.7753,
+  "nested_auc_record": 0.7753,
+  "nested_auc_child": 0.8338,
+  "nested_ci95_child": [
+    0.7159,
+    0.9341
+  ],
+  "nested_model_per_fold": [
+    "Naive Bayes",
+    "Naive Bayes",
+    "Naive Bayes",
+    "Naive Bayes",
+    "Naive Bayes"
+  ],
+  "titik_kerja_anak_primary": {
+    "threshold": 0.3025,
+    "sensitivity": 0.9231,
+    "specificity": 0.4286
+  },
+  "titik_kerja_anak_best_record_model": {
+    "threshold": 0.2581,
+    "sensitivity": 0.9231,
+    "specificity": 0.5714
+  },
+  "varians_antarpartisipan": 0.3817,
+  "cohens_d_teratas": {
+    "n_active_cells": 1.685,
+    "ink_frac": 1.5,
+    "span_y": 1.478,
+    "grid_entropy": 1.471,
+    "radial_mean": 1.374
+  },
+  "fitur_teratas": [
+    "ink_frac",
+    "span_x",
+    "radial_std",
+    "radial_mean",
+    "span_y"
+  ],
+  "protokol": {
+    "A_augmentasi_split_acak": 0.8158,
+    "B_augmentasi_group_citra_sumber": 0.7968,
+    "C_augmentasi_group_partisipan": 0.7484,
+    "D_tanpa_augmentasi_group_partisipan": 0.7531
+  },
+  "dekomposisi": {
+    "kebocoran_salinan_augmentasi_A_B": 0.019,
+    "tanpa_grouping_partisipan_B_C": 0.0484,
+    "efek_augmentasi_split_benar_C_D": -0.0048,
+    "total_A_D": 0.0626
+  },
+  "lc_auc_awal": 0.7289,
+  "lc_auc_akhir": 0.7662,
+  "lc_slope_paruh_akhir": -0.0238,
+  "ppv_prevalensi_1persen": 0.0161,
+  "rujukan_per_kasus_prevalensi_1persen": 62.3,
+  "ppv_prevalensi_2persen": 0.0319,
+  "rujukan_per_kasus_prevalensi_2persen": 31.3
+}

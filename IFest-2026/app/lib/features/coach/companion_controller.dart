@@ -1,0 +1,256 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+
+import '../../core/app_state.dart';
+import '../../core/constants.dart';
+import '../../core/time.dart';
+import '../../data/models.dart';
+import '../../data/phrase.dart';
+import '../../data/sync/link_service.dart';
+import '../../data/sync/sync_service.dart';
+import '../progress/usage_stats.dart';
+import 'mission_rules.dart';
+
+@immutable
+class CompanionMission {
+  const CompanionMission({
+    required this.id,
+    required this.targetWord,
+    required this.routine,
+    required this.repsCounted,
+    required this.repsTarget,
+    required this.lessonKey,
+  });
+
+  final String id;
+  final String targetWord;
+  final String routine;
+  final int repsCounted;
+  final int repsTarget;
+  final String lessonKey;
+}
+
+/// Read model for the companion screens, backed entirely by lane 1's AppState
+/// and DAOs. It owns no duplicate source of truth.
+class CompanionController extends ChangeNotifier {
+  CompanionController(this.app) : sync = SyncService(app), links = LinkService(app);
+
+  final AppState app;
+  final SyncService sync;
+  final LinkService links;
+
+  CompanionMission? _mission;
+
+  /// Asal kata misi hari ini (urutan bawaan atau usulan terapis), untuk "Kenapa kata ini?".
+  MissionPlan? plan;
+  CompanionMission get mission => _mission!;
+  bool get hasMission => _mission != null;
+
+  Child? get child => app.child;
+  int outboxCount = 0;
+  TherapistLink? activeLink;
+  List<VocabTarget> targets = const [];
+
+  /// Frasa bersuara (buatan keluarga dan usulan terapis), terbaru dulu.
+  List<Phrase> phrases = const [];
+
+  /// Frasa dari terapis yang belum dijawab keluarga.
+  List<Phrase> get pendingPhrases => phrases.where((p) => p.status == PhraseStatus.usulan).toList(growable: false);
+
+  /// Ringkasan sesi dari terapis (C5), terbaru dulu.
+  List<TherapistSummary> summaries = const [];
+  MissionLog? todayLog;
+  int parentMissionTaps = 0;
+  int childMissionTaps = 0;
+  String? weeklyTopWord;
+  int weeklyTopCount = 0;
+  int weeklyOtherWords = 0;
+  int currentWeek = 1;
+  List<String> weeklyWords = const [];
+
+  /// B1: kata berbeda per 7 hari untuk 7 pekan terakhir (terlama dulu). Elemen terakhir = pekan ini.
+  List<int> weekBars = const [];
+
+  /// B1: status misi 7 hari terakhir (lihat [missionDays]).
+  List<bool?> missionDots = const [];
+
+  int get uniqueThisWeek => weekBars.isEmpty ? 0 : weekBars.last;
+  int get uniquePrevWeek => weekBars.length < 2 ? 0 : weekBars[weekBars.length - 2];
+  bool loading = false;
+  bool syncing = false;
+  SyncReport? lastSyncReport;
+  String? lastSyncedAt;
+  DateTime? _lastAutoSync;
+
+  /// Usulan terapis yang belum dijawab keluarga.
+  List<VocabTarget> get pendingTargets =>
+      targets.where((t) => t.status == TargetStatus.usulan && t.words.isNotEmpty).toList(growable: false);
+
+  /// Keadaan luring hanya ditampilkan bila percobaan kirim terakhir memang tidak menjangkau server.
+  bool get lastAttemptOffline => lastSyncReport?.state == SyncState.offline;
+
+  bool get linkedToTherapist => activeLink != null;
+
+  /// Pencabutan yang dilakukan saat luring dan belum diakui server; dikirim ulang pada sinkron berikutnya.
+  bool get hasPendingRevocation => app.prefs.getString(LinkService.pendingRevokeLinkKey) != null;
+
+  /// Ada yang perlu disampaikan ke server: catatan (bila tertaut) atau pencabutan tertunda.
+  bool get canSync => linkedToTherapist || hasPendingRevocation;
+  String? get therapistName => activeLink?.therapist;
+  String get routineLabel => routineDisplayLabel(mission.routine);
+
+  /// Label kapital sebuah kata (`kamar_mandi` → `KAMAR MANDI`), bukan `word_id` mentah.
+  String wordLabel(String wordId) => app.symbolById(wordId)?.labelDisplay ?? wordId.replaceAll('_', ' ').toUpperCase();
+
+  /// Label kata misi pekan ini.
+  String get targetLabel => wordLabel(mission.targetWord);
+
+  /// "Kenapa kata ini?": asal kata misi, sama dengan yang dilihat terapis di dasbor.
+  String get missionReason => plan?.source == MissionSource.terapis
+      ? 'Usulan ${therapistName ?? 'terapis'} yang kamu terima'
+      : 'Pekan ke-$currentWeek · urutan kata inti untuk $routineLabel';
+
+  String get weeklySummary {
+    final name = child?.nickname ?? 'anak';
+    final word = weeklyTopWord;
+    if (word == null) return 'Papan belum dipakai $name pekan ini.';
+    final others = weeklyOtherWords == 0 ? '' : ', dan $weeklyOtherWords kata lain';
+    return 'Pekan ini $name menekan ${wordLabel(word)} $weeklyTopCount kali$others.';
+  }
+
+  Future<void> load() async {
+    final currentChild = app.child;
+    if (currentChild == null) {
+      _mission = null;
+      notifyListeners();
+      return;
+    }
+    loading = true;
+    notifyListeners();
+    final now = DateTime.now();
+    final week = missionWeek(DateTime.parse(currentChild.createdAt).toLocal(), now);
+    currentWeek = week;
+    targets = await app.targetDao.all();
+    summaries = await app.summaryDao.all();
+    phrases = await app.phraseDao.all();
+    final plan = planMission(week: week, routine: currentChild.routine, targets: targets, now: now);
+    this.plan = plan;
+    final model = Mission(
+      missionId: plan.missionId,
+      weekIndex: week,
+      targetWord: plan.word,
+      routine: currentChild.routine,
+      lessonKey: lessonForWeek(week),
+    );
+    await app.missionDao.upsert(model);
+    final today = localDate(now);
+    final reps = await app.missionReps(model.missionId, today);
+    todayLog = await app.missionDao.logFor(model.missionId, today);
+    parentMissionTaps = await app.eventDao.countOnDate(
+      currentChild.childId,
+      today,
+      actor: Actor.pendamping,
+      methods: Method.taps,
+      context: model.missionId,
+    );
+    childMissionTaps = await app.eventDao.countOnDate(
+      currentChild.childId,
+      today,
+      actor: Actor.anak,
+      methods: Method.taps,
+      context: model.missionId,
+    );
+    outboxCount = await app.eventDao.outboxCount();
+    activeLink = await app.linkDao.active();
+    lastSyncedAt = await app.eventDao.lastSyncedAt();
+    final today0 = DateTime(now.year, now.month, now.day);
+    final recent = await app.eventDao.since(currentChild.childId, isoWithOffset(today0.subtract(const Duration(days: 48))));
+    final week7 = usageBetween(recent, from: today0.subtract(const Duration(days: 6)), to: today0.add(const Duration(days: 1)), top: 1000);
+    weeklyTopWord = week7.topWords.firstOrNull?.word;
+    weeklyTopCount = week7.topWords.firstOrNull?.count ?? 0;
+    weeklyOtherWords = week7.uniqueWords == 0 ? 0 : week7.uniqueWords - 1;
+    weeklyWords = [for (final w in week7.topWords) w.word];
+    weekBars = weeklyUniqueBars(recent, now);
+    missionDots = missionDays(await app.missionDao.logs(), now);
+    _mission = CompanionMission(
+      id: model.missionId,
+      targetWord: model.targetWord,
+      routine: model.routine,
+      repsCounted: reps,
+      repsTarget: model.repsTarget,
+      lessonKey: model.lessonKey ?? lessonForWeek(week),
+    );
+    loading = false;
+    notifyListeners();
+  }
+
+  Future<void> logTap({required String content, required String method, required bool byParent, String? context}) async {
+    await app.logTap(content: content, method: method, byParent: byParent, context: context);
+    await load();
+  }
+
+  Future<void> logMission(String missionId, String status) async {
+    await app.logMission(missionId, status);
+    await load();
+    // Konfirmasi misi langsung dicoba kirim tanpa menahan layar B6.
+    unawaited(syncNow());
+  }
+
+  Future<void> logTargetAnswer(String targetId, bool accepted) async {
+    await app.logTargetAnswer(targetId, accepted);
+    await load();
+  }
+
+  Future<LinkResult> connectTherapist(String inviteCode) async {
+    final result = await links.redeem(inviteCode);
+    await load();
+    return result;
+  }
+
+  Future<void> revokeTherapist() async {
+    final link = activeLink;
+    if (link == null) return;
+    await links.revoke(link);
+    await load();
+  }
+
+  Future<void> syncNow() async {
+    final currentChild = child;
+    if (currentChild == null || syncing) return;
+    syncing = true;
+    notifyListeners();
+    try {
+      lastSyncReport = await sync.push(currentChild.childId);
+    } finally {
+      syncing = false;
+    }
+    await load();
+  }
+
+  /// Kirim diam-diam saat beranda dibuka atau kembali dari papan, paling sering sekali per 10 detik.
+  /// Tidak pernah menahan layar: status luring tetap keadaan biasa.
+  Future<void> autoSync() async {
+    if (!canSync || syncing) return;
+    final now = DateTime.now();
+    if (_lastAutoSync != null && now.difference(_lastAutoSync!) < const Duration(seconds: 10)) return;
+    _lastAutoSync = now;
+    await syncNow();
+  }
+
+  bool _disposed = false;
+
+  /// Sinkron otomatis bisa selesai setelah beranda ditutup (mis. sesudah "Hapus semua data").
+  @override
+  void notifyListeners() {
+    if (!_disposed) super.notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    sync.close();
+    links.close();
+    super.dispose();
+  }
+}

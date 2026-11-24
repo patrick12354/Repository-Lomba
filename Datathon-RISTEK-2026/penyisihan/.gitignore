@@ -1,0 +1,24 @@
+# macOS and editor files
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Python and Jupyter caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+
+# Local smoke-test and generated scratch outputs
+**/tmp/
+**/output/
+
+# Competition datasets are kept locally and mounted separately on Kaggle
+day 1/dataset-task1/
+day 2/dataset-task2/
+
+# Local logs
+*.log

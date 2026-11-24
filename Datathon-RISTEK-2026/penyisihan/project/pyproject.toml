@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Seluruh modul Python ada di research/ (`features`, `evaluate`, `late_fusion`);
+# poc/ memuat skrip reproduksi preliminary yang saling mengimpor secara lokal.
+pythonpath = ["research", "poc"]
+testpaths = ["tests"]

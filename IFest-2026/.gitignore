@@ -1,0 +1,35 @@
+# Dokumen rencana hack day (bukan kode aplikasi), disimpan lokal di setiap laptop
+docs/*
+!docs/demo_script.md
+.DS_Store
+
+.env
+*.db
+*.db-wal
+*.db-shm
+node_modules/
+dist/
+build/
+.dart_tool/
+app/android/key.properties
+*.jks
+.venv/
+__pycache__/
+.pytest_cache/
+dashboard/public/symbols/
+dashboard/public/demo_events.json
+dashboard/public/core_vocab_id.csv
+dashboard/public/fonts/
+dashboard/public/brand/
+
+# Catatan lokal per laptop
+CLAUDE.local.md
+
+# Perangkat tiruan simulator
+tools/.sim/
+
+# Keluaran pembuat audio (wav mentah, sampel); hanya klip terpilih yang disalin ke app/assets
+tools/audio_out/
+
+# Klip frasa hasil OpenAI/ElevenLabs di server lokal
+server/data/phrases/

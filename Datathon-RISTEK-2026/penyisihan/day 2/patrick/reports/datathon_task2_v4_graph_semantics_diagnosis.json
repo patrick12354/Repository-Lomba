@@ -1,0 +1,30 @@
+{
+  "base_fold_accuracy": [
+    0.7863333333333333,
+    0.755,
+    0.7656666666666667
+  ],
+  "base_mean_accuracy": 0.769,
+  "best_same_fold_config": 31,
+  "best_same_fold_family": "single_log_shortest_path_count",
+  "best_same_fold_accuracy": 0.7735555555555557,
+  "best_same_fold_weights": {
+    "svd_out_cosine": 0.0,
+    "svd_in_cosine": 0.0,
+    "svd_cross_cosine": 0.0,
+    "log_shortest_path_count": 0.2,
+    "log_shortest_path_probability": 0.0,
+    "shortest_path_count_rank": 0.0,
+    "shortest_path_probability_rank": 0.0,
+    "shortest_successor_fraction": 0.0
+  },
+  "nested_fold_accuracy": [
+    0.796,
+    0.7566666666666667,
+    0.768
+  ],
+  "nested_mean_accuracy": 0.7735555555555557,
+  "svd_explained_variance_out": 0.3793005645275116,
+  "svd_explained_variance_in": 0.23909629881381989,
+  "configs_tested": 665
+}

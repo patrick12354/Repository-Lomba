@@ -1,0 +1,236 @@
+{
+  "schema": "neurogaze-gate-b-public-evidence-v3",
+  "status": "gate_b_passed",
+  "publishedAt": "2026-08-18T00:00:00.000Z",
+  "headline": {
+    "metric": "adult_positive_control",
+    "title": "Instrumen merespons pola yang sengaja diproduksi",
+    "summary": "Kontrol positif dewasa dengan provenance kamera-ke-angka yang lengkap.",
+    "source": "research/hasil/kontrol_positif/ringkasan.json"
+  },
+  "positiveControl": {
+    "interpretation": "adult_manipulation_check",
+    "participants": 12,
+    "sessions": {
+      "recorded": 23,
+      "qualityPass": 15
+    },
+    "conditions": {
+      "ordinary": {
+        "recorded": 11,
+        "usable": 9,
+        "ruleFired": 0
+      },
+      "produced": {
+        "recorded": 12,
+        "usable": 6,
+        "ruleFired": 4
+      }
+    },
+    "signals": [
+      {
+        "id": "geometric_preference",
+        "nOrdinary": 7,
+        "nProduced": 6,
+        "medianOrdinary": 0.34317343173431736,
+        "medianProduced": 0.9427568970489282,
+        "nearestGap": 0.15989812775330392
+      },
+      {
+        "id": "cue_following",
+        "nOrdinary": 9,
+        "nProduced": 6,
+        "medianOrdinary": 8.0,
+        "medianProduced": 0.0,
+        "nearestGap": 4.0
+      },
+      {
+        "id": "centre_hold_spread",
+        "nOrdinary": 9,
+        "nProduced": 6,
+        "medianOrdinary": 0.31487767317215387,
+        "medianProduced": 0.051260729006101485,
+        "nearestGap": 0.008447514032818182
+      }
+    ],
+    "emitsReferral": false,
+    "boundary": "Responsivitas instrumen pada orang dewasa yang memproduksi pola secara sengaja. Bukan sensitivitas, bukan spesifisitas, bukan akurasi, dan bukan pernyataan apa pun tentang autisme.",
+    "source": "research/hasil/kontrol_positif/ringkasan.json"
+  },
+  "gateAAccuracy": {
+    "metric": "legacy_known_target_angle_conversion",
+    "valueDeg": 2.357,
+    "p90Deg": 3.576,
+    "sessions": 94,
+    "population": "94 sesi dewasa Gate A yang lulus mutu, 25 partisipan, 3 perangkat",
+    "definition": "Konversi sudut lama dari galat terhadap target yang diketahui; sesi tidak merekam jarak pandang.",
+    "why": "Angka ini konteks teknis, bukan akurasi absolut eksak dan bukan uji tanding terhadap WebGazer.",
+    "source": "research/hasil/gate_a/gate_a_summary.json"
+  },
+  "readiness": {
+    "schema": "neurogaze-readiness-matrix-v1",
+    "asOf": "2026-08-21",
+    "clinicalClaimsAvailable": false,
+    "capabilities": [
+      {
+        "id": "on_device_measurement_chain",
+        "capability": "Rantai pengukuran di perangkat",
+        "status": "ready_for_engineering_demo",
+        "statusLabel": "Siap untuk demonstrasi rekayasa",
+        "evidence": "Pipeline browser, uji parity, Gate A, dan Gate B",
+        "boundary": "Gate A/B menguji pengukuran teknis, bukan skrining klinis."
+      },
+      {
+        "id": "adult_responsivity",
+        "capability": "Respons instrumen pada pola yang diproduksi",
+        "status": "demonstrated",
+        "statusLabel": "Ditunjukkan pada kontrol positif dewasa",
+        "evidence": "12 dewasa; 23 sesi direkam; 15 lulus mutu; aturan demo 0/9 biasa dan 4/6 pola diproduksi",
+        "boundary": "Manipulation check, bukan sensitivitas, spesifisitas, ASD, atau status klinis peserta."
+      },
+      {
+        "id": "automatic_toddler_referral",
+        "capability": "Rujukan otomatis balita",
+        "status": "withheld",
+        "statusLabel": "Ditahan",
+        "evidence": "Klip lapangan 16,75 detik lebih pendek daripada protokol penuh tempat ambang 69% diterbitkan",
+        "boundary": "Perbandingan 69% hanya boleh diperagakan dalam mode demo dan tidak mengeluarkan rujukan."
+      },
+      {
+        "id": "operator_flow",
+        "capability": "Alur operator ujung-ke-ujung",
+        "status": "exercised",
+        "statusLabel": "Dijalankan berulang di perangkat nyata",
+        "evidence": "123 sesi dijalankan 3 operator pada 37 dewasa yang menyetujui: 100 sesi Gate A dan 23 sesi kontrol positif, di 3 tablet Android kelas menengah dan 6 kondisi lingkungan (cahaya redup, normal, campuran × berkacamata dan tidak)",
+        "boundary": "Operatornya tim proyek, bukan kader Posyandu, dan lokasinya bukan Posyandu. Ini menunjukkan alurnya dapat dijalankan berulang di perangkat dan cahaya yang nyata; ia tidak menunjukkan alurnya dapat dijalankan kader."
+      },
+      {
+        "id": "kader_usability",
+        "capability": "Keterpakaian oleh kader",
+        "status": "not_tested",
+        "statusLabel": "Belum diuji",
+        "evidence": "Belum ada kader Posyandu yang menjalankan aplikasi",
+        "boundary": "Perlu uji tugas, waktu, kegagalan, pelatihan, dan dukungan di alur layanan nyata."
+      },
+      {
+        "id": "indonesian_toddler_validity",
+        "capability": "Validitas pada balita Indonesia",
+        "status": "not_tested",
+        "statusLabel": "Belum diuji",
+        "evidence": "Belum ada balita dalam bukti proyek dan instrumen yang digunakan di sini belum divalidasi di Indonesia",
+        "boundary": "Perlu mitra yang mampu menjalankan kaji etik, izin orang tua setelah penjelasan, acuan klinis buta, linkage privat, rekrutmen, analisis fairness/kegagalan, dan validasi prospektif."
+      }
+    ],
+    "source": {
+      "generator": "research/export_readiness_matrix.py",
+      "positiveControl": "research/hasil/kontrol_positif/ringkasan.json",
+      "gateA": "research/hasil/gate_a/gate_a_summary.json",
+      "gateB": "research/hasil/gate_b/gate_b_summary.json"
+    }
+  },
+  "comparator": {
+    "label": "WebGazer.js",
+    "medianErrorDeg": 4.17,
+    "source": "Papoutsaki dkk. 2016, IJCAI",
+    "note": "Angka yang dilaporkan penulis WebGazer pada studi mereka sendiri, pada perangkat dan protokol berbeda. Ditampilkan sebagai konteks besaran, bukan hasil uji tanding."
+  },
+  "toddlerReference": {
+    "claim": "WebGazer adalah metode yang divalidasi ManyBabies untuk balita 18-27 bulan, karena itu ia dipakai sebagai pembanding Gate B.",
+    "source": "Steffan dkk. 2024, Infancy (MB-ManyWebcams), N=125, 16 lab",
+    "attritionRate": 0.42,
+    "attritionNote": "Studi yang sama melaporkan attrition 42% pada webcam balita. Itu dasar mengapa NeuroGaze menahan hasil alih-alih memaksakan angka."
+  },
+  "study": {
+    "title": "Uji agreement Gate B Neurogaze terhadap WebGazer",
+    "protocolVersion": "neurogaze-webgazer-comparison-v3",
+    "population": "30 sesi pengujian webapp",
+    "reference": {
+      "library": "WebGazer.js",
+      "version": "3.5.3",
+      "listenerContract": "setGazeListener(data, elapsedTime)",
+      "coordinateSpace": "viewport_css_pixels"
+    },
+    "acquisitionMode": "simultaneous_browser_streams",
+    "nPairsTotal": 30,
+    "nPairsReady": 27,
+    "nPairsWithheld": 3
+  },
+  "agreement": {
+    "validPairRate": 0.9,
+    "retryRate": 0.1,
+    "medianPairErrorPx": 44.159,
+    "medianPairErrorNorm": 0.040997,
+    "p90PairMedianErrorPx": 52.445,
+    "meanAoiAgreement": 0.997574,
+    "meanAoiAgreementRecomputed": 0.997118,
+    "pairsWithAoiClassificationDelta": 4,
+    "primaryAoiAgreementCount": 27,
+    "primaryAoiAgreementRate": 1.0,
+    "meanFeatureIccA1": 0.505043,
+    "aoiBoxWidthShare": 0.28,
+    "saturationNote": "Kotak AOI selebar 28% layar sementara galat median antar aliran hanya 4,1% lebar layar. Angka setinggi ini nyaris tidak bisa tidak terjadi, jadi ia bukan bukti akurasi."
+  },
+  "featureAgreement": {
+    "nFeatures": 13,
+    "primaryMetric": "bland_altman_limits_of_agreement",
+    "meanIccA1": 0.505043,
+    "iccRange": {
+      "min": 0.084,
+      "max": 0.869
+    },
+    "iccCaveat": "ICC adalah rasio varians. Ketika semua partisipan menonton stimulus yang sama, varians antar-partisipan kecil, sehingga ICC bisa rendah walau selisih absolutnya kecil. Karena itu batas kesepakatan Bland-Altman yang dipakai sebagai metrik utama, dan ICC dilaporkan apa adanya.",
+    "examples": [
+      {
+        "feature": "ink_frac",
+        "iccA1": 0.08426,
+        "blandAltmanMeanDifference": -0.004063,
+        "blandAltmanLower95": -0.011758,
+        "blandAltmanUpper95": 0.003633,
+        "reading": "ICC 0,084 terdengar buruk, tapi kedua aliran tidak pernah berselisih lebih dari 0,012 pada skala 0-1."
+      },
+      {
+        "feature": "radial_std",
+        "iccA1": 0.868958,
+        "blandAltmanMeanDifference": -0.001483,
+        "blandAltmanLower95": -0.00364,
+        "blandAltmanUpper95": 0.000675,
+        "reading": "Contoh sebaliknya: ICC tinggi dan batas kesepakatan sempit, keduanya sepakat."
+      },
+      {
+        "feature": "aspect_ratio",
+        "iccA1": 0.634884,
+        "blandAltmanMeanDifference": 0.008933,
+        "blandAltmanLower95": -0.053148,
+        "blandAltmanUpper95": 0.071014,
+        "reading": "Fitur dengan selisih terlebar; dilaporkan agar batas ini terlihat, bukan disembunyikan."
+      }
+    ]
+  },
+  "thresholds": {
+    "minimumPairs": 30,
+    "minimumValidPairRate": 0.9,
+    "maximumMedianErrorNorm": 0.05,
+    "minimumMeanAoiAgreement": 0.95,
+    "minimumPrimaryAoiAgreementRate": 0.95
+  },
+  "conclusion": "Gate B passes only when every recorded WebGazer agreement criterion is met.",
+  "limitations": [
+    "Galat 2,36° diukur pada orang dewasa. Tidak ada balita dalam bukti ini.",
+    "Gate B menguji agreement pengukuran terhadap WebGazer.js, bukan sensitivitas, spesifisitas, atau akurasi diagnosis ASD.",
+    "Akurasi absolut hanya boleh dikutip dari blok target diketahui Gate A, tidak pernah dari kesepakatan antar aliran.",
+    "Rata-rata ICC(A,1) 13 fitur dilaporkan deskriptif dan bukan kriteria kelulusan Gate B.",
+    "Generalisasi klinis pada balita tetap memerlukan Gate C prospektif dengan hasil klinis independen."
+  ],
+  "source": {
+    "summary": "research/hasil/gate_b/gate_b_summary.json",
+    "gateASummary": "research/hasil/gate_a/gate_a_summary.json",
+    "manifest": "research/hasil/evidence_manifest.json",
+    "rawDirectory": "research/hasil/gate_b/pasangan",
+    "generator": "research/export_public_evidence.py"
+  },
+  "terminology": {
+    "headlineMetric": "known-target angular accuracy",
+    "agreementMetric": "WebGazer reference agreement",
+    "diagnosticAccuracyAvailable": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "unique_pairs": 35274,
+  "best_same_fold": {
+    "alpha": 0.0,
+    "mean_accuracy": 0.7735555555555557,
+    "std_accuracy": 0.020246627519809927,
+    "top3": 0.9443333333333334,
+    "top5": 0.9741111111111111
+  },
+  "nested_mean": 0.7731111111111111,
+  "nested_folds": [
+    {
+      "held_fold": 0,
+      "selected_alpha": 0.0,
+      "selection_accuracy": 0.7623333333333333,
+      "held_accuracy": 0.796
+    },
+    {
+      "held_fold": 1,
+      "selected_alpha": 0.0,
+      "selection_accuracy": 0.782,
+      "held_accuracy": 0.7566666666666667
+    },
+    {
+      "held_fold": 2,
+      "selected_alpha": 0.01,
+      "selection_accuracy": 0.7765,
+      "held_accuracy": 0.7666666666666667
+    }
+  ],
+  "v4_anchor": 0.7735555555555556
+}

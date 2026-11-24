@@ -1,0 +1,41 @@
+{
+  "v4_anchor_folds": [
+    0.796,
+    0.7566666666666667,
+    0.768
+  ],
+  "v4_anchor_mean": 0.7735555555555557,
+  "best_same_fold_config": 11,
+  "best_same_fold_family": "single_min_exact",
+  "best_same_fold_accuracy": 0.7737777777777778,
+  "best_weights": {
+    "min_exact": 1.0
+  },
+  "nested_folds": [
+    {
+      "held_fold": 0,
+      "selected_config": 54,
+      "selection_accuracy": 0.7625,
+      "held_accuracy": 0.7916666666666666
+    },
+    {
+      "held_fold": 1,
+      "selected_config": 0,
+      "selection_accuracy": 0.782,
+      "held_accuracy": 0.7566666666666667
+    },
+    {
+      "held_fold": 2,
+      "selected_config": 11,
+      "selection_accuracy": 0.7771666666666667,
+      "held_accuracy": 0.767
+    }
+  ],
+  "nested_mean": 0.7717777777777778,
+  "graph_edges": {
+    "accepted": 93256,
+    "exact": 94738,
+    "full": 95418
+  },
+  "configs_tested": 1262
+}

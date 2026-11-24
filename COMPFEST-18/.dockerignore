@@ -1,0 +1,43 @@
+# Konteks build dikirim utuh ke daemon Docker sebelum satu baris Dockerfile dijalankan.
+# Tanpa berkas ini, .venv + node_modules + data/ mentah ikut terkirim - beberapa GB yang
+# tidak satu pun dipakai image akhir, dan build terasa menggantung sebelum mulai.
+
+.git/
+.gitignore
+
+# Lingkungan & cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+node_modules/
+apps/web/dist/
+
+# Bobot model dipasang sebagai volume saat runtime, bukan dibakar ke image (499 MB).
+models/
+
+# Dataset pelatihan dan artefak evaluasi tidak pernah dibaca saat melayani request.
+#
+# Daftar pengecualian di bawah WAJIB mencerminkan baris COPY data/... di api.Dockerfile.
+# Keduanya terpisah dan tidak saling memaksa: menambah COPY tanpa menambahnya di sini membuat
+# build gagal dengan pesan "not found" yang menyesatkan - berkasnya ada di repositori, hanya
+# tidak pernah ikut ke konteks build.
+data/
+!data/processed/category_baseline.json
+!data/samples/demo_reviews.csv
+!data/samples/demo_shopee_asli.csv
+!data/marketplace
+
+# Dokumen, prototipe desain, dan rujukan
+docs/
+tests/
+scripts/
+*.md
+!README.md
+
+# Berkas lokal
+.env
+.env.*
+*.log

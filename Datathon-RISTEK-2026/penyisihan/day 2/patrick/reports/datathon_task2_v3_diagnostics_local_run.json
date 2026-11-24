@@ -1,0 +1,91 @@
+{
+  "version": "v3_ocr_recovery_reverse_engineering",
+  "seed": 42,
+  "recovered_edges": 2162,
+  "suspect_regions": 1690,
+  "reuse_path": "/Users/timotiuspatrick/Documents/Patrick/Kuliah & Coding/Dataton/day 2/patrick/output/v1/datathon_task2_v1_reusable",
+  "runtime_minutes": 1.3736376365025837,
+  "route_diagnostics": {
+    "fold": 1.0,
+    "candidate_recall": 0.9938888888888888,
+    "truth_is_min_distance": 0.9693333333333333,
+    "truth_is_unique_min": 0.2634444444444444,
+    "states_unique_min": 0.2812222222222222
+  },
+  "selected_cv": {
+    "v1_rebuilt": {
+      "fold": 1.0,
+      "accuracy": 0.652888888888889,
+      "top3": 0.9082222222222223,
+      "top5": 0.96,
+      "candidate_recall": 0.9938888888888888
+    },
+    "v3_recovered_hardmin": {
+      "fold": 1.0,
+      "accuracy": 0.769,
+      "top3": 0.9392222222222223,
+      "top5": 0.9716666666666667,
+      "candidate_recall": 0.9938888888888888
+    },
+    "v3_soft_tuned": {
+      "fold": 1.0,
+      "accuracy": 0.75,
+      "top3": 0.9368888888888889,
+      "top5": 0.9714444444444444,
+      "candidate_recall": 0.9938888888888888
+    }
+  },
+  "nested_soft_accuracy": 0.75,
+  "nested_hardmin_accuracy": 0.769,
+  "best_soft": {
+    "search_id": 17,
+    "direct_target": 20.0,
+    "graph_distance": -1.082517850304308,
+    "is_min_neighbor_distance": 1.6331375268478208,
+    "char_cosine": 0.3158342395623749,
+    "word_cosine": 0.13311771391035632,
+    "category_exact_jaccard": 0.8916504956346777,
+    "category_token_jaccard": 0.21925986628904742,
+    "log_global_clicks": 0.20616604761408533,
+    "log_current_clicks": 0.10861713587342604,
+    "position_rank": 0.07193596648557132,
+    "log_in_degree": 0.1762911417462351,
+    "category_overlap_count": 0.16553172273527816,
+    "category_prefix_jaccard": 0.42708012350690333,
+    "out_neighbor_jaccard": 0.15361339519205863,
+    "in_neighbor_jaccard": 0.11549006366535497,
+    "reciprocal_link": -0.185196388564492
+  },
+  "best_hardmin": {
+    "search_id": 269,
+    "is_min_neighbor_distance": 100.0,
+    "category_exact_jaccard": 1.51797340143258,
+    "category_overlap_count": 0.48994969864263294,
+    "category_prefix_jaccard": 0.02857276307887291,
+    "log_global_clicks": 0.02119646682476861,
+    "log_in_degree": 0.4340986164482358,
+    "out_neighbor_jaccard": 0.9794117699297289,
+    "in_neighbor_jaccard": 0.2994440985929203,
+    "char_cosine": 0.35850562724901813,
+    "word_cosine": 0.1653051475375229,
+    "position_rank": 0.04515262127215465
+  },
+  "primary_audit": {
+    "rows": 6000,
+    "unique_states": 6000,
+    "nan": 0,
+    "invalid_article_ids": 0,
+    "same_as_current": 0.0,
+    "same_as_target": 0.007333333333333333,
+    "unique_predictions": 776
+  },
+  "alternative_audit": {
+    "rows": 6000,
+    "unique_states": 6000,
+    "nan": 0,
+    "invalid_article_ids": 0,
+    "same_as_current": 0.0,
+    "same_as_target": 0.007333333333333333,
+    "unique_predictions": 746
+  }
+}
