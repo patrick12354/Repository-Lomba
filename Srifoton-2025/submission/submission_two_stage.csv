@@ -1,0 +1,2026 @@
+filename,label
+test_0001.jpeg,Tuberculosis
+test_0002.jpeg,Normal
+test_0003.jpeg,Normal
+test_0004.jpeg,Normal
+test_0005.jpeg,Normal
+test_0006.jpeg,Normal
+test_0007.jpeg,Corona Virus Disease
+test_0008.jpeg,Tuberculosis
+test_0009.jpeg,Normal
+test_0010.jpeg,Corona Virus Disease
+test_0011.jpeg,Normal
+test_0012.jpeg,Corona Virus Disease
+test_0013.jpeg,Corona Virus Disease
+test_0014.jpeg,Normal
+test_0015.jpeg,Tuberculosis
+test_0016.jpeg,Normal
+test_0017.jpeg,Corona Virus Disease
+test_0018.jpeg,Tuberculosis
+test_0019.jpeg,Normal
+test_0020.jpeg,Corona Virus Disease
+test_0021.jpeg,Normal
+test_0022.jpeg,Normal
+test_0023.jpeg,Normal
+test_0024.jpeg,Tuberculosis
+test_0025.jpeg,Normal
+test_0026.jpeg,Normal
+test_0027.jpeg,Corona Virus Disease
+test_0028.jpeg,Normal
+test_0029.jpeg,Tuberculosis
+test_0030.jpeg,Tuberculosis
+test_0031.jpeg,Normal
+test_0032.jpeg,Normal
+test_0033.jpeg,Normal
+test_0034.jpeg,Corona Virus Disease
+test_0035.jpeg,Corona Virus Disease
+test_0036.jpeg,Normal
+test_0037.jpeg,Tuberculosis
+test_0038.jpeg,Corona Virus Disease
+test_0039.jpeg,Normal
+test_0040.jpeg,Normal
+test_0041.jpeg,Corona Virus Disease
+test_0042.jpeg,Tuberculosis
+test_0043.jpeg,Normal
+test_0044.jpeg,Tuberculosis
+test_0045.jpeg,Normal
+test_0046.jpeg,Tuberculosis
+test_0047.jpeg,Normal
+test_0048.jpeg,Normal
+test_0049.jpeg,Corona Virus Disease
+test_0050.jpeg,Corona Virus Disease
+test_0051.jpeg,Tuberculosis
+test_0052.jpeg,Tuberculosis
+test_0053.jpeg,Normal
+test_0054.jpeg,Tuberculosis
+test_0055.jpeg,Normal
+test_0056.jpeg,Corona Virus Disease
+test_0057.jpeg,Normal
+test_0058.jpeg,Corona Virus Disease
+test_0059.jpeg,Tuberculosis
+test_0060.jpeg,Corona Virus Disease
+test_0061.jpeg,Corona Virus Disease
+test_0062.jpeg,Tuberculosis
+test_0063.jpeg,Normal
+test_0064.jpeg,Normal
+test_0065.jpeg,Normal
+test_0066.jpeg,Normal
+test_0067.jpeg,Tuberculosis
+test_0068.jpeg,Corona Virus Disease
+test_0069.jpeg,Normal
+test_0070.jpeg,Normal
+test_0071.jpeg,Normal
+test_0072.jpeg,Corona Virus Disease
+test_0073.jpeg,Normal
+test_0074.jpeg,Normal
+test_0075.jpeg,Normal
+test_0076.jpeg,Normal
+test_0077.jpeg,Corona Virus Disease
+test_0078.jpeg,Corona Virus Disease
+test_0079.jpeg,Tuberculosis
+test_0080.jpeg,Normal
+test_0081.jpeg,Normal
+test_0082.jpeg,Normal
+test_0083.jpeg,Normal
+test_0084.jpeg,Normal
+test_0085.jpeg,Corona Virus Disease
+test_0086.jpeg,Normal
+test_0087.jpeg,Normal
+test_0088.jpeg,Normal
+test_0089.jpeg,Corona Virus Disease
+test_0090.jpeg,Normal
+test_0091.jpeg,Corona Virus Disease
+test_0092.jpeg,Normal
+test_0093.jpeg,Corona Virus Disease
+test_0094.jpeg,Corona Virus Disease
+test_0095.jpeg,Normal
+test_0096.jpeg,Normal
+test_0097.jpeg,Normal
+test_0098.jpeg,Normal
+test_0099.jpeg,Normal
+test_0100.jpeg,Tuberculosis
+test_0101.jpeg,Normal
+test_0102.jpeg,Corona Virus Disease
+test_0103.jpeg,Tuberculosis
+test_0104.jpeg,Corona Virus Disease
+test_0105.jpeg,Normal
+test_0106.jpeg,Tuberculosis
+test_0107.jpeg,Normal
+test_0108.jpeg,Corona Virus Disease
+test_0109.jpeg,Corona Virus Disease
+test_0110.jpeg,Tuberculosis
+test_0111.jpeg,Normal
+test_0112.jpeg,Tuberculosis
+test_0113.jpeg,Normal
+test_0114.jpeg,Normal
+test_0115.jpeg,Normal
+test_0116.jpeg,Normal
+test_0117.jpeg,Corona Virus Disease
+test_0118.jpeg,Tuberculosis
+test_0119.jpeg,Tuberculosis
+test_0120.jpeg,Normal
+test_0121.jpeg,Normal
+test_0122.jpeg,Normal
+test_0123.jpeg,Normal
+test_0124.jpeg,Normal
+test_0125.jpeg,Tuberculosis
+test_0126.jpeg,Corona Virus Disease
+test_0127.jpeg,Tuberculosis
+test_0128.jpeg,Tuberculosis
+test_0129.jpeg,Normal
+test_0130.jpeg,Normal
+test_0131.jpeg,Tuberculosis
+test_0132.jpeg,Tuberculosis
+test_0133.jpeg,Tuberculosis
+test_0134.jpeg,Corona Virus Disease
+test_0135.jpeg,Normal
+test_0136.jpeg,Tuberculosis
+test_0137.jpeg,Normal
+test_0138.jpeg,Tuberculosis
+test_0139.jpeg,Normal
+test_0140.jpeg,Normal
+test_0141.jpeg,Normal
+test_0142.jpeg,Corona Virus Disease
+test_0143.jpeg,Corona Virus Disease
+test_0144.jpeg,Normal
+test_0145.jpeg,Corona Virus Disease
+test_0146.jpeg,Normal
+test_0147.jpeg,Normal
+test_0148.jpeg,Corona Virus Disease
+test_0149.jpeg,Normal
+test_0150.jpeg,Tuberculosis
+test_0151.jpeg,Corona Virus Disease
+test_0152.jpeg,Normal
+test_0153.jpeg,Normal
+test_0154.jpeg,Corona Virus Disease
+test_0155.jpeg,Normal
+test_0156.jpeg,Tuberculosis
+test_0157.jpeg,Corona Virus Disease
+test_0158.jpeg,Tuberculosis
+test_0159.jpeg,Tuberculosis
+test_0160.jpeg,Normal
+test_0161.jpeg,Normal
+test_0162.jpeg,Normal
+test_0163.jpeg,Tuberculosis
+test_0164.jpeg,Normal
+test_0165.jpeg,Corona Virus Disease
+test_0166.jpeg,Corona Virus Disease
+test_0167.jpeg,Normal
+test_0168.jpeg,Normal
+test_0169.jpeg,Normal
+test_0170.jpeg,Normal
+test_0171.jpeg,Corona Virus Disease
+test_0172.jpeg,Tuberculosis
+test_0173.jpeg,Normal
+test_0174.jpeg,Corona Virus Disease
+test_0175.jpeg,Normal
+test_0176.jpeg,Tuberculosis
+test_0177.jpeg,Normal
+test_0178.jpeg,Corona Virus Disease
+test_0179.jpeg,Normal
+test_0180.jpeg,Normal
+test_0181.jpeg,Normal
+test_0182.jpeg,Corona Virus Disease
+test_0183.jpeg,Normal
+test_0184.jpeg,Tuberculosis
+test_0185.jpeg,Normal
+test_0186.jpeg,Corona Virus Disease
+test_0187.jpeg,Corona Virus Disease
+test_0188.jpeg,Corona Virus Disease
+test_0189.jpeg,Tuberculosis
+test_0190.jpeg,Normal
+test_0191.jpeg,Corona Virus Disease
+test_0192.jpeg,Normal
+test_0193.jpeg,Normal
+test_0194.jpeg,Tuberculosis
+test_0195.jpeg,Corona Virus Disease
+test_0196.jpeg,Corona Virus Disease
+test_0197.jpeg,Normal
+test_0198.jpeg,Normal
+test_0199.jpeg,Tuberculosis
+test_0200.jpeg,Tuberculosis
+test_0201.jpeg,Normal
+test_0202.jpeg,Tuberculosis
+test_0203.jpeg,Tuberculosis
+test_0204.jpeg,Normal
+test_0205.jpeg,Normal
+test_0206.jpeg,Corona Virus Disease
+test_0207.jpeg,Tuberculosis
+test_0208.jpeg,Tuberculosis
+test_0209.jpeg,Tuberculosis
+test_0210.jpeg,Tuberculosis
+test_0211.jpeg,Corona Virus Disease
+test_0212.jpeg,Normal
+test_0213.jpeg,Tuberculosis
+test_0214.jpeg,Normal
+test_0215.jpeg,Normal
+test_0216.jpeg,Normal
+test_0217.jpeg,Normal
+test_0218.jpeg,Normal
+test_0219.jpeg,Corona Virus Disease
+test_0220.jpeg,Corona Virus Disease
+test_0221.jpeg,Normal
+test_0222.jpeg,Corona Virus Disease
+test_0223.jpeg,Corona Virus Disease
+test_0224.jpeg,Corona Virus Disease
+test_0225.jpeg,Normal
+test_0226.jpeg,Tuberculosis
+test_0227.jpeg,Normal
+test_0228.jpeg,Normal
+test_0229.jpeg,Corona Virus Disease
+test_0230.jpeg,Corona Virus Disease
+test_0231.jpeg,Tuberculosis
+test_0232.jpeg,Tuberculosis
+test_0233.jpeg,Normal
+test_0234.jpeg,Normal
+test_0235.jpeg,Corona Virus Disease
+test_0236.jpeg,Corona Virus Disease
+test_0237.jpeg,Normal
+test_0238.jpeg,Normal
+test_0239.jpeg,Normal
+test_0240.jpeg,Normal
+test_0241.jpeg,Tuberculosis
+test_0242.jpeg,Tuberculosis
+test_0243.jpeg,Normal
+test_0244.jpeg,Normal
+test_0245.jpeg,Normal
+test_0246.jpeg,Tuberculosis
+test_0247.jpeg,Tuberculosis
+test_0248.jpeg,Tuberculosis
+test_0249.jpeg,Normal
+test_0250.jpeg,Corona Virus Disease
+test_0251.jpeg,Normal
+test_0252.jpeg,Normal
+test_0253.jpeg,Normal
+test_0254.jpeg,Tuberculosis
+test_0255.jpeg,Normal
+test_0256.jpeg,Normal
+test_0257.jpeg,Normal
+test_0258.jpeg,Tuberculosis
+test_0259.jpeg,Normal
+test_0260.jpeg,Normal
+test_0261.jpeg,Corona Virus Disease
+test_0262.jpeg,Corona Virus Disease
+test_0263.jpeg,Corona Virus Disease
+test_0264.jpeg,Tuberculosis
+test_0265.jpeg,Tuberculosis
+test_0266.jpeg,Corona Virus Disease
+test_0267.jpeg,Normal
+test_0268.jpeg,Normal
+test_0269.jpeg,Normal
+test_0270.jpeg,Normal
+test_0271.jpeg,Normal
+test_0272.jpeg,Normal
+test_0273.jpeg,Normal
+test_0274.jpeg,Normal
+test_0275.jpeg,Normal
+test_0276.jpeg,Normal
+test_0277.jpeg,Tuberculosis
+test_0278.jpeg,Normal
+test_0279.jpeg,Normal
+test_0280.jpeg,Normal
+test_0281.jpeg,Tuberculosis
+test_0282.jpeg,Tuberculosis
+test_0283.jpeg,Corona Virus Disease
+test_0284.jpeg,Tuberculosis
+test_0285.jpeg,Tuberculosis
+test_0286.jpeg,Normal
+test_0287.jpeg,Normal
+test_0288.jpeg,Tuberculosis
+test_0289.jpeg,Normal
+test_0290.jpeg,Normal
+test_0291.jpeg,Normal
+test_0292.jpeg,Normal
+test_0293.jpeg,Tuberculosis
+test_0294.jpeg,Normal
+test_0295.jpeg,Normal
+test_0296.jpeg,Normal
+test_0297.jpeg,Normal
+test_0298.jpeg,Normal
+test_0299.jpeg,Corona Virus Disease
+test_0300.jpeg,Normal
+test_0301.jpeg,Tuberculosis
+test_0302.jpeg,Tuberculosis
+test_0303.jpeg,Normal
+test_0304.jpeg,Normal
+test_0305.jpeg,Normal
+test_0306.jpeg,Normal
+test_0307.jpeg,Normal
+test_0308.jpeg,Normal
+test_0309.jpeg,Corona Virus Disease
+test_0310.jpeg,Normal
+test_0311.jpeg,Normal
+test_0312.jpeg,Normal
+test_0313.jpeg,Normal
+test_0314.jpeg,Normal
+test_0315.jpeg,Normal
+test_0316.jpeg,Normal
+test_0317.jpeg,Tuberculosis
+test_0318.jpeg,Corona Virus Disease
+test_0319.jpeg,Normal
+test_0320.jpeg,Corona Virus Disease
+test_0321.jpeg,Corona Virus Disease
+test_0322.jpeg,Normal
+test_0323.jpeg,Tuberculosis
+test_0324.jpeg,Normal
+test_0325.jpeg,Normal
+test_0326.jpeg,Normal
+test_0327.jpeg,Normal
+test_0328.jpeg,Normal
+test_0329.jpeg,Normal
+test_0330.jpeg,Normal
+test_0331.jpeg,Normal
+test_0332.jpeg,Normal
+test_0333.jpeg,Normal
+test_0334.jpeg,Normal
+test_0335.jpeg,Normal
+test_0336.jpeg,Normal
+test_0337.jpeg,Tuberculosis
+test_0338.jpeg,Corona Virus Disease
+test_0339.jpeg,Tuberculosis
+test_0340.jpeg,Normal
+test_0341.jpeg,Normal
+test_0342.jpeg,Normal
+test_0343.jpeg,Corona Virus Disease
+test_0344.jpeg,Corona Virus Disease
+test_0345.jpeg,Normal
+test_0346.jpeg,Normal
+test_0347.jpeg,Tuberculosis
+test_0348.jpeg,Corona Virus Disease
+test_0349.jpeg,Tuberculosis
+test_0350.jpeg,Tuberculosis
+test_0351.jpeg,Corona Virus Disease
+test_0352.jpeg,Corona Virus Disease
+test_0353.jpeg,Corona Virus Disease
+test_0354.jpeg,Corona Virus Disease
+test_0355.jpeg,Normal
+test_0356.jpeg,Tuberculosis
+test_0357.jpeg,Normal
+test_0358.jpeg,Normal
+test_0359.jpeg,Normal
+test_0360.jpeg,Normal
+test_0361.jpeg,Normal
+test_0362.jpeg,Normal
+test_0363.jpeg,Normal
+test_0364.jpeg,Normal
+test_0365.jpeg,Normal
+test_0366.jpeg,Tuberculosis
+test_0367.jpeg,Normal
+test_0368.jpeg,Normal
+test_0369.jpeg,Normal
+test_0370.jpeg,Normal
+test_0371.jpeg,Normal
+test_0372.jpeg,Normal
+test_0373.jpeg,Tuberculosis
+test_0374.jpeg,Normal
+test_0375.jpeg,Corona Virus Disease
+test_0376.jpeg,Normal
+test_0377.jpeg,Corona Virus Disease
+test_0378.jpeg,Normal
+test_0379.jpeg,Corona Virus Disease
+test_0380.jpeg,Normal
+test_0381.jpeg,Normal
+test_0382.jpeg,Normal
+test_0383.jpeg,Normal
+test_0384.jpeg,Corona Virus Disease
+test_0385.jpeg,Tuberculosis
+test_0386.jpeg,Normal
+test_0387.jpeg,Normal
+test_0388.jpeg,Normal
+test_0389.jpeg,Corona Virus Disease
+test_0390.jpeg,Normal
+test_0391.jpeg,Corona Virus Disease
+test_0392.jpeg,Tuberculosis
+test_0393.jpeg,Normal
+test_0394.jpeg,Normal
+test_0395.jpeg,Corona Virus Disease
+test_0396.jpeg,Tuberculosis
+test_0397.jpeg,Normal
+test_0398.jpeg,Corona Virus Disease
+test_0399.jpeg,Normal
+test_0400.jpeg,Normal
+test_0401.jpeg,Normal
+test_0402.jpeg,Normal
+test_0403.jpeg,Tuberculosis
+test_0404.jpeg,Corona Virus Disease
+test_0405.jpeg,Tuberculosis
+test_0406.jpeg,Corona Virus Disease
+test_0407.jpeg,Tuberculosis
+test_0408.jpeg,Corona Virus Disease
+test_0409.jpeg,Normal
+test_0410.jpeg,Corona Virus Disease
+test_0411.jpeg,Normal
+test_0412.jpeg,Normal
+test_0413.jpeg,Tuberculosis
+test_0414.jpeg,Corona Virus Disease
+test_0415.jpeg,Normal
+test_0416.jpeg,Tuberculosis
+test_0417.jpeg,Normal
+test_0418.jpeg,Tuberculosis
+test_0419.jpeg,Corona Virus Disease
+test_0420.jpeg,Tuberculosis
+test_0421.jpeg,Tuberculosis
+test_0422.jpeg,Tuberculosis
+test_0423.jpeg,Normal
+test_0424.jpeg,Corona Virus Disease
+test_0425.jpeg,Tuberculosis
+test_0426.jpeg,Tuberculosis
+test_0427.jpeg,Corona Virus Disease
+test_0428.jpeg,Normal
+test_0429.jpeg,Normal
+test_0430.jpeg,Corona Virus Disease
+test_0431.jpeg,Normal
+test_0432.jpeg,Corona Virus Disease
+test_0433.jpeg,Normal
+test_0434.jpeg,Normal
+test_0435.jpeg,Corona Virus Disease
+test_0436.jpeg,Tuberculosis
+test_0437.jpeg,Corona Virus Disease
+test_0438.jpeg,Normal
+test_0439.jpeg,Normal
+test_0440.jpeg,Corona Virus Disease
+test_0441.jpeg,Tuberculosis
+test_0442.jpeg,Tuberculosis
+test_0443.jpeg,Normal
+test_0444.jpeg,Tuberculosis
+test_0445.jpeg,Corona Virus Disease
+test_0446.jpeg,Normal
+test_0447.jpeg,Normal
+test_0448.jpeg,Tuberculosis
+test_0449.jpeg,Corona Virus Disease
+test_0450.jpeg,Corona Virus Disease
+test_0451.jpeg,Corona Virus Disease
+test_0452.jpeg,Tuberculosis
+test_0453.jpeg,Tuberculosis
+test_0454.jpeg,Corona Virus Disease
+test_0455.jpeg,Normal
+test_0456.jpeg,Normal
+test_0457.jpeg,Normal
+test_0458.jpeg,Tuberculosis
+test_0459.jpeg,Normal
+test_0460.jpeg,Normal
+test_0461.jpeg,Normal
+test_0462.jpeg,Normal
+test_0463.jpeg,Normal
+test_0464.jpeg,Corona Virus Disease
+test_0465.jpeg,Tuberculosis
+test_0466.jpeg,Normal
+test_0467.jpeg,Corona Virus Disease
+test_0468.jpeg,Tuberculosis
+test_0469.jpeg,Normal
+test_0470.jpeg,Normal
+test_0471.jpeg,Normal
+test_0472.jpeg,Corona Virus Disease
+test_0473.jpeg,Tuberculosis
+test_0474.jpeg,Corona Virus Disease
+test_0475.jpeg,Normal
+test_0476.jpeg,Normal
+test_0477.jpeg,Normal
+test_0478.jpeg,Normal
+test_0479.jpeg,Tuberculosis
+test_0480.jpeg,Normal
+test_0481.jpeg,Tuberculosis
+test_0482.jpeg,Normal
+test_0483.jpeg,Normal
+test_0484.jpeg,Normal
+test_0485.jpeg,Normal
+test_0486.jpeg,Normal
+test_0487.jpeg,Normal
+test_0488.jpeg,Tuberculosis
+test_0489.jpeg,Normal
+test_0490.jpeg,Normal
+test_0491.jpeg,Corona Virus Disease
+test_0492.jpeg,Normal
+test_0493.jpeg,Corona Virus Disease
+test_0494.jpeg,Corona Virus Disease
+test_0495.jpeg,Normal
+test_0496.jpeg,Normal
+test_0497.jpeg,Tuberculosis
+test_0498.jpeg,Normal
+test_0499.jpeg,Normal
+test_0500.jpeg,Normal
+test_0501.jpeg,Corona Virus Disease
+test_0502.jpeg,Tuberculosis
+test_0503.jpeg,Normal
+test_0504.jpeg,Normal
+test_0505.jpeg,Normal
+test_0506.jpeg,Tuberculosis
+test_0507.jpeg,Tuberculosis
+test_0508.jpeg,Normal
+test_0509.jpeg,Normal
+test_0510.jpeg,Corona Virus Disease
+test_0511.jpeg,Corona Virus Disease
+test_0512.jpeg,Corona Virus Disease
+test_0513.jpeg,Normal
+test_0514.jpeg,Normal
+test_0515.jpeg,Normal
+test_0516.jpeg,Tuberculosis
+test_0517.jpeg,Tuberculosis
+test_0518.jpeg,Tuberculosis
+test_0519.jpeg,Corona Virus Disease
+test_0520.jpeg,Tuberculosis
+test_0521.jpeg,Normal
+test_0522.jpeg,Tuberculosis
+test_0523.jpeg,Normal
+test_0524.jpeg,Normal
+test_0525.jpeg,Tuberculosis
+test_0526.jpeg,Normal
+test_0527.jpeg,Corona Virus Disease
+test_0528.jpeg,Normal
+test_0529.jpeg,Tuberculosis
+test_0530.jpeg,Normal
+test_0531.jpeg,Normal
+test_0532.jpeg,Normal
+test_0533.jpeg,Normal
+test_0534.jpeg,Normal
+test_0535.jpeg,Normal
+test_0536.jpeg,Corona Virus Disease
+test_0537.jpeg,Normal
+test_0538.jpeg,Normal
+test_0539.jpeg,Corona Virus Disease
+test_0540.jpeg,Corona Virus Disease
+test_0541.jpeg,Corona Virus Disease
+test_0542.jpeg,Normal
+test_0543.jpeg,Normal
+test_0544.jpeg,Tuberculosis
+test_0545.jpeg,Normal
+test_0546.jpeg,Tuberculosis
+test_0547.jpeg,Normal
+test_0548.jpeg,Normal
+test_0549.jpeg,Corona Virus Disease
+test_0550.jpeg,Normal
+test_0551.jpeg,Normal
+test_0552.jpeg,Corona Virus Disease
+test_0553.jpeg,Normal
+test_0554.jpeg,Tuberculosis
+test_0555.jpeg,Normal
+test_0556.jpeg,Corona Virus Disease
+test_0557.jpeg,Normal
+test_0558.jpeg,Normal
+test_0559.jpeg,Normal
+test_0560.jpeg,Corona Virus Disease
+test_0561.jpeg,Normal
+test_0562.jpeg,Normal
+test_0563.jpeg,Corona Virus Disease
+test_0564.jpeg,Normal
+test_0565.jpeg,Normal
+test_0566.jpeg,Normal
+test_0567.jpeg,Normal
+test_0568.jpeg,Normal
+test_0569.jpeg,Normal
+test_0570.jpeg,Tuberculosis
+test_0571.jpeg,Normal
+test_0572.jpeg,Corona Virus Disease
+test_0573.jpeg,Corona Virus Disease
+test_0574.jpeg,Normal
+test_0575.jpeg,Corona Virus Disease
+test_0576.jpeg,Corona Virus Disease
+test_0577.jpeg,Normal
+test_0578.jpeg,Tuberculosis
+test_0579.jpeg,Corona Virus Disease
+test_0580.jpeg,Normal
+test_0581.jpeg,Normal
+test_0582.jpeg,Normal
+test_0583.jpeg,Corona Virus Disease
+test_0584.jpeg,Corona Virus Disease
+test_0585.jpeg,Corona Virus Disease
+test_0586.jpeg,Corona Virus Disease
+test_0587.jpeg,Tuberculosis
+test_0588.jpeg,Normal
+test_0589.jpeg,Normal
+test_0590.jpeg,Normal
+test_0591.jpeg,Tuberculosis
+test_0592.jpeg,Normal
+test_0593.jpeg,Corona Virus Disease
+test_0594.jpeg,Normal
+test_0595.jpeg,Normal
+test_0596.jpeg,Normal
+test_0597.jpeg,Corona Virus Disease
+test_0598.jpeg,Normal
+test_0599.jpeg,Normal
+test_0600.jpeg,Tuberculosis
+test_0601.jpeg,Normal
+test_0602.jpeg,Normal
+test_0603.jpeg,Normal
+test_0604.jpeg,Corona Virus Disease
+test_0605.jpeg,Normal
+test_0606.jpeg,Normal
+test_0607.jpeg,Normal
+test_0608.jpeg,Normal
+test_0609.jpeg,Normal
+test_0610.jpeg,Normal
+test_0611.jpeg,Normal
+test_0612.jpeg,Normal
+test_0613.jpeg,Normal
+test_0614.jpeg,Normal
+test_0615.jpeg,Normal
+test_0616.jpeg,Normal
+test_0617.jpeg,Normal
+test_0618.jpeg,Corona Virus Disease
+test_0619.jpeg,Corona Virus Disease
+test_0620.jpeg,Corona Virus Disease
+test_0621.jpeg,Corona Virus Disease
+test_0622.jpeg,Normal
+test_0623.jpeg,Normal
+test_0624.jpeg,Normal
+test_0625.jpeg,Normal
+test_0626.jpeg,Normal
+test_0627.jpeg,Normal
+test_0628.jpeg,Normal
+test_0629.jpeg,Normal
+test_0630.jpeg,Tuberculosis
+test_0631.jpeg,Normal
+test_0632.jpeg,Tuberculosis
+test_0633.jpeg,Normal
+test_0634.jpeg,Tuberculosis
+test_0635.jpeg,Normal
+test_0636.jpeg,Normal
+test_0637.jpeg,Tuberculosis
+test_0638.jpeg,Tuberculosis
+test_0639.jpeg,Tuberculosis
+test_0640.jpeg,Normal
+test_0641.jpeg,Normal
+test_0642.jpeg,Normal
+test_0643.jpeg,Corona Virus Disease
+test_0644.jpeg,Tuberculosis
+test_0645.jpeg,Normal
+test_0646.jpeg,Normal
+test_0647.jpeg,Corona Virus Disease
+test_0648.jpeg,Corona Virus Disease
+test_0649.jpeg,Tuberculosis
+test_0650.jpeg,Tuberculosis
+test_0651.jpeg,Corona Virus Disease
+test_0652.jpeg,Corona Virus Disease
+test_0653.jpeg,Tuberculosis
+test_0654.jpeg,Normal
+test_0655.jpeg,Normal
+test_0656.jpeg,Normal
+test_0657.jpeg,Normal
+test_0658.jpeg,Tuberculosis
+test_0659.jpeg,Normal
+test_0660.jpeg,Normal
+test_0661.jpeg,Normal
+test_0662.jpeg,Normal
+test_0663.jpeg,Tuberculosis
+test_0664.jpeg,Corona Virus Disease
+test_0665.jpeg,Normal
+test_0666.jpeg,Normal
+test_0667.jpeg,Corona Virus Disease
+test_0668.jpeg,Corona Virus Disease
+test_0669.jpeg,Normal
+test_0670.jpeg,Corona Virus Disease
+test_0671.jpeg,Corona Virus Disease
+test_0672.jpeg,Tuberculosis
+test_0673.jpeg,Normal
+test_0674.jpeg,Normal
+test_0675.jpeg,Corona Virus Disease
+test_0676.jpeg,Corona Virus Disease
+test_0677.jpeg,Normal
+test_0678.jpeg,Corona Virus Disease
+test_0679.jpeg,Corona Virus Disease
+test_0680.jpeg,Normal
+test_0681.jpeg,Normal
+test_0682.jpeg,Normal
+test_0683.jpeg,Corona Virus Disease
+test_0684.jpeg,Normal
+test_0685.jpeg,Corona Virus Disease
+test_0686.jpeg,Tuberculosis
+test_0687.jpeg,Normal
+test_0688.jpeg,Tuberculosis
+test_0689.jpeg,Normal
+test_0690.jpeg,Normal
+test_0691.jpeg,Normal
+test_0692.jpeg,Normal
+test_0693.jpeg,Normal
+test_0694.jpeg,Normal
+test_0695.jpeg,Tuberculosis
+test_0696.jpeg,Normal
+test_0697.jpeg,Normal
+test_0698.jpeg,Tuberculosis
+test_0699.jpeg,Normal
+test_0700.jpeg,Normal
+test_0701.jpeg,Normal
+test_0702.jpeg,Normal
+test_0703.jpeg,Normal
+test_0704.jpeg,Normal
+test_0705.jpeg,Normal
+test_0706.jpeg,Normal
+test_0707.jpeg,Normal
+test_0708.jpeg,Normal
+test_0709.jpeg,Corona Virus Disease
+test_0710.jpeg,Corona Virus Disease
+test_0711.jpeg,Normal
+test_0712.jpeg,Normal
+test_0713.jpeg,Corona Virus Disease
+test_0714.jpeg,Normal
+test_0715.jpeg,Normal
+test_0716.jpeg,Corona Virus Disease
+test_0717.jpeg,Normal
+test_0718.jpeg,Tuberculosis
+test_0719.jpeg,Normal
+test_0720.jpeg,Normal
+test_0721.jpeg,Normal
+test_0722.jpeg,Normal
+test_0723.jpeg,Normal
+test_0724.jpeg,Normal
+test_0725.jpeg,Corona Virus Disease
+test_0726.jpeg,Normal
+test_0727.jpeg,Normal
+test_0728.jpeg,Normal
+test_0729.jpeg,Normal
+test_0730.jpeg,Normal
+test_0731.jpeg,Tuberculosis
+test_0732.jpeg,Normal
+test_0733.jpeg,Corona Virus Disease
+test_0734.jpeg,Normal
+test_0735.jpeg,Tuberculosis
+test_0736.jpeg,Tuberculosis
+test_0737.jpeg,Tuberculosis
+test_0738.jpeg,Tuberculosis
+test_0739.jpeg,Normal
+test_0740.jpeg,Normal
+test_0741.jpeg,Tuberculosis
+test_0742.jpeg,Corona Virus Disease
+test_0743.jpeg,Normal
+test_0744.jpeg,Tuberculosis
+test_0745.jpeg,Normal
+test_0746.jpeg,Normal
+test_0747.jpeg,Normal
+test_0748.jpeg,Tuberculosis
+test_0749.jpeg,Normal
+test_0750.jpeg,Corona Virus Disease
+test_0751.jpeg,Normal
+test_0752.jpeg,Normal
+test_0753.jpeg,Normal
+test_0754.jpeg,Corona Virus Disease
+test_0755.jpeg,Normal
+test_0756.jpeg,Normal
+test_0757.jpeg,Tuberculosis
+test_0758.jpeg,Normal
+test_0759.jpeg,Normal
+test_0760.jpeg,Normal
+test_0761.jpeg,Corona Virus Disease
+test_0762.jpeg,Corona Virus Disease
+test_0763.jpeg,Tuberculosis
+test_0764.jpeg,Normal
+test_0765.jpeg,Normal
+test_0766.jpeg,Normal
+test_0767.jpeg,Normal
+test_0768.jpeg,Tuberculosis
+test_0769.jpeg,Normal
+test_0770.jpeg,Normal
+test_0771.jpeg,Normal
+test_0772.jpeg,Corona Virus Disease
+test_0773.jpeg,Normal
+test_0774.jpeg,Normal
+test_0775.jpeg,Tuberculosis
+test_0776.jpeg,Tuberculosis
+test_0777.jpeg,Normal
+test_0778.jpeg,Normal
+test_0779.jpeg,Normal
+test_0780.jpeg,Tuberculosis
+test_0781.jpeg,Normal
+test_0782.jpeg,Normal
+test_0783.jpeg,Tuberculosis
+test_0784.jpeg,Normal
+test_0785.jpeg,Normal
+test_0786.jpeg,Normal
+test_0787.jpeg,Normal
+test_0788.jpeg,Normal
+test_0789.jpeg,Corona Virus Disease
+test_0790.jpeg,Normal
+test_0791.jpeg,Normal
+test_0792.jpeg,Corona Virus Disease
+test_0793.jpeg,Normal
+test_0794.jpeg,Normal
+test_0795.jpeg,Normal
+test_0796.jpeg,Normal
+test_0797.jpeg,Tuberculosis
+test_0798.jpeg,Normal
+test_0799.jpeg,Normal
+test_0800.jpeg,Corona Virus Disease
+test_0801.jpeg,Normal
+test_0802.jpeg,Normal
+test_0803.jpeg,Corona Virus Disease
+test_0804.jpeg,Normal
+test_0805.jpeg,Corona Virus Disease
+test_0806.jpeg,Corona Virus Disease
+test_0807.jpeg,Normal
+test_0808.jpeg,Normal
+test_0809.jpeg,Normal
+test_0810.jpeg,Normal
+test_0811.jpeg,Normal
+test_0812.jpeg,Normal
+test_0813.jpeg,Tuberculosis
+test_0814.jpeg,Tuberculosis
+test_0815.jpeg,Normal
+test_0816.jpeg,Normal
+test_0817.jpeg,Tuberculosis
+test_0818.jpeg,Normal
+test_0819.jpeg,Corona Virus Disease
+test_0820.jpeg,Normal
+test_0821.jpeg,Normal
+test_0822.jpeg,Normal
+test_0823.jpeg,Tuberculosis
+test_0824.jpeg,Tuberculosis
+test_0825.jpeg,Tuberculosis
+test_0826.jpeg,Normal
+test_0827.jpeg,Normal
+test_0828.jpeg,Normal
+test_0829.jpeg,Corona Virus Disease
+test_0830.jpeg,Normal
+test_0831.jpeg,Corona Virus Disease
+test_0832.jpeg,Normal
+test_0833.jpeg,Corona Virus Disease
+test_0834.jpeg,Normal
+test_0835.jpeg,Tuberculosis
+test_0836.jpeg,Normal
+test_0837.jpeg,Tuberculosis
+test_0838.jpeg,Normal
+test_0839.jpeg,Corona Virus Disease
+test_0840.jpeg,Normal
+test_0841.jpeg,Tuberculosis
+test_0842.jpeg,Normal
+test_0843.jpeg,Normal
+test_0844.jpeg,Normal
+test_0845.jpeg,Normal
+test_0846.jpeg,Tuberculosis
+test_0847.jpeg,Normal
+test_0848.jpeg,Tuberculosis
+test_0849.jpeg,Corona Virus Disease
+test_0850.jpeg,Corona Virus Disease
+test_0851.jpeg,Normal
+test_0852.jpeg,Tuberculosis
+test_0853.jpeg,Tuberculosis
+test_0854.jpeg,Normal
+test_0855.jpeg,Corona Virus Disease
+test_0856.jpeg,Normal
+test_0857.jpeg,Corona Virus Disease
+test_0858.jpeg,Normal
+test_0859.jpeg,Tuberculosis
+test_0860.jpeg,Tuberculosis
+test_0861.jpeg,Tuberculosis
+test_0862.jpeg,Tuberculosis
+test_0863.jpeg,Normal
+test_0864.jpeg,Normal
+test_0865.jpeg,Normal
+test_0866.jpeg,Corona Virus Disease
+test_0867.jpeg,Normal
+test_0868.jpeg,Normal
+test_0869.jpeg,Tuberculosis
+test_0870.jpeg,Corona Virus Disease
+test_0871.jpeg,Normal
+test_0872.jpeg,Normal
+test_0873.jpeg,Normal
+test_0874.jpeg,Corona Virus Disease
+test_0875.jpeg,Tuberculosis
+test_0876.jpeg,Corona Virus Disease
+test_0877.jpeg,Normal
+test_0878.jpeg,Corona Virus Disease
+test_0879.jpeg,Tuberculosis
+test_0880.jpeg,Normal
+test_0881.jpeg,Normal
+test_0882.jpeg,Tuberculosis
+test_0883.jpeg,Normal
+test_0884.jpeg,Normal
+test_0885.jpeg,Normal
+test_0886.jpeg,Corona Virus Disease
+test_0887.jpeg,Normal
+test_0888.jpeg,Corona Virus Disease
+test_0889.jpeg,Normal
+test_0890.jpeg,Normal
+test_0891.jpeg,Normal
+test_0892.jpeg,Normal
+test_0893.jpeg,Normal
+test_0894.jpeg,Normal
+test_0895.jpeg,Tuberculosis
+test_0896.jpeg,Normal
+test_0897.jpeg,Normal
+test_0898.jpeg,Normal
+test_0899.jpeg,Tuberculosis
+test_0900.jpeg,Normal
+test_0901.jpeg,Normal
+test_0902.jpeg,Normal
+test_0903.jpeg,Normal
+test_0904.jpeg,Normal
+test_0905.jpeg,Corona Virus Disease
+test_0906.jpeg,Normal
+test_0907.jpeg,Normal
+test_0908.jpeg,Normal
+test_0909.jpeg,Normal
+test_0910.jpeg,Normal
+test_0911.jpeg,Corona Virus Disease
+test_0912.jpeg,Normal
+test_0913.jpeg,Normal
+test_0914.jpeg,Normal
+test_0915.jpeg,Tuberculosis
+test_0916.jpeg,Tuberculosis
+test_0917.jpeg,Normal
+test_0918.jpeg,Normal
+test_0919.jpeg,Corona Virus Disease
+test_0920.jpeg,Tuberculosis
+test_0921.jpeg,Corona Virus Disease
+test_0922.jpeg,Normal
+test_0923.jpeg,Normal
+test_0924.jpeg,Normal
+test_0925.jpeg,Normal
+test_0926.jpeg,Tuberculosis
+test_0927.jpeg,Normal
+test_0928.jpeg,Normal
+test_0929.jpeg,Normal
+test_0930.jpeg,Normal
+test_0931.jpeg,Normal
+test_0932.jpeg,Tuberculosis
+test_0933.jpeg,Normal
+test_0934.jpeg,Normal
+test_0935.jpeg,Normal
+test_0936.jpeg,Normal
+test_0937.jpeg,Normal
+test_0938.jpeg,Corona Virus Disease
+test_0939.jpeg,Normal
+test_0940.jpeg,Corona Virus Disease
+test_0941.jpeg,Normal
+test_0942.jpeg,Normal
+test_0943.jpeg,Normal
+test_0944.jpeg,Corona Virus Disease
+test_0945.jpeg,Tuberculosis
+test_0946.jpeg,Normal
+test_0947.jpeg,Corona Virus Disease
+test_0948.jpeg,Normal
+test_0949.jpeg,Normal
+test_0950.jpeg,Corona Virus Disease
+test_0951.jpeg,Corona Virus Disease
+test_0952.jpeg,Tuberculosis
+test_0953.jpeg,Normal
+test_0954.jpeg,Tuberculosis
+test_0955.jpeg,Normal
+test_0956.jpeg,Normal
+test_0957.jpeg,Corona Virus Disease
+test_0958.jpeg,Corona Virus Disease
+test_0959.jpeg,Corona Virus Disease
+test_0960.jpeg,Normal
+test_0961.jpeg,Normal
+test_0962.jpeg,Corona Virus Disease
+test_0963.jpeg,Corona Virus Disease
+test_0964.jpeg,Corona Virus Disease
+test_0965.jpeg,Corona Virus Disease
+test_0966.jpeg,Normal
+test_0967.jpeg,Normal
+test_0968.jpeg,Tuberculosis
+test_0969.jpeg,Corona Virus Disease
+test_0970.jpeg,Normal
+test_0971.jpeg,Corona Virus Disease
+test_0972.jpeg,Normal
+test_0973.jpeg,Tuberculosis
+test_0974.jpeg,Normal
+test_0975.jpeg,Normal
+test_0976.jpeg,Normal
+test_0977.jpeg,Tuberculosis
+test_0978.jpeg,Tuberculosis
+test_0979.jpeg,Corona Virus Disease
+test_0980.jpeg,Normal
+test_0981.jpeg,Tuberculosis
+test_0982.jpeg,Normal
+test_0983.jpeg,Corona Virus Disease
+test_0984.jpeg,Corona Virus Disease
+test_0985.jpeg,Normal
+test_0986.jpeg,Normal
+test_0987.jpeg,Normal
+test_0988.jpeg,Normal
+test_0989.jpeg,Tuberculosis
+test_0990.jpeg,Normal
+test_0991.jpeg,Tuberculosis
+test_0992.jpeg,Normal
+test_0993.jpeg,Tuberculosis
+test_0994.jpeg,Tuberculosis
+test_0995.jpeg,Normal
+test_0996.jpeg,Normal
+test_0997.jpeg,Corona Virus Disease
+test_0998.jpeg,Normal
+test_0999.jpeg,Tuberculosis
+test_1000.jpeg,Corona Virus Disease
+test_1001.jpeg,Normal
+test_1002.jpeg,Normal
+test_1003.jpeg,Corona Virus Disease
+test_1004.jpeg,Normal
+test_1005.jpeg,Corona Virus Disease
+test_1006.jpeg,Corona Virus Disease
+test_1007.jpeg,Normal
+test_1008.jpeg,Normal
+test_1009.jpeg,Normal
+test_1010.jpeg,Normal
+test_1011.jpeg,Normal
+test_1012.jpeg,Corona Virus Disease
+test_1013.jpeg,Normal
+test_1014.jpeg,Corona Virus Disease
+test_1015.jpeg,Corona Virus Disease
+test_1016.jpeg,Normal
+test_1017.jpeg,Tuberculosis
+test_1018.jpeg,Normal
+test_1019.jpeg,Normal
+test_1020.jpeg,Corona Virus Disease
+test_1021.jpeg,Corona Virus Disease
+test_1022.jpeg,Tuberculosis
+test_1023.jpeg,Tuberculosis
+test_1024.jpeg,Normal
+test_1025.jpeg,Normal
+test_1026.jpeg,Tuberculosis
+test_1027.jpeg,Normal
+test_1028.jpeg,Normal
+test_1029.jpeg,Normal
+test_1030.jpeg,Corona Virus Disease
+test_1031.jpeg,Normal
+test_1032.jpeg,Normal
+test_1033.jpeg,Normal
+test_1034.jpeg,Normal
+test_1035.jpeg,Normal
+test_1036.jpeg,Corona Virus Disease
+test_1037.jpeg,Tuberculosis
+test_1038.jpeg,Normal
+test_1039.jpeg,Normal
+test_1040.jpeg,Corona Virus Disease
+test_1041.jpeg,Normal
+test_1042.jpeg,Corona Virus Disease
+test_1043.jpeg,Corona Virus Disease
+test_1044.jpeg,Corona Virus Disease
+test_1045.jpeg,Corona Virus Disease
+test_1046.jpeg,Normal
+test_1047.jpeg,Normal
+test_1048.jpeg,Normal
+test_1049.jpeg,Normal
+test_1050.jpeg,Tuberculosis
+test_1051.jpeg,Corona Virus Disease
+test_1052.jpeg,Normal
+test_1053.jpeg,Normal
+test_1054.jpeg,Normal
+test_1055.jpeg,Normal
+test_1056.jpeg,Normal
+test_1057.jpeg,Normal
+test_1058.jpeg,Normal
+test_1059.jpeg,Normal
+test_1060.jpeg,Corona Virus Disease
+test_1061.jpeg,Normal
+test_1062.jpeg,Corona Virus Disease
+test_1063.jpeg,Tuberculosis
+test_1064.jpeg,Corona Virus Disease
+test_1065.jpeg,Normal
+test_1066.jpeg,Corona Virus Disease
+test_1067.jpeg,Tuberculosis
+test_1068.jpeg,Tuberculosis
+test_1069.jpeg,Normal
+test_1070.jpeg,Tuberculosis
+test_1071.jpeg,Corona Virus Disease
+test_1072.jpeg,Normal
+test_1073.jpeg,Corona Virus Disease
+test_1074.jpeg,Normal
+test_1075.jpeg,Normal
+test_1076.jpeg,Normal
+test_1077.jpeg,Normal
+test_1078.jpeg,Normal
+test_1079.jpeg,Tuberculosis
+test_1080.jpeg,Tuberculosis
+test_1081.jpeg,Normal
+test_1082.jpeg,Corona Virus Disease
+test_1083.jpeg,Corona Virus Disease
+test_1084.jpeg,Tuberculosis
+test_1085.jpeg,Corona Virus Disease
+test_1086.jpeg,Normal
+test_1087.jpeg,Tuberculosis
+test_1088.jpeg,Corona Virus Disease
+test_1089.jpeg,Normal
+test_1090.jpeg,Normal
+test_1091.jpeg,Corona Virus Disease
+test_1092.jpeg,Tuberculosis
+test_1093.jpeg,Tuberculosis
+test_1094.jpeg,Tuberculosis
+test_1095.jpeg,Normal
+test_1096.jpeg,Corona Virus Disease
+test_1097.jpeg,Normal
+test_1098.jpeg,Corona Virus Disease
+test_1099.jpeg,Normal
+test_1100.jpeg,Corona Virus Disease
+test_1101.jpeg,Normal
+test_1102.jpeg,Normal
+test_1103.jpeg,Normal
+test_1104.jpeg,Normal
+test_1105.jpeg,Corona Virus Disease
+test_1106.jpeg,Tuberculosis
+test_1107.jpeg,Normal
+test_1108.jpeg,Tuberculosis
+test_1109.jpeg,Normal
+test_1110.jpeg,Tuberculosis
+test_1111.jpeg,Tuberculosis
+test_1112.jpeg,Normal
+test_1113.jpeg,Normal
+test_1114.jpeg,Corona Virus Disease
+test_1115.jpeg,Corona Virus Disease
+test_1116.jpeg,Corona Virus Disease
+test_1117.jpeg,Corona Virus Disease
+test_1118.jpeg,Tuberculosis
+test_1119.jpeg,Normal
+test_1120.jpeg,Normal
+test_1121.jpeg,Normal
+test_1122.jpeg,Corona Virus Disease
+test_1123.jpeg,Tuberculosis
+test_1124.jpeg,Corona Virus Disease
+test_1125.jpeg,Normal
+test_1126.jpeg,Normal
+test_1127.jpeg,Normal
+test_1128.jpeg,Corona Virus Disease
+test_1129.jpeg,Tuberculosis
+test_1130.jpeg,Normal
+test_1131.jpeg,Normal
+test_1132.jpeg,Normal
+test_1133.jpeg,Normal
+test_1134.jpeg,Tuberculosis
+test_1135.jpeg,Normal
+test_1136.jpeg,Normal
+test_1137.jpeg,Normal
+test_1138.jpeg,Corona Virus Disease
+test_1139.jpeg,Tuberculosis
+test_1140.jpeg,Normal
+test_1141.jpeg,Corona Virus Disease
+test_1142.jpeg,Normal
+test_1143.jpeg,Tuberculosis
+test_1144.jpeg,Normal
+test_1145.jpeg,Normal
+test_1146.jpeg,Normal
+test_1147.jpeg,Corona Virus Disease
+test_1148.jpeg,Normal
+test_1149.jpeg,Normal
+test_1150.jpeg,Tuberculosis
+test_1151.jpeg,Normal
+test_1152.jpeg,Corona Virus Disease
+test_1153.jpeg,Corona Virus Disease
+test_1154.jpeg,Tuberculosis
+test_1155.jpeg,Normal
+test_1156.jpeg,Normal
+test_1157.jpeg,Normal
+test_1158.jpeg,Normal
+test_1159.jpeg,Normal
+test_1160.jpeg,Normal
+test_1161.jpeg,Normal
+test_1162.jpeg,Normal
+test_1163.jpeg,Tuberculosis
+test_1164.jpeg,Normal
+test_1165.jpeg,Normal
+test_1166.jpeg,Normal
+test_1167.jpeg,Normal
+test_1168.jpeg,Corona Virus Disease
+test_1169.jpeg,Tuberculosis
+test_1170.jpeg,Tuberculosis
+test_1171.jpeg,Tuberculosis
+test_1172.jpeg,Normal
+test_1173.jpeg,Normal
+test_1174.jpeg,Tuberculosis
+test_1175.jpeg,Normal
+test_1176.jpeg,Tuberculosis
+test_1177.jpeg,Tuberculosis
+test_1178.jpeg,Tuberculosis
+test_1179.jpeg,Tuberculosis
+test_1180.jpeg,Corona Virus Disease
+test_1181.jpeg,Corona Virus Disease
+test_1182.jpeg,Tuberculosis
+test_1183.jpeg,Normal
+test_1184.jpeg,Tuberculosis
+test_1185.jpeg,Normal
+test_1186.jpeg,Tuberculosis
+test_1187.jpeg,Corona Virus Disease
+test_1188.jpeg,Normal
+test_1189.jpeg,Corona Virus Disease
+test_1190.jpeg,Corona Virus Disease
+test_1191.jpeg,Normal
+test_1192.jpeg,Normal
+test_1193.jpeg,Normal
+test_1194.jpeg,Corona Virus Disease
+test_1195.jpeg,Corona Virus Disease
+test_1196.jpeg,Tuberculosis
+test_1197.jpeg,Normal
+test_1198.jpeg,Tuberculosis
+test_1199.jpeg,Tuberculosis
+test_1200.jpeg,Corona Virus Disease
+test_1201.jpeg,Normal
+test_1202.jpeg,Normal
+test_1203.jpeg,Corona Virus Disease
+test_1204.jpeg,Normal
+test_1205.jpeg,Tuberculosis
+test_1206.jpeg,Normal
+test_1207.jpeg,Normal
+test_1208.jpeg,Normal
+test_1209.jpeg,Tuberculosis
+test_1210.jpeg,Tuberculosis
+test_1211.jpeg,Normal
+test_1212.jpeg,Tuberculosis
+test_1213.jpeg,Corona Virus Disease
+test_1214.jpeg,Tuberculosis
+test_1215.jpeg,Corona Virus Disease
+test_1216.jpeg,Normal
+test_1217.jpeg,Corona Virus Disease
+test_1218.jpeg,Tuberculosis
+test_1219.jpeg,Normal
+test_1220.jpeg,Tuberculosis
+test_1221.jpeg,Corona Virus Disease
+test_1222.jpeg,Corona Virus Disease
+test_1223.jpeg,Normal
+test_1224.jpeg,Normal
+test_1225.jpeg,Normal
+test_1226.jpeg,Normal
+test_1227.jpeg,Normal
+test_1228.jpeg,Normal
+test_1229.jpeg,Normal
+test_1230.jpeg,Normal
+test_1231.jpeg,Normal
+test_1232.jpeg,Normal
+test_1233.jpeg,Normal
+test_1234.jpeg,Corona Virus Disease
+test_1235.jpeg,Normal
+test_1236.jpeg,Tuberculosis
+test_1237.jpeg,Normal
+test_1238.jpeg,Tuberculosis
+test_1239.jpeg,Corona Virus Disease
+test_1240.jpeg,Normal
+test_1241.jpeg,Corona Virus Disease
+test_1242.jpeg,Normal
+test_1243.jpeg,Normal
+test_1244.jpeg,Normal
+test_1245.jpeg,Corona Virus Disease
+test_1246.jpeg,Normal
+test_1247.jpeg,Normal
+test_1248.jpeg,Normal
+test_1249.jpeg,Normal
+test_1250.jpeg,Normal
+test_1251.jpeg,Normal
+test_1252.jpeg,Corona Virus Disease
+test_1253.jpeg,Tuberculosis
+test_1254.jpeg,Normal
+test_1255.jpeg,Normal
+test_1256.jpeg,Tuberculosis
+test_1257.jpeg,Tuberculosis
+test_1258.jpeg,Normal
+test_1259.jpeg,Normal
+test_1260.jpeg,Normal
+test_1261.jpeg,Tuberculosis
+test_1262.jpeg,Normal
+test_1263.jpeg,Tuberculosis
+test_1264.jpeg,Normal
+test_1265.jpeg,Corona Virus Disease
+test_1266.jpeg,Normal
+test_1267.jpeg,Normal
+test_1268.jpeg,Tuberculosis
+test_1269.jpeg,Corona Virus Disease
+test_1270.jpeg,Corona Virus Disease
+test_1271.jpeg,Corona Virus Disease
+test_1272.jpeg,Normal
+test_1273.jpeg,Tuberculosis
+test_1274.jpeg,Normal
+test_1275.jpeg,Normal
+test_1276.jpeg,Corona Virus Disease
+test_1277.jpeg,Corona Virus Disease
+test_1278.jpeg,Normal
+test_1279.jpeg,Normal
+test_1280.jpeg,Normal
+test_1281.jpeg,Normal
+test_1282.jpeg,Corona Virus Disease
+test_1283.jpeg,Normal
+test_1284.jpeg,Corona Virus Disease
+test_1285.jpeg,Corona Virus Disease
+test_1286.jpeg,Normal
+test_1287.jpeg,Corona Virus Disease
+test_1288.jpeg,Normal
+test_1289.jpeg,Normal
+test_1290.jpeg,Tuberculosis
+test_1291.jpeg,Corona Virus Disease
+test_1292.jpeg,Tuberculosis
+test_1293.jpeg,Tuberculosis
+test_1294.jpeg,Tuberculosis
+test_1295.jpeg,Tuberculosis
+test_1296.jpeg,Normal
+test_1297.jpeg,Tuberculosis
+test_1298.jpeg,Normal
+test_1299.jpeg,Normal
+test_1300.jpeg,Normal
+test_1301.jpeg,Normal
+test_1302.jpeg,Normal
+test_1303.jpeg,Normal
+test_1304.jpeg,Tuberculosis
+test_1305.jpeg,Tuberculosis
+test_1306.jpeg,Tuberculosis
+test_1307.jpeg,Normal
+test_1308.jpeg,Normal
+test_1309.jpeg,Corona Virus Disease
+test_1310.jpeg,Normal
+test_1311.jpeg,Tuberculosis
+test_1312.jpeg,Normal
+test_1313.jpeg,Tuberculosis
+test_1314.jpeg,Tuberculosis
+test_1315.jpeg,Corona Virus Disease
+test_1316.jpeg,Normal
+test_1317.jpeg,Normal
+test_1318.jpeg,Tuberculosis
+test_1319.jpeg,Normal
+test_1320.jpeg,Corona Virus Disease
+test_1321.jpeg,Corona Virus Disease
+test_1322.jpeg,Normal
+test_1323.jpeg,Tuberculosis
+test_1324.jpeg,Normal
+test_1325.jpeg,Normal
+test_1326.jpeg,Normal
+test_1327.jpeg,Corona Virus Disease
+test_1328.jpeg,Normal
+test_1329.jpeg,Normal
+test_1330.jpeg,Normal
+test_1331.jpeg,Normal
+test_1332.jpeg,Normal
+test_1333.jpeg,Normal
+test_1334.jpeg,Normal
+test_1335.jpeg,Normal
+test_1336.jpeg,Corona Virus Disease
+test_1337.jpeg,Corona Virus Disease
+test_1338.jpeg,Normal
+test_1339.jpeg,Corona Virus Disease
+test_1340.jpeg,Tuberculosis
+test_1341.jpeg,Normal
+test_1342.jpeg,Normal
+test_1343.jpeg,Normal
+test_1344.jpeg,Corona Virus Disease
+test_1345.jpeg,Normal
+test_1346.jpeg,Normal
+test_1347.jpeg,Normal
+test_1348.jpeg,Tuberculosis
+test_1349.jpeg,Normal
+test_1350.jpeg,Tuberculosis
+test_1351.jpeg,Normal
+test_1352.jpeg,Normal
+test_1353.jpeg,Tuberculosis
+test_1354.jpeg,Tuberculosis
+test_1355.jpeg,Normal
+test_1356.jpeg,Normal
+test_1357.jpeg,Tuberculosis
+test_1358.jpeg,Normal
+test_1359.jpeg,Normal
+test_1360.jpeg,Normal
+test_1361.jpeg,Normal
+test_1362.jpeg,Normal
+test_1363.jpeg,Tuberculosis
+test_1364.jpeg,Normal
+test_1365.jpeg,Normal
+test_1366.jpeg,Normal
+test_1367.jpeg,Normal
+test_1368.jpeg,Normal
+test_1369.jpeg,Normal
+test_1370.jpeg,Corona Virus Disease
+test_1371.jpeg,Normal
+test_1372.jpeg,Corona Virus Disease
+test_1373.jpeg,Normal
+test_1374.jpeg,Tuberculosis
+test_1375.jpeg,Corona Virus Disease
+test_1376.jpeg,Normal
+test_1377.jpeg,Tuberculosis
+test_1378.jpeg,Corona Virus Disease
+test_1379.jpeg,Normal
+test_1380.jpeg,Normal
+test_1381.jpeg,Normal
+test_1382.jpeg,Tuberculosis
+test_1383.jpeg,Normal
+test_1384.jpeg,Normal
+test_1385.jpeg,Normal
+test_1386.jpeg,Tuberculosis
+test_1387.jpeg,Normal
+test_1388.jpeg,Corona Virus Disease
+test_1389.jpeg,Normal
+test_1390.jpeg,Normal
+test_1391.jpeg,Normal
+test_1392.jpeg,Normal
+test_1393.jpeg,Normal
+test_1394.jpeg,Tuberculosis
+test_1395.jpeg,Normal
+test_1396.jpeg,Normal
+test_1397.jpeg,Tuberculosis
+test_1398.jpeg,Tuberculosis
+test_1399.jpeg,Normal
+test_1400.jpeg,Normal
+test_1401.jpeg,Normal
+test_1402.jpeg,Normal
+test_1403.jpeg,Corona Virus Disease
+test_1404.jpeg,Normal
+test_1405.jpeg,Normal
+test_1406.jpeg,Tuberculosis
+test_1407.jpeg,Corona Virus Disease
+test_1408.jpeg,Normal
+test_1409.jpeg,Normal
+test_1410.jpeg,Normal
+test_1411.jpeg,Tuberculosis
+test_1412.jpeg,Normal
+test_1413.jpeg,Corona Virus Disease
+test_1414.jpeg,Corona Virus Disease
+test_1415.jpeg,Normal
+test_1416.jpeg,Normal
+test_1417.jpeg,Corona Virus Disease
+test_1418.jpeg,Normal
+test_1419.jpeg,Corona Virus Disease
+test_1420.jpeg,Corona Virus Disease
+test_1421.jpeg,Corona Virus Disease
+test_1422.jpeg,Normal
+test_1423.jpeg,Corona Virus Disease
+test_1424.jpeg,Normal
+test_1425.jpeg,Normal
+test_1426.jpeg,Normal
+test_1427.jpeg,Normal
+test_1428.jpeg,Corona Virus Disease
+test_1429.jpeg,Corona Virus Disease
+test_1430.jpeg,Tuberculosis
+test_1431.jpeg,Corona Virus Disease
+test_1432.jpeg,Corona Virus Disease
+test_1433.jpeg,Normal
+test_1434.jpeg,Normal
+test_1435.jpeg,Normal
+test_1436.jpeg,Normal
+test_1437.jpeg,Normal
+test_1438.jpeg,Corona Virus Disease
+test_1439.jpeg,Corona Virus Disease
+test_1440.jpeg,Normal
+test_1441.jpeg,Normal
+test_1442.jpeg,Normal
+test_1443.jpeg,Corona Virus Disease
+test_1444.jpeg,Corona Virus Disease
+test_1445.jpeg,Normal
+test_1446.jpeg,Tuberculosis
+test_1447.jpeg,Corona Virus Disease
+test_1448.jpeg,Corona Virus Disease
+test_1449.jpeg,Tuberculosis
+test_1450.jpeg,Corona Virus Disease
+test_1451.jpeg,Tuberculosis
+test_1452.jpeg,Normal
+test_1453.jpeg,Tuberculosis
+test_1454.jpeg,Normal
+test_1455.jpeg,Normal
+test_1456.jpeg,Normal
+test_1457.jpeg,Normal
+test_1458.jpeg,Corona Virus Disease
+test_1459.jpeg,Normal
+test_1460.jpeg,Normal
+test_1461.jpeg,Normal
+test_1462.jpeg,Tuberculosis
+test_1463.jpeg,Normal
+test_1464.jpeg,Tuberculosis
+test_1465.jpeg,Normal
+test_1466.jpeg,Tuberculosis
+test_1467.jpeg,Tuberculosis
+test_1468.jpeg,Corona Virus Disease
+test_1469.jpeg,Normal
+test_1470.jpeg,Normal
+test_1471.jpeg,Tuberculosis
+test_1472.jpeg,Normal
+test_1473.jpeg,Normal
+test_1474.jpeg,Normal
+test_1475.jpeg,Normal
+test_1476.jpeg,Corona Virus Disease
+test_1477.jpeg,Corona Virus Disease
+test_1478.jpeg,Corona Virus Disease
+test_1479.jpeg,Normal
+test_1480.jpeg,Corona Virus Disease
+test_1481.jpeg,Corona Virus Disease
+test_1482.jpeg,Corona Virus Disease
+test_1483.jpeg,Normal
+test_1484.jpeg,Normal
+test_1485.jpeg,Normal
+test_1486.jpeg,Normal
+test_1487.jpeg,Tuberculosis
+test_1488.jpeg,Normal
+test_1489.jpeg,Normal
+test_1490.jpeg,Normal
+test_1491.jpeg,Normal
+test_1492.jpeg,Normal
+test_1493.jpeg,Tuberculosis
+test_1494.jpeg,Tuberculosis
+test_1495.jpeg,Corona Virus Disease
+test_1496.jpeg,Normal
+test_1497.jpeg,Corona Virus Disease
+test_1498.jpeg,Normal
+test_1499.jpeg,Corona Virus Disease
+test_1500.jpeg,Tuberculosis
+test_1501.jpeg,Corona Virus Disease
+test_1502.jpeg,Normal
+test_1503.jpeg,Tuberculosis
+test_1504.jpeg,Normal
+test_1505.jpeg,Tuberculosis
+test_1506.jpeg,Normal
+test_1507.jpeg,Normal
+test_1508.jpeg,Normal
+test_1509.jpeg,Corona Virus Disease
+test_1510.jpeg,Corona Virus Disease
+test_1511.jpeg,Tuberculosis
+test_1512.jpeg,Normal
+test_1513.jpeg,Normal
+test_1514.jpeg,Normal
+test_1515.jpeg,Normal
+test_1516.jpeg,Normal
+test_1517.jpeg,Normal
+test_1518.jpeg,Normal
+test_1519.jpeg,Normal
+test_1520.jpeg,Normal
+test_1521.jpeg,Normal
+test_1522.jpeg,Normal
+test_1523.jpeg,Normal
+test_1524.jpeg,Tuberculosis
+test_1525.jpeg,Normal
+test_1526.jpeg,Normal
+test_1527.jpeg,Normal
+test_1528.jpeg,Normal
+test_1529.jpeg,Normal
+test_1530.jpeg,Tuberculosis
+test_1531.jpeg,Normal
+test_1532.jpeg,Normal
+test_1533.jpeg,Tuberculosis
+test_1534.jpeg,Tuberculosis
+test_1535.jpeg,Normal
+test_1536.jpeg,Normal
+test_1537.jpeg,Corona Virus Disease
+test_1538.jpeg,Normal
+test_1539.jpeg,Normal
+test_1540.jpeg,Normal
+test_1541.jpeg,Corona Virus Disease
+test_1542.jpeg,Corona Virus Disease
+test_1543.jpeg,Corona Virus Disease
+test_1544.jpeg,Corona Virus Disease
+test_1545.jpeg,Normal
+test_1546.jpeg,Normal
+test_1547.jpeg,Tuberculosis
+test_1548.jpeg,Normal
+test_1549.jpeg,Corona Virus Disease
+test_1550.jpeg,Corona Virus Disease
+test_1551.jpeg,Normal
+test_1552.jpeg,Normal
+test_1553.jpeg,Corona Virus Disease
+test_1554.jpeg,Corona Virus Disease
+test_1555.jpeg,Corona Virus Disease
+test_1556.jpeg,Tuberculosis
+test_1557.jpeg,Normal
+test_1558.jpeg,Normal
+test_1559.jpeg,Normal
+test_1560.jpeg,Tuberculosis
+test_1561.jpeg,Corona Virus Disease
+test_1562.jpeg,Corona Virus Disease
+test_1563.jpeg,Normal
+test_1564.jpeg,Corona Virus Disease
+test_1565.jpeg,Normal
+test_1566.jpeg,Normal
+test_1567.jpeg,Normal
+test_1568.jpeg,Normal
+test_1569.jpeg,Corona Virus Disease
+test_1570.jpeg,Tuberculosis
+test_1571.jpeg,Corona Virus Disease
+test_1572.jpeg,Corona Virus Disease
+test_1573.jpeg,Normal
+test_1574.jpeg,Normal
+test_1575.jpeg,Normal
+test_1576.jpeg,Tuberculosis
+test_1577.jpeg,Corona Virus Disease
+test_1578.jpeg,Corona Virus Disease
+test_1579.jpeg,Normal
+test_1580.jpeg,Normal
+test_1581.jpeg,Normal
+test_1582.jpeg,Normal
+test_1583.jpeg,Corona Virus Disease
+test_1584.jpeg,Normal
+test_1585.jpeg,Corona Virus Disease
+test_1586.jpeg,Normal
+test_1587.jpeg,Corona Virus Disease
+test_1588.jpeg,Corona Virus Disease
+test_1589.jpeg,Tuberculosis
+test_1590.jpeg,Normal
+test_1591.jpeg,Corona Virus Disease
+test_1592.jpeg,Normal
+test_1593.jpeg,Normal
+test_1594.jpeg,Normal
+test_1595.jpeg,Corona Virus Disease
+test_1596.jpeg,Corona Virus Disease
+test_1597.jpeg,Corona Virus Disease
+test_1598.jpeg,Normal
+test_1599.jpeg,Normal
+test_1600.jpeg,Normal
+test_1601.jpeg,Tuberculosis
+test_1602.jpeg,Tuberculosis
+test_1603.jpeg,Tuberculosis
+test_1604.jpeg,Corona Virus Disease
+test_1605.jpeg,Normal
+test_1606.jpeg,Corona Virus Disease
+test_1607.jpeg,Corona Virus Disease
+test_1608.jpeg,Corona Virus Disease
+test_1609.jpeg,Normal
+test_1610.jpeg,Normal
+test_1611.jpeg,Corona Virus Disease
+test_1612.jpeg,Tuberculosis
+test_1613.jpeg,Normal
+test_1614.jpeg,Tuberculosis
+test_1615.jpeg,Normal
+test_1616.jpeg,Tuberculosis
+test_1617.jpeg,Normal
+test_1618.jpeg,Tuberculosis
+test_1619.jpeg,Normal
+test_1620.jpeg,Normal
+test_1621.jpeg,Tuberculosis
+test_1622.jpeg,Normal
+test_1623.jpeg,Normal
+test_1624.jpeg,Corona Virus Disease
+test_1625.jpeg,Tuberculosis
+test_1626.jpeg,Tuberculosis
+test_1627.jpeg,Corona Virus Disease
+test_1628.jpeg,Tuberculosis
+test_1629.jpeg,Normal
+test_1630.jpeg,Tuberculosis
+test_1631.jpeg,Normal
+test_1632.jpeg,Normal
+test_1633.jpeg,Tuberculosis
+test_1634.jpeg,Normal
+test_1635.jpeg,Normal
+test_1636.jpeg,Corona Virus Disease
+test_1637.jpeg,Normal
+test_1638.jpeg,Corona Virus Disease
+test_1639.jpeg,Normal
+test_1640.jpeg,Normal
+test_1641.jpeg,Tuberculosis
+test_1642.jpeg,Normal
+test_1643.jpeg,Normal
+test_1644.jpeg,Corona Virus Disease
+test_1645.jpeg,Normal
+test_1646.jpeg,Normal
+test_1647.jpeg,Normal
+test_1648.jpeg,Normal
+test_1649.jpeg,Corona Virus Disease
+test_1650.jpeg,Normal
+test_1651.jpeg,Corona Virus Disease
+test_1652.jpeg,Normal
+test_1653.jpeg,Tuberculosis
+test_1654.jpeg,Tuberculosis
+test_1655.jpeg,Tuberculosis
+test_1656.jpeg,Corona Virus Disease
+test_1657.jpeg,Normal
+test_1658.jpeg,Normal
+test_1659.jpeg,Normal
+test_1660.jpeg,Normal
+test_1661.jpeg,Corona Virus Disease
+test_1662.jpeg,Normal
+test_1663.jpeg,Tuberculosis
+test_1664.jpeg,Normal
+test_1665.jpeg,Normal
+test_1666.jpeg,Normal
+test_1667.jpeg,Normal
+test_1668.jpeg,Normal
+test_1669.jpeg,Tuberculosis
+test_1670.jpeg,Normal
+test_1671.jpeg,Normal
+test_1672.jpeg,Corona Virus Disease
+test_1673.jpeg,Normal
+test_1674.jpeg,Tuberculosis
+test_1675.jpeg,Tuberculosis
+test_1676.jpeg,Normal
+test_1677.jpeg,Normal
+test_1678.jpeg,Tuberculosis
+test_1679.jpeg,Normal
+test_1680.jpeg,Tuberculosis
+test_1681.jpeg,Tuberculosis
+test_1682.jpeg,Corona Virus Disease
+test_1683.jpeg,Corona Virus Disease
+test_1684.jpeg,Normal
+test_1685.jpeg,Normal
+test_1686.jpeg,Corona Virus Disease
+test_1687.jpeg,Normal
+test_1688.jpeg,Corona Virus Disease
+test_1689.jpeg,Corona Virus Disease
+test_1690.jpeg,Normal
+test_1691.jpeg,Tuberculosis
+test_1692.jpeg,Normal
+test_1693.jpeg,Normal
+test_1694.jpeg,Normal
+test_1695.jpeg,Normal
+test_1696.jpeg,Normal
+test_1697.jpeg,Normal
+test_1698.jpeg,Corona Virus Disease
+test_1699.jpeg,Normal
+test_1700.jpeg,Tuberculosis
+test_1701.jpeg,Corona Virus Disease
+test_1702.jpeg,Corona Virus Disease
+test_1703.jpeg,Normal
+test_1704.jpeg,Normal
+test_1705.jpeg,Normal
+test_1706.jpeg,Normal
+test_1707.jpeg,Normal
+test_1708.jpeg,Tuberculosis
+test_1709.jpeg,Normal
+test_1710.jpeg,Normal
+test_1711.jpeg,Corona Virus Disease
+test_1712.jpeg,Normal
+test_1713.jpeg,Corona Virus Disease
+test_1714.jpeg,Normal
+test_1715.jpeg,Tuberculosis
+test_1716.jpeg,Normal
+test_1717.jpeg,Normal
+test_1718.jpeg,Corona Virus Disease
+test_1719.jpeg,Tuberculosis
+test_1720.jpeg,Normal
+test_1721.jpeg,Normal
+test_1722.jpeg,Tuberculosis
+test_1723.jpeg,Normal
+test_1724.jpeg,Normal
+test_1725.jpeg,Normal
+test_1726.jpeg,Normal
+test_1727.jpeg,Corona Virus Disease
+test_1728.jpeg,Normal
+test_1729.jpeg,Normal
+test_1730.jpeg,Corona Virus Disease
+test_1731.jpeg,Corona Virus Disease
+test_1732.jpeg,Tuberculosis
+test_1733.jpeg,Normal
+test_1734.jpeg,Normal
+test_1735.jpeg,Normal
+test_1736.jpeg,Normal
+test_1737.jpeg,Normal
+test_1738.jpeg,Normal
+test_1739.jpeg,Normal
+test_1740.jpeg,Tuberculosis
+test_1741.jpeg,Normal
+test_1742.jpeg,Normal
+test_1743.jpeg,Normal
+test_1744.jpeg,Normal
+test_1745.jpeg,Normal
+test_1746.jpeg,Normal
+test_1747.jpeg,Normal
+test_1748.jpeg,Tuberculosis
+test_1749.jpeg,Normal
+test_1750.jpeg,Normal
+test_1751.jpeg,Normal
+test_1752.jpeg,Corona Virus Disease
+test_1753.jpeg,Normal
+test_1754.jpeg,Normal
+test_1755.jpeg,Normal
+test_1756.jpeg,Normal
+test_1757.jpeg,Normal
+test_1758.jpeg,Normal
+test_1759.jpeg,Normal
+test_1760.jpeg,Corona Virus Disease
+test_1761.jpeg,Normal
+test_1762.jpeg,Normal
+test_1763.jpeg,Tuberculosis
+test_1764.jpeg,Normal
+test_1765.jpeg,Tuberculosis
+test_1766.jpeg,Tuberculosis
+test_1767.jpeg,Tuberculosis
+test_1768.jpeg,Corona Virus Disease
+test_1769.jpeg,Corona Virus Disease
+test_1770.jpeg,Corona Virus Disease
+test_1771.jpeg,Normal
+test_1772.jpeg,Tuberculosis
+test_1773.jpeg,Tuberculosis
+test_1774.jpeg,Normal
+test_1775.jpeg,Normal
+test_1776.jpeg,Corona Virus Disease
+test_1777.jpeg,Normal
+test_1778.jpeg,Corona Virus Disease
+test_1779.jpeg,Tuberculosis
+test_1780.jpeg,Corona Virus Disease
+test_1781.jpeg,Normal
+test_1782.jpeg,Corona Virus Disease
+test_1783.jpeg,Corona Virus Disease
+test_1784.jpeg,Tuberculosis
+test_1785.jpeg,Tuberculosis
+test_1786.jpeg,Corona Virus Disease
+test_1787.jpeg,Corona Virus Disease
+test_1788.jpeg,Corona Virus Disease
+test_1789.jpeg,Normal
+test_1790.jpeg,Normal
+test_1791.jpeg,Normal
+test_1792.jpeg,Normal
+test_1793.jpeg,Normal
+test_1794.jpeg,Normal
+test_1795.jpeg,Corona Virus Disease
+test_1796.jpeg,Normal
+test_1797.jpeg,Normal
+test_1798.jpeg,Normal
+test_1799.jpeg,Normal
+test_1800.jpeg,Tuberculosis
+test_1801.jpeg,Normal
+test_1802.jpeg,Normal
+test_1803.jpeg,Normal
+test_1804.jpeg,Normal
+test_1805.jpeg,Corona Virus Disease
+test_1806.jpeg,Corona Virus Disease
+test_1807.jpeg,Tuberculosis
+test_1808.jpeg,Corona Virus Disease
+test_1809.jpeg,Normal
+test_1810.jpeg,Corona Virus Disease
+test_1811.jpeg,Normal
+test_1812.jpeg,Tuberculosis
+test_1813.jpeg,Tuberculosis
+test_1814.jpeg,Normal
+test_1815.jpeg,Normal
+test_1816.jpeg,Normal
+test_1817.jpeg,Corona Virus Disease
+test_1818.jpeg,Normal
+test_1819.jpeg,Normal
+test_1820.jpeg,Normal
+test_1821.jpeg,Corona Virus Disease
+test_1822.jpeg,Tuberculosis
+test_1823.jpeg,Corona Virus Disease
+test_1824.jpeg,Corona Virus Disease
+test_1825.jpeg,Normal
+test_1826.jpeg,Tuberculosis
+test_1827.jpeg,Normal
+test_1828.jpeg,Normal
+test_1829.jpeg,Corona Virus Disease
+test_1830.jpeg,Corona Virus Disease
+test_1831.jpeg,Normal
+test_1832.jpeg,Normal
+test_1833.jpeg,Normal
+test_1834.jpeg,Normal
+test_1835.jpeg,Normal
+test_1836.jpeg,Corona Virus Disease
+test_1837.jpeg,Corona Virus Disease
+test_1838.jpeg,Normal
+test_1839.jpeg,Normal
+test_1840.jpeg,Corona Virus Disease
+test_1841.jpeg,Normal
+test_1842.jpeg,Tuberculosis
+test_1843.jpeg,Normal
+test_1844.jpeg,Corona Virus Disease
+test_1845.jpeg,Corona Virus Disease
+test_1846.jpeg,Normal
+test_1847.jpeg,Corona Virus Disease
+test_1848.jpeg,Normal
+test_1849.jpeg,Normal
+test_1850.jpeg,Tuberculosis
+test_1851.jpeg,Normal
+test_1852.jpeg,Tuberculosis
+test_1853.jpeg,Normal
+test_1854.jpeg,Normal
+test_1855.jpeg,Tuberculosis
+test_1856.jpeg,Normal
+test_1857.jpeg,Corona Virus Disease
+test_1858.jpeg,Normal
+test_1859.jpeg,Tuberculosis
+test_1860.jpeg,Normal
+test_1861.jpeg,Normal
+test_1862.jpeg,Tuberculosis
+test_1863.jpeg,Tuberculosis
+test_1864.jpeg,Tuberculosis
+test_1865.jpeg,Corona Virus Disease
+test_1866.jpeg,Corona Virus Disease
+test_1867.jpeg,Normal
+test_1868.jpeg,Normal
+test_1869.jpeg,Normal
+test_1870.jpeg,Normal
+test_1871.jpeg,Normal
+test_1872.jpeg,Corona Virus Disease
+test_1873.jpeg,Normal
+test_1874.jpeg,Normal
+test_1875.jpeg,Tuberculosis
+test_1876.jpeg,Corona Virus Disease
+test_1877.jpeg,Normal
+test_1878.jpeg,Corona Virus Disease
+test_1879.jpeg,Normal
+test_1880.jpeg,Corona Virus Disease
+test_1881.jpeg,Normal
+test_1882.jpeg,Normal
+test_1883.jpeg,Normal
+test_1884.jpeg,Normal
+test_1885.jpeg,Normal
+test_1886.jpeg,Normal
+test_1887.jpeg,Normal
+test_1888.jpeg,Normal
+test_1889.jpeg,Normal
+test_1890.jpeg,Normal
+test_1891.jpeg,Normal
+test_1892.jpeg,Tuberculosis
+test_1893.jpeg,Normal
+test_1894.jpeg,Normal
+test_1895.jpeg,Tuberculosis
+test_1896.jpeg,Corona Virus Disease
+test_1897.jpeg,Normal
+test_1898.jpeg,Normal
+test_1899.jpeg,Normal
+test_1900.jpeg,Normal
+test_1901.jpeg,Tuberculosis
+test_1902.jpeg,Tuberculosis
+test_1903.jpeg,Normal
+test_1904.jpeg,Normal
+test_1905.jpeg,Normal
+test_1906.jpeg,Normal
+test_1907.jpeg,Tuberculosis
+test_1908.jpeg,Normal
+test_1909.jpeg,Tuberculosis
+test_1910.jpeg,Normal
+test_1911.jpeg,Normal
+test_1912.jpeg,Normal
+test_1913.jpeg,Tuberculosis
+test_1914.jpeg,Tuberculosis
+test_1915.jpeg,Normal
+test_1916.jpeg,Corona Virus Disease
+test_1917.jpeg,Tuberculosis
+test_1918.jpeg,Normal
+test_1919.jpeg,Normal
+test_1920.jpeg,Tuberculosis
+test_1921.jpeg,Tuberculosis
+test_1922.jpeg,Normal
+test_1923.jpeg,Normal
+test_1924.jpeg,Normal
+test_1925.jpeg,Corona Virus Disease
+test_1926.jpeg,Tuberculosis
+test_1927.jpeg,Corona Virus Disease
+test_1928.jpeg,Corona Virus Disease
+test_1929.jpeg,Normal
+test_1930.jpeg,Normal
+test_1931.jpeg,Normal
+test_1932.jpeg,Tuberculosis
+test_1933.jpeg,Normal
+test_1934.jpeg,Tuberculosis
+test_1935.jpeg,Tuberculosis
+test_1936.jpeg,Normal
+test_1937.jpeg,Normal
+test_1938.jpeg,Normal
+test_1939.jpeg,Normal
+test_1940.jpeg,Normal
+test_1941.jpeg,Normal
+test_1942.jpeg,Normal
+test_1943.jpeg,Corona Virus Disease
+test_1944.jpeg,Normal
+test_1945.jpeg,Corona Virus Disease
+test_1946.jpeg,Normal
+test_1947.jpeg,Normal
+test_1948.jpeg,Normal
+test_1949.jpeg,Normal
+test_1950.jpeg,Tuberculosis
+test_1951.jpeg,Normal
+test_1952.jpeg,Normal
+test_1953.jpeg,Corona Virus Disease
+test_1954.jpeg,Normal
+test_1955.jpeg,Corona Virus Disease
+test_1956.jpeg,Normal
+test_1957.jpeg,Normal
+test_1958.jpeg,Tuberculosis
+test_1959.jpeg,Corona Virus Disease
+test_1960.jpeg,Normal
+test_1961.jpeg,Normal
+test_1962.jpeg,Tuberculosis
+test_1963.jpeg,Tuberculosis
+test_1964.jpeg,Tuberculosis
+test_1965.jpeg,Normal
+test_1966.jpeg,Corona Virus Disease
+test_1967.jpeg,Normal
+test_1968.jpeg,Normal
+test_1969.jpeg,Normal
+test_1970.jpeg,Normal
+test_1971.jpeg,Tuberculosis
+test_1972.jpeg,Normal
+test_1973.jpeg,Normal
+test_1974.jpeg,Corona Virus Disease
+test_1975.jpeg,Tuberculosis
+test_1976.jpeg,Normal
+test_1977.jpeg,Tuberculosis
+test_1978.jpeg,Normal
+test_1979.jpeg,Normal
+test_1980.jpeg,Normal
+test_1981.jpeg,Corona Virus Disease
+test_1982.jpeg,Normal
+test_1983.jpeg,Corona Virus Disease
+test_1984.jpeg,Tuberculosis
+test_1985.jpeg,Normal
+test_1986.jpeg,Normal
+test_1987.jpeg,Corona Virus Disease
+test_1988.jpeg,Normal
+test_1989.jpeg,Normal
+test_1990.jpeg,Tuberculosis
+test_1991.jpeg,Tuberculosis
+test_1992.jpeg,Normal
+test_1993.jpeg,Normal
+test_1994.jpeg,Tuberculosis
+test_1995.jpeg,Tuberculosis
+test_1996.jpeg,Normal
+test_1997.jpeg,Corona Virus Disease
+test_1998.jpeg,Tuberculosis
+test_1999.jpeg,Tuberculosis
+test_2000.jpeg,Normal
+test_2001.jpeg,Corona Virus Disease
+test_2002.jpeg,Corona Virus Disease
+test_2003.jpeg,Normal
+test_2004.jpeg,Corona Virus Disease
+test_2005.jpeg,Normal
+test_2006.jpeg,Tuberculosis
+test_2007.jpeg,Tuberculosis
+test_2008.jpeg,Normal
+test_2009.jpeg,Normal
+test_2010.jpeg,Tuberculosis
+test_2011.jpeg,Corona Virus Disease
+test_2012.jpeg,Normal
+test_2013.jpeg,Normal
+test_2014.jpeg,Normal
+test_2015.jpeg,Normal
+test_2016.jpeg,Corona Virus Disease
+test_2017.jpeg,Tuberculosis
+test_2018.jpeg,Normal
+test_2019.jpeg,Normal
+test_2020.jpeg,Tuberculosis
+test_2021.jpeg,Normal
+test_2022.jpeg,Tuberculosis
+test_2023.jpeg,Corona Virus Disease
+test_2024.jpeg,Normal
+test_2025.jpeg,Corona Virus Disease
