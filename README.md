@@ -2,6 +2,21 @@
 
 Kumpulan kode dan deliverable dari lomba-lomba yang pernah kami ikuti. Satu lomba satu folder; tiap folder punya README sendiri.
 
+## 🥇 Juara 1
+
+- [CALIBER 2026](CALIBER-2026) (Chandra Asri), dari 120 tim
+- [AI Innovation Challenge, COMPFEST 18](COMPFEST-18) (Universitas Indonesia), dari 600 tim
+- [SPARC 2026 Data Science Competition](SPARC-2026) (Universitas Ciputra), dari 130 tim
+
+## 🥈 Juara 2
+
+- [National Statistics Challenge (NSC) 2026](NSC-2026) (Universitas Brawijaya), dari 70 tim
+- [Innovation Case Competition (ICC), Campus Data Week 2026](ICC-2026) (Universitas Airlangga), dari 100 tim
+- [Hackathon IFest 2026](IFest-2026) (Universitas Padjadjaran), dari 90 tim
+- [RISTEK Fasilkom UI Datathon 2026](Datathon-RISTEK-2026), dari 250 tim
+
+## Detail
+
 | Lomba | Hasil | Waktu | Proyek | Folder | Repo asli |
 |---|---|---|---|---|---|
 | Chandra Asri Innovation and Business Strategy Challenge (CALIBER) 2026 | 🥇 **Juara 1** dari 120 tim | Okt – Nov 2026 | **PlantPulse** (penyisihan) dan **Sparekit** (final): perencanaan spare part dengan forecast LightGBM + Monte Carlo dan Min-Max dinamis | [`CALIBER-2026`](CALIBER-2026) | [Penyisihan](https://github.com/raphaeladikara/Caliber-2026-Heisenberg) · [Final](https://github.com/raphaeladikara/caliber-final) |
